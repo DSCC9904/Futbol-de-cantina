@@ -313,6 +313,30 @@
       </div><!-- /ind -->
     </div><!-- /dossier -->
 
+    <!-- ── SECCIÓN EN VIVO: Lo que está pasando vs lo esperado ── -->
+    <div id="seccion-vivo" hidden>
+      <div class="vivo-header">
+        <span class="vivo-header-badge">EN VIVO</span>
+        <span class="vivo-header-titulo">Lo que está pasando en el partido</span>
+        <span class="vivo-header-sub">vs. lo que se esperaba históricamente</span>
+      </div>
+      <div class="dossier vivo-dossier" aria-label="Estadísticas en vivo">
+        <div class="dossier-top vivo-dossier-top">
+          <span class="meta" id="vivo-meta-equipos">—</span>
+          <span class="vivo-leyenda">
+            <span class="vivo-dot hist"></span> Histórico &nbsp;
+            <span class="vivo-dot live"></span> En vivo
+          </span>
+        </div>
+        <!-- Comparación lado a lado por fila -->
+        <div class="ind vivo-comparacion" id="ind-vivo-comp">
+          <!-- Se llena dinámicamente por renderComparacion() -->
+        </div>
+        <!-- Stats puras en vivo -->
+        <div class="ind" id="ind-vivo"></div>
+      </div>
+    </div>
+
     <!-- Bloque valor vs. cuota -->
     <div class="signature">
       <div class="sig-head">
@@ -647,15 +671,36 @@
 
 <script>
 /* ══════════════════════════════════════════════════════════════
-   CLIMA EN VIVO — Open-Meteo (gratis, sin API key)
-   Configuración del partido actual:
-   Cambia LAT/LON por las coordenadas del estadio activo.
+   CONFIGURACIÓN DEL PARTIDO ACTIVO
+   ── marcador: actualiza manualmente mientras no haya API key
+   ── statsVivo: llena con datos del partido en curso
+   ── fixtureId + apiKey: activa actualizaciones automáticas
 ══════════════════════════════════════════════════════════════ */
 var PARTIDO = {
-  lat:        19.3029,   /* Estadio Azteca */
+  lat:        19.3029,
   lon:       -99.1504,
-  fixtureId:  null,      /* ID de API-Football; null = no hay partido en vivo */
-  apiKey:     ''         /* Pega aquí tu RapidAPI key cuando la tengas */
+  fixtureId:  null,
+  apiKey:     '',
+
+  /* ▼ ACTUALIZA ESTOS DATOS MIENTRAS DURE EL PARTIDO ▼ */
+  marcador: {
+    localNom:       'MEX',
+    visitanteNom:   'RSA',
+    golesLocal:      2,
+    golesVisitante:  0,
+    minuto:          90,
+    estado:         'FT'   /* NS | 1H | HT | 2H | FT */
+  },
+  statsVivo: {
+    posesion:  { local: '62%', visitante: '38%' },
+    tiros:     { local: 8,     visitante: 3     },
+    corners:   { local: 6,     visitante: 2     },
+    amarillas: { local: 1,     visitante: 3     },
+    rojas:     { local: 0,     visitante: 0     },
+    faltas:    { local: 9,     visitante: 14    },
+    xg:        { local: '2.4', visitante: '0.3' }
+  }
+  /* ▲ ——————————————————————————————————————————— ▲ */
 };
 
 function cargarClima() {
@@ -738,9 +783,142 @@ function renderMiniStats(statsLocal, statsVisitante) {
   });
 }
 
+function mostrarMarcador(localNom, visitanteNom, golesL, golesV, minuto, estado) {
+  var mv    = document.getElementById('marcador-vivo');
+  var badge = document.getElementById('mv-estado-badge');
+  if (!mv) return;
+  mv.hidden = false;
+  document.getElementById('mv-local').textContent     = localNom;
+  document.getElementById('mv-visitante').textContent = visitanteNom;
+  document.getElementById('mv-goles').textContent     = golesL + ' — ' + golesV;
+  var esFinal = (estado === 'FT' || estado === 'AET' || estado === 'PEN');
+  document.getElementById('mv-minuto').textContent    = esFinal ? 'Partido finalizado' : 'min ' + minuto + '\'';
+  badge.textContent = esFinal ? 'FINALIZADO' : 'EN VIVO';
+  badge.classList.toggle('finalizado', esFinal);
+}
+
+/* ── Marcador desde datos manuales ── */
+function aplicarMarcadorManual() {
+  var m = PARTIDO.marcador;
+  if (!m || m.estado === 'NS') return;
+  mostrarMarcador(m.localNom, m.visitanteNom, m.golesLocal, m.golesVisitante, m.minuto, m.estado);
+  if (PARTIDO.statsVivo) {
+    /* Mapear statsVivo al formato que espera renderMiniStats */
+    var sL = {}, sV = {};
+    var MAP = {
+      posesion:  'Ball Possession',
+      tiros:     'Shots on Goal',
+      corners:   'Corner Kicks',
+      amarillas: 'Yellow Cards',
+      rojas:     'Red Cards',
+      faltas:    'Fouls',
+      xg:        'expected_goals'
+    };
+    Object.keys(PARTIDO.statsVivo).forEach(function(k) {
+      var key = MAP[k] || k;
+      sL[key] = PARTIDO.statsVivo[k].local;
+      sV[key] = PARTIDO.statsVivo[k].visitante;
+    });
+    renderMiniStats(sL, sV);
+    renderTablaVivo(PARTIDO.statsVivo);
+    renderComparacion(PARTIDO.statsVivo);
+    var meta = document.getElementById('vivo-meta-equipos');
+    if (meta) meta.textContent = m.localNom + ' vs ' + m.visitanteNom + ' · ' + (m.estado === 'FT' ? 'Final' : 'min ' + m.minuto + '\'');
+  }
+}
+
+/* ── Comparación histórico vs vivo por fila ── */
+function renderComparacion(sv) {
+  var cont = document.getElementById('ind-vivo-comp');
+  if (!cont) return;
+  cont.innerHTML = '';
+  var META = {
+    xg:        { hist: 'xg',        lbl: 'Goles esperados (xG)',  histL: null, histR: null },
+    posesion:  { hist: 'posesion',  lbl: 'Posesión del balón' },
+    tiros:     { hist: 'tiros',     lbl: 'Tiros al arco' },
+    corners:   { hist: 'corners',   lbl: 'Saques de esquina' },
+    amarillas: { hist: 'amarillas', lbl: 'Amarillas' },
+    rojas:     { hist: 'rojas',     lbl: 'Tarjetas rojas' },
+    faltas:    { hist: 'faltas',    lbl: 'Faltas cometidas' }
+  };
+  /* Leer valores históricos del DOM */
+  function getHistVal(tip, side) {
+    var row = null;
+    document.querySelectorAll('.ind-row').forEach(function(r) {
+      if (r.querySelector('[data-tip="' + tip + '"]')) row = r;
+    });
+    if (!row) return '—';
+    var vals = row.querySelectorAll('.ind-val');
+    return side === 'l' ? (vals[0] ? vals[0].textContent : '—')
+                        : (vals[1] ? vals[1].textContent : '—');
+  }
+  Object.keys(META).forEach(function(k) {
+    if (!sv[k]) return;
+    var info = META[k];
+    var vHL = getHistVal(info.hist || k, 'l');
+    var vHR = getHistVal(info.hist || k, 'r');
+    var vLL = sv[k].local, vLR = sv[k].visitante;
+    var row = document.createElement('div');
+    row.className = 'comp-row';
+    row.innerHTML =
+      '<div class="comp-cell l">'
+        + '<span class="comp-hist">' + vHL + '</span>'
+        + '<span class="comp-sep">→</span>'
+        + '<span class="comp-live">' + vLL + '</span>'
+      + '</div>'
+      + '<div class="comp-label">' + info.lbl + '</div>'
+      + '<div class="comp-cell r">'
+        + '<span class="comp-live">' + vLR + '</span>'
+        + '<span class="comp-sep">←</span>'
+        + '<span class="comp-hist">' + vHR + '</span>'
+      + '</div>';
+    cont.appendChild(row);
+  });
+}
+
+/* ── Tabla "Lo que está pasando" ── */
+function renderTablaVivo(sv) {
+  var sec = document.getElementById('seccion-vivo');
+  if (!sec) return;
+  sec.hidden = false;
+  var LABELS = {
+    xg:        { lbl: 'Goles esperados (xG)', tip: 'xg' },
+    posesion:  { lbl: 'Posesión del balón',   tip: 'posesion' },
+    tiros:     { lbl: 'Tiros al arco',         tip: 'tiros' },
+    corners:   { lbl: 'Saques de esquina',     tip: 'corners' },
+    amarillas: { lbl: 'Tarjetas amarillas',    tip: 'amarillas' },
+    rojas:     { lbl: 'Tarjetas rojas',        tip: 'rojas' },
+    faltas:    { lbl: 'Faltas cometidas',      tip: 'faltas' }
+  };
+  var cont = document.getElementById('ind-vivo');
+  if (!cont) return;
+  cont.innerHTML = '';
+  Object.keys(LABELS).forEach(function(k) {
+    if (!sv[k]) return;
+    var info = LABELS[k];
+    var vL = sv[k].local, vR = sv[k].visitante;
+    var nL = parseFloat(vL) || 0, nR = parseFloat(vR) || 0;
+    var max = Math.max(nL, nR, 1);
+    var wL = Math.round(nL / max * 100), wR = Math.round(nR / max * 100);
+    var row = document.createElement('div');
+    row.className = 'ind-row';
+    row.innerHTML =
+      '<div class="cell l">'
+        + '<div class="ind-val l vivo-num">' + vL + '</div>'
+        + '<div class="barwrap l"><span class="bar vivo-bar" style="width:' + wL + '%"></span></div>'
+      + '</div>'
+      + '<div class="ind-label">' + info.lbl + '<span class="stat-tip" data-tip="' + info.tip + '">?</span></div>'
+      + '<div class="cell">'
+        + '<div class="ind-val r vivo-num">' + vR + '</div>'
+        + '<div class="barwrap"><span class="bar vivo-bar" style="width:' + wR + '%"></span></div>'
+      + '</div>';
+    cont.appendChild(row);
+  });
+}
+
+/* ── API-Football (cuando tengas key) ── */
 function cargarPartidoVivo() {
   if (!PARTIDO.fixtureId || !PARTIDO.apiKey) return;
-
   fetch('https://api-football-v1.p.rapidapi.com/v3/fixtures?id=' + PARTIDO.fixtureId + '&live=all', {
     headers: {
       'x-rapidapi-host': 'api-football-v1.p.rapidapi.com',
@@ -751,29 +929,13 @@ function cargarPartidoVivo() {
     .then(function(d) {
       var fix = d.response && d.response[0];
       if (!fix) return;
-
-      var status  = fix.fixture.status.short;   /* NS, 1H, HT, 2H, FT … */
-      var minuto  = fix.fixture.status.elapsed;
-      var golesL  = fix.goals.home;
-      var golesV  = fix.goals.away;
-      var mv      = document.getElementById('marcador-vivo');
-      var badge   = document.getElementById('mv-estado-badge');
-
-      mv.hidden = false;
-      document.getElementById('mv-local').textContent      = fix.teams.home.name.substring(0,3).toUpperCase();
-      document.getElementById('mv-visitante').textContent  = fix.teams.away.name.substring(0,3).toUpperCase();
-      document.getElementById('mv-goles').textContent      = golesL + ' — ' + golesV;
-      document.getElementById('mv-minuto').textContent     = minuto ? 'min ' + minuto + '\'' : status;
-
-      if (status === 'FT' || status === 'AET' || status === 'PEN') {
-        badge.textContent = 'FINALIZADO';
-        badge.classList.add('finalizado');
-      } else {
-        badge.textContent = 'EN VIVO';
-        badge.classList.remove('finalizado');
-      }
-
-      /* Estadísticas en vivo */
+      mostrarMarcador(
+        fix.teams.home.name.substring(0,3).toUpperCase(),
+        fix.teams.away.name.substring(0,3).toUpperCase(),
+        fix.goals.home, fix.goals.away,
+        fix.fixture.status.elapsed,
+        fix.fixture.status.short
+      );
       var statsArr = fix.statistics || [];
       var sL = {}, sV = {};
       statsArr.forEach(function(equipo, i) {
@@ -782,12 +944,13 @@ function cargarPartidoVivo() {
       });
       renderMiniStats(sL, sV);
     })
-    .catch(function() { /* sin partido en vivo — silencioso */ });
+    .catch(function() {});
 }
 
+/* Arrancar */
+aplicarMarcadorManual();
 if (PARTIDO.fixtureId && PARTIDO.apiKey) {
-  cargarPartidoVivo();
-  setInterval(cargarPartidoVivo, 60 * 1000); /* cada 60 seg */
+  setInterval(cargarPartidoVivo, 60 * 1000);
 }
 </script>
 </body>

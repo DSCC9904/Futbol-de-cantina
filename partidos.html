@@ -83,6 +83,17 @@
       <button class="filtro" data-fase="cuartos">Cuartos</button>
       <button class="filtro" data-fase="semis">Semis</button>
       <button class="filtro" data-fase="final">Final</button>
+      <button class="filtro filtro-grupos" data-fase="grupos">📊 Tabla de grupos</button>
+    </div>
+
+    <!-- ══════════════════════════════
+         TABLA DE GRUPOS (toggle)
+    ══════════════════════════════ -->
+    <div id="vista-grupos" hidden>
+      <p class="grupos-nota">Top 2 de cada grupo clasifican · Los mejores 8 terceros también avanzan. Se actualiza después de cada partido.</p>
+      <div class="grupos-grid" id="grupos-grid">
+        <!-- renderizado por JS -->
+      </div>
     </div>
 
     <!-- ══════════════════════════════
@@ -548,5 +559,170 @@
 </nav>
 
 <script src="main.js"></script>
+<script>
+/* ══════════════════════════════════════════════════════════════
+   TABLA DE POSICIONES — actualiza manualmente después de c/partido
+   Orden automático: pts → dif. goles → goles a favor
+══════════════════════════════════════════════════════════════ */
+var CLASIFICACION = {
+  A: [
+    { sig:'MEX', nom:'México',        pj:1, pg:1, pe:0, pp:0, gf:2, gc:0, pts:3 },
+    { sig:'RSA', nom:'Sudáfrica',     pj:1, pg:0, pe:0, pp:1, gf:0, gc:2, pts:0 },
+    { sig:'KOR', nom:'Corea del Sur', pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
+    { sig:'CZE', nom:'Rep. Checa',    pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 }
+  ],
+  B: [
+    { sig:'CAN', nom:'Canadá',  pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
+    { sig:'BIH', nom:'Bosnia',  pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
+    { sig:'QAT', nom:'Catar',   pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
+    { sig:'SUI', nom:'Suiza',   pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 }
+  ],
+  C: [
+    { sig:'BRA', nom:'Brasil',    pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
+    { sig:'MAR', nom:'Marruecos', pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
+    { sig:'SCO', nom:'Escocia',   pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
+    { sig:'HAI', nom:'Haití',     pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 }
+  ],
+  D: [
+    { sig:'USA', nom:'Estados Unidos', pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
+    { sig:'PAR', nom:'Paraguay',       pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
+    { sig:'AUS', nom:'Australia',      pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
+    { sig:'TUR', nom:'Turquía',        pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 }
+  ],
+  E: [
+    { sig:'GER', nom:'Alemania',       pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
+    { sig:'CIV', nom:'Costa de Marfil',pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
+    { sig:'CUW', nom:'Curazao',        pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
+    { sig:'ECU', nom:'Ecuador',        pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 }
+  ],
+  F: [
+    { sig:'NED', nom:'Países Bajos', pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
+    { sig:'JPN', nom:'Japón',        pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
+    { sig:'SWE', nom:'Suecia',       pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
+    { sig:'TUN', nom:'Túnez',        pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 }
+  ],
+  G: [
+    { sig:'BEL', nom:'Bélgica',       pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
+    { sig:'EGY', nom:'Egipto',        pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
+    { sig:'IRN', nom:'Irán',          pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
+    { sig:'NZL', nom:'Nueva Zelanda', pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 }
+  ],
+  H: [
+    { sig:'ESP', nom:'España',       pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
+    { sig:'CPV', nom:'Cabo Verde',   pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
+    { sig:'SAU', nom:'Arabia Saudita',pj:0,pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
+    { sig:'URU', nom:'Uruguay',      pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 }
+  ],
+  I: [
+    { sig:'FRA', nom:'Francia', pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
+    { sig:'SEN', nom:'Senegal', pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
+    { sig:'IRQ', nom:'Irak',    pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
+    { sig:'NOR', nom:'Noruega', pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 }
+  ],
+  J: [
+    { sig:'ARG', nom:'Argentina', pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
+    { sig:'ALG', nom:'Argelia',   pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
+    { sig:'AUT', nom:'Austria',   pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
+    { sig:'JOR', nom:'Jordania',  pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 }
+  ],
+  K: [
+    { sig:'POR', nom:'Portugal',  pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
+    { sig:'COD', nom:'RD Congo',  pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
+    { sig:'UZB', nom:'Uzbekistán',pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
+    { sig:'COL', nom:'Colombia 🇨🇴',pj:0,pg:0,pe:0, pp:0, gf:0, gc:0, pts:0 }
+  ],
+  L: [
+    { sig:'ENG', nom:'Inglaterra', pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
+    { sig:'CRO', nom:'Croacia',    pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
+    { sig:'GHA', nom:'Ghana',      pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
+    { sig:'PAN', nom:'Panamá',     pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 }
+  ]
+};
+
+function ordenarGrupo(arr) {
+  return arr.slice().sort(function(a, b) {
+    if (b.pts !== a.pts) return b.pts - a.pts;
+    var da = a.gf - a.gc, db = b.gf - b.gc;
+    if (db !== da) return db - da;
+    return b.gf - a.gf;
+  });
+}
+
+function renderGrupos() {
+  var grid = document.getElementById('grupos-grid');
+  if (!grid) return;
+  grid.innerHTML = '';
+  Object.keys(CLASIFICACION).forEach(function(letra) {
+    var equipos = ordenarGrupo(CLASIFICACION[letra]);
+    var div = document.createElement('div');
+    div.className = 'grupo-tabla';
+    var html = '<div class="grupo-titulo">GRUPO ' + letra + '</div>'
+      + '<table class="tabla-pos"><thead><tr>'
+      + '<th class="th-eq">Equipo</th><th>PJ</th><th>PG</th><th>PE</th><th>PP</th>'
+      + '<th>GF</th><th>GC</th><th>DG</th><th class="th-pts">Pts</th>'
+      + '</tr></thead><tbody>';
+    equipos.forEach(function(eq, i) {
+      var cls = i < 2 ? 'clasifica' : '';
+      if (eq.sig === 'COL') cls += ' fila-col';
+      html += '<tr class="' + cls.trim() + '">'
+        + '<td class="td-eq"><span class="eq-sig">' + eq.sig + '</span><span class="eq-nom">' + eq.nom + '</span></td>'
+        + '<td>' + eq.pj + '</td><td>' + eq.pg + '</td><td>' + eq.pe + '</td><td>' + eq.pp + '</td>'
+        + '<td>' + eq.gf + '</td><td>' + eq.gc + '</td>'
+        + '<td class="' + (eq.gf - eq.gc > 0 ? 'dg-pos' : eq.gf - eq.gc < 0 ? 'dg-neg' : '') + '">'
+          + (eq.gf - eq.gc > 0 ? '+' : '') + (eq.gf - eq.gc) + '</td>'
+        + '<td class="td-pts">' + eq.pts + '</td>'
+        + '</tr>';
+    });
+    html += '</tbody></table>';
+    div.innerHTML = html;
+    grid.appendChild(div);
+  });
+}
+
+/* Mostrar resultados en las tarjetas de partidos */
+var RESULTADOS = {
+  'MEX-RSA': { local: 2, visitante: 0, jugado: true }
+};
+
+function mostrarResultadosEnCards() {
+  document.querySelectorAll('.partido-card').forEach(function(card) {
+    var siglas = card.querySelectorAll('.p-sigla');
+    if (siglas.length < 2) return;
+    var sigL = siglas[0].textContent.replace(/[^A-Z]/g,'').trim();
+    var sigR = siglas[1].textContent.replace(/[^A-Z]/g,'').trim();
+    var key  = sigL + '-' + sigR;
+    var res  = RESULTADOS[key];
+    if (!res) return;
+    var vsEl = card.querySelector('.p-vs');
+    if (vsEl) {
+      vsEl.innerHTML = '<span class="p-score">' + res.local + ' — ' + res.visitante + '</span>';
+      vsEl.classList.add('tiene-resultado');
+    }
+    card.classList.add('jugado');
+  });
+}
+
+renderGrupos();
+mostrarResultadosEnCards();
+
+/* Toggle grupos / partidos */
+document.querySelectorAll('.filtro').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var fase = this.dataset.fase;
+    var vistaGrupos = document.getElementById('vista-grupos');
+    if (fase === 'grupos') {
+      vistaGrupos.hidden = false;
+      document.querySelectorAll('.fase-titulo, .fase-placeholder, .partidos-lista, .partido-card').forEach(function(el) {
+        el.style.display = 'none';
+      });
+    } else {
+      vistaGrupos.hidden = true;
+      document.querySelectorAll('.fase-titulo, .fase-placeholder, .partidos-lista').forEach(function(el) {
+        el.style.display = '';
+      });
+    }
+  });
+});
+</script>
 </body>
 </html>

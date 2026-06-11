@@ -233,6 +233,96 @@ nav a:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; bord
 .mv-stat-item { display: flex; flex-direction: column; align-items: center; gap: 1px; }
 .mv-stat-item .mvs-lbl { font-size: 9px; text-transform: uppercase; letter-spacing: .05em; }
 .mv-stat-item .mvs-val { color: var(--ink); font-weight: 700; }
+
+/* ── Sección en vivo (comparación histórico vs partido) ── */
+.vivo-header {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  padding: 18px 0 10px;
+}
+.vivo-header-badge {
+  background: var(--neg); color: #fff;
+  font-family: "JetBrains Mono", monospace; font-size: 10px; font-weight: 700;
+  padding: 3px 8px; border-radius: 4px; letter-spacing: .08em;
+  animation: blink-badge 1.2s step-start infinite;
+}
+.vivo-header-titulo { font-size: 16px; font-weight: 700; color: var(--ink); }
+.vivo-header-sub    { font-size: 12px; color: var(--muted); }
+.vivo-leyenda       { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--muted); margin-left: auto; }
+.vivo-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; }
+.vivo-dot.hist { background: var(--muted); }
+.vivo-dot.live { background: var(--neg); }
+.vivo-dossier { margin-top: 0; }
+.vivo-dossier-top { background: rgba(220,50,50,0.08); border-bottom-color: rgba(220,50,50,0.2); }
+.vivo-num { color: var(--neg) !important; }
+.vivo-bar { background: var(--neg) !important; }
+
+/* Comparación lado a lado */
+.comp-row {
+  display: grid; grid-template-columns: 1fr auto 1fr;
+  align-items: center; gap: 8px;
+  padding: 9px 22px; border-bottom: 1px solid var(--line);
+}
+.comp-row:last-child { border-bottom: none; }
+.comp-cell { display: flex; align-items: center; gap: 6px; }
+.comp-cell.l { justify-content: flex-end; }
+.comp-cell.r { justify-content: flex-start; }
+.comp-hist { font-family: "JetBrains Mono", monospace; font-size: 13px; color: var(--muted); }
+.comp-live { font-family: "JetBrains Mono", monospace; font-size: 16px; font-weight: 700; color: var(--neg); }
+.comp-sep  { font-size: 10px; color: var(--line); }
+.comp-label { font-size: 11px; color: var(--muted); text-align: center; white-space: nowrap; }
+
+/* ── Tabla de grupos (partidos.html) ── */
+.filtro-grupos { background: rgba(50,200,100,0.1) !important; border-color: rgba(50,200,100,0.35) !important; }
+.filtro-grupos.activo { background: rgba(50,200,100,0.25) !important; color: #fff !important; }
+.grupos-nota {
+  font-size: 11px; color: var(--muted); padding: 10px 0 18px;
+  font-family: "JetBrains Mono", monospace; letter-spacing: .03em;
+}
+.grupos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 16px;
+  padding-bottom: 40px;
+}
+.grupo-tabla {
+  background: var(--panel); border: 1px solid var(--line);
+  border-radius: 12px; overflow: hidden;
+}
+.grupo-titulo {
+  padding: 10px 16px; font-family: "JetBrains Mono", monospace;
+  font-size: 11px; font-weight: 700; letter-spacing: .12em;
+  color: var(--amber); background: var(--panel-2);
+  border-bottom: 1px solid var(--line);
+}
+.tabla-pos { width: 100%; border-collapse: collapse; font-size: 12px; }
+.tabla-pos th {
+  padding: 6px 8px; text-align: center;
+  font-family: "JetBrains Mono", monospace; font-size: 10px;
+  color: var(--muted); font-weight: 500; letter-spacing: .05em;
+  border-bottom: 1px solid var(--line);
+}
+.tabla-pos th.th-eq { text-align: left; padding-left: 14px; }
+.tabla-pos th.th-pts { color: var(--amber); }
+.tabla-pos td { padding: 7px 8px; text-align: center; color: var(--muted); border-bottom: 1px solid rgba(255,255,255,.04); }
+.tabla-pos tr:last-child td { border-bottom: none; }
+.tabla-pos td.td-eq { text-align: left; padding-left: 14px; display: flex; align-items: center; gap: 7px; }
+.tabla-pos td.td-pts { font-family: "JetBrains Mono", monospace; font-weight: 700; color: var(--ink); }
+.tabla-pos td.dg-pos { color: var(--pos); }
+.tabla-pos td.dg-neg { color: var(--neg); }
+.tabla-pos tr.clasifica td { color: var(--ink); }
+.tabla-pos tr.clasifica td.td-eq { border-left: 3px solid var(--pos); padding-left: 11px; }
+.tabla-pos tr.fila-col { background: rgba(252,209,22,0.06); }
+.tabla-pos tr.fila-col td.td-eq { border-left-color: var(--amber); }
+.eq-sig  { font-family: "JetBrains Mono", monospace; font-size: 11px; font-weight: 700; color: var(--ink); min-width: 30px; }
+.eq-nom  { font-size: 11px; color: var(--muted); }
+/* Tarjeta jugada */
+.partido-card.jugado { opacity: 0.75; }
+.p-vs.tiene-resultado { display: flex; flex-direction: column; align-items: center; }
+.p-score { font-family: "JetBrains Mono", monospace; font-size: 16px; font-weight: 700; color: var(--ink); }
+@media (max-width: 680px) {
+  .grupos-grid { grid-template-columns: 1fr; }
+  .comp-row { padding: 8px 14px; }
+}
 .dossier-top .meta {
   font-family: "JetBrains Mono", monospace;
   font-size: 12px;
