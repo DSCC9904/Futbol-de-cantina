@@ -123,11 +123,18 @@ if (modal) {
    Explican qué significa cada número.
 ═══════════════════════════════════════ */
 var textoTooltip = {
-  xg:   'Goles esperados (xG): mide la calidad de las ocasiones, no la suerte. 2.1 significa que por sus oportunidades de tiro, el equipo "merecía" meter 2 goles.',
-  forma:'V = Victoria · E = Empate · D = Derrota. El resultado más reciente está a la izquierda.',
-  btts: 'Ambos marcan (BTTS = Both Teams To Score): porcentaje de partidos donde los dos equipos anotaron al menos un gol.',
-  over: 'Over 2.5: porcentaje de partidos donde cayeron 3 goles o más en total. Si el valor es alto, el partido promete ser abierto.',
-  cs:   'Portería a cero (Clean Sheet): porcentaje de partidos donde el equipo NO recibió ningún gol.'
+  xg:       'Goles esperados (xG): mide la calidad de las ocasiones, no la suerte. 2.1 significa que por sus oportunidades de tiro, el equipo "merecía" meter 2 goles.',
+  forma:    'V = Victoria · E = Empate · D = Derrota. El resultado más reciente está a la izquierda.',
+  btts:     'Ambos marcan (BTTS): porcentaje de partidos donde los dos equipos anotaron al menos un gol. Si es alto, apuesta "ambos marcan: Sí".',
+  over:     'Over 2.5: porcentaje de partidos donde cayeron 3 goles o más en total. Si el valor es alto, el partido promete ser abierto.',
+  cs:       'Portería a cero (Clean Sheet): porcentaje de partidos donde el equipo NO recibió ningún gol.',
+  corners:  'Saques de esquina promedio por partido. Sirve para apostar mercados de "más/menos corners". +5 por equipo = partido con muchos saques.',
+  amarillas:'Tarjetas amarillas promedio por partido. Equipos "sucios" suelen tener 3+. Útil para apostar "más de X tarjetas en el partido".',
+  rojas:    'Tarjetas rojas promedio por partido. Un valor alto indica equipo agresivo o con problemas disciplinarios. Mercado: "habrá roja: Sí/No".',
+  faltas:   'Faltas cometidas en promedio por partido. Más faltas = más paradas de juego, menos fluidez. Relacionado con tarjetas.',
+  posesion: 'Porcentaje del tiempo que el equipo controla el balón. Un equipo con 55%+ domina el juego pero no necesariamente marca más.',
+  tiros:    'Tiros al arco (disparos que van entre los tres palos) por partido. Más tiros = más presión ofensiva. Relacionado con los goles esperados.',
+  offside:  'Fuera de lugar (offsides) en promedio por partido. Equipos con línea alta generan muchos; también revela si el rival presiona en ataque.'
 };
 
 var tooltip = document.getElementById('tooltip');
@@ -169,7 +176,8 @@ document.querySelectorAll('.filtro').forEach(function(btn) {
     var fase = this.dataset.fase;
 
     document.querySelectorAll('.partido-card').forEach(function(card) {
-      card.style.display = (fase === 'todos' || card.dataset.fase === fase) ? '' : 'none';
+      var fases = (card.dataset.fase || '').split(' ');
+      card.style.display = (fase === 'todos' || fases.indexOf(fase) !== -1) ? '' : 'none';
     });
 
     document.querySelectorAll('.fase-titulo, .fase-placeholder').forEach(function(el) {

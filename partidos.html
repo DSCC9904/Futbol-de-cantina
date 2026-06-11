@@ -34,341 +34,515 @@
 </header>
 
 <main class="wrap">
+  <section style="padding: 32px 0 80px">
+    <div class="eyebrow">Mundial 2026 · USA · MEX · CAN · 11 Jun – 19 Jul</div>
+    <h1 class="cal-title">Calendario oficial</h1>
+    <p class="lede" style="margin-bottom:12px">Horarios en hora Colombia (COL · UTC−5). Fuente: FIFA / El Tiempo.</p>
 
-  <section style="padding: 40px 0 60px">
-    <div class="eyebrow">Mundial 2026 · USA · MEX · CAN</div>
-    <h1 class="cal-title">Calendario de partidos</h1>
-    <p class="lede">Horarios en hora de Colombia (COL / UTC−5). Las plataformas de transmisión son de referencia — confirma con cada canal antes del partido.</p>
-    <div class="demo-aviso">⚠ Datos de ejemplo — horarios y canales son orientativos, no oficiales aún</div>
+    <!-- Canales de transmisión en Colombia -->
+    <div class="canales-resumen">
+      <div class="eyebrow" style="margin-bottom:10px">Dónde ver en Colombia</div>
+      <div class="canales-grid">
+        <div class="canal-info">
+          <span class="canal caracol">Caracol</span>
+          <span class="canal-info-txt"><b>35 partidos</b> · señal abierta gratis · Caracol Play (app)</span>
+        </div>
+        <div class="canal-info">
+          <span class="canal rcn">RCN</span>
+          <span class="canal-info-txt"><b>35 partidos</b> · señal abierta gratis · Deportes RCN (app)</span>
+        </div>
+        <div class="canal-info">
+          <span class="canal win">Win Sports</span>
+          <span class="canal-info-txt"><b>25 partidos</b> · cable (Claro, Movistar, ETB)</span>
+        </div>
+        <div class="canal-info">
+          <span class="canal disney">Disney+</span>
+          <span class="canal-info-txt"><b>30 partidos</b> · streaming · incluye partidos Colombia</span>
+        </div>
+        <div class="canal-info">
+          <span class="canal dtgo">DGO</span>
+          <span class="canal-info-txt"><b>104 partidos</b> · streaming DirecTV · suscripción</span>
+        </div>
+        <div class="canal-info">
+          <span class="canal paramount">Paramount+</span>
+          <span class="canal-info-txt"><b>104 partidos</b> · streaming · vía suscripción DirecTV</span>
+        </div>
+      </div>
+      <p class="canales-nota">Caracol y RCN transmiten todos los partidos de Colombia en señal abierta (gratis). Para ver los 104 partidos necesitas DirecTV/DGO o Paramount+.</p>
+    </div>
 
-    <!-- Filtros por fase -->
-    <div class="cal-filtros" role="group" aria-label="Filtrar por fase">
+    <!-- Filtros -->
+    <div class="cal-filtros" role="group" aria-label="Filtrar por jornada">
       <button class="filtro activo" data-fase="todos">Todos</button>
-      <button class="filtro" data-fase="grupo">Fase de grupos</button>
+      <button class="filtro" data-fase="j1">Jornada 1</button>
+      <button class="filtro" data-fase="j2">Jornada 2</button>
+      <button class="filtro" data-fase="j3">Jornada 3</button>
+      <button class="filtro" data-fase="colombia">🇨🇴 Colombia</button>
       <button class="filtro" data-fase="octavos">Octavos</button>
       <button class="filtro" data-fase="cuartos">Cuartos</button>
-      <button class="filtro" data-fase="semis">Semifinales</button>
+      <button class="filtro" data-fase="semis">Semis</button>
       <button class="filtro" data-fase="final">Final</button>
     </div>
 
-    <!-- ═══════════════════════════════════
-         FASE DE GRUPOS — JORNADA 1
-    ═══════════════════════════════════ -->
-    <div class="fase-titulo">Fase de grupos · Jornada 1</div>
+    <!-- ══════════════════════════════
+         JORNADA 1 · 11–17 JUN
+    ══════════════════════════════ -->
+    <div class="fase-titulo">Jornada 1 <span class="fase-fecha">· 11–17 de junio</span></div>
+    <div class="partidos-lista">
 
-    <div class="partidos-lista" id="lista-partidos">
-
-      <div class="partido-card" data-fase="grupo">
-        <div class="p-fecha">
-          <div class="p-dia">JUE 11 JUN</div>
-          <div class="p-hora">13:00 COL</div>
-        </div>
+      <div class="partido-card" data-fase="j1">
+        <div class="p-fecha"><div class="p-dia">JUE 11 JUN</div><div class="p-hora">2:00 PM</div></div>
         <div class="p-match">
-          <div class="p-equipo local">
-            <span class="p-sigla" style="color:#0B7A3B">MEX</span>
-            <span class="p-nombre">México</span>
-          </div>
+          <div class="p-equipo"><span class="p-sigla" style="color:#006847">MEX</span><span class="p-nombre">México</span></div>
           <div class="p-vs">VS</div>
-          <div class="p-equipo visitante">
-            <span class="p-sigla" style="color:#F2B33D">RSA</span>
-            <span class="p-nombre">Sudáfrica</span>
-          </div>
+          <div class="p-equipo"><span class="p-sigla" style="color:#007A4D">RSA</span><span class="p-nombre">Sudáfrica</span></div>
         </div>
-        <div class="p-info">
-          <div class="p-grupo">Grupo A</div>
-          <div class="p-estadio">Estadio Azteca · Ciudad de México</div>
-        </div>
-        <div class="p-canales">
-          <span class="canal espn">ESPN</span>
-          <span class="canal disney">Disney+</span>
-          <span class="canal caracol">Caracol</span>
-        </div>
+        <div class="p-info"><div class="p-grupo">Grupo A</div><div class="p-estadio">Estadio Azteca · Ciudad de México</div></div>
+        <div class="p-canales"><span class="canal caracol">Caracol</span><span class="canal rcn">RCN</span><span class="canal win">Win</span><span class="canal dtgo">DGO</span></div>
         <a class="p-analisis" href="index.html">Ver análisis →</a>
       </div>
 
-      <div class="partido-card" data-fase="grupo">
-        <div class="p-fecha">
-          <div class="p-dia">JUE 11 JUN</div>
-          <div class="p-hora">16:00 COL</div>
-        </div>
+      <div class="partido-card" data-fase="j1">
+        <div class="p-fecha"><div class="p-dia">JUE 11 JUN</div><div class="p-hora">9:00 PM</div></div>
         <div class="p-match">
-          <div class="p-equipo local">
-            <span class="p-sigla" style="color:#003087">USA</span>
-            <span class="p-nombre">Estados Unidos</span>
-          </div>
+          <div class="p-equipo"><span class="p-sigla" style="color:#C60C30">KOR</span><span class="p-nombre">Corea del Sur</span></div>
           <div class="p-vs">VS</div>
-          <div class="p-equipo visitante">
-            <span class="p-sigla" style="color:#009B3A">SEN</span>
-            <span class="p-nombre">Senegal</span>
-          </div>
+          <div class="p-equipo"><span class="p-sigla" style="color:#D7141A">CZE</span><span class="p-nombre">Rep. Checa</span></div>
         </div>
-        <div class="p-info">
-          <div class="p-grupo">Grupo B</div>
-          <div class="p-estadio">SoFi Stadium · Los Ángeles</div>
-        </div>
-        <div class="p-canales">
-          <span class="canal espn">ESPN</span>
-          <span class="canal dtgo">DGO</span>
-          <span class="canal win">Win Sports</span>
-        </div>
-        <a class="p-analisis proximamente" href="#">Análisis próximamente</a>
+        <div class="p-info"><div class="p-grupo">Grupo A</div><div class="p-estadio">Estadio Akron · Guadalajara</div></div>
+        <div class="p-canales"><span class="canal win">Win</span><span class="canal dtgo">DGO</span></div>
+        <a class="p-analisis proximamente" href="#">Próximamente</a>
       </div>
 
-      <div class="partido-card" data-fase="grupo">
-        <div class="p-fecha">
-          <div class="p-dia">VIE 12 JUN</div>
-          <div class="p-hora">12:00 COL</div>
-        </div>
+      <div class="partido-card" data-fase="j1">
+        <div class="p-fecha"><div class="p-dia">VIE 12 JUN</div><div class="p-hora">2:00 PM</div></div>
         <div class="p-match">
-          <div class="p-equipo local">
-            <span class="p-sigla" style="color:#DA020E">ESP</span>
-            <span class="p-nombre">España</span>
-          </div>
+          <div class="p-equipo"><span class="p-sigla" style="color:#FF0000">CAN</span><span class="p-nombre">Canadá</span></div>
           <div class="p-vs">VS</div>
-          <div class="p-equipo visitante">
-            <span class="p-sigla" style="color:#006233">MAR</span>
-            <span class="p-nombre">Marruecos</span>
-          </div>
+          <div class="p-equipo"><span class="p-sigla" style="color:#002395">BIH</span><span class="p-nombre">Bosnia</span></div>
         </div>
-        <div class="p-info">
-          <div class="p-grupo">Grupo C</div>
-          <div class="p-estadio">MetLife Stadium · Nueva York</div>
-        </div>
-        <div class="p-canales">
-          <span class="canal espn">ESPN</span>
-          <span class="canal disney">Disney+</span>
-          <span class="canal rcn">RCN</span>
-        </div>
-        <a class="p-analisis proximamente" href="#">Análisis próximamente</a>
+        <div class="p-info"><div class="p-grupo">Grupo B</div><div class="p-estadio">BMO Field · Toronto</div></div>
+        <div class="p-canales"><span class="canal win">Win</span><span class="canal dtgo">DGO</span></div>
+        <a class="p-analisis proximamente" href="#">Próximamente</a>
       </div>
 
-      <div class="partido-card" data-fase="grupo">
-        <div class="p-fecha">
-          <div class="p-dia">VIE 12 JUN</div>
-          <div class="p-hora">15:00 COL</div>
-        </div>
+      <div class="partido-card" data-fase="j1">
+        <div class="p-fecha"><div class="p-dia">VIE 12 JUN</div><div class="p-hora">8:00 PM</div></div>
         <div class="p-match">
-          <div class="p-equipo local">
-            <span class="p-sigla" style="color:#FCD116">BRA</span>
-            <span class="p-nombre">Brasil</span>
-          </div>
+          <div class="p-equipo"><span class="p-sigla" style="color:#B22234">USA</span><span class="p-nombre">Estados Unidos</span></div>
           <div class="p-vs">VS</div>
-          <div class="p-equipo visitante">
-            <span class="p-sigla" style="color:#D4AF37">ARG</span>
-            <span class="p-nombre">Argentina</span>
-          </div>
+          <div class="p-equipo"><span class="p-sigla" style="color:#D52B1E">PAR</span><span class="p-nombre">Paraguay</span></div>
         </div>
-        <div class="p-info">
-          <div class="p-grupo">Grupo D</div>
-          <div class="p-estadio">Estadio Azteca · Ciudad de México</div>
-        </div>
-        <div class="p-canales">
-          <span class="canal espn">ESPN</span>
-          <span class="canal disney">Disney+</span>
-          <span class="canal caracol">Caracol</span>
-          <span class="canal rcn">RCN</span>
-        </div>
-        <a class="p-analisis proximamente" href="#">Análisis próximamente</a>
+        <div class="p-info"><div class="p-grupo">Grupo D</div><div class="p-estadio">SoFi Stadium · Los Ángeles</div></div>
+        <div class="p-canales"><span class="canal caracol">Caracol</span><span class="canal rcn">RCN</span><span class="canal dtgo">DGO</span></div>
+        <a class="p-analisis proximamente" href="#">Próximamente</a>
       </div>
 
-      <div class="partido-card" data-fase="grupo">
-        <div class="p-fecha">
-          <div class="p-dia">SÁB 13 JUN</div>
-          <div class="p-hora">10:00 COL</div>
-        </div>
+      <div class="partido-card" data-fase="j1">
+        <div class="p-fecha"><div class="p-dia">SÁB 13 JUN</div><div class="p-hora">2:00 PM</div></div>
         <div class="p-match">
-          <div class="p-equipo local">
-            <span class="p-sigla" style="color:#000000">GER</span>
-            <span class="p-nombre">Alemania</span>
-          </div>
+          <div class="p-equipo"><span class="p-sigla" style="color:#DA020E">QAT</span><span class="p-nombre">Catar</span></div>
           <div class="p-vs">VS</div>
-          <div class="p-equipo visitante">
-            <span class="p-sigla" style="color:#002395">FRA</span>
-            <span class="p-nombre">Francia</span>
-          </div>
+          <div class="p-equipo"><span class="p-sigla" style="color:#FF0000">SUI</span><span class="p-nombre">Suiza</span></div>
         </div>
-        <div class="p-info">
-          <div class="p-grupo">Grupo E</div>
-          <div class="p-estadio">AT&T Stadium · Dallas</div>
-        </div>
-        <div class="p-canales">
-          <span class="canal espn">ESPN</span>
-          <span class="canal dtgo">DGO</span>
-          <span class="canal win">Win Sports</span>
-        </div>
-        <a class="p-analisis proximamente" href="#">Análisis próximamente</a>
+        <div class="p-info"><div class="p-grupo">Grupo B</div><div class="p-estadio">Levi's Stadium · San Francisco</div></div>
+        <div class="p-canales"><span class="canal win">Win</span><span class="canal dtgo">DGO</span></div>
+        <a class="p-analisis proximamente" href="#">Próximamente</a>
       </div>
 
-      <div class="partido-card" data-fase="grupo">
-        <div class="p-fecha">
-          <div class="p-dia">SÁB 13 JUN</div>
-          <div class="p-hora">13:00 COL</div>
-        </div>
+      <div class="partido-card" data-fase="j1">
+        <div class="p-fecha"><div class="p-dia">SÁB 13 JUN</div><div class="p-hora">5:00 PM</div></div>
         <div class="p-match">
-          <div class="p-equipo local">
-            <span class="p-sigla" style="color:#CF142B">ENG</span>
-            <span class="p-nombre">Inglaterra</span>
-          </div>
+          <div class="p-equipo"><span class="p-sigla" style="color:#009C3B">BRA</span><span class="p-nombre">Brasil</span></div>
           <div class="p-vs">VS</div>
-          <div class="p-equipo visitante">
-            <span class="p-sigla" style="color:#FF8200">NED</span>
-            <span class="p-nombre">Países Bajos</span>
-          </div>
+          <div class="p-equipo"><span class="p-sigla" style="color:#C1272D">MAR</span><span class="p-nombre">Marruecos</span></div>
         </div>
-        <div class="p-info">
-          <div class="p-grupo">Grupo F</div>
-          <div class="p-estadio">Levi's Stadium · San Francisco</div>
-        </div>
-        <div class="p-canales">
-          <span class="canal espn">ESPN</span>
-          <span class="canal disney">Disney+</span>
-        </div>
-        <a class="p-analisis proximamente" href="#">Análisis próximamente</a>
+        <div class="p-info"><div class="p-grupo">Grupo C</div><div class="p-estadio">MetLife Stadium · Nueva York</div></div>
+        <div class="p-canales"><span class="canal caracol">Caracol</span><span class="canal rcn">RCN</span><span class="canal disney">Disney+</span></div>
+        <a class="p-analisis proximamente" href="#">Próximamente</a>
       </div>
 
-      <div class="partido-card" data-fase="grupo">
-        <div class="p-fecha">
-          <div class="p-dia">DOM 14 JUN</div>
-          <div class="p-hora">14:00 COL</div>
-        </div>
+      <div class="partido-card" data-fase="j1">
+        <div class="p-fecha"><div class="p-dia">SÁB 13 JUN</div><div class="p-hora">8:00 PM</div></div>
         <div class="p-match">
-          <div class="p-equipo local">
-            <span class="p-sigla" style="color:#CE1126">COL</span>
-            <span class="p-nombre">Colombia</span>
-          </div>
+          <div class="p-equipo"><span class="p-sigla" style="color:#005EB8">SCO</span><span class="p-nombre">Escocia</span></div>
           <div class="p-vs">VS</div>
-          <div class="p-equipo visitante">
-            <span class="p-sigla" style="color:#0038A8">URU</span>
-            <span class="p-nombre">Uruguay</span>
-          </div>
+          <div class="p-equipo"><span class="p-sigla" style="color:#003F87">HAI</span><span class="p-nombre">Haití</span></div>
         </div>
-        <div class="p-info">
-          <div class="p-grupo">Grupo G</div>
-          <div class="p-estadio">Empower Field · Denver</div>
-        </div>
-        <div class="p-canales">
-          <span class="canal espn">ESPN</span>
-          <span class="canal disney">Disney+</span>
-          <span class="canal caracol">Caracol</span>
-          <span class="canal rcn">RCN</span>
-          <span class="canal win">Win Sports</span>
-        </div>
-        <a class="p-analisis proximamente" href="#">Análisis próximamente</a>
+        <div class="p-info"><div class="p-grupo">Grupo C</div><div class="p-estadio">Gillette Stadium · Boston</div></div>
+        <div class="p-canales"><span class="canal win">Win</span><span class="canal dtgo">DGO</span></div>
+        <a class="p-analisis proximamente" href="#">Próximamente</a>
       </div>
 
-      <div class="partido-card" data-fase="grupo">
-        <div class="p-fecha">
-          <div class="p-dia">DOM 14 JUN</div>
-          <div class="p-hora">17:00 COL</div>
-        </div>
+      <div class="partido-card" data-fase="j1">
+        <div class="p-fecha"><div class="p-dia">SÁB 13 JUN</div><div class="p-hora">11:00 PM</div></div>
         <div class="p-match">
-          <div class="p-equipo local">
-            <span class="p-sigla" style="color:#003DA5">POR</span>
-            <span class="p-nombre">Portugal</span>
-          </div>
+          <div class="p-equipo"><span class="p-sigla" style="color:#00843D">AUS</span><span class="p-nombre">Australia</span></div>
           <div class="p-vs">VS</div>
-          <div class="p-equipo visitante">
-            <span class="p-sigla" style="color:#000000">BEL</span>
-            <span class="p-nombre">Bélgica</span>
-          </div>
+          <div class="p-equipo"><span class="p-sigla" style="color:#E30A17">TUR</span><span class="p-nombre">Turquía</span></div>
         </div>
-        <div class="p-info">
-          <div class="p-grupo">Grupo H</div>
-          <div class="p-estadio">Estadio BBVA · Monterrey</div>
-        </div>
-        <div class="p-canales">
-          <span class="canal espn">ESPN</span>
-          <span class="canal dtgo">DGO</span>
-        </div>
-        <a class="p-analisis proximamente" href="#">Análisis próximamente</a>
+        <div class="p-info"><div class="p-grupo">Grupo D</div><div class="p-estadio">BC Place · Vancouver</div></div>
+        <div class="p-canales"><span class="canal win">Win</span><span class="canal dtgo">DGO</span></div>
+        <a class="p-analisis proximamente" href="#">Próximamente</a>
       </div>
 
-    </div><!-- /partidos-lista -->
-
-    <!-- ═══════════════════════════════════
-         FASE ELIMINATORIA (placeholder)
-    ═══════════════════════════════════ -->
-    <div class="fase-titulo" data-fase="octavos">Octavos de final <span class="fase-fecha">· 27 Jun – 2 Jul</span></div>
-    <div class="fase-placeholder" data-fase="octavos">
-      Los cruces se definen al terminar la fase de grupos.
-    </div>
-
-    <div class="fase-titulo" data-fase="cuartos">Cuartos de final <span class="fase-fecha">· 10–11 Jul</span></div>
-    <div class="fase-placeholder" data-fase="cuartos">
-      Los cruces se definen al terminar los octavos.
-    </div>
-
-    <div class="fase-titulo" data-fase="semis">Semifinales <span class="fase-fecha">· 14–15 Jul</span></div>
-    <div class="fase-placeholder" data-fase="semis">
-      Los cruces se definen al terminar los cuartos.
-    </div>
-
-    <div class="fase-titulo" data-fase="final">Final <span class="fase-fecha">· 19 Jul · MetLife Stadium</span></div>
-    <div class="fase-placeholder" data-fase="final">
-      El gran partido. MetLife Stadium, Nueva York/Nueva Jersey.
-    </div>
-
-    <!-- Leyenda de canales -->
-    <div class="canal-leyenda">
-      <div class="eyebrow" style="margin-bottom:12px">Canales de transmisión en Colombia</div>
-      <div class="canal-ley-grid">
-        <div class="canal-ley-item">
-          <span class="canal espn">ESPN</span>
-          <span class="canal-ley-desc">Canal de cable (Claro TV, Movistar, ETB). También en ESPN App.</span>
+      <div class="partido-card" data-fase="j1">
+        <div class="p-fecha"><div class="p-dia">DOM 14 JUN</div><div class="p-hora">12:00 PM</div></div>
+        <div class="p-match">
+          <div class="p-equipo"><span class="p-sigla" style="color:#000000">GER</span><span class="p-nombre">Alemania</span></div>
+          <div class="p-vs">VS</div>
+          <div class="p-equipo"><span class="p-sigla" style="color:#003DA5">CUW</span><span class="p-nombre">Curazao</span></div>
         </div>
-        <div class="canal-ley-item">
-          <span class="canal disney">Disney+</span>
-          <span class="canal-ley-desc">Plataforma streaming. Incluido en algunos planes de Star+.</span>
-        </div>
-        <div class="canal-ley-item">
-          <span class="canal dtgo">DGO</span>
-          <span class="canal-ley-desc">DirecTV Go — streaming de DirecTV. Requiere suscripción.</span>
-        </div>
-        <div class="canal-ley-item">
-          <span class="canal caracol">Caracol</span>
-          <span class="canal-ley-desc">Canal abierto gratuito. También en Caracol Play (streaming).</span>
-        </div>
-        <div class="canal-ley-item">
-          <span class="canal rcn">RCN</span>
-          <span class="canal-ley-desc">Canal abierto gratuito. También en Canal 1 y Mi Señal.</span>
-        </div>
-        <div class="canal-ley-item">
-          <span class="canal win">Win Sports</span>
-          <span class="canal-ley-desc">Canal de cable especializado. También en Win+ (streaming).</span>
-        </div>
+        <div class="p-info"><div class="p-grupo">Grupo E</div><div class="p-estadio">NRG Stadium · Houston</div></div>
+        <div class="p-canales"><span class="canal win">Win</span><span class="canal dtgo">DGO</span></div>
+        <a class="p-analisis proximamente" href="#">Próximamente</a>
       </div>
-    </div>
+
+      <div class="partido-card" data-fase="j1">
+        <div class="p-fecha"><div class="p-dia">DOM 14 JUN</div><div class="p-hora">3:00 PM</div></div>
+        <div class="p-match">
+          <div class="p-equipo"><span class="p-sigla" style="color:#FF6600">NED</span><span class="p-nombre">Países Bajos</span></div>
+          <div class="p-vs">VS</div>
+          <div class="p-equipo"><span class="p-sigla" style="color:#BC002D">JPN</span><span class="p-nombre">Japón</span></div>
+        </div>
+        <div class="p-info"><div class="p-grupo">Grupo F</div><div class="p-estadio">AT&T Stadium · Dallas</div></div>
+        <div class="p-canales"><span class="canal caracol">Caracol</span><span class="canal rcn">RCN</span><span class="canal dtgo">DGO</span></div>
+        <a class="p-analisis proximamente" href="#">Próximamente</a>
+      </div>
+
+      <div class="partido-card" data-fase="j1">
+        <div class="p-fecha"><div class="p-dia">DOM 14 JUN</div><div class="p-hora">6:00 PM</div></div>
+        <div class="p-match">
+          <div class="p-equipo"><span class="p-sigla" style="color:#F77F00">CIV</span><span class="p-nombre">Costa de Marfil</span></div>
+          <div class="p-vs">VS</div>
+          <div class="p-equipo"><span class="p-sigla" style="color:#FFD100">ECU</span><span class="p-nombre">Ecuador</span></div>
+        </div>
+        <div class="p-info"><div class="p-grupo">Grupo E</div><div class="p-estadio">Lincoln Financial · Filadelfia</div></div>
+        <div class="p-canales"><span class="canal win">Win</span><span class="canal dtgo">DGO</span></div>
+        <a class="p-analisis proximamente" href="#">Próximamente</a>
+      </div>
+
+      <div class="partido-card" data-fase="j1">
+        <div class="p-fecha"><div class="p-dia">DOM 14 JUN</div><div class="p-hora">9:00 PM</div></div>
+        <div class="p-match">
+          <div class="p-equipo"><span class="p-sigla" style="color:#006AA7">SWE</span><span class="p-nombre">Suecia</span></div>
+          <div class="p-vs">VS</div>
+          <div class="p-equipo"><span class="p-sigla" style="color:#E70013">TUN</span><span class="p-nombre">Túnez</span></div>
+        </div>
+        <div class="p-info"><div class="p-grupo">Grupo F</div><div class="p-estadio">Estadio BBVA · Monterrey</div></div>
+        <div class="p-canales"><span class="canal win">Win</span><span class="canal dtgo">DGO</span></div>
+        <a class="p-analisis proximamente" href="#">Próximamente</a>
+      </div>
+
+      <div class="partido-card" data-fase="j1">
+        <div class="p-fecha"><div class="p-dia">LUN 15 JUN</div><div class="p-hora">11:00 AM</div></div>
+        <div class="p-match">
+          <div class="p-equipo"><span class="p-sigla" style="color:#AA151B">ESP</span><span class="p-nombre">España</span></div>
+          <div class="p-vs">VS</div>
+          <div class="p-equipo"><span class="p-sigla" style="color:#003893">CPV</span><span class="p-nombre">Cabo Verde</span></div>
+        </div>
+        <div class="p-info"><div class="p-grupo">Grupo H</div><div class="p-estadio">Mercedes-Benz · Atlanta</div></div>
+        <div class="p-canales"><span class="canal caracol">Caracol</span><span class="canal rcn">RCN</span><span class="canal dtgo">DGO</span></div>
+        <a class="p-analisis proximamente" href="#">Próximamente</a>
+      </div>
+
+      <div class="partido-card" data-fase="j1">
+        <div class="p-fecha"><div class="p-dia">LUN 15 JUN</div><div class="p-hora">2:00 PM</div></div>
+        <div class="p-match">
+          <div class="p-equipo"><span class="p-sigla" style="color:#000000">BEL</span><span class="p-nombre">Bélgica</span></div>
+          <div class="p-vs">VS</div>
+          <div class="p-equipo"><span class="p-sigla" style="color:#C8102E">EGY</span><span class="p-nombre">Egipto</span></div>
+        </div>
+        <div class="p-info"><div class="p-grupo">Grupo G</div><div class="p-estadio">Lumen Field · Seattle</div></div>
+        <div class="p-canales"><span class="canal win">Win</span><span class="canal dtgo">DGO</span></div>
+        <a class="p-analisis proximamente" href="#">Próximamente</a>
+      </div>
+
+      <div class="partido-card" data-fase="j1">
+        <div class="p-fecha"><div class="p-dia">LUN 15 JUN</div><div class="p-hora">5:00 PM</div></div>
+        <div class="p-match">
+          <div class="p-equipo"><span class="p-sigla" style="color:#006233">SAU</span><span class="p-nombre">Arabia Saudita</span></div>
+          <div class="p-vs">VS</div>
+          <div class="p-equipo"><span class="p-sigla" style="color:#001489">URU</span><span class="p-nombre">Uruguay</span></div>
+        </div>
+        <div class="p-info"><div class="p-grupo">Grupo H</div><div class="p-estadio">Hard Rock Stadium · Miami</div></div>
+        <div class="p-canales"><span class="canal win">Win</span><span class="canal dtgo">DGO</span></div>
+        <a class="p-analisis proximamente" href="#">Próximamente</a>
+      </div>
+
+      <div class="partido-card" data-fase="j1">
+        <div class="p-fecha"><div class="p-dia">LUN 15 JUN</div><div class="p-hora">8:00 PM</div></div>
+        <div class="p-match">
+          <div class="p-equipo"><span class="p-sigla" style="color:#239F40">IRN</span><span class="p-nombre">Irán</span></div>
+          <div class="p-vs">VS</div>
+          <div class="p-equipo"><span class="p-sigla" style="color:#00247D">NZL</span><span class="p-nombre">Nueva Zelanda</span></div>
+        </div>
+        <div class="p-info"><div class="p-grupo">Grupo G</div><div class="p-estadio">SoFi Stadium · Los Ángeles</div></div>
+        <div class="p-canales"><span class="canal win">Win</span><span class="canal dtgo">DGO</span></div>
+        <a class="p-analisis proximamente" href="#">Próximamente</a>
+      </div>
+
+      <div class="partido-card" data-fase="j1">
+        <div class="p-fecha"><div class="p-dia">MAR 16 JUN</div><div class="p-hora">2:00 PM</div></div>
+        <div class="p-match">
+          <div class="p-equipo"><span class="p-sigla" style="color:#002395">FRA</span><span class="p-nombre">Francia</span></div>
+          <div class="p-vs">VS</div>
+          <div class="p-equipo"><span class="p-sigla" style="color:#00853F">SEN</span><span class="p-nombre">Senegal</span></div>
+        </div>
+        <div class="p-info"><div class="p-grupo">Grupo I</div><div class="p-estadio">MetLife Stadium · Nueva York</div></div>
+        <div class="p-canales"><span class="canal caracol">Caracol</span><span class="canal rcn">RCN</span><span class="canal dtgo">DGO</span></div>
+        <a class="p-analisis proximamente" href="#">Próximamente</a>
+      </div>
+
+      <div class="partido-card" data-fase="j1">
+        <div class="p-fecha"><div class="p-dia">MAR 16 JUN</div><div class="p-hora">5:00 PM</div></div>
+        <div class="p-match">
+          <div class="p-equipo"><span class="p-sigla" style="color:#CC0001">IRQ</span><span class="p-nombre">Irak</span></div>
+          <div class="p-vs">VS</div>
+          <div class="p-equipo"><span class="p-sigla" style="color:#EF2B2D">NOR</span><span class="p-nombre">Noruega</span></div>
+        </div>
+        <div class="p-info"><div class="p-grupo">Grupo I</div><div class="p-estadio">Gillette Stadium · Boston</div></div>
+        <div class="p-canales"><span class="canal win">Win</span><span class="canal dtgo">DGO</span></div>
+        <a class="p-analisis proximamente" href="#">Próximamente</a>
+      </div>
+
+      <div class="partido-card" data-fase="j1">
+        <div class="p-fecha"><div class="p-dia">MAR 16 JUN</div><div class="p-hora">8:00 PM</div></div>
+        <div class="p-match">
+          <div class="p-equipo"><span class="p-sigla" style="color:#74ACDF">ARG</span><span class="p-nombre">Argentina</span></div>
+          <div class="p-vs">VS</div>
+          <div class="p-equipo"><span class="p-sigla" style="color:#006233">ALG</span><span class="p-nombre">Argelia</span></div>
+        </div>
+        <div class="p-info"><div class="p-grupo">Grupo J</div><div class="p-estadio">Arrowhead · Kansas City</div></div>
+        <div class="p-canales"><span class="canal caracol">Caracol</span><span class="canal rcn">RCN</span><span class="canal dtgo">DGO</span></div>
+        <a class="p-analisis proximamente" href="#">Próximamente</a>
+      </div>
+
+      <div class="partido-card" data-fase="j1">
+        <div class="p-fecha"><div class="p-dia">MAR 16 JUN</div><div class="p-hora">11:00 PM</div></div>
+        <div class="p-match">
+          <div class="p-equipo"><span class="p-sigla" style="color:#ED2939">AUT</span><span class="p-nombre">Austria</span></div>
+          <div class="p-vs">VS</div>
+          <div class="p-equipo"><span class="p-sigla" style="color:#007A3D">JOR</span><span class="p-nombre">Jordania</span></div>
+        </div>
+        <div class="p-info"><div class="p-grupo">Grupo J</div><div class="p-estadio">Levi's Stadium · San Francisco</div></div>
+        <div class="p-canales"><span class="canal win">Win</span><span class="canal dtgo">DGO</span></div>
+        <a class="p-analisis proximamente" href="#">Próximamente</a>
+      </div>
+
+      <div class="partido-card" data-fase="j1">
+        <div class="p-fecha"><div class="p-dia">MIÉ 17 JUN</div><div class="p-hora">12:00 PM</div></div>
+        <div class="p-match">
+          <div class="p-equipo"><span class="p-sigla" style="color:#003DA5">POR</span><span class="p-nombre">Portugal</span></div>
+          <div class="p-vs">VS</div>
+          <div class="p-equipo"><span class="p-sigla" style="color:#007A5E">COD</span><span class="p-nombre">RD Congo</span></div>
+        </div>
+        <div class="p-info"><div class="p-grupo">Grupo K</div><div class="p-estadio">NRG Stadium · Houston</div></div>
+        <div class="p-canales"><span class="canal disney">Disney+</span><span class="canal dtgo">DGO</span></div>
+        <a class="p-analisis proximamente" href="#">Próximamente</a>
+      </div>
+
+      <div class="partido-card" data-fase="j1">
+        <div class="p-fecha"><div class="p-dia">MIÉ 17 JUN</div><div class="p-hora">3:00 PM</div></div>
+        <div class="p-match">
+          <div class="p-equipo"><span class="p-sigla" style="color:#CF142B">ENG</span><span class="p-nombre">Inglaterra</span></div>
+          <div class="p-vs">VS</div>
+          <div class="p-equipo"><span class="p-sigla" style="color:#FF0000">CRO</span><span class="p-nombre">Croacia</span></div>
+        </div>
+        <div class="p-info"><div class="p-grupo">Grupo L</div><div class="p-estadio">AT&T Stadium · Dallas</div></div>
+        <div class="p-canales"><span class="canal caracol">Caracol</span><span class="canal rcn">RCN</span><span class="canal dtgo">DGO</span></div>
+        <a class="p-analisis proximamente" href="#">Próximamente</a>
+      </div>
+
+      <div class="partido-card" data-fase="j1">
+        <div class="p-fecha"><div class="p-dia">MIÉ 17 JUN</div><div class="p-hora">6:00 PM</div></div>
+        <div class="p-match">
+          <div class="p-equipo"><span class="p-sigla" style="color:#006B3F">GHA</span><span class="p-nombre">Ghana</span></div>
+          <div class="p-vs">VS</div>
+          <div class="p-equipo"><span class="p-sigla" style="color:#DA121A">PAN</span><span class="p-nombre">Panamá</span></div>
+        </div>
+        <div class="p-info"><div class="p-grupo">Grupo L</div><div class="p-estadio">BMO Field · Toronto</div></div>
+        <div class="p-canales"><span class="canal win">Win</span><span class="canal dtgo">DGO</span></div>
+        <a class="p-analisis proximamente" href="#">Próximamente</a>
+      </div>
+
+      <!-- COLOMBIA J1 -->
+      <div class="partido-card partido-colombia" data-fase="j1 colombia">
+        <div class="p-fecha"><div class="p-dia">MIÉ 17 JUN</div><div class="p-hora">9:00 PM</div></div>
+        <div class="p-match">
+          <div class="p-equipo"><span class="p-sigla" style="color:#4F9A33">UZB</span><span class="p-nombre">Uzbekistán</span></div>
+          <div class="p-vs">VS</div>
+          <div class="p-equipo col-equipo"><span class="p-sigla" style="color:#FCD116">🇨🇴 COL</span><span class="p-nombre">Colombia</span></div>
+        </div>
+        <div class="p-info"><div class="p-grupo">Grupo K</div><div class="p-estadio">Estadio Azteca · Ciudad de México</div></div>
+        <div class="p-canales"><span class="canal caracol">Caracol</span><span class="canal rcn">RCN</span><span class="canal disney">Disney+</span><span class="canal dtgo">DGO</span></div>
+        <a class="p-analisis proximamente" href="#">Próximamente</a>
+      </div>
+
+    </div><!-- /jornada 1 -->
+
+    <!-- ══════════════════════════════
+         JORNADA 2 · 18–23 JUN
+    ══════════════════════════════ -->
+    <div class="fase-titulo">Jornada 2 <span class="fase-fecha">· 18–23 de junio</span></div>
+    <div class="partidos-lista">
+
+      <div class="partido-card" data-fase="j2"><div class="p-fecha"><div class="p-dia">MIÉ 18 JUN</div><div class="p-hora">11:00 AM</div></div><div class="p-match"><div class="p-equipo"><span class="p-sigla" style="color:#D7141A">CZE</span><span class="p-nombre">Rep. Checa</span></div><div class="p-vs">VS</div><div class="p-equipo"><span class="p-sigla" style="color:#007A4D">RSA</span><span class="p-nombre">Sudáfrica</span></div></div><div class="p-info"><div class="p-grupo">Grupo A</div><div class="p-estadio">Mercedes-Benz · Atlanta</div></div><div class="p-canales"><span class="canal win">Win</span><span class="canal dtgo">DGO</span></div><a class="p-analisis proximamente" href="#">Próximamente</a></div>
+
+      <div class="partido-card" data-fase="j2"><div class="p-fecha"><div class="p-dia">MIÉ 18 JUN</div><div class="p-hora">2:00 PM</div></div><div class="p-match"><div class="p-equipo"><span class="p-sigla" style="color:#FF0000">SUI</span><span class="p-nombre">Suiza</span></div><div class="p-vs">VS</div><div class="p-equipo"><span class="p-sigla" style="color:#002395">BIH</span><span class="p-nombre">Bosnia</span></div></div><div class="p-info"><div class="p-grupo">Grupo B</div><div class="p-estadio">SoFi Stadium · Los Ángeles</div></div><div class="p-canales"><span class="canal win">Win</span><span class="canal dtgo">DGO</span></div><a class="p-analisis proximamente" href="#">Próximamente</a></div>
+
+      <div class="partido-card" data-fase="j2"><div class="p-fecha"><div class="p-dia">MIÉ 18 JUN</div><div class="p-hora">5:00 PM</div></div><div class="p-match"><div class="p-equipo"><span class="p-sigla" style="color:#FF0000">CAN</span><span class="p-nombre">Canadá</span></div><div class="p-vs">VS</div><div class="p-equipo"><span class="p-sigla" style="color:#DA020E">QAT</span><span class="p-nombre">Catar</span></div></div><div class="p-info"><div class="p-grupo">Grupo B</div><div class="p-estadio">BC Place · Vancouver</div></div><div class="p-canales"><span class="canal win">Win</span><span class="canal dtgo">DGO</span></div><a class="p-analisis proximamente" href="#">Próximamente</a></div>
+
+      <div class="partido-card" data-fase="j2"><div class="p-fecha"><div class="p-dia">MIÉ 18 JUN</div><div class="p-hora">8:00 PM</div></div><div class="p-match"><div class="p-equipo"><span class="p-sigla" style="color:#006847">MEX</span><span class="p-nombre">México</span></div><div class="p-vs">VS</div><div class="p-equipo"><span class="p-sigla" style="color:#C60C30">KOR</span><span class="p-nombre">Corea del Sur</span></div></div><div class="p-info"><div class="p-grupo">Grupo A</div><div class="p-estadio">Estadio Akron · Guadalajara</div></div><div class="p-canales"><span class="canal caracol">Caracol</span><span class="canal rcn">RCN</span><span class="canal dtgo">DGO</span></div><a class="p-analisis proximamente" href="#">Próximamente</a></div>
+
+      <div class="partido-card" data-fase="j2"><div class="p-fecha"><div class="p-dia">JUE 19 JUN</div><div class="p-hora">2:00 PM</div></div><div class="p-match"><div class="p-equipo"><span class="p-sigla" style="color:#B22234">USA</span><span class="p-nombre">EE.UU.</span></div><div class="p-vs">VS</div><div class="p-equipo"><span class="p-sigla" style="color:#00843D">AUS</span><span class="p-nombre">Australia</span></div></div><div class="p-info"><div class="p-grupo">Grupo D</div><div class="p-estadio">Lumen Field · Seattle</div></div><div class="p-canales"><span class="canal caracol">Caracol</span><span class="canal rcn">RCN</span><span class="canal dtgo">DGO</span></div><a class="p-analisis proximamente" href="#">Próximamente</a></div>
+
+      <div class="partido-card" data-fase="j2"><div class="p-fecha"><div class="p-dia">JUE 19 JUN</div><div class="p-hora">5:00 PM</div></div><div class="p-match"><div class="p-equipo"><span class="p-sigla" style="color:#005EB8">SCO</span><span class="p-nombre">Escocia</span></div><div class="p-vs">VS</div><div class="p-equipo"><span class="p-sigla" style="color:#C1272D">MAR</span><span class="p-nombre">Marruecos</span></div></div><div class="p-info"><div class="p-grupo">Grupo C</div><div class="p-estadio">Gillette Stadium · Boston</div></div><div class="p-canales"><span class="canal win">Win</span><span class="canal dtgo">DGO</span></div><a class="p-analisis proximamente" href="#">Próximamente</a></div>
+
+      <div class="partido-card" data-fase="j2"><div class="p-fecha"><div class="p-dia">JUE 19 JUN</div><div class="p-hora">8:00 PM</div></div><div class="p-match"><div class="p-equipo"><span class="p-sigla" style="color:#009C3B">BRA</span><span class="p-nombre">Brasil</span></div><div class="p-vs">VS</div><div class="p-equipo"><span class="p-sigla" style="color:#003F87">HAI</span><span class="p-nombre">Haití</span></div></div><div class="p-info"><div class="p-grupo">Grupo C</div><div class="p-estadio">Lincoln Financial · Filadelfia</div></div><div class="p-canales"><span class="canal caracol">Caracol</span><span class="canal rcn">RCN</span><span class="canal dtgo">DGO</span></div><a class="p-analisis proximamente" href="#">Próximamente</a></div>
+
+      <div class="partido-card" data-fase="j2"><div class="p-fecha"><div class="p-dia">JUE 19 JUN</div><div class="p-hora">11:00 PM</div></div><div class="p-match"><div class="p-equipo"><span class="p-sigla" style="color:#E30A17">TUR</span><span class="p-nombre">Turquía</span></div><div class="p-vs">VS</div><div class="p-equipo"><span class="p-sigla" style="color:#D52B1E">PAR</span><span class="p-nombre">Paraguay</span></div></div><div class="p-info"><div class="p-grupo">Grupo D</div><div class="p-estadio">Levi's Stadium · San Francisco</div></div><div class="p-canales"><span class="canal win">Win</span><span class="canal dtgo">DGO</span></div><a class="p-analisis proximamente" href="#">Próximamente</a></div>
+
+      <div class="partido-card" data-fase="j2"><div class="p-fecha"><div class="p-dia">VIE 20 JUN</div><div class="p-hora">2:00 PM</div></div><div class="p-match"><div class="p-equipo"><span class="p-sigla" style="color:#FF6600">NED</span><span class="p-nombre">P. Bajos</span></div><div class="p-vs">VS</div><div class="p-equipo"><span class="p-sigla" style="color:#006AA7">SWE</span><span class="p-nombre">Suecia</span></div></div><div class="p-info"><div class="p-grupo">Grupo F</div><div class="p-estadio">NRG Stadium · Houston</div></div><div class="p-canales"><span class="canal win">Win</span><span class="canal dtgo">DGO</span></div><a class="p-analisis proximamente" href="#">Próximamente</a></div>
+
+      <div class="partido-card" data-fase="j2"><div class="p-fecha"><div class="p-dia">VIE 20 JUN</div><div class="p-hora">3:00 PM</div></div><div class="p-match"><div class="p-equipo"><span class="p-sigla" style="color:#000000">GER</span><span class="p-nombre">Alemania</span></div><div class="p-vs">VS</div><div class="p-equipo"><span class="p-sigla" style="color:#F77F00">CIV</span><span class="p-nombre">Costa de Marfil</span></div></div><div class="p-info"><div class="p-grupo">Grupo E</div><div class="p-estadio">BMO Field · Toronto</div></div><div class="p-canales"><span class="canal caracol">Caracol</span><span class="canal rcn">RCN</span><span class="canal dtgo">DGO</span></div><a class="p-analisis proximamente" href="#">Próximamente</a></div>
+
+      <div class="partido-card" data-fase="j2"><div class="p-fecha"><div class="p-dia">VIE 20 JUN</div><div class="p-hora">7:00 PM</div></div><div class="p-match"><div class="p-equipo"><span class="p-sigla" style="color:#FFD100">ECU</span><span class="p-nombre">Ecuador</span></div><div class="p-vs">VS</div><div class="p-equipo"><span class="p-sigla" style="color:#003DA5">CUW</span><span class="p-nombre">Curazao</span></div></div><div class="p-info"><div class="p-grupo">Grupo E</div><div class="p-estadio">Arrowhead · Kansas City</div></div><div class="p-canales"><span class="canal win">Win</span><span class="canal dtgo">DGO</span></div><a class="p-analisis proximamente" href="#">Próximamente</a></div>
+
+      <div class="partido-card" data-fase="j2"><div class="p-fecha"><div class="p-dia">VIE 20 JUN</div><div class="p-hora">11:00 PM</div></div><div class="p-match"><div class="p-equipo"><span class="p-sigla" style="color:#E70013">TUN</span><span class="p-nombre">Túnez</span></div><div class="p-vs">VS</div><div class="p-equipo"><span class="p-sigla" style="color:#BC002D">JPN</span><span class="p-nombre">Japón</span></div></div><div class="p-info"><div class="p-grupo">Grupo F</div><div class="p-estadio">Estadio BBVA · Monterrey</div></div><div class="p-canales"><span class="canal win">Win</span><span class="canal dtgo">DGO</span></div><a class="p-analisis proximamente" href="#">Próximamente</a></div>
+
+      <div class="partido-card" data-fase="j2"><div class="p-fecha"><div class="p-dia">SÁB 21 JUN</div><div class="p-hora">11:00 AM</div></div><div class="p-match"><div class="p-equipo"><span class="p-sigla" style="color:#AA151B">ESP</span><span class="p-nombre">España</span></div><div class="p-vs">VS</div><div class="p-equipo"><span class="p-sigla" style="color:#006233">SAU</span><span class="p-nombre">Arabia Saudita</span></div></div><div class="p-info"><div class="p-grupo">Grupo H</div><div class="p-estadio">Mercedes-Benz · Atlanta</div></div><div class="p-canales"><span class="canal caracol">Caracol</span><span class="canal rcn">RCN</span><span class="canal dtgo">DGO</span></div><a class="p-analisis proximamente" href="#">Próximamente</a></div>
+
+      <div class="partido-card" data-fase="j2"><div class="p-fecha"><div class="p-dia">SÁB 21 JUN</div><div class="p-hora">2:00 PM</div></div><div class="p-match"><div class="p-equipo"><span class="p-sigla" style="color:#000000">BEL</span><span class="p-nombre">Bélgica</span></div><div class="p-vs">VS</div><div class="p-equipo"><span class="p-sigla" style="color:#239F40">IRN</span><span class="p-nombre">Irán</span></div></div><div class="p-info"><div class="p-grupo">Grupo G</div><div class="p-estadio">SoFi Stadium · Los Ángeles</div></div><div class="p-canales"><span class="canal win">Win</span><span class="canal dtgo">DGO</span></div><a class="p-analisis proximamente" href="#">Próximamente</a></div>
+
+      <div class="partido-card" data-fase="j2"><div class="p-fecha"><div class="p-dia">SÁB 21 JUN</div><div class="p-hora">5:00 PM</div></div><div class="p-match"><div class="p-equipo"><span class="p-sigla" style="color:#001489">URU</span><span class="p-nombre">Uruguay</span></div><div class="p-vs">VS</div><div class="p-equipo"><span class="p-sigla" style="color:#003893">CPV</span><span class="p-nombre">Cabo Verde</span></div></div><div class="p-info"><div class="p-grupo">Grupo H</div><div class="p-estadio">Hard Rock Stadium · Miami</div></div><div class="p-canales"><span class="canal win">Win</span><span class="canal dtgo">DGO</span></div><a class="p-analisis proximamente" href="#">Próximamente</a></div>
+
+      <div class="partido-card" data-fase="j2"><div class="p-fecha"><div class="p-dia">SÁB 21 JUN</div><div class="p-hora">8:00 PM</div></div><div class="p-match"><div class="p-equipo"><span class="p-sigla" style="color:#00247D">NZL</span><span class="p-nombre">Nueva Zelanda</span></div><div class="p-vs">VS</div><div class="p-equipo"><span class="p-sigla" style="color:#C8102E">EGY</span><span class="p-nombre">Egipto</span></div></div><div class="p-info"><div class="p-grupo">Grupo G</div><div class="p-estadio">BC Place · Vancouver</div></div><div class="p-canales"><span class="canal win">Win</span><span class="canal dtgo">DGO</span></div><a class="p-analisis proximamente" href="#">Próximamente</a></div>
+
+      <div class="partido-card" data-fase="j2"><div class="p-fecha"><div class="p-dia">DOM 22 JUN</div><div class="p-hora">12:00 PM</div></div><div class="p-match"><div class="p-equipo"><span class="p-sigla" style="color:#74ACDF">ARG</span><span class="p-nombre">Argentina</span></div><div class="p-vs">VS</div><div class="p-equipo"><span class="p-sigla" style="color:#ED2939">AUT</span><span class="p-nombre">Austria</span></div></div><div class="p-info"><div class="p-grupo">Grupo J</div><div class="p-estadio">AT&T Stadium · Dallas</div></div><div class="p-canales"><span class="canal caracol">Caracol</span><span class="canal rcn">RCN</span><span class="canal dtgo">DGO</span></div><a class="p-analisis proximamente" href="#">Próximamente</a></div>
+
+      <div class="partido-card" data-fase="j2"><div class="p-fecha"><div class="p-dia">DOM 22 JUN</div><div class="p-hora">4:00 PM</div></div><div class="p-match"><div class="p-equipo"><span class="p-sigla" style="color:#002395">FRA</span><span class="p-nombre">Francia</span></div><div class="p-vs">VS</div><div class="p-equipo"><span class="p-sigla" style="color:#CC0001">IRQ</span><span class="p-nombre">Irak</span></div></div><div class="p-info"><div class="p-grupo">Grupo I</div><div class="p-estadio">Lincoln Financial · Filadelfia</div></div><div class="p-canales"><span class="canal win">Win</span><span class="canal dtgo">DGO</span></div><a class="p-analisis proximamente" href="#">Próximamente</a></div>
+
+      <div class="partido-card" data-fase="j2"><div class="p-fecha"><div class="p-dia">DOM 22 JUN</div><div class="p-hora">7:00 PM</div></div><div class="p-match"><div class="p-equipo"><span class="p-sigla" style="color:#EF2B2D">NOR</span><span class="p-nombre">Noruega</span></div><div class="p-vs">VS</div><div class="p-equipo"><span class="p-sigla" style="color:#00853F">SEN</span><span class="p-nombre">Senegal</span></div></div><div class="p-info"><div class="p-grupo">Grupo I</div><div class="p-estadio">MetLife · Nueva York</div></div><div class="p-canales"><span class="canal win">Win</span><span class="canal dtgo">DGO</span></div><a class="p-analisis proximamente" href="#">Próximamente</a></div>
+
+      <div class="partido-card" data-fase="j2"><div class="p-fecha"><div class="p-dia">DOM 22 JUN</div><div class="p-hora">10:00 PM</div></div><div class="p-match"><div class="p-equipo"><span class="p-sigla" style="color:#007A3D">JOR</span><span class="p-nombre">Jordania</span></div><div class="p-vs">VS</div><div class="p-equipo"><span class="p-sigla" style="color:#006233">ALG</span><span class="p-nombre">Argelia</span></div></div><div class="p-info"><div class="p-grupo">Grupo J</div><div class="p-estadio">Levi's · San Francisco</div></div><div class="p-canales"><span class="canal win">Win</span><span class="canal dtgo">DGO</span></div><a class="p-analisis proximamente" href="#">Próximamente</a></div>
+
+      <div class="partido-card" data-fase="j2"><div class="p-fecha"><div class="p-dia">LUN 23 JUN</div><div class="p-hora">12:00 PM</div></div><div class="p-match"><div class="p-equipo"><span class="p-sigla" style="color:#003DA5">POR</span><span class="p-nombre">Portugal</span></div><div class="p-vs">VS</div><div class="p-equipo"><span class="p-sigla" style="color:#4F9A33">UZB</span><span class="p-nombre">Uzbekistán</span></div></div><div class="p-info"><div class="p-grupo">Grupo K</div><div class="p-estadio">NRG Stadium · Houston</div></div><div class="p-canales"><span class="canal disney">Disney+</span><span class="canal dtgo">DGO</span></div><a class="p-analisis proximamente" href="#">Próximamente</a></div>
+
+      <div class="partido-card" data-fase="j2"><div class="p-fecha"><div class="p-dia">LUN 23 JUN</div><div class="p-hora">3:00 PM</div></div><div class="p-match"><div class="p-equipo"><span class="p-sigla" style="color:#CF142B">ENG</span><span class="p-nombre">Inglaterra</span></div><div class="p-vs">VS</div><div class="p-equipo"><span class="p-sigla" style="color:#006B3F">GHA</span><span class="p-nombre">Ghana</span></div></div><div class="p-info"><div class="p-grupo">Grupo L</div><div class="p-estadio">Gillette · Boston</div></div><div class="p-canales"><span class="canal win">Win</span><span class="canal dtgo">DGO</span></div><a class="p-analisis proximamente" href="#">Próximamente</a></div>
+
+      <div class="partido-card" data-fase="j2"><div class="p-fecha"><div class="p-dia">LUN 23 JUN</div><div class="p-hora">6:00 PM</div></div><div class="p-match"><div class="p-equipo"><span class="p-sigla" style="color:#DA121A">PAN</span><span class="p-nombre">Panamá</span></div><div class="p-vs">VS</div><div class="p-equipo"><span class="p-sigla" style="color:#FF0000">CRO</span><span class="p-nombre">Croacia</span></div></div><div class="p-info"><div class="p-grupo">Grupo L</div><div class="p-estadio">BMO Field · Toronto</div></div><div class="p-canales"><span class="canal win">Win</span><span class="canal dtgo">DGO</span></div><a class="p-analisis proximamente" href="#">Próximamente</a></div>
+
+      <!-- COLOMBIA J2 -->
+      <div class="partido-card partido-colombia" data-fase="j2 colombia">
+        <div class="p-fecha"><div class="p-dia">LUN 23 JUN</div><div class="p-hora">9:00 PM</div></div>
+        <div class="p-match">
+          <div class="p-equipo col-equipo"><span class="p-sigla" style="color:#FCD116">🇨🇴 COL</span><span class="p-nombre">Colombia</span></div>
+          <div class="p-vs">VS</div>
+          <div class="p-equipo"><span class="p-sigla" style="color:#007A5E">COD</span><span class="p-nombre">RD Congo</span></div>
+        </div>
+        <div class="p-info"><div class="p-grupo">Grupo K</div><div class="p-estadio">Estadio Akron · Guadalajara</div></div>
+        <div class="p-canales"><span class="canal caracol">Caracol</span><span class="canal rcn">RCN</span><span class="canal disney">Disney+</span><span class="canal dtgo">DGO</span></div>
+        <a class="p-analisis proximamente" href="#">Próximamente</a>
+      </div>
+
+    </div><!-- /jornada 2 -->
+
+    <!-- ══════════════════════════════
+         JORNADA 3 · 24–27 JUN
+    ══════════════════════════════ -->
+    <div class="fase-titulo">Jornada 3 <span class="fase-fecha">· 24–27 de junio · Simultáneos</span></div>
+    <div class="partidos-lista">
+
+      <div class="partido-card" data-fase="j3"><div class="p-fecha"><div class="p-dia">MAR 24 JUN</div><div class="p-hora">2:00 PM</div></div><div class="p-match"><div class="p-equipo"><span class="p-sigla" style="color:#FF0000">SUI</span><span class="p-nombre">Suiza</span></div><div class="p-vs">VS</div><div class="p-equipo"><span class="p-sigla" style="color:#FF0000">CAN</span><span class="p-nombre">Canadá</span></div></div><div class="p-info"><div class="p-grupo">Grupo B</div><div class="p-estadio">BC Place · Vancouver</div></div><div class="p-canales"><span class="canal win">Win</span><span class="canal dtgo">DGO</span></div><a class="p-analisis proximamente" href="#">Próximamente</a></div>
+
+      <div class="partido-card" data-fase="j3"><div class="p-fecha"><div class="p-dia">MAR 24 JUN</div><div class="p-hora">2:00 PM</div></div><div class="p-match"><div class="p-equipo"><span class="p-sigla" style="color:#002395">BIH</span><span class="p-nombre">Bosnia</span></div><div class="p-vs">VS</div><div class="p-equipo"><span class="p-sigla" style="color:#DA020E">QAT</span><span class="p-nombre">Catar</span></div></div><div class="p-info"><div class="p-grupo">Grupo B</div><div class="p-estadio">Lumen Field · Seattle</div></div><div class="p-canales"><span class="canal win">Win</span><span class="canal dtgo">DGO</span></div><a class="p-analisis proximamente" href="#">Próximamente</a></div>
+
+      <div class="partido-card" data-fase="j3"><div class="p-fecha"><div class="p-dia">MAR 24 JUN</div><div class="p-hora">5:00 PM</div></div><div class="p-match"><div class="p-equipo"><span class="p-sigla" style="color:#005EB8">SCO</span><span class="p-nombre">Escocia</span></div><div class="p-vs">VS</div><div class="p-equipo"><span class="p-sigla" style="color:#009C3B">BRA</span><span class="p-nombre">Brasil</span></div></div><div class="p-info"><div class="p-grupo">Grupo C</div><div class="p-estadio">Hard Rock · Miami</div></div><div class="p-canales"><span class="canal caracol">Caracol</span><span class="canal rcn">RCN</span><span class="canal dtgo">DGO</span></div><a class="p-analisis proximamente" href="#">Próximamente</a></div>
+
+      <div class="partido-card" data-fase="j3"><div class="p-fecha"><div class="p-dia">MAR 24 JUN</div><div class="p-hora">5:00 PM</div></div><div class="p-match"><div class="p-equipo"><span class="p-sigla" style="color:#C1272D">MAR</span><span class="p-nombre">Marruecos</span></div><div class="p-vs">VS</div><div class="p-equipo"><span class="p-sigla" style="color:#003F87">HAI</span><span class="p-nombre">Haití</span></div></div><div class="p-info"><div class="p-grupo">Grupo C</div><div class="p-estadio">Mercedes-Benz · Atlanta</div></div><div class="p-canales"><span class="canal win">Win</span><span class="canal dtgo">DGO</span></div><a class="p-analisis proximamente" href="#">Próximamente</a></div>
+
+      <div class="partido-card" data-fase="j3"><div class="p-fecha"><div class="p-dia">MAR 24 JUN</div><div class="p-hora">8:00 PM</div></div><div class="p-match"><div class="p-equipo"><span class="p-sigla" style="color:#D7141A">CZE</span><span class="p-nombre">Rep. Checa</span></div><div class="p-vs">VS</div><div class="p-equipo"><span class="p-sigla" style="color:#006847">MEX</span><span class="p-nombre">México</span></div></div><div class="p-info"><div class="p-grupo">Grupo A</div><div class="p-estadio">Estadio Azteca · CDMX</div></div><div class="p-canales"><span class="canal caracol">Caracol</span><span class="canal rcn">RCN</span><span class="canal dtgo">DGO</span></div><a class="p-analisis proximamente" href="#">Próximamente</a></div>
+
+      <div class="partido-card" data-fase="j3"><div class="p-fecha"><div class="p-dia">MAR 24 JUN</div><div class="p-hora">8:00 PM</div></div><div class="p-match"><div class="p-equipo"><span class="p-sigla" style="color:#007A4D">RSA</span><span class="p-nombre">Sudáfrica</span></div><div class="p-vs">VS</div><div class="p-equipo"><span class="p-sigla" style="color:#C60C30">KOR</span><span class="p-nombre">Corea del Sur</span></div></div><div class="p-info"><div class="p-grupo">Grupo A</div><div class="p-estadio">Estadio BBVA · Monterrey</div></div><div class="p-canales"><span class="canal win">Win</span><span class="canal dtgo">DGO</span></div><a class="p-analisis proximamente" href="#">Próximamente</a></div>
+
+      <div class="partido-card" data-fase="j3"><div class="p-fecha"><div class="p-dia">MIÉ 25 JUN</div><div class="p-hora">3:00 PM</div></div><div class="p-match"><div class="p-equipo"><span class="p-sigla" style="color:#003DA5">CUW</span><span class="p-nombre">Curazao</span></div><div class="p-vs">VS</div><div class="p-equipo"><span class="p-sigla" style="color:#F77F00">CIV</span><span class="p-nombre">Costa de Marfil</span></div></div><div class="p-info"><div class="p-grupo">Grupo E</div><div class="p-estadio">Lincoln Financial · Filadelfia</div></div><div class="p-canales"><span class="canal win">Win</span><span class="canal dtgo">DGO</span></div><a class="p-analisis proximamente" href="#">Próximamente</a></div>
+
+      <div class="partido-card" data-fase="j3"><div class="p-fecha"><div class="p-dia">MIÉ 25 JUN</div><div class="p-hora">3:00 PM</div></div><div class="p-match"><div class="p-equipo"><span class="p-sigla" style="color:#FFD100">ECU</span><span class="p-nombre">Ecuador</span></div><div class="p-vs">VS</div><div class="p-equipo"><span class="p-sigla" style="color:#000000">GER</span><span class="p-nombre">Alemania</span></div></div><div class="p-info"><div class="p-grupo">Grupo E</div><div class="p-estadio">MetLife · Nueva York</div></div><div class="p-canales"><span class="canal caracol">Caracol</span><span class="canal rcn">RCN</span><span class="canal dtgo">DGO</span></div><a class="p-analisis proximamente" href="#">Próximamente</a></div>
+
+      <div class="partido-card" data-fase="j3"><div class="p-fecha"><div class="p-dia">MIÉ 25 JUN</div><div class="p-hora">6:00 PM</div></div><div class="p-match"><div class="p-equipo"><span class="p-sigla" style="color:#BC002D">JPN</span><span class="p-nombre">Japón</span></div><div class="p-vs">VS</div><div class="p-equipo"><span class="p-sigla" style="color:#006AA7">SWE</span><span class="p-nombre">Suecia</span></div></div><div class="p-info"><div class="p-grupo">Grupo F</div><div class="p-estadio">AT&T Stadium · Dallas</div></div><div class="p-canales"><span class="canal win">Win</span><span class="canal dtgo">DGO</span></div><a class="p-analisis proximamente" href="#">Próximamente</a></div>
+
+      <div class="partido-card" data-fase="j3"><div class="p-fecha"><div class="p-dia">MIÉ 25 JUN</div><div class="p-hora">6:00 PM</div></div><div class="p-match"><div class="p-equipo"><span class="p-sigla" style="color:#E70013">TUN</span><span class="p-nombre">Túnez</span></div><div class="p-vs">VS</div><div class="p-equipo"><span class="p-sigla" style="color:#FF6600">NED</span><span class="p-nombre">P. Bajos</span></div></div><div class="p-info"><div class="p-grupo">Grupo F</div><div class="p-estadio">Arrowhead · Kansas City</div></div><div class="p-canales"><span class="canal win">Win</span><span class="canal dtgo">DGO</span></div><a class="p-analisis proximamente" href="#">Próximamente</a></div>
+
+      <div class="partido-card" data-fase="j3"><div class="p-fecha"><div class="p-dia">MIÉ 25 JUN</div><div class="p-hora">9:00 PM</div></div><div class="p-match"><div class="p-equipo"><span class="p-sigla" style="color:#E30A17">TUR</span><span class="p-nombre">Turquía</span></div><div class="p-vs">VS</div><div class="p-equipo"><span class="p-sigla" style="color:#B22234">USA</span><span class="p-nombre">EE.UU.</span></div></div><div class="p-info"><div class="p-grupo">Grupo D</div><div class="p-estadio">SoFi Stadium · Los Ángeles</div></div><div class="p-canales"><span class="canal win">Win</span><span class="canal dtgo">DGO</span></div><a class="p-analisis proximamente" href="#">Próximamente</a></div>
+
+      <div class="partido-card" data-fase="j3"><div class="p-fecha"><div class="p-dia">MIÉ 25 JUN</div><div class="p-hora">9:00 PM</div></div><div class="p-match"><div class="p-equipo"><span class="p-sigla" style="color:#D52B1E">PAR</span><span class="p-nombre">Paraguay</span></div><div class="p-vs">VS</div><div class="p-equipo"><span class="p-sigla" style="color:#00843D">AUS</span><span class="p-nombre">Australia</span></div></div><div class="p-info"><div class="p-grupo">Grupo D</div><div class="p-estadio">Levi's · San Francisco</div></div><div class="p-canales"><span class="canal win">Win</span><span class="canal dtgo">DGO</span></div><a class="p-analisis proximamente" href="#">Próximamente</a></div>
+
+      <div class="partido-card" data-fase="j3"><div class="p-fecha"><div class="p-dia">JUE 26 JUN</div><div class="p-hora">2:00 PM</div></div><div class="p-match"><div class="p-equipo"><span class="p-sigla" style="color:#EF2B2D">NOR</span><span class="p-nombre">Noruega</span></div><div class="p-vs">VS</div><div class="p-equipo"><span class="p-sigla" style="color:#002395">FRA</span><span class="p-nombre">Francia</span></div></div><div class="p-info"><div class="p-grupo">Grupo I</div><div class="p-estadio">Gillette · Boston</div></div><div class="p-canales"><span class="canal win">Win</span><span class="canal dtgo">DGO</span></div><a class="p-analisis proximamente" href="#">Próximamente</a></div>
+
+      <div class="partido-card" data-fase="j3"><div class="p-fecha"><div class="p-dia">JUE 26 JUN</div><div class="p-hora">2:00 PM</div></div><div class="p-match"><div class="p-equipo"><span class="p-sigla" style="color:#00853F">SEN</span><span class="p-nombre">Senegal</span></div><div class="p-vs">VS</div><div class="p-equipo"><span class="p-sigla" style="color:#CC0001">IRQ</span><span class="p-nombre">Irak</span></div></div><div class="p-info"><div class="p-grupo">Grupo I</div><div class="p-estadio">BMO Field · Toronto</div></div><div class="p-canales"><span class="canal win">Win</span><span class="canal dtgo">DGO</span></div><a class="p-analisis proximamente" href="#">Próximamente</a></div>
+
+      <div class="partido-card" data-fase="j3"><div class="p-fecha"><div class="p-dia">JUE 26 JUN</div><div class="p-hora">7:00 PM</div></div><div class="p-match"><div class="p-equipo"><span class="p-sigla" style="color:#003893">CPV</span><span class="p-nombre">Cabo Verde</span></div><div class="p-vs">VS</div><div class="p-equipo"><span class="p-sigla" style="color:#006233">SAU</span><span class="p-nombre">Arabia Saudita</span></div></div><div class="p-info"><div class="p-grupo">Grupo H</div><div class="p-estadio">NRG Stadium · Houston</div></div><div class="p-canales"><span class="canal win">Win</span><span class="canal dtgo">DGO</span></div><a class="p-analisis proximamente" href="#">Próximamente</a></div>
+
+      <div class="partido-card" data-fase="j3"><div class="p-fecha"><div class="p-dia">JUE 26 JUN</div><div class="p-hora">7:00 PM</div></div><div class="p-match"><div class="p-equipo"><span class="p-sigla" style="color:#001489">URU</span><span class="p-nombre">Uruguay</span></div><div class="p-vs">VS</div><div class="p-equipo"><span class="p-sigla" style="color:#AA151B">ESP</span><span class="p-nombre">España</span></div></div><div class="p-info"><div class="p-grupo">Grupo H</div><div class="p-estadio">Estadio Akron · Guadalajara</div></div><div class="p-canales"><span class="canal caracol">Caracol</span><span class="canal rcn">RCN</span><span class="canal dtgo">DGO</span></div><a class="p-analisis proximamente" href="#">Próximamente</a></div>
+
+      <div class="partido-card" data-fase="j3"><div class="p-fecha"><div class="p-dia">JUE 26 JUN</div><div class="p-hora">10:00 PM</div></div><div class="p-match"><div class="p-equipo"><span class="p-sigla" style="color:#C8102E">EGY</span><span class="p-nombre">Egipto</span></div><div class="p-vs">VS</div><div class="p-equipo"><span class="p-sigla" style="color:#239F40">IRN</span><span class="p-nombre">Irán</span></div></div><div class="p-info"><div class="p-grupo">Grupo G</div><div class="p-estadio">Lumen Field · Seattle</div></div><div class="p-canales"><span class="canal win">Win</span><span class="canal dtgo">DGO</span></div><a class="p-analisis proximamente" href="#">Próximamente</a></div>
+
+      <div class="partido-card" data-fase="j3"><div class="p-fecha"><div class="p-dia">JUE 26 JUN</div><div class="p-hora">10:00 PM</div></div><div class="p-match"><div class="p-equipo"><span class="p-sigla" style="color:#00247D">NZL</span><span class="p-nombre">Nueva Zelanda</span></div><div class="p-vs">VS</div><div class="p-equipo"><span class="p-sigla" style="color:#000000">BEL</span><span class="p-nombre">Bélgica</span></div></div><div class="p-info"><div class="p-grupo">Grupo G</div><div class="p-estadio">BC Place · Vancouver</div></div><div class="p-canales"><span class="canal win">Win</span><span class="canal dtgo">DGO</span></div><a class="p-analisis proximamente" href="#">Próximamente</a></div>
+
+      <div class="partido-card" data-fase="j3"><div class="p-fecha"><div class="p-dia">VIE 27 JUN</div><div class="p-hora">4:00 PM</div></div><div class="p-match"><div class="p-equipo"><span class="p-sigla" style="color:#DA121A">PAN</span><span class="p-nombre">Panamá</span></div><div class="p-vs">VS</div><div class="p-equipo"><span class="p-sigla" style="color:#CF142B">ENG</span><span class="p-nombre">Inglaterra</span></div></div><div class="p-info"><div class="p-grupo">Grupo L</div><div class="p-estadio">MetLife · Nueva York</div></div><div class="p-canales"><span class="canal win">Win</span><span class="canal dtgo">DGO</span></div><a class="p-analisis proximamente" href="#">Próximamente</a></div>
+
+      <div class="partido-card" data-fase="j3"><div class="p-fecha"><div class="p-dia">VIE 27 JUN</div><div class="p-hora">4:00 PM</div></div><div class="p-match"><div class="p-equipo"><span class="p-sigla" style="color:#FF0000">CRO</span><span class="p-nombre">Croacia</span></div><div class="p-vs">VS</div><div class="p-equipo"><span class="p-sigla" style="color:#006B3F">GHA</span><span class="p-nombre">Ghana</span></div></div><div class="p-info"><div class="p-grupo">Grupo L</div><div class="p-estadio">Lincoln Financial · Filadelfia</div></div><div class="p-canales"><span class="canal win">Win</span><span class="canal dtgo">DGO</span></div><a class="p-analisis proximamente" href="#">Próximamente</a></div>
+
+      <div class="partido-card" data-fase="j3"><div class="p-fecha"><div class="p-dia">VIE 27 JUN</div><div class="p-hora">9:00 PM</div></div><div class="p-match"><div class="p-equipo"><span class="p-sigla" style="color:#74ACDF">ARG</span><span class="p-nombre">Argentina</span></div><div class="p-vs">VS</div><div class="p-equipo"><span class="p-sigla" style="color:#007A3D">JOR</span><span class="p-nombre">Jordania</span></div></div><div class="p-info"><div class="p-grupo">Grupo J</div><div class="p-estadio">AT&T Stadium · Dallas</div></div><div class="p-canales"><span class="canal caracol">Caracol</span><span class="canal rcn">RCN</span><span class="canal dtgo">DGO</span></div><a class="p-analisis proximamente" href="#">Próximamente</a></div>
+
+      <div class="partido-card" data-fase="j3"><div class="p-fecha"><div class="p-dia">VIE 27 JUN</div><div class="p-hora">9:00 PM</div></div><div class="p-match"><div class="p-equipo"><span class="p-sigla" style="color:#006233">ALG</span><span class="p-nombre">Argelia</span></div><div class="p-vs">VS</div><div class="p-equipo"><span class="p-sigla" style="color:#ED2939">AUT</span><span class="p-nombre">Austria</span></div></div><div class="p-info"><div class="p-grupo">Grupo J</div><div class="p-estadio">Arrowhead · Kansas City</div></div><div class="p-canales"><span class="canal win">Win</span><span class="canal dtgo">DGO</span></div><a class="p-analisis proximamente" href="#">Próximamente</a></div>
+
+      <div class="partido-card" data-fase="j3"><div class="p-fecha"><div class="p-dia">VIE 27 JUN</div><div class="p-hora">7:00 PM</div></div><div class="p-match"><div class="p-equipo"><span class="p-sigla" style="color:#007A5E">COD</span><span class="p-nombre">RD Congo</span></div><div class="p-vs">VS</div><div class="p-equipo"><span class="p-sigla" style="color:#4F9A33">UZB</span><span class="p-nombre">Uzbekistán</span></div></div><div class="p-info"><div class="p-grupo">Grupo K</div><div class="p-estadio">Mercedes-Benz · Atlanta</div></div><div class="p-canales"><span class="canal disney">Disney+</span><span class="canal dtgo">DGO</span></div><a class="p-analisis proximamente" href="#">Próximamente</a></div>
+
+      <!-- COLOMBIA J3 -->
+      <div class="partido-card partido-colombia" data-fase="j3 colombia">
+        <div class="p-fecha"><div class="p-dia">VIE 27 JUN</div><div class="p-hora">6:30 PM</div></div>
+        <div class="p-match">
+          <div class="p-equipo col-equipo"><span class="p-sigla" style="color:#FCD116">🇨🇴 COL</span><span class="p-nombre">Colombia</span></div>
+          <div class="p-vs">VS</div>
+          <div class="p-equipo"><span class="p-sigla" style="color:#003DA5">POR</span><span class="p-nombre">Portugal</span></div>
+        </div>
+        <div class="p-info"><div class="p-grupo">Grupo K</div><div class="p-estadio">Hard Rock Stadium · Miami</div></div>
+        <div class="p-canales"><span class="canal caracol">Caracol</span><span class="canal rcn">RCN</span><span class="canal disney">Disney+</span><span class="canal dtgo">DGO</span></div>
+        <a class="p-analisis proximamente" href="#">Próximamente</a>
+      </div>
+
+    </div><!-- /jornada 3 -->
+
+    <!-- Fases eliminatorias -->
+    <div class="fase-titulo" data-fase="octavos">Dieciseisavos de final <span class="fase-fecha">· 1–6 de julio</span></div>
+    <div class="fase-placeholder" data-fase="octavos">Los 32 clasificados se definen al terminar la fase de grupos (27 jun).</div>
+
+    <div class="fase-titulo" data-fase="cuartos">Cuartos de final <span class="fase-fecha">· 10–12 de julio</span></div>
+    <div class="fase-placeholder" data-fase="cuartos">Los cruces se definen al terminar los dieciseisavos.</div>
+
+    <div class="fase-titulo" data-fase="semis">Semifinales <span class="fase-fecha">· 15–16 de julio</span></div>
+    <div class="fase-placeholder" data-fase="semis">Los cruces se definen al terminar los cuartos.</div>
+
+    <div class="fase-titulo" data-fase="final">Final <span class="fase-fecha">· 19 de julio · MetLife Stadium · Nueva York</span></div>
+    <div class="fase-placeholder" data-fase="final">El partido más grande. MetLife Stadium, Nueva Jersey. Todos los canales.</div>
 
   </section>
 </main>
 
 <footer>
   <div class="wrap foot">
-    <div class="resp">
-      <b>Juega con responsabilidad.</b> La Previa publica información de referencia;
-      <b>no es un pronóstico garantizado</b> ni asesoría financiera. +18.
-    </div>
-    <div class="who">FÚTBOL DE CANTINA · prototipo v1<br>Horarios y canales = ejemplo orientativo.</div>
+    <div class="resp"><b>Juega con responsabilidad.</b> La Previa publica información de referencia; <b>no es un pronóstico garantizado</b> ni asesoría financiera. +18.</div>
+    <div class="who">FÚTBOL DE CANTINA · prototipo v1<br>Horarios en hora Colombia · Fuente: El Tiempo / FIFA</div>
   </div>
 </footer>
 
 <nav class="bottom-nav" aria-label="Navegación">
-  <a href="index.html#partido" class="bnav-item" aria-label="El partido">
-    <span class="bnav-icon">⚽</span>
-    <span class="bnav-label">Partido</span>
-  </a>
-  <a href="index.html#formacion" class="bnav-item" aria-label="Formaciones">
-    <span class="bnav-icon">👥</span>
-    <span class="bnav-label">Formación</span>
-  </a>
-  <a href="partidos.html" class="bnav-item active" aria-label="Calendario">
-    <span class="bnav-icon">📅</span>
-    <span class="bnav-label">Calendario</span>
-  </a>
-  <a href="index.html#lista" class="bnav-item" aria-label="Síguenos">
-    <span class="bnav-icon">🔔</span>
-    <span class="bnav-label">Síguenos</span>
-  </a>
+  <a href="index.html#partido" class="bnav-item"><span class="bnav-icon">⚽</span><span class="bnav-label">Partido</span></a>
+  <a href="index.html#formacion" class="bnav-item"><span class="bnav-icon">👥</span><span class="bnav-label">Formación</span></a>
+  <a href="partidos.html" class="bnav-item active"><span class="bnav-icon">📅</span><span class="bnav-label">Calendario</span></a>
+  <a href="index.html#lista" class="bnav-item"><span class="bnav-icon">🔔</span><span class="bnav-label">Síguenos</span></a>
 </nav>
 
 <script src="main.js"></script>

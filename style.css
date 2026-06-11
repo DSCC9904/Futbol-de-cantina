@@ -1130,6 +1130,66 @@ footer {
 }
 
 /* ─────────────────────────────────────
+   CANALES RESUMEN (partidos.html)
+───────────────────────────────────── */
+.lede {
+  color: var(--muted);
+  font-size: clamp(13px, 1.8vw, 15px);
+  max-width: 66ch;
+  margin: 0 0 20px;
+}
+
+.canales-resumen {
+  background: rgba(23, 29, 39, 0.82);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 20px 22px;
+  margin-bottom: 24px;
+}
+
+.canales-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.canal-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.canal-info-txt {
+  font-size: 12.5px;
+  color: var(--muted);
+}
+.canal-info-txt b { color: var(--text); }
+
+.canales-nota {
+  font-size: 12px;
+  color: var(--muted);
+  font-style: italic;
+  margin: 0;
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+}
+
+/* Canal Paramount+ */
+.canal.paramount { background: #0064FF; color: #fff; }
+
+/* Partido destacado de Colombia */
+.partido-colombia {
+  border-color: rgba(252, 209, 22, 0.45);
+  background: rgba(252, 209, 22, 0.06);
+}
+.partido-colombia:hover { border-color: var(--amber); }
+
+.col-equipo .p-sigla { font-size: 20px; }
+
+/* ─────────────────────────────────────
    ACCESIBILIDAD
 ───────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
