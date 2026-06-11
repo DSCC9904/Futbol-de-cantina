@@ -313,177 +313,161 @@
       </div>
 
       <div class="mapa-svg-wrap">
-        <!-- Viewbox: 700x440. Fórmulas de proyección:
-             x = (lon + 130) / 64 * 700
-             y = (52 - lat) / 34 * 440  -->
-        <svg class="mapa" viewBox="0 0 700 440" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mapa de sedes del Mundial 2026">
-          <!-- Fondo -->
-          <rect width="700" height="440" fill="rgba(10,14,20,1)"/>
+        <!-- Proyección equirectangular:
+             x = (lon + 132) / 72 * 840
+             y = (57 - lat)  / 44 * 540  -->
+        <svg class="mapa" id="mapa-svg" viewBox="0 0 840 540" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mapa de sedes del Mundial 2026">
+          <!-- Fondo océano -->
+          <rect width="840" height="540" fill="rgb(6,12,22)"/>
 
-          <!-- Grilla lat/lon -->
-          <g stroke="rgba(42,50,63,0.6)" stroke-width="0.5">
-            <!-- Líneas de latitud: 20,25,30,35,40,45,50 -->
-            <line x1="0" y1="352" x2="700" y2="352"/><text x="4" y="349" fill="#3a4555" font-size="8" font-family="monospace">20°N</text>
-            <line x1="0" y1="287" x2="700" y2="287"/><text x="4" y="284" fill="#3a4555" font-size="8" font-family="monospace">25°N</text>
-            <line x1="0" y1="222" x2="700" y2="222"/><text x="4" y="219" fill="#3a4555" font-size="8" font-family="monospace">30°N</text>
-            <line x1="0" y1="157" x2="700" y2="157"/><text x="4" y="154" fill="#3a4555" font-size="8" font-family="monospace">35°N</text>
-            <line x1="0" y1="92"  x2="700" y2="92"/><text  x="4" y="89"  fill="#3a4555" font-size="8" font-family="monospace">40°N</text>
-            <line x1="0" y1="27"  x2="700" y2="27"/><text  x="4" y="24"  fill="#3a4555" font-size="8" font-family="monospace">45°N</text>
-            <!-- Líneas de longitud: 70,80,90,100,110,120,130 -->
-            <line x1="656" y1="0" x2="656" y2="440"/><text x="649" y="435" fill="#3a4555" font-size="8" font-family="monospace">70°</text>
-            <line x1="547" y1="0" x2="547" y2="440"/><text x="540" y="435" fill="#3a4555" font-size="8" font-family="monospace">80°</text>
-            <line x1="438" y1="0" x2="438" y2="440"/><text x="431" y="435" fill="#3a4555" font-size="8" font-family="monospace">90°</text>
-            <line x1="328" y1="0" x2="328" y2="440"/><text x="321" y="435" fill="#3a4555" font-size="8" font-family="monospace">100°</text>
-            <line x1="219" y1="0" x2="219" y2="440"/><text x="212" y="435" fill="#3a4555" font-size="8" font-family="monospace">110°</text>
-            <line x1="109" y1="0" x2="109" y2="440"/><text x="102" y="435" fill="#3a4555" font-size="8" font-family="monospace">120°</text>
+          <!-- Grilla lat/lon — nueva proyección x=(lon+132)/72*840, y=(57-lat)/44*540 -->
+          <g stroke="rgba(42,50,63,0.5)" stroke-width="0.5" font-size="9" font-family="monospace" fill="#2e3a4a">
+            <line x1="0" y1="454" x2="840" y2="454"/><text x="4" y="451">20°N</text>
+            <line x1="0" y1="393" x2="840" y2="393"/><text x="4" y="390">25°N</text>
+            <line x1="0" y1="331" x2="840" y2="331"/><text x="4" y="328">30°N</text>
+            <line x1="0" y1="270" x2="840" y2="270"/><text x="4" y="267">35°N</text>
+            <line x1="0" y1="209" x2="840" y2="209"/><text x="4" y="206">40°N</text>
+            <line x1="0" y1="147" x2="840" y2="147"/><text x="4" y="144">45°N</text>
+            <line x1="0" y1="86"  x2="840" y2="86"/><text  x="4" y="83" >50°N</text>
+            <line x1="723" y1="0" x2="723" y2="540"/><text x="700" y="532">70°O</text>
+            <line x1="607" y1="0" x2="607" y2="540"/><text x="584" y="532">80°O</text>
+            <line x1="490" y1="0" x2="490" y2="540"/><text x="467" y="532">90°O</text>
+            <line x1="373" y1="0" x2="373" y2="540"/><text x="347" y="532">100°O</text>
+            <line x1="257" y1="0" x2="257" y2="540"/><text x="231" y="532">110°O</text>
+            <line x1="140" y1="0" x2="140" y2="540"/><text x="114" y="532">120°O</text>
+            <line x1="23"  y1="0" x2="23"  y2="540"/><text x="3"   y="532">130°O</text>
           </g>
 
-          <!-- Silueta simplificada de Norteamérica -->
-          <path d="M85,10 L90,25 L75,40 L72,60 L80,75 L75,90 L68,95
-                   L65,110 L70,130 L62,145 L58,160 L60,175 L55,195
-                   L52,210 L50,230 L55,240 L58,255 L62,265 L68,278
-                   L75,285 L82,295 L90,308 L100,318 L112,325
-                   L120,330 L130,338 L140,342 L152,348 L165,352
-                   L175,358 L185,362 L195,368 L205,372 L218,378
-                   L230,382 L240,385 L252,388 L265,390 L278,392
-                   L292,393 L305,393 L318,394 L332,395 L345,395
-                   L355,393 L365,390 L378,388 L388,385 L398,382
-                   L408,380 L418,378 L428,375 L438,372 L448,368
-                   L458,364 L468,358 L478,352 L488,345 L498,338
-                   L510,330 L518,322 L525,315 L532,308 L538,300
-                   L545,292 L552,285 L558,275 L563,265 L568,255
-                   L572,244 L576,232 L580,220 L584,208 L588,196
-                   L591,184 L594,172 L596,160 L598,148 L600,136
-                   L601,124 L602,112 L602,100 L601,88 L600,76
-                   L598,64 L595,52 L591,40 L588,30 L585,20
-                   L580,12 L570,8 L555,6 L540,5 L520,5 L500,6
-                   L480,7 L460,8 L440,9 L420,9 L400,9 L380,9
-                   L360,9 L340,9 L320,9 L300,9 L280,9 L260,9
-                   L240,9 L220,9 L200,9 L180,9 L160,9 L140,9
-                   L120,9 L100,9 L85,10 Z"
-                fill="rgba(28,35,47,0.7)" stroke="rgba(42,50,63,0.9)" stroke-width="1"/>
+          <!-- ══ CANADÁ (cubre norte del mapa) ══ -->
+          <path d="M 88,101 L 70,78 L 48,52 L 20,28 L 0,8 L 0,0 L 840,0 L 840,55 L 810,72 L 780,82 L 760,96 L 748,113
+                   L 697,136 L 659,150 L 618,162 L 583,175 L 536,175 L 558,131 L 466,124
+                   L 410,95 L 257,95 L 175,95 L 88,101 Z"
+               fill="rgb(22,32,46)" stroke="rgb(50,68,90)" stroke-width="1.2"/>
+          <text x="200" y="55" fill="rgba(120,145,170,0.6)" font-size="13" font-family="monospace" font-weight="bold" letter-spacing="3">CANADÁ</text>
 
-          <!-- México silueta simplificada -->
-          <path d="M165,352 L175,358 L182,365 L188,372 L192,382
-                   L196,392 L200,402 L205,410 L210,418 L215,426
-                   L220,432 L225,438 L230,440 L245,440 L255,435
-                   L262,428 L268,420 L274,412 L278,405 L280,396
-                   L284,388 L288,380 L292,372 L296,365 L300,360
-                   L306,354 L312,350 L318,348 L325,346 L332,345
-                   L338,344 L345,344 L352,344 L358,345 L365,346
-                   L372,348 L378,350 L385,352 L390,354 L395,357
-                   L400,360 L405,363 L410,367 L415,371 L420,375
-                   L428,378 L438,372 L428,365 L418,360 L408,356
-                   L398,352 L388,349 L378,346 L368,344 L358,342
-                   L348,341 L338,341 L328,341 L318,342 L308,343
-                   L298,345 L288,348 L278,352 L268,356 L258,362
-                   L248,368 L240,374 L232,380 L226,386 L220,393
-                   L216,400 L212,408 L208,416 L204,424 L200,432
-                   L196,424 L192,416 L188,408 L184,400 L180,392
-                   L176,384 L172,376 L168,368 L165,360 L165,352 Z"
-                fill="rgba(28,35,47,0.5)" stroke="rgba(42,50,63,0.5)" stroke-width="0.8"/>
+          <!-- ══ USA (48 estados contiguos) ══ -->
+          <path d="M 88,101 L 94,118 L 94,129 L 88,169 L 91,185
+                   L 107,231 L 114,238 L 140,274 L 163,283 L 178,298
+                   L 249,312 L 303,306 L 340,333 L 366,334 L 382,356 L 403,376
+                   L 407,354 L 434,332 L 494,328 L 519,323
+                   L 563,331 L 578,355 L 603,388 L 607,365 L 590,320
+                   L 610,292 L 665,263 L 663,242 L 671,224 L 676,217
+                   L 697,196 L 720,187 L 733,180 L 767,149 L 757,113
+                   L 697,136 L 659,150 L 618,162 L 583,175 L 536,175
+                   L 558,131 L 466,124 L 410,95 L 257,95 L 175,95 L 88,101 Z"
+               fill="rgb(28,38,54)" stroke="rgb(55,75,100)" stroke-width="1.3"/>
+          <text x="430" y="220" fill="rgba(120,145,170,0.55)" font-size="14" font-family="monospace" font-weight="bold" letter-spacing="3">USA</text>
 
-          <!-- SEDES — cada g.sede-dot tiene data-id para JS -->
-          <!-- x = (lon+130)/64*700    y = (52-lat)/34*440 -->
+          <!-- ══ MÉXICO ══ -->
+          <!-- Baja California (peninsula) como path separado -->
+          <path d="M 178,298 L 188,316 L 200,348 L 215,374 L 234,397 L 248,414 L 261,418
+                   L 256,403 L 252,385 L 253,368 L 258,355 L 262,340
+                   L 249,312 L 222,301 L 178,298 Z"
+               fill="rgb(34,28,46)" stroke="rgb(70,55,95)" stroke-width="1"/>
+          <!-- México continental -->
+          <path d="M 178,298 L 222,301 L 249,312
+                   L 262,340 L 258,355 L 260,368 L 263,390
+                   L 295,400 L 310,437 L 329,460 L 361,479
+                   L 403,495 L 433,500 L 469,495 L 516,472
+                   L 534,440 L 521,447 L 494,425
+                   L 406,413 L 403,376
+                   L 382,356 L 366,334 L 340,333 L 303,306 L 249,312 Z"
+               fill="rgb(34,28,46)" stroke="rgb(70,55,95)" stroke-width="1.2"/>
+          <text x="340" y="430" fill="rgba(140,110,180,0.55)" font-size="11" font-family="monospace" font-weight="bold" letter-spacing="2">MÉXICO</text>
 
-          <!-- 1. Vancouver BC Place: lat=49.3, lon=-123.1 → x=75, y=34 -->
-          <g class="sede-dot" data-id="vancouver" transform="translate(75,34)">
-            <circle class="outer" r="9" /><circle class="inner" r="4" />
-            <text y="22" text-anchor="middle" fill="#828D9C" font-size="9" font-family="monospace">VAN</text>
+          <!-- Frontera USA-México destacada -->
+          <path d="M 178,298 L 249,312 L 303,306 L 340,333 L 366,334 L 382,356 L 403,376"
+               fill="none" stroke="rgba(242,179,61,0.25)" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+          <!-- ══ SEDES — proyección x=(lon+132)/72*840, y=(57-lat)/44*540 ══ -->
+
+          <!-- Vancouver BC Place: 49.3°N,123.1°W → 104,94 -->
+          <g class="sede-dot" data-id="vancouver" transform="translate(104,94)">
+            <circle class="outer" r="9"/><circle class="inner" r="4"/>
+            <text y="-13" text-anchor="middle" fill="#828D9C" font-size="9" font-family="monospace">VAN</text>
           </g>
-
-          <!-- 2. Seattle Lumen: lat=47.6, lon=-122.3 → x=84, y=52 -->
-          <g class="sede-dot" data-id="seattle" transform="translate(84,52)">
-            <circle class="outer" r="9" /><circle class="inner" r="4" />
-            <text y="-13" text-anchor="middle" fill="#828D9C" font-size="9" font-family="monospace">SEA</text>
+          <!-- Seattle Lumen: 47.6°N,122.3°W → 113,115 -->
+          <g class="sede-dot" data-id="seattle" transform="translate(113,115)">
+            <circle class="outer" r="9"/><circle class="inner" r="4"/>
+            <text y="22" text-anchor="middle" fill="#828D9C" font-size="9" font-family="monospace">SEA</text>
           </g>
-
-          <!-- 3. San Francisco Levi's: lat=37.4, lon=-122.0 → x=87, y=171 -->
-          <g class="sede-dot" data-id="sanfrancisco" transform="translate(87,171)">
-            <circle class="outer" r="9" /><circle class="inner" r="4" />
+          <!-- San Francisco Levi's: 37.4°N,122.0°W → 117,240 -->
+          <g class="sede-dot" data-id="sanfrancisco" transform="translate(117,240)">
+            <circle class="outer" r="9"/><circle class="inner" r="4"/>
             <text y="-13" text-anchor="middle" fill="#828D9C" font-size="9" font-family="monospace">SF</text>
           </g>
-
-          <!-- 4. Los Ángeles SoFi: lat=33.9, lon=-118.3 → x=120, y=235 -->
-          <g class="sede-dot" data-id="losangeles" transform="translate(120,235)">
-            <circle class="outer" r="9" /><circle class="inner" r="4" />
+          <!-- Los Ángeles SoFi: 33.9°N,118.3°W → 160,283 -->
+          <g class="sede-dot" data-id="losangeles" transform="translate(160,283)">
+            <circle class="outer" r="9"/><circle class="inner" r="4"/>
             <text y="22" text-anchor="middle" fill="#828D9C" font-size="9" font-family="monospace">LA</text>
           </g>
-
-          <!-- 5. Toronto BMO: lat=43.6, lon=-79.4 → x=556, y=122 -->
-          <g class="sede-dot" data-id="toronto" transform="translate(556,122)">
-            <circle class="outer" r="9" /><circle class="inner" r="4" />
-            <text y="-13" text-anchor="middle" fill="#828D9C" font-size="9" font-family="monospace">TOR</text>
-          </g>
-
-          <!-- 6. Boston Gillette: lat=42.1, lon=-71.3 → x=641, y=140 -->
-          <g class="sede-dot" data-id="boston" transform="translate(641,140)">
-            <circle class="outer" r="9" /><circle class="inner" r="4" />
-            <text y="-13" text-anchor="middle" fill="#828D9C" font-size="9" font-family="monospace">BOS</text>
-          </g>
-
-          <!-- 7. Nueva York MetLife: lat=40.8, lon=-74.1 → x=621, y=157 -->
-          <g class="sede-dot" data-id="nuevayork" transform="translate(621,157)">
-            <circle class="outer" r="9" /><circle class="inner" r="4" />
-            <text y="22" text-anchor="middle" fill="#828D9C" font-size="9" font-family="monospace">NYC</text>
-          </g>
-
-          <!-- 8. Filadelfia Lincoln: lat=39.9, lon=-75.2 → x=607, y=167 -->
-          <g class="sede-dot" data-id="filadelfia" transform="translate(607,167)">
-            <circle class="outer" r="9" /><circle class="inner" r="4" />
-            <text y="-13" x="-10" text-anchor="middle" fill="#828D9C" font-size="9" font-family="monospace">PHI</text>
-          </g>
-
-          <!-- 9. Kansas City Arrowhead: lat=39.0, lon=-94.5 → x=390, y=179 -->
-          <g class="sede-dot" data-id="kansascity" transform="translate(390,179)">
-            <circle class="outer" r="9" /><circle class="inner" r="4" />
+          <!-- Kansas City Arrowhead: 39.0°N,94.5°W → 437,221 -->
+          <g class="sede-dot" data-id="kansascity" transform="translate(437,221)">
+            <circle class="outer" r="9"/><circle class="inner" r="4"/>
             <text y="-13" text-anchor="middle" fill="#828D9C" font-size="9" font-family="monospace">KC</text>
           </g>
-
-          <!-- 10. Atlanta Mercedes-Benz: lat=33.8, lon=-84.4 → x=500, y=236 -->
-          <g class="sede-dot" data-id="atlanta" transform="translate(500,236)">
-            <circle class="outer" r="9" /><circle class="inner" r="4" />
-            <text y="22" text-anchor="middle" fill="#828D9C" font-size="9" font-family="monospace">ATL</text>
-          </g>
-
-          <!-- 11. Dallas AT&T: lat=32.7, lon=-97.1 → x=361, y=249 -->
-          <g class="sede-dot" data-id="dallas" transform="translate(361,249)">
-            <circle class="outer" r="9" /><circle class="inner" r="4" />
+          <!-- Dallas AT&T: 32.7°N,97.1°W → 407,298 -->
+          <g class="sede-dot" data-id="dallas" transform="translate(407,298)">
+            <circle class="outer" r="9"/><circle class="inner" r="4"/>
             <text y="22" text-anchor="middle" fill="#828D9C" font-size="9" font-family="monospace">DAL</text>
           </g>
-
-          <!-- 12. Houston NRG: lat=29.7, lon=-95.4 → x=380, y=297 -->
-          <g class="sede-dot" data-id="houston" transform="translate(380,297)">
-            <circle class="outer" r="9" /><circle class="inner" r="4" />
+          <!-- Houston NRG: 29.7°N,95.4°W → 427,334 -->
+          <g class="sede-dot" data-id="houston" transform="translate(427,334)">
+            <circle class="outer" r="9"/><circle class="inner" r="4"/>
             <text y="22" text-anchor="middle" fill="#828D9C" font-size="9" font-family="monospace">HOU</text>
           </g>
-
-          <!-- COLOMBIA sede: Miami Hard Rock lat=25.9, lon=-80.2 → x=543, y=336 -->
-          <g class="sede-dot colombia" data-id="miami" transform="translate(543,336)">
-            <circle class="outer" r="11" /><circle class="inner" r="5" />
-            <text y="25" text-anchor="middle" fill="#FCD116" font-size="9" font-family="monospace" font-weight="bold">MIA 🇨🇴</text>
+          <!-- Atlanta Mercedes-Benz: 33.8°N,84.4°W → 555,284 -->
+          <g class="sede-dot" data-id="atlanta" transform="translate(555,284)">
+            <circle class="outer" r="9"/><circle class="inner" r="4"/>
+            <text y="22" text-anchor="middle" fill="#828D9C" font-size="9" font-family="monospace">ATL</text>
           </g>
-
-          <!-- 14. Guadalajara Akron: lat=20.7, lon=-103.4 → x=292, y=394 -->
-          <!-- COLOMBIA sede 2 -->
-          <g class="sede-dot colombia" data-id="guadalajara" transform="translate(292,394)">
-            <circle class="outer" r="11" /><circle class="inner" r="5" />
-            <text y="-15" text-anchor="middle" fill="#FCD116" font-size="9" font-family="monospace" font-weight="bold">GDL 🇨🇴</text>
+          <!-- Toronto BMO: 43.6°N,79.4°W → 613,164 -->
+          <g class="sede-dot" data-id="toronto" transform="translate(613,164)">
+            <circle class="outer" r="9"/><circle class="inner" r="4"/>
+            <text y="-13" text-anchor="middle" fill="#828D9C" font-size="9" font-family="monospace">TOR</text>
           </g>
-
-          <!-- 15. Monterrey BBVA: lat=25.7, lon=-100.3 → x=324, y=339 -->
-          <g class="sede-dot" data-id="monterrey" transform="translate(324,339)">
-            <circle class="outer" r="9" /><circle class="inner" r="4" />
+          <!-- Filadelfia Lincoln: 39.9°N,75.2°W → 662,210 -->
+          <g class="sede-dot" data-id="filadelfia" transform="translate(662,210)">
+            <circle class="outer" r="9"/><circle class="inner" r="4"/>
+            <text y="-13" text-anchor="middle" fill="#828D9C" font-size="9" font-family="monospace">PHI</text>
+          </g>
+          <!-- Nueva York MetLife: 40.8°N,74.1°W → 675,198 -->
+          <g class="sede-dot" data-id="nuevayork" transform="translate(675,198)">
+            <circle class="outer" r="9"/><circle class="inner" r="4"/>
+            <text y="22" text-anchor="middle" fill="#828D9C" font-size="9" font-family="monospace">NYC</text>
+          </g>
+          <!-- Boston Gillette: 42.1°N,71.3°W → 707,182 -->
+          <g class="sede-dot" data-id="boston" transform="translate(707,182)">
+            <circle class="outer" r="9"/><circle class="inner" r="4"/>
+            <text y="-13" text-anchor="middle" fill="#828D9C" font-size="9" font-family="monospace">BOS</text>
+          </g>
+          <!-- Monterrey BBVA: 25.7°N,100.3°W → 370,383 -->
+          <g class="sede-dot" data-id="monterrey" transform="translate(370,383)">
+            <circle class="outer" r="9"/><circle class="inner" r="4"/>
             <text y="-13" text-anchor="middle" fill="#828D9C" font-size="9" font-family="monospace">MTY</text>
           </g>
-
-          <!-- COLOMBIA sede 3: Ciudad de México Azteca lat=19.3, lon=-99.2 → x=336, y=413 -->
-          <g class="sede-dot colombia" data-id="cdmx" transform="translate(336,413)">
-            <circle class="outer" r="11" /><circle class="inner" r="5" />
+          <!-- COLOMBIA: Miami Hard Rock: 25.9°N,80.2°W → 604,381 -->
+          <g class="sede-dot colombia" data-id="miami" transform="translate(604,381)">
+            <circle class="outer" r="11"/><circle class="inner" r="5"/>
+            <text y="25" text-anchor="middle" fill="#FCD116" font-size="9" font-family="monospace" font-weight="bold">MIA 🇨🇴</text>
+          </g>
+          <!-- COLOMBIA: Guadalajara Akron: 20.7°N,103.4°W → 333,445 -->
+          <g class="sede-dot colombia" data-id="guadalajara" transform="translate(333,445)">
+            <circle class="outer" r="11"/><circle class="inner" r="5"/>
+            <text y="-15" text-anchor="middle" fill="#FCD116" font-size="9" font-family="monospace" font-weight="bold">GDL 🇨🇴</text>
+          </g>
+          <!-- COLOMBIA: CDMX Azteca: 19.3°N,99.2°W → 383,462 -->
+          <g class="sede-dot colombia" data-id="cdmx" transform="translate(383,462)">
+            <circle class="outer" r="11"/><circle class="inner" r="5"/>
             <text y="26" text-anchor="middle" fill="#FCD116" font-size="9" font-family="monospace" font-weight="bold">CDMX 🇨🇴</text>
           </g>
 
         </svg>
+      </div>
+
+      <!-- Barra de coordenadas del cursor -->
+      <div id="mapa-coords" style="padding:8px 18px; border-top:1px solid var(--line); font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--amber); background:rgba(10,14,20,0.9); letter-spacing:.06em;">
+        ↖ Mueve el cursor sobre el mapa para ver las coordenadas geográficas
       </div>
 
       <!-- Panel de info de la sede seleccionada -->
@@ -1003,6 +987,30 @@ function abrirSede(id) {
 document.querySelectorAll('.sede-dot').forEach(function(g) {
   g.addEventListener('click', function() { abrirSede(this.dataset.id); });
 });
+
+/* ── Coordenadas del cursor sobre el mapa ── */
+var mapaSvg    = document.getElementById('mapa-svg');
+var coordsBar  = document.getElementById('mapa-coords');
+
+if (mapaSvg && coordsBar) {
+  mapaSvg.addEventListener('mousemove', function(e) {
+    var rect = mapaSvg.getBoundingClientRect();
+    var px = e.clientX - rect.left;
+    var py = e.clientY - rect.top;
+    /* escalar píxeles CSS a coordenadas del viewBox 840×540 */
+    var vx = px / rect.width  * 840;
+    var vy = py / rect.height * 540;
+    /* proyección inversa: x=(lon+132)/72*840  y=(57-lat)/44*540 */
+    var lon = vx / 840 * 72 - 132;
+    var lat = 57 - vy / 540 * 44;
+    var latStr = Math.abs(lat).toFixed(2) + '°' + (lat >= 0 ? 'N' : 'S');
+    var lonStr = Math.abs(lon).toFixed(2) + '°' + (lon <= 0 ? 'O' : 'E');
+    coordsBar.textContent = '📍 ' + latStr + '  /  ' + lonStr;
+  });
+  mapaSvg.addEventListener('mouseleave', function() {
+    coordsBar.textContent = '↖ Mueve el cursor sobre el mapa para ver las coordenadas geográficas';
+  });
+}
 </script>
 </body>
 </html>
