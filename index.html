@@ -368,6 +368,15 @@
     </div>
   </section>
 
+  <!-- ── HISTÓRICO DE PARTIDOS ── -->
+  <section id="historico" style="padding:0 0 32px">
+    <div class="hist-header">
+      <span class="hist-titulo">📋 Partidos anteriores</span>
+      <button class="hist-toggle" id="hist-toggle" onclick="toggleHistorico()">Ver ▾</button>
+    </div>
+    <div id="hist-lista" hidden></div>
+  </section>
+
   <!-- ── SECCIÓN 2: Formaciones ── -->
   <section class="formacion-sec" id="formacion">
     <div class="eyebrow">Alineaciones · Datos de ejemplo</div>
@@ -667,41 +676,59 @@
 <!-- Tooltip de estadísticas -->
 <div class="tooltip-box" id="tooltip" hidden></div>
 
+<script src="datos.js"></script>
 <script src="main.js"></script>
 
 <script>
 /* ══════════════════════════════════════════════════════════════
-   CONFIGURACIÓN DEL PARTIDO ACTIVO
-   ── marcador: actualiza manualmente mientras no haya API key
-   ── statsVivo: llena con datos del partido en curso
-   ── fixtureId + apiKey: activa actualizaciones automáticas
+   AUTO-ROTACIÓN: detecta el partido activo o el próximo
+   usando HORARIO y RESULTADOS_PARTIDOS de datos.js
 ══════════════════════════════════════════════════════════════ */
-var PARTIDO = {
-  lat:        19.3029,
-  lon:       -99.1504,
-  fixtureId:  null,
-  apiKey:     '',
+var dp         = detectarPartido();
+var matchShow  = dp.actual || dp.proximo;   /* partido a mostrar */
+var ahora      = Date.now();
 
-  /* ▼ ACTUALIZA ESTOS DATOS MIENTRAS DURE EL PARTIDO ▼ */
-  marcador: {
-    localNom:       'MEX',
-    visitanteNom:   'RSA',
-    golesLocal:      2,
-    golesVisitante:  0,
-    minuto:          90,
-    estado:         'FT'   /* NS | 1H | HT | 2H | FT */
-  },
-  statsVivo: {
-    posesion:  { local: '62%', visitante: '38%' },
-    tiros:     { local: 8,     visitante: 3     },
-    corners:   { local: 6,     visitante: 2     },
-    amarillas: { local: 1,     visitante: 3     },
-    rojas:     { local: 0,     visitante: 0     },
-    faltas:    { local: 9,     visitante: 14    },
-    xg:        { local: '2.4', visitante: '0.3' }
-  }
-  /* ▲ ——————————————————————————————————————————— ▲ */
+/* Construir objeto PARTIDO desde datos.js */
+var PARTIDO = {
+  lat:       matchShow ? matchShow.lat : 19.3029,
+  lon:       matchShow ? matchShow.lon : -99.1504,
+  fixtureId: null,
+  apiKey:    '',
+  marcador:  null,
+  statsVivo: null
 };
+
+/* Si hay resultado disponible (partido jugado o en curso) */
+if (matchShow) {
+  var res = RESULTADOS_PARTIDOS[matchShow.id];
+  if (res && res.jugado) {
+    var inicioMs = new Date(matchShow.utc).getTime();
+    var diffMin  = Math.floor((ahora - inicioMs) / 60000);
+    var estado   = diffMin >= 115 ? 'FT' : diffMin >= 46 ? '2H' : diffMin >= 45 ? 'HT' : 'NS';
+    PARTIDO.marcador = {
+      localNom:       matchShow.localSig,
+      visitanteNom:   matchShow.visitanteSig,
+      golesLocal:     res.golesLocal,
+      golesVisitante: res.golesVisitante,
+      minuto:         Math.min(90, Math.max(1, diffMin)),
+      estado:         estado
+    };
+    PARTIDO.statsVivo = res.stats;
+  }
+}
+
+/* Actualizar cabecera del dossier con el partido real */
+if (matchShow) {
+  var metaEl = document.querySelector('.dossier-top .meta');
+  var estadioEl = document.querySelector('.meta-estadio');
+  var fechaUTC  = new Date(matchShow.utc);
+  var optsF = { timeZone:'America/Bogota', day:'2-digit', month:'short', hour:'2-digit', minute:'2-digit' };
+  var fechaStr = fechaUTC.toLocaleDateString('es-CO', { timeZone:'America/Bogota', day:'2-digit', month:'short' }).toUpperCase();
+  var horaStr  = fechaUTC.toLocaleTimeString('es-CO', { timeZone:'America/Bogota', hour:'2-digit', minute:'2-digit' });
+  if (metaEl)   metaEl.textContent = fechaStr + ' · ' + horaStr + ' (COL) · GRUPO ' + matchShow.grupo;
+  if (estadioEl) estadioEl.innerHTML = matchShow.estadio + ' —'
+    + ' <a href="sedes.html#' + matchShow.estadioId + '" class="link-sede">consulta condiciones geográficas del estadio ↗</a>';
+}
 
 function cargarClima() {
   var url = 'https://api.open-meteo.com/v1/forecast'
@@ -947,8 +974,70 @@ function cargarPartidoVivo() {
     .catch(function() {});
 }
 
+/* ── Histórico de partidos ── */
+function toggleHistorico() {
+  var lista  = document.getElementById('hist-lista');
+  var btn    = document.getElementById('hist-toggle');
+  lista.hidden = !lista.hidden;
+  btn.textContent = lista.hidden ? 'Ver ▾' : 'Ocultar ▴';
+  if (!lista.hidden && !lista.innerHTML) renderHistorico();
+}
+
+function renderHistorico() {
+  var lista = document.getElementById('hist-lista');
+  if (!lista) return;
+  var pasados = HORARIO.filter(function(p) {
+    var fin = new Date(p.utc).getTime() + DURACION_MS + POST_MATCH_MS;
+    return Date.now() > fin && RESULTADOS_PARTIDOS[p.id];
+  });
+  if (!pasados.length) {
+    lista.innerHTML = '<p style="color:var(--muted);font-size:13px;padding:12px 0">Aún no hay partidos en el historial.</p>';
+    return;
+  }
+  var LSTAT = { posesion:'Posesión', tiros:'Tiros al arco', corners:'Corners', amarillas:'Amarillas', rojas:'Rojas', faltas:'Faltas', xg:'xG' };
+  lista.innerHTML = pasados.map(function(p) {
+    var r   = RESULTADOS_PARTIDOS[p.id];
+    var dt  = new Date(p.utc);
+    var fec = dt.toLocaleDateString('es-CO', { timeZone:'America/Bogota', day:'2-digit', month:'short' }).toUpperCase();
+    var statsHtml = Object.keys(r.stats || {}).map(function(k) {
+      var s = r.stats[k];
+      return '<div class="hist-stat"><span class="hs-l">' + s.local + '</span>'
+           + '<span class="hs-k">' + (LSTAT[k]||k) + '</span>'
+           + '<span class="hs-r">' + s.visitante + '</span></div>';
+    }).join('');
+    return '<div class="hist-card">'
+      + '<div class="hist-card-top">'
+      + '<span class="hc-fecha">' + fec + ' · Grupo ' + p.grupo + '</span>'
+      + '<span class="hc-score">' + p.localSig + ' <b>' + r.golesLocal + ' — ' + r.golesVisitante + '</b> ' + p.visitanteSig + '</span>'
+      + '<span class="hc-estadio">' + p.estadio + '</span>'
+      + '</div>'
+      + '<div class="hist-stats">' + statsHtml + '</div>'
+      + '</div>';
+  }).join('');
+}
+
+/* ── Mostrar resultado en tarjeta del calendario (si está abierta) ── */
+function marcarResultadosCalendario() {
+  document.querySelectorAll('.partido-card').forEach(function(card) {
+    var siglas = card.querySelectorAll('.p-sigla');
+    if (siglas.length < 2) return;
+    var sigL = siglas[0].textContent.replace(/[^A-Z]/g,'').trim();
+    var sigR = siglas[1].textContent.replace(/[^A-Z]/g,'').trim();
+    var res  = RESULTADOS_PARTIDOS[sigL + '-' + sigR];
+    if (!res) return;
+    var vsEl = card.querySelector('.p-vs');
+    if (vsEl && !vsEl.querySelector('.p-score')) {
+      vsEl.innerHTML = '<span class="p-score">' + res.golesLocal + ' — ' + res.golesVisitante + '</span>';
+      vsEl.classList.add('tiene-resultado');
+      card.classList.add('jugado');
+    }
+  });
+}
+
 /* Arrancar */
 aplicarMarcadorManual();
+renderHistorico();
+marcarResultadosCalendario();
 if (PARTIDO.fixtureId && PARTIDO.apiKey) {
   setInterval(cargarPartidoVivo, 60 * 1000);
 }

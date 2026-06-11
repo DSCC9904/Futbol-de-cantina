@@ -558,86 +558,10 @@
   <a href="index.html#lista" class="bnav-item"><span class="bnav-icon">🔔</span><span class="bnav-label">Síguenos</span></a>
 </nav>
 
+<script src="datos.js"></script>
 <script src="main.js"></script>
 <script>
-/* ══════════════════════════════════════════════════════════════
-   TABLA DE POSICIONES — actualiza manualmente después de c/partido
-   Orden automático: pts → dif. goles → goles a favor
-══════════════════════════════════════════════════════════════ */
-var CLASIFICACION = {
-  A: [
-    { sig:'MEX', nom:'México',        pj:1, pg:1, pe:0, pp:0, gf:2, gc:0, pts:3 },
-    { sig:'RSA', nom:'Sudáfrica',     pj:1, pg:0, pe:0, pp:1, gf:0, gc:2, pts:0 },
-    { sig:'KOR', nom:'Corea del Sur', pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
-    { sig:'CZE', nom:'Rep. Checa',    pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 }
-  ],
-  B: [
-    { sig:'CAN', nom:'Canadá',  pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
-    { sig:'BIH', nom:'Bosnia',  pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
-    { sig:'QAT', nom:'Catar',   pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
-    { sig:'SUI', nom:'Suiza',   pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 }
-  ],
-  C: [
-    { sig:'BRA', nom:'Brasil',    pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
-    { sig:'MAR', nom:'Marruecos', pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
-    { sig:'SCO', nom:'Escocia',   pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
-    { sig:'HAI', nom:'Haití',     pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 }
-  ],
-  D: [
-    { sig:'USA', nom:'Estados Unidos', pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
-    { sig:'PAR', nom:'Paraguay',       pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
-    { sig:'AUS', nom:'Australia',      pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
-    { sig:'TUR', nom:'Turquía',        pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 }
-  ],
-  E: [
-    { sig:'GER', nom:'Alemania',       pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
-    { sig:'CIV', nom:'Costa de Marfil',pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
-    { sig:'CUW', nom:'Curazao',        pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
-    { sig:'ECU', nom:'Ecuador',        pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 }
-  ],
-  F: [
-    { sig:'NED', nom:'Países Bajos', pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
-    { sig:'JPN', nom:'Japón',        pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
-    { sig:'SWE', nom:'Suecia',       pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
-    { sig:'TUN', nom:'Túnez',        pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 }
-  ],
-  G: [
-    { sig:'BEL', nom:'Bélgica',       pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
-    { sig:'EGY', nom:'Egipto',        pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
-    { sig:'IRN', nom:'Irán',          pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
-    { sig:'NZL', nom:'Nueva Zelanda', pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 }
-  ],
-  H: [
-    { sig:'ESP', nom:'España',       pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
-    { sig:'CPV', nom:'Cabo Verde',   pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
-    { sig:'SAU', nom:'Arabia Saudita',pj:0,pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
-    { sig:'URU', nom:'Uruguay',      pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 }
-  ],
-  I: [
-    { sig:'FRA', nom:'Francia', pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
-    { sig:'SEN', nom:'Senegal', pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
-    { sig:'IRQ', nom:'Irak',    pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
-    { sig:'NOR', nom:'Noruega', pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 }
-  ],
-  J: [
-    { sig:'ARG', nom:'Argentina', pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
-    { sig:'ALG', nom:'Argelia',   pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
-    { sig:'AUT', nom:'Austria',   pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
-    { sig:'JOR', nom:'Jordania',  pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 }
-  ],
-  K: [
-    { sig:'POR', nom:'Portugal',  pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
-    { sig:'COD', nom:'RD Congo',  pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
-    { sig:'UZB', nom:'Uzbekistán',pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
-    { sig:'COL', nom:'Colombia 🇨🇴',pj:0,pg:0,pe:0, pp:0, gf:0, gc:0, pts:0 }
-  ],
-  L: [
-    { sig:'ENG', nom:'Inglaterra', pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
-    { sig:'CRO', nom:'Croacia',    pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
-    { sig:'GHA', nom:'Ghana',      pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 },
-    { sig:'PAN', nom:'Panamá',     pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, pts:0 }
-  ]
-};
+/* CLASIFICACION, HORARIO y RESULTADOS_PARTIDOS vienen de datos.js */
 
 function ordenarGrupo(arr) {
   return arr.slice().sort(function(a, b) {
@@ -679,26 +603,21 @@ function renderGrupos() {
   });
 }
 
-/* Mostrar resultados en las tarjetas de partidos */
-var RESULTADOS = {
-  'MEX-RSA': { local: 2, visitante: 0, jugado: true }
-};
-
+/* Resultados en tarjetas — usa RESULTADOS_PARTIDOS de datos.js */
 function mostrarResultadosEnCards() {
   document.querySelectorAll('.partido-card').forEach(function(card) {
     var siglas = card.querySelectorAll('.p-sigla');
     if (siglas.length < 2) return;
     var sigL = siglas[0].textContent.replace(/[^A-Z]/g,'').trim();
     var sigR = siglas[1].textContent.replace(/[^A-Z]/g,'').trim();
-    var key  = sigL + '-' + sigR;
-    var res  = RESULTADOS[key];
-    if (!res) return;
+    var res  = RESULTADOS_PARTIDOS[sigL + '-' + sigR];
+    if (!res || !res.jugado) return;
     var vsEl = card.querySelector('.p-vs');
-    if (vsEl) {
-      vsEl.innerHTML = '<span class="p-score">' + res.local + ' — ' + res.visitante + '</span>';
+    if (vsEl && !vsEl.querySelector('.p-score')) {
+      vsEl.innerHTML = '<span class="p-score">' + res.golesLocal + ' — ' + res.golesVisitante + '</span>';
       vsEl.classList.add('tiene-resultado');
+      card.classList.add('jugado');
     }
-    card.classList.add('jugado');
   });
 }
 
