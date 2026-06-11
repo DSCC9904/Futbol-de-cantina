@@ -1,0 +1,1008 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sedes — Fútbol de Cantina · Mundial 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,600;0,800;0,900&family=Spline+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── Mapa SVG ── */
+    .mapa-wrap {
+      position: relative;
+      background: rgba(10,14,20,0.92);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+      margin: 20px 0 32px;
+    }
+    .mapa-titulo {
+      padding: 12px 18px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .mapa-titulo span {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: .08em;
+    }
+    .mapa-svg-wrap { width: 100%; overflow-x: auto; }
+    svg.mapa { display: block; width: 100%; min-width: 320px; }
+
+    /* Punto de sede en el mapa */
+    .sede-dot {
+      cursor: pointer;
+      transition: r .15s;
+    }
+    .sede-dot circle.outer {
+      fill: rgba(242,179,61,0.15);
+      stroke: var(--amber);
+      stroke-width: 1.5;
+    }
+    .sede-dot circle.inner {
+      fill: var(--amber);
+    }
+    .sede-dot.colombia circle.outer {
+      fill: rgba(252,209,22,0.25);
+      stroke: #FCD116;
+      stroke-width: 2;
+    }
+    .sede-dot.colombia circle.inner {
+      fill: #FCD116;
+    }
+    .sede-dot:hover circle.outer,
+    .sede-dot.activo circle.outer { r: 12; }
+    .sede-dot:hover circle.inner,
+    .sede-dot.activo circle.inner  { r: 5; }
+
+    /* Panel de info al seleccionar sede */
+    .sede-panel {
+      display: none;
+      padding: 20px 22px;
+      border-top: 1px solid var(--line);
+      background: var(--panel);
+      animation: fadeIn .2s ease;
+    }
+    .sede-panel.visible { display: block; }
+    @keyframes fadeIn { from { opacity:0; transform:translateY(4px); } to { opacity:1; transform:none; } }
+
+    .sede-panel-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .sede-nombre {
+      font-family: "Archivo", sans-serif;
+      font-weight: 800;
+      font-size: 20px;
+      margin: 0 0 3px;
+    }
+    .sede-ciudad {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      color: var(--amber);
+      letter-spacing: .08em;
+    }
+    .sede-coords {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .sede-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .sede-stat {
+      background: var(--panel-2);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 12px 14px;
+    }
+    .sede-stat-label {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 10px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .sede-stat-val {
+      font-family: "JetBrains Mono", monospace;
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--text);
+    }
+    .sede-stat-unit {
+      font-size: 11px;
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    /* Alerta climática */
+    .sede-alerta {
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 13px;
+      line-height: 1.5;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .sede-alerta.alta    { background: rgba(229,96,77,.1);  border: 1px solid rgba(229,96,77,.3); }
+    .sede-alerta.media   { background: rgba(242,179,61,.1); border: 1px solid rgba(242,179,61,.3); }
+    .sede-alerta.baja    { background: rgba(70,194,142,.1); border: 1px solid rgba(70,194,142,.3); }
+    .sede-alerta .icono  { font-size: 18px; flex-shrink: 0; }
+    .sede-alerta .texto  { color: var(--text); }
+    .sede-alerta .texto b { color: var(--amber); }
+
+    /* Colombia highlight en panel */
+    .colombia-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(252,209,22,0.12);
+      border: 1px solid rgba(252,209,22,0.4);
+      color: #FCD116;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 20px;
+      letter-spacing: .06em;
+      margin-bottom: 8px;
+    }
+
+    /* Leyenda del mapa */
+    .mapa-leyenda {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding: 12px 18px;
+      border-top: 1px solid var(--line);
+      background: rgba(16,20,27,0.6);
+    }
+    .mapa-ley-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 12px;
+      color: var(--muted);
+      font-family: "JetBrains Mono", monospace;
+    }
+    .mapa-ley-dot {
+      width: 10px; height: 10px; border-radius: 50%;
+    }
+    .mapa-ley-dot.normal   { background: var(--amber); }
+    .mapa-ley-dot.colombia { background: #FCD116; border: 2px solid #fff3; }
+
+    /* Tarjetas de sedes por condición climática */
+    .clima-section { margin: 48px 0 0; }
+    .clima-seccion-titulo {
+      font-family: "Archivo", sans-serif;
+      font-weight: 800;
+      font-size: 17px;
+      margin: 0 0 14px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--line);
+    }
+    .clima-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .clima-card {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 16px;
+      background: rgba(23,29,39,0.82);
+      backdrop-filter: blur(6px);
+      cursor: pointer;
+      transition: border-color .15s;
+    }
+    .clima-card:hover { border-color: var(--amber); }
+    .clima-card.colombia-sede { border-color: rgba(252,209,22,0.4); background: rgba(252,209,22,0.04); }
+    .clima-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 10px;
+    }
+    .clima-card-nombre {
+      font-family: "Archivo", sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      margin-bottom: 3px;
+    }
+    .clima-card-ciudad {
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .clima-badge {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+    .clima-badge.calor   { background: rgba(229,96,77,.2);  color: #E5604D; border: 1px solid rgba(229,96,77,.4); }
+    .clima-badge.altura  { background: rgba(100,149,237,.2); color: #6495ED; border: 1px solid rgba(100,149,237,.4); }
+    .clima-badge.fresco  { background: rgba(70,194,142,.2); color: #46C28E; border: 1px solid rgba(70,194,142,.4); }
+    .clima-badge.humedo  { background: rgba(242,179,61,.2);  color: var(--amber); border: 1px solid rgba(242,179,61,.4); }
+
+    .clima-minidatos {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+    .clima-mini {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+      color: var(--muted);
+    }
+    .clima-mini b { color: var(--text); }
+
+    .apuesta-tip {
+      margin-top: 10px;
+      font-size: 12px;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      padding-top: 8px;
+      line-height: 1.5;
+    }
+    .apuesta-tip em { color: var(--amber); font-style: normal; }
+
+    @media (max-width: 680px) {
+      .sede-stats-grid { grid-template-columns: 1fr 1fr; }
+      .sede-coords { text-align: left; }
+      .clima-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="video-bg">
+  <video autoplay muted loop playsinline>
+    <source src="15552725_3840_2160_30fps.mp4" type="video/mp4">
+  </video>
+</div>
+
+<header>
+  <div class="wrap bar">
+    <div class="brand">
+      <img src="Logo.png" alt="Logo Fútbol de Cantina" class="logo-img">
+      <span class="logo">FÚTBOL <b>DE CANTINA</b></span>
+      <span class="tag-demo">demo · v1</span>
+    </div>
+    <nav>
+      <a href="index.html#partido">El partido</a>
+      <a href="partidos.html">📅 Calendario</a>
+      <a href="sedes.html" style="color:var(--amber)">🗺️ Sedes</a>
+      <a href="index.html#lista">Síguenos</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section style="padding: 32px 0 80px">
+    <div class="eyebrow">Mundial 2026 · USA · México · Canadá</div>
+    <h1 class="cal-title">Sedes y condiciones climáticas</h1>
+    <p class="lede">Haz clic en cualquier sede del mapa para ver altitud, temperatura, humedad y cómo esas condiciones afectan el rendimiento. Como geomático sabes: <b style="color:var(--text)">el terreno siempre importa.</b></p>
+
+    <!-- ══════════ MAPA ══════════ -->
+    <div class="mapa-wrap">
+      <div class="mapa-titulo">
+        <span class="eyebrow">Mapa de sedes — proyección equirectangular · 18°N – 52°N · 66°W – 130°W</span>
+        <span>Toca una sede para ver sus datos</span>
+      </div>
+
+      <div class="mapa-svg-wrap">
+        <!-- Viewbox: 700x440. Fórmulas de proyección:
+             x = (lon + 130) / 64 * 700
+             y = (52 - lat) / 34 * 440  -->
+        <svg class="mapa" viewBox="0 0 700 440" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mapa de sedes del Mundial 2026">
+          <!-- Fondo -->
+          <rect width="700" height="440" fill="rgba(10,14,20,1)"/>
+
+          <!-- Grilla lat/lon -->
+          <g stroke="rgba(42,50,63,0.6)" stroke-width="0.5">
+            <!-- Líneas de latitud: 20,25,30,35,40,45,50 -->
+            <line x1="0" y1="352" x2="700" y2="352"/><text x="4" y="349" fill="#3a4555" font-size="8" font-family="monospace">20°N</text>
+            <line x1="0" y1="287" x2="700" y2="287"/><text x="4" y="284" fill="#3a4555" font-size="8" font-family="monospace">25°N</text>
+            <line x1="0" y1="222" x2="700" y2="222"/><text x="4" y="219" fill="#3a4555" font-size="8" font-family="monospace">30°N</text>
+            <line x1="0" y1="157" x2="700" y2="157"/><text x="4" y="154" fill="#3a4555" font-size="8" font-family="monospace">35°N</text>
+            <line x1="0" y1="92"  x2="700" y2="92"/><text  x="4" y="89"  fill="#3a4555" font-size="8" font-family="monospace">40°N</text>
+            <line x1="0" y1="27"  x2="700" y2="27"/><text  x="4" y="24"  fill="#3a4555" font-size="8" font-family="monospace">45°N</text>
+            <!-- Líneas de longitud: 70,80,90,100,110,120,130 -->
+            <line x1="656" y1="0" x2="656" y2="440"/><text x="649" y="435" fill="#3a4555" font-size="8" font-family="monospace">70°</text>
+            <line x1="547" y1="0" x2="547" y2="440"/><text x="540" y="435" fill="#3a4555" font-size="8" font-family="monospace">80°</text>
+            <line x1="438" y1="0" x2="438" y2="440"/><text x="431" y="435" fill="#3a4555" font-size="8" font-family="monospace">90°</text>
+            <line x1="328" y1="0" x2="328" y2="440"/><text x="321" y="435" fill="#3a4555" font-size="8" font-family="monospace">100°</text>
+            <line x1="219" y1="0" x2="219" y2="440"/><text x="212" y="435" fill="#3a4555" font-size="8" font-family="monospace">110°</text>
+            <line x1="109" y1="0" x2="109" y2="440"/><text x="102" y="435" fill="#3a4555" font-size="8" font-family="monospace">120°</text>
+          </g>
+
+          <!-- Silueta simplificada de Norteamérica -->
+          <path d="M85,10 L90,25 L75,40 L72,60 L80,75 L75,90 L68,95
+                   L65,110 L70,130 L62,145 L58,160 L60,175 L55,195
+                   L52,210 L50,230 L55,240 L58,255 L62,265 L68,278
+                   L75,285 L82,295 L90,308 L100,318 L112,325
+                   L120,330 L130,338 L140,342 L152,348 L165,352
+                   L175,358 L185,362 L195,368 L205,372 L218,378
+                   L230,382 L240,385 L252,388 L265,390 L278,392
+                   L292,393 L305,393 L318,394 L332,395 L345,395
+                   L355,393 L365,390 L378,388 L388,385 L398,382
+                   L408,380 L418,378 L428,375 L438,372 L448,368
+                   L458,364 L468,358 L478,352 L488,345 L498,338
+                   L510,330 L518,322 L525,315 L532,308 L538,300
+                   L545,292 L552,285 L558,275 L563,265 L568,255
+                   L572,244 L576,232 L580,220 L584,208 L588,196
+                   L591,184 L594,172 L596,160 L598,148 L600,136
+                   L601,124 L602,112 L602,100 L601,88 L600,76
+                   L598,64 L595,52 L591,40 L588,30 L585,20
+                   L580,12 L570,8 L555,6 L540,5 L520,5 L500,6
+                   L480,7 L460,8 L440,9 L420,9 L400,9 L380,9
+                   L360,9 L340,9 L320,9 L300,9 L280,9 L260,9
+                   L240,9 L220,9 L200,9 L180,9 L160,9 L140,9
+                   L120,9 L100,9 L85,10 Z"
+                fill="rgba(28,35,47,0.7)" stroke="rgba(42,50,63,0.9)" stroke-width="1"/>
+
+          <!-- México silueta simplificada -->
+          <path d="M165,352 L175,358 L182,365 L188,372 L192,382
+                   L196,392 L200,402 L205,410 L210,418 L215,426
+                   L220,432 L225,438 L230,440 L245,440 L255,435
+                   L262,428 L268,420 L274,412 L278,405 L280,396
+                   L284,388 L288,380 L292,372 L296,365 L300,360
+                   L306,354 L312,350 L318,348 L325,346 L332,345
+                   L338,344 L345,344 L352,344 L358,345 L365,346
+                   L372,348 L378,350 L385,352 L390,354 L395,357
+                   L400,360 L405,363 L410,367 L415,371 L420,375
+                   L428,378 L438,372 L428,365 L418,360 L408,356
+                   L398,352 L388,349 L378,346 L368,344 L358,342
+                   L348,341 L338,341 L328,341 L318,342 L308,343
+                   L298,345 L288,348 L278,352 L268,356 L258,362
+                   L248,368 L240,374 L232,380 L226,386 L220,393
+                   L216,400 L212,408 L208,416 L204,424 L200,432
+                   L196,424 L192,416 L188,408 L184,400 L180,392
+                   L176,384 L172,376 L168,368 L165,360 L165,352 Z"
+                fill="rgba(28,35,47,0.5)" stroke="rgba(42,50,63,0.5)" stroke-width="0.8"/>
+
+          <!-- SEDES — cada g.sede-dot tiene data-id para JS -->
+          <!-- x = (lon+130)/64*700    y = (52-lat)/34*440 -->
+
+          <!-- 1. Vancouver BC Place: lat=49.3, lon=-123.1 → x=75, y=34 -->
+          <g class="sede-dot" data-id="vancouver" transform="translate(75,34)">
+            <circle class="outer" r="9" /><circle class="inner" r="4" />
+            <text y="22" text-anchor="middle" fill="#828D9C" font-size="9" font-family="monospace">VAN</text>
+          </g>
+
+          <!-- 2. Seattle Lumen: lat=47.6, lon=-122.3 → x=84, y=52 -->
+          <g class="sede-dot" data-id="seattle" transform="translate(84,52)">
+            <circle class="outer" r="9" /><circle class="inner" r="4" />
+            <text y="-13" text-anchor="middle" fill="#828D9C" font-size="9" font-family="monospace">SEA</text>
+          </g>
+
+          <!-- 3. San Francisco Levi's: lat=37.4, lon=-122.0 → x=87, y=171 -->
+          <g class="sede-dot" data-id="sanfrancisco" transform="translate(87,171)">
+            <circle class="outer" r="9" /><circle class="inner" r="4" />
+            <text y="-13" text-anchor="middle" fill="#828D9C" font-size="9" font-family="monospace">SF</text>
+          </g>
+
+          <!-- 4. Los Ángeles SoFi: lat=33.9, lon=-118.3 → x=120, y=235 -->
+          <g class="sede-dot" data-id="losangeles" transform="translate(120,235)">
+            <circle class="outer" r="9" /><circle class="inner" r="4" />
+            <text y="22" text-anchor="middle" fill="#828D9C" font-size="9" font-family="monospace">LA</text>
+          </g>
+
+          <!-- 5. Toronto BMO: lat=43.6, lon=-79.4 → x=556, y=122 -->
+          <g class="sede-dot" data-id="toronto" transform="translate(556,122)">
+            <circle class="outer" r="9" /><circle class="inner" r="4" />
+            <text y="-13" text-anchor="middle" fill="#828D9C" font-size="9" font-family="monospace">TOR</text>
+          </g>
+
+          <!-- 6. Boston Gillette: lat=42.1, lon=-71.3 → x=641, y=140 -->
+          <g class="sede-dot" data-id="boston" transform="translate(641,140)">
+            <circle class="outer" r="9" /><circle class="inner" r="4" />
+            <text y="-13" text-anchor="middle" fill="#828D9C" font-size="9" font-family="monospace">BOS</text>
+          </g>
+
+          <!-- 7. Nueva York MetLife: lat=40.8, lon=-74.1 → x=621, y=157 -->
+          <g class="sede-dot" data-id="nuevayork" transform="translate(621,157)">
+            <circle class="outer" r="9" /><circle class="inner" r="4" />
+            <text y="22" text-anchor="middle" fill="#828D9C" font-size="9" font-family="monospace">NYC</text>
+          </g>
+
+          <!-- 8. Filadelfia Lincoln: lat=39.9, lon=-75.2 → x=607, y=167 -->
+          <g class="sede-dot" data-id="filadelfia" transform="translate(607,167)">
+            <circle class="outer" r="9" /><circle class="inner" r="4" />
+            <text y="-13" x="-10" text-anchor="middle" fill="#828D9C" font-size="9" font-family="monospace">PHI</text>
+          </g>
+
+          <!-- 9. Kansas City Arrowhead: lat=39.0, lon=-94.5 → x=390, y=179 -->
+          <g class="sede-dot" data-id="kansascity" transform="translate(390,179)">
+            <circle class="outer" r="9" /><circle class="inner" r="4" />
+            <text y="-13" text-anchor="middle" fill="#828D9C" font-size="9" font-family="monospace">KC</text>
+          </g>
+
+          <!-- 10. Atlanta Mercedes-Benz: lat=33.8, lon=-84.4 → x=500, y=236 -->
+          <g class="sede-dot" data-id="atlanta" transform="translate(500,236)">
+            <circle class="outer" r="9" /><circle class="inner" r="4" />
+            <text y="22" text-anchor="middle" fill="#828D9C" font-size="9" font-family="monospace">ATL</text>
+          </g>
+
+          <!-- 11. Dallas AT&T: lat=32.7, lon=-97.1 → x=361, y=249 -->
+          <g class="sede-dot" data-id="dallas" transform="translate(361,249)">
+            <circle class="outer" r="9" /><circle class="inner" r="4" />
+            <text y="22" text-anchor="middle" fill="#828D9C" font-size="9" font-family="monospace">DAL</text>
+          </g>
+
+          <!-- 12. Houston NRG: lat=29.7, lon=-95.4 → x=380, y=297 -->
+          <g class="sede-dot" data-id="houston" transform="translate(380,297)">
+            <circle class="outer" r="9" /><circle class="inner" r="4" />
+            <text y="22" text-anchor="middle" fill="#828D9C" font-size="9" font-family="monospace">HOU</text>
+          </g>
+
+          <!-- COLOMBIA sede: Miami Hard Rock lat=25.9, lon=-80.2 → x=543, y=336 -->
+          <g class="sede-dot colombia" data-id="miami" transform="translate(543,336)">
+            <circle class="outer" r="11" /><circle class="inner" r="5" />
+            <text y="25" text-anchor="middle" fill="#FCD116" font-size="9" font-family="monospace" font-weight="bold">MIA 🇨🇴</text>
+          </g>
+
+          <!-- 14. Guadalajara Akron: lat=20.7, lon=-103.4 → x=292, y=394 -->
+          <!-- COLOMBIA sede 2 -->
+          <g class="sede-dot colombia" data-id="guadalajara" transform="translate(292,394)">
+            <circle class="outer" r="11" /><circle class="inner" r="5" />
+            <text y="-15" text-anchor="middle" fill="#FCD116" font-size="9" font-family="monospace" font-weight="bold">GDL 🇨🇴</text>
+          </g>
+
+          <!-- 15. Monterrey BBVA: lat=25.7, lon=-100.3 → x=324, y=339 -->
+          <g class="sede-dot" data-id="monterrey" transform="translate(324,339)">
+            <circle class="outer" r="9" /><circle class="inner" r="4" />
+            <text y="-13" text-anchor="middle" fill="#828D9C" font-size="9" font-family="monospace">MTY</text>
+          </g>
+
+          <!-- COLOMBIA sede 3: Ciudad de México Azteca lat=19.3, lon=-99.2 → x=336, y=413 -->
+          <g class="sede-dot colombia" data-id="cdmx" transform="translate(336,413)">
+            <circle class="outer" r="11" /><circle class="inner" r="5" />
+            <text y="26" text-anchor="middle" fill="#FCD116" font-size="9" font-family="monospace" font-weight="bold">CDMX 🇨🇴</text>
+          </g>
+
+        </svg>
+      </div>
+
+      <!-- Panel de info de la sede seleccionada -->
+      <div class="sede-panel" id="sede-panel">
+        <div class="sede-panel-top">
+          <div>
+            <div id="sp-colombia-badge" class="colombia-badge" style="display:none">🇨🇴 Colombia juega aquí</div>
+            <div class="sede-nombre" id="sp-nombre">—</div>
+            <div class="sede-ciudad" id="sp-ciudad">—</div>
+          </div>
+          <div class="sede-coords" id="sp-coords">—</div>
+        </div>
+        <div class="sede-stats-grid" id="sp-stats"></div>
+        <div class="sede-alerta" id="sp-alerta"></div>
+      </div>
+
+      <div class="mapa-leyenda">
+        <div class="mapa-ley-item"><div class="mapa-ley-dot normal"></div>Sede normal</div>
+        <div class="mapa-ley-item"><div class="mapa-ley-dot colombia"></div>Colombia juega aquí</div>
+        <div class="mapa-ley-item" style="margin-left:auto">
+          <span style="font-size:10px;color:var(--muted)">Proyección equirectangular · Datum WGS84</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════ FICHAS CLIMÁTICAS POR CONDICIÓN ══════════ -->
+    <div class="clima-section">
+      <div class="eyebrow" style="margin-bottom:8px">Análisis geoclimático por sede</div>
+      <h2 class="sec-title" style="margin-bottom:4px">Condiciones que mueven las apuestas</h2>
+      <p class="lede">Las condiciones climáticas y de altitud afectan directamente el ritmo de juego, el desgaste físico y los patrones de gol.</p>
+
+      <div class="clima-seccion-titulo">⛰️ Alta altitud — más de 1,500 m.s.n.m.</div>
+      <div class="clima-grid">
+        <div class="clima-card colombia-sede" onclick="abrirSede('cdmx')">
+          <div class="clima-card-top">
+            <div>
+              <div class="colombia-badge">🇨🇴 Uzbekistán vs Colombia · 17 jun</div>
+              <div class="clima-card-nombre">Estadio Azteca</div>
+              <div class="clima-card-ciudad">Ciudad de México, México</div>
+            </div>
+            <span class="clima-badge altura">2,240 m</span>
+          </div>
+          <div class="clima-minidatos">
+            <div class="clima-mini"><b>18°C</b> promedio jun</div>
+            <div class="clima-mini"><b>58%</b> humedad</div>
+            <div class="clima-mini"><b>19.4°N</b></div>
+            <div class="clima-mini"><b>O2: −21%</b></div>
+          </div>
+          <div class="apuesta-tip">
+            <em>Para apostar:</em> A 2,240m el oxígeno disponible es 21% menor. Los equipos de baja altitud se fatigan más en el 2° tiempo. Históricamente hay <em>más goles en la 1ª mitad</em> en partidos en el Azteca.
+          </div>
+        </div>
+        <div class="clima-card colombia-sede" onclick="abrirSede('guadalajara')">
+          <div class="clima-card-top">
+            <div>
+              <div class="colombia-badge">🇨🇴 Colombia vs RD Congo · 23 jun</div>
+              <div class="clima-card-nombre">Estadio Akron</div>
+              <div class="clima-card-ciudad">Guadalajara, México</div>
+            </div>
+            <span class="clima-badge altura">1,566 m</span>
+          </div>
+          <div class="clima-minidatos">
+            <div class="clima-mini"><b>23°C</b> promedio jun</div>
+            <div class="clima-mini"><b>54%</b> humedad</div>
+            <div class="clima-mini"><b>20.7°N</b></div>
+            <div class="clima-mini"><b>O2: −15%</b></div>
+          </div>
+          <div class="apuesta-tip">
+            <em>Para apostar:</em> Menor efecto que CDMX pero sigue siendo significativo. El balón viaja más rápido y más lejos. Espera <em>más tiros al arco</em> desde larga distancia.
+          </div>
+        </div>
+      </div>
+
+      <div class="clima-seccion-titulo">🌡️ Calor extremo — más de 30°C y alta humedad</div>
+      <div class="clima-grid">
+        <div class="clima-card colombia-sede" onclick="abrirSede('miami')">
+          <div class="clima-card-top">
+            <div>
+              <div class="colombia-badge">🇨🇴 Colombia vs Portugal · 27 jun</div>
+              <div class="clima-card-nombre">Hard Rock Stadium</div>
+              <div class="clima-card-ciudad">Miami, Florida</div>
+            </div>
+            <span class="clima-badge humedo">31°C · 78% HR</span>
+          </div>
+          <div class="clima-minidatos">
+            <div class="clima-mini"><b>3 m</b> altitud</div>
+            <div class="clima-mini"><b>31°C</b> promedio jun</div>
+            <div class="clima-mini"><b>78%</b> humedad</div>
+            <div class="clima-mini"><b>25.9°N</b></div>
+          </div>
+          <div class="apuesta-tip">
+            <em>Para apostar:</em> Calor tropical + humedad = desgaste máximo. Más sustituciones tempranas, más faltas en el 2° tiempo por fatiga. Históricamente equipos que corren menos (posesión lenta) se adaptan mejor.
+          </div>
+        </div>
+        <div class="clima-card" onclick="abrirSede('houston')">
+          <div class="clima-card-top">
+            <div>
+              <div class="clima-card-nombre">NRG Stadium</div>
+              <div class="clima-card-ciudad">Houston, Texas</div>
+            </div>
+            <span class="clima-badge calor">33°C · 75% HR</span>
+          </div>
+          <div class="clima-minidatos">
+            <div class="clima-mini"><b>15 m</b> altitud</div>
+            <div class="clima-mini"><b>33°C</b> promedio jun</div>
+            <div class="clima-mini"><b>75%</b> humedad</div>
+            <div class="clima-mini"><b>29.7°N</b></div>
+          </div>
+          <div class="apuesta-tip">
+            <em>Para apostar:</em> La ciudad más caliente del torneo en junio. Equipos sudamericanos y africanos toleran mejor. Espera <em>más tiempo muerto</em> y partidos más lentos en el 2° tiempo.
+          </div>
+        </div>
+        <div class="clima-card" onclick="abrirSede('dallas')">
+          <div class="clima-card-top">
+            <div>
+              <div class="clima-card-nombre">AT&T Stadium</div>
+              <div class="clima-card-ciudad">Dallas, Texas</div>
+            </div>
+            <span class="clima-badge calor">33°C · 55% HR</span>
+          </div>
+          <div class="clima-minidatos">
+            <div class="clima-mini"><b>170 m</b> altitud</div>
+            <div class="clima-mini"><b>33°C</b> promedio jun</div>
+            <div class="clima-mini"><b>55%</b> humedad</div>
+            <div class="clima-mini"><b>32.7°N</b></div>
+          </div>
+          <div class="apuesta-tip">
+            <em>Para apostar:</em> Calor seco — menos agotador que Houston pero igual intenso. El estadio es techado y tiene A/C. Interior más fresco que el exterior. Condiciones más controladas.
+          </div>
+        </div>
+        <div class="clima-card" onclick="abrirSede('monterrey')">
+          <div class="clima-card-top">
+            <div>
+              <div class="clima-card-nombre">Estadio BBVA</div>
+              <div class="clima-card-ciudad">Monterrey, México</div>
+            </div>
+            <span class="clima-badge calor">35°C · 45% HR</span>
+          </div>
+          <div class="clima-minidatos">
+            <div class="clima-mini"><b>538 m</b> altitud</div>
+            <div class="clima-mini"><b>35°C</b> promedio jun</div>
+            <div class="clima-mini"><b>45%</b> humedad</div>
+            <div class="clima-mini"><b>25.7°N</b></div>
+          </div>
+          <div class="apuesta-tip">
+            <em>Para apostar:</em> La sede más caliente del torneo. Clima semiárido. Espera más <em>tarjetas amarillas</em> por agresividad bajo el calor y más fouls para cortar el juego.
+          </div>
+        </div>
+      </div>
+
+      <div class="clima-seccion-titulo">🌤️ Clima templado — condiciones ideales de juego</div>
+      <div class="clima-grid">
+        <div class="clima-card" onclick="abrirSede('seattle')">
+          <div class="clima-card-top">
+            <div><div class="clima-card-nombre">Lumen Field</div><div class="clima-card-ciudad">Seattle, Washington</div></div>
+            <span class="clima-badge fresco">18°C · oceánico</span>
+          </div>
+          <div class="clima-minidatos">
+            <div class="clima-mini"><b>3 m</b> altitud</div>
+            <div class="clima-mini"><b>18°C</b> promedio jun</div>
+            <div class="clima-mini"><b>70%</b> humedad</div>
+            <div class="clima-mini"><b>47.6°N</b></div>
+          </div>
+          <div class="apuesta-tip"><em>Para apostar:</em> Clima fresco = partidos más rápidos y físicos. Mayor intensidad en presión alta. Equipos europeos del norte se adaptan mejor. Espera más goles.</div>
+        </div>
+        <div class="clima-card" onclick="abrirSede('vancouver')">
+          <div class="clima-card-top">
+            <div><div class="clima-card-nombre">BC Place</div><div class="clima-card-ciudad">Vancouver, Canadá</div></div>
+            <span class="clima-badge fresco">18°C · oceánico</span>
+          </div>
+          <div class="clima-minidatos">
+            <div class="clima-mini"><b>5 m</b> altitud</div>
+            <div class="clima-mini"><b>18°C</b> promedio jun</div>
+            <div class="clima-mini"><b>72%</b> humedad</div>
+            <div class="clima-mini"><b>49.3°N</b></div>
+          </div>
+          <div class="apuesta-tip"><em>Para apostar:</em> Estadio techado. Condiciones más predecibles. El techo reduce viento, el balón viaja más estable. Buen escenario para equipos técnicos.</div>
+        </div>
+        <div class="clima-card" onclick="abrirSede('sanfrancisco')">
+          <div class="clima-card-top">
+            <div><div class="clima-card-nombre">Levi's Stadium</div><div class="clima-card-ciudad">Santa Clara (SF Bay), CA</div></div>
+            <span class="clima-badge fresco">19°C · mediterráneo</span>
+          </div>
+          <div class="clima-minidatos">
+            <div class="clima-mini"><b>15 m</b> altitud</div>
+            <div class="clima-mini"><b>19°C</b> promedio jun</div>
+            <div class="clima-mini"><b>72%</b> humedad</div>
+            <div class="clima-mini"><b>37.4°N</b></div>
+          </div>
+          <div class="apuesta-tip"><em>Para apostar:</em> Clima mediterráneo fresco — el más agradable de todos los estadios de EE.UU. Alta intensidad física esperada. Favorece equipos de juego vertical.</div>
+        </div>
+        <div class="clima-card" onclick="abrirSede('losangeles')">
+          <div class="clima-card-top">
+            <div><div class="clima-card-nombre">SoFi Stadium</div><div class="clima-card-ciudad">Los Ángeles, California</div></div>
+            <span class="clima-badge fresco">22°C · mediterráneo</span>
+          </div>
+          <div class="clima-minidatos">
+            <div class="clima-mini"><b>30 m</b> altitud</div>
+            <div class="clima-mini"><b>22°C</b> promedio jun</div>
+            <div class="clima-mini"><b>70%</b> humedad</div>
+            <div class="clima-mini"><b>33.9°N</b></div>
+          </div>
+          <div class="apuesta-tip"><em>Para apostar:</em> Estadio techado y con A/C parcial. Clima ideal para juego vistoso. Históricamente más goles en estadios techados por ritmo más fluido.</div>
+        </div>
+        <div class="clima-card" onclick="abrirSede('nuevayork')">
+          <div class="clima-card-top">
+            <div><div class="clima-card-nombre">MetLife Stadium</div><div class="clima-card-ciudad">Nueva York / Nueva Jersey</div></div>
+            <span class="clima-badge humedo">26°C · húmedo</span>
+          </div>
+          <div class="clima-minidatos">
+            <div class="clima-mini"><b>10 m</b> altitud</div>
+            <div class="clima-mini"><b>26°C</b> promedio jun</div>
+            <div class="clima-mini"><b>65%</b> humedad</div>
+            <div class="clima-mini"><b>40.8°N</b></div>
+          </div>
+          <div class="apuesta-tip"><em>Para apostar:</em> Sede de la FINAL (19 jul). En julio la temperatura sube a ~28°C con alta humedad. Partido de alta presión emocional + calor moderado = buen Over 2.5.</div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div class="resp"><b>Juega con responsabilidad.</b> Los datos climáticos son promedios históricos. +18.</div>
+    <div class="who">FÚTBOL DE CANTINA · prototipo v1<br>Datos: NOAA / INEGI / WeatherSpark · Altitudes: SRTM/NASA</div>
+  </div>
+</footer>
+
+<nav class="bottom-nav" aria-label="Navegación">
+  <a href="index.html#partido" class="bnav-item"><span class="bnav-icon">⚽</span><span class="bnav-label">Partido</span></a>
+  <a href="partidos.html" class="bnav-item"><span class="bnav-icon">📅</span><span class="bnav-label">Calendario</span></a>
+  <a href="sedes.html" class="bnav-item active"><span class="bnav-icon">🗺️</span><span class="bnav-label">Sedes</span></a>
+  <a href="index.html#lista" class="bnav-item"><span class="bnav-icon">🔔</span><span class="bnav-label">Síguenos</span></a>
+</nav>
+
+<script src="main.js"></script>
+<script>
+/* ═══════════════════════════════════
+   DATOS DE SEDES
+═══════════════════════════════════ */
+var SEDES = {
+  vancouver: {
+    nombre: 'BC Place',
+    ciudad: 'Vancouver, Canadá',
+    coords: '49°18\'N  123°06\'W',
+    colombia: false,
+    stats: [
+      { label: 'Altitud', val: '5', unit: 'm.s.n.m.' },
+      { label: 'Temp. junio', val: '18°C', unit: 'promedio' },
+      { label: 'Humedad', val: '72%', unit: 'relativa' },
+      { label: 'Clima', val: 'Oceánico', unit: 'Cfb' },
+      { label: 'Precipitación', val: '45 mm', unit: 'junio' },
+      { label: 'Techado', val: 'Sí', unit: 'cúpula retráctil' }
+    ],
+    alerta: { tipo: 'baja', icono: '✅', texto: 'Condiciones <b>ideales</b> para el juego. Temperatura fresca, estadio techado. Espera partidos con alta intensidad física y buen rendimiento de equipos europeos del norte.' }
+  },
+  seattle: {
+    nombre: 'Lumen Field',
+    ciudad: 'Seattle, Washington',
+    coords: '47°35\'N  122°20\'W',
+    colombia: false,
+    stats: [
+      { label: 'Altitud', val: '3', unit: 'm.s.n.m.' },
+      { label: 'Temp. junio', val: '18°C', unit: 'promedio' },
+      { label: 'Humedad', val: '70%', unit: 'relativa' },
+      { label: 'Clima', val: 'Oceánico', unit: 'Cfb' },
+      { label: 'Precipitación', val: '38 mm', unit: 'junio' },
+      { label: 'Techado', val: 'No', unit: 'estadio abierto' }
+    ],
+    alerta: { tipo: 'baja', icono: '✅', texto: 'Clima <b>fresco y favorable</b>. Partidos con más intensidad de presión y mayor ritmo. Históricamente en climas oceánicos hay más goles en los 15 min finales.' }
+  },
+  sanfrancisco: {
+    nombre: 'Levi\'s Stadium',
+    ciudad: 'Santa Clara (Área SF Bay), California',
+    coords: '37°24\'N  121°58\'W',
+    colombia: false,
+    stats: [
+      { label: 'Altitud', val: '15', unit: 'm.s.n.m.' },
+      { label: 'Temp. junio', val: '19°C', unit: 'promedio' },
+      { label: 'Humedad', val: '72%', unit: 'relativa' },
+      { label: 'Clima', val: 'Mediterráneo', unit: 'Csb fresco' },
+      { label: 'Precipitación', val: '8 mm', unit: 'junio (muy seco)' },
+      { label: 'Techado', val: 'No', unit: 'con sombra parcial' }
+    ],
+    alerta: { tipo: 'baja', icono: '✅', texto: 'El estadio más <b>fresco de California</b>. La diferencia térmica mañana/tarde puede ser alta (10°C). Partidos nocturnos favorecen juego más intenso.' }
+  },
+  losangeles: {
+    nombre: 'SoFi Stadium',
+    ciudad: 'Inglewood (Los Ángeles), California',
+    coords: '33°57\'N  118°20\'W',
+    colombia: false,
+    stats: [
+      { label: 'Altitud', val: '30', unit: 'm.s.n.m.' },
+      { label: 'Temp. junio', val: '22°C', unit: 'promedio' },
+      { label: 'Humedad', val: '70%', unit: 'relativa marina' },
+      { label: 'Clima', val: 'Mediterráneo', unit: 'Csa/Csb' },
+      { label: 'Precipitación', val: '3 mm', unit: 'junio (muy seco)' },
+      { label: 'Techado', val: 'Sí', unit: 'techo traslúcido' }
+    ],
+    alerta: { tipo: 'baja', icono: '✅', texto: 'Techo traslúcido y <b>A/C parcial</b>. Condiciones controladas. Históricamente estadios techados producen más goles porque el balón no se desvía con el viento.' }
+  },
+  toronto: {
+    nombre: 'BMO Field',
+    ciudad: 'Toronto, Ontario, Canadá',
+    coords: '43°37\'N  79°24\'W',
+    colombia: false,
+    stats: [
+      { label: 'Altitud', val: '76', unit: 'm.s.n.m.' },
+      { label: 'Temp. junio', val: '23°C', unit: 'promedio' },
+      { label: 'Humedad', val: '65%', unit: 'relativa' },
+      { label: 'Clima', val: 'Continental húmedo', unit: 'Dfb' },
+      { label: 'Precipitación', val: '68 mm', unit: 'junio' },
+      { label: 'Techado', val: 'No', unit: 'estadio abierto' }
+    ],
+    alerta: { tipo: 'baja', icono: '🌦️', texto: 'En junio Toronto puede tener lluvia. Un campo mojado favorece el <b>juego directo</b> sobre el técnico. El balón se desliza más rápido — espera más tiros de larga distancia.' }
+  },
+  boston: {
+    nombre: 'Gillette Stadium',
+    ciudad: 'Foxborough (Boston), Massachusetts',
+    coords: '42°05\'N  71°16\'W',
+    colombia: false,
+    stats: [
+      { label: 'Altitud', val: '25', unit: 'm.s.n.m.' },
+      { label: 'Temp. junio', val: '24°C', unit: 'promedio' },
+      { label: 'Humedad', val: '67%', unit: 'relativa' },
+      { label: 'Clima', val: 'Continental húmedo', unit: 'Dfb' },
+      { label: 'Precipitación', val: '90 mm', unit: 'junio (alto)' },
+      { label: 'Techado', val: 'No', unit: 'estadio abierto' }
+    ],
+    alerta: { tipo: 'media', icono: '🌧️', texto: 'Junio es el <b>mes más lluvioso</b> de Boston. Alta probabilidad de lluvia durante el partido. Campo húmedo puede generar más errores y corners.' }
+  },
+  nuevayork: {
+    nombre: 'MetLife Stadium',
+    ciudad: 'East Rutherford, Nueva Jersey (NYC)',
+    coords: '40°48\'N  74°04\'W',
+    colombia: false,
+    stats: [
+      { label: 'Altitud', val: '10', unit: 'm.s.n.m.' },
+      { label: 'Temp. junio', val: '26°C', unit: 'promedio' },
+      { label: 'Humedad', val: '65%', unit: 'relativa' },
+      { label: 'Clima', val: 'Continental húmedo', unit: 'Dfa' },
+      { label: 'Final Mundial', val: '19 Jul', unit: '~28°C en julio' },
+      { label: 'Techado', val: 'No', unit: 'abierto' }
+    ],
+    alerta: { tipo: 'media', icono: '🏆', texto: '<b>Sede de la Final del Mundial</b> (19 julio). En julio la temperatura será ~28°C con alta humedad. Partido de máxima presión — los grandes equipos toleran mejor las condiciones adversas.' }
+  },
+  filadelfia: {
+    nombre: 'Lincoln Financial Field',
+    ciudad: 'Filadelfia, Pennsylvania',
+    coords: '39°54\'N  75°10\'W',
+    colombia: false,
+    stats: [
+      { label: 'Altitud', val: '12', unit: 'm.s.n.m.' },
+      { label: 'Temp. junio', val: '27°C', unit: 'promedio' },
+      { label: 'Humedad', val: '62%', unit: 'relativa' },
+      { label: 'Clima', val: 'Continental húmedo', unit: 'Dfa' },
+      { label: 'Precipitación', val: '89 mm', unit: 'junio' },
+      { label: 'Techado', val: 'No', unit: 'estadio abierto' }
+    ],
+    alerta: { tipo: 'media', icono: '🌤️', texto: 'Calor moderado con posibilidad de lluvia. Condiciones <b>más exigentes que la Costa Oeste</b> pero manejables. Equipos que juegan presión alta pueden sufrir el calor a fin del partido.' }
+  },
+  kansascity: {
+    nombre: 'Arrowhead Stadium',
+    ciudad: 'Kansas City, Missouri',
+    coords: '39°02\'N  94°29\'W',
+    colombia: false,
+    stats: [
+      { label: 'Altitud', val: '265', unit: 'm.s.n.m.' },
+      { label: 'Temp. junio', val: '30°C', unit: 'promedio' },
+      { label: 'Humedad', val: '60%', unit: 'relativa' },
+      { label: 'Clima', val: 'Continental húmedo', unit: 'Dfa cálido' },
+      { label: 'Precipitación', val: '105 mm', unit: 'junio (alto)' },
+      { label: 'Techado', val: 'No', unit: 'abierto' }
+    ],
+    alerta: { tipo: 'media', icono: '⛈️', texto: 'El mes más lluvioso en KC es junio. Hay riesgo real de <b>tormentas eléctricas</b> que pueden pausar el partido. El calor húmedo de 30°C aumenta el desgaste en el 2° tiempo.' }
+  },
+  atlanta: {
+    nombre: 'Mercedes-Benz Stadium',
+    ciudad: 'Atlanta, Georgia',
+    coords: '33°45\'N  84°24\'W',
+    colombia: false,
+    stats: [
+      { label: 'Altitud', val: '320', unit: 'm.s.n.m.' },
+      { label: 'Temp. junio', val: '29°C', unit: 'promedio' },
+      { label: 'Humedad', val: '68%', unit: 'relativa' },
+      { label: 'Clima', val: 'Subtropical húmedo', unit: 'Cfa' },
+      { label: 'Precipitación', val: '112 mm', unit: 'junio' },
+      { label: 'Techado', val: 'Sí', unit: 'techo retráctil' }
+    ],
+    alerta: { tipo: 'media', icono: '🌩️', texto: 'Techo retráctil puede cerrarse si hay tormenta. Con techo cerrado las condiciones mejoran bastante. <b>España jugará aquí en Jornada 1</b> — equipos de toque prefieren estadios controlados.' }
+  },
+  dallas: {
+    nombre: 'AT&T Stadium',
+    ciudad: 'Arlington (Dallas), Texas',
+    coords: '32°44\'N  97°05\'W',
+    colombia: false,
+    stats: [
+      { label: 'Altitud', val: '170', unit: 'm.s.n.m.' },
+      { label: 'Temp. junio', val: '33°C', unit: 'promedio' },
+      { label: 'Humedad', val: '55%', unit: 'relativa' },
+      { label: 'Clima', val: 'Subtropical húmedo', unit: 'Cfa' },
+      { label: 'Precipitación', val: '78 mm', unit: 'junio' },
+      { label: 'Techado', val: 'Sí', unit: 'techo cerrado + A/C' }
+    ],
+    alerta: { tipo: 'media', icono: '❄️', texto: 'Aunque hace 33°C afuera, el <b>A/C del estadio</b> lo mantiene en ~22°C. Es de los estadios más cómodos del torneo a pesar del calor exterior de Texas.' }
+  },
+  houston: {
+    nombre: 'NRG Stadium',
+    ciudad: 'Houston, Texas',
+    coords: '29°41\'N  95°24\'W',
+    colombia: false,
+    stats: [
+      { label: 'Altitud', val: '15', unit: 'm.s.n.m.' },
+      { label: 'Temp. junio', val: '33°C', unit: 'promedio' },
+      { label: 'Humedad', val: '75%', unit: 'relativa' },
+      { label: 'Índice calor', val: '40°C', unit: 'sensación térmica' },
+      { label: 'Precipitación', val: '130 mm', unit: 'junio' },
+      { label: 'Techado', val: 'Sí', unit: 'techo retráctil' }
+    ],
+    alerta: { tipo: 'alta', icono: '🔥', texto: '<b>Sede más caliente y húmeda del torneo.</b> Con el techo abierto la sensación térmica puede llegar a 40°C. El techo retráctil puede cerrarse. Equipos de países tropicales tienen ventaja histórica en estas condiciones.' }
+  },
+  miami: {
+    nombre: 'Hard Rock Stadium',
+    ciudad: 'Miami Gardens (Miami), Florida',
+    coords: '25°57\'N  80°08\'W',
+    colombia: true,
+    stats: [
+      { label: 'Altitud', val: '3', unit: 'm.s.n.m.' },
+      { label: 'Temp. junio', val: '31°C', unit: 'promedio' },
+      { label: 'Humedad', val: '78%', unit: 'relativa' },
+      { label: 'Índice calor', val: '38°C', unit: 'sensación térmica' },
+      { label: 'Precipitación', val: '188 mm', unit: 'junio (muy alto)' },
+      { label: 'Techado', val: 'Parcial', unit: 'techo de sombra lateral' }
+    ],
+    alerta: { tipo: 'alta', icono: '🇨🇴', texto: '<b>Colombia vs Portugal el 27 de junio aquí.</b> Clima tropical costero con lluvias frecuentes. Colombia está habituada a estas condiciones (Barranquilla, Cali). Portugal deberá adaptarse. El calor tropical favorece a los cafeteros.' }
+  },
+  monterrey: {
+    nombre: 'Estadio BBVA',
+    ciudad: 'Monterrey, Nuevo León, México',
+    coords: '25°40\'N  100°18\'W',
+    colombia: false,
+    stats: [
+      { label: 'Altitud', val: '538', unit: 'm.s.n.m.' },
+      { label: 'Temp. junio', val: '35°C', unit: 'promedio' },
+      { label: 'Humedad', val: '45%', unit: 'relativa' },
+      { label: 'Clima', val: 'Semiárido', unit: 'BSh' },
+      { label: 'Precipitación', val: '55 mm', unit: 'junio' },
+      { label: 'Techado', val: 'No', unit: 'abierto con sombra' }
+    ],
+    alerta: { tipo: 'alta', icono: '☀️', texto: '<b>Sede más caliente del torneo.</b> Calor seco de hasta 38°C posibles. Menor humedad que Houston pero temperatura más alta. Los partidos aquí tendrán más paradas, más tarjetas, más desgaste visible.' }
+  },
+  guadalajara: {
+    nombre: 'Estadio Akron',
+    ciudad: 'Guadalajara, Jalisco, México',
+    coords: '20°41\'N  103°26\'W',
+    colombia: true,
+    stats: [
+      { label: 'Altitud', val: '1,566', unit: 'm.s.n.m.' },
+      { label: 'O₂ disponible', val: '−15%', unit: 'vs nivel del mar' },
+      { label: 'Temp. junio', val: '23°C', unit: 'promedio' },
+      { label: 'Humedad', val: '54%', unit: 'relativa' },
+      { label: 'Clima', val: 'Subtropical de altura', unit: 'Cwb' },
+      { label: 'Precipitación', val: '160 mm', unit: 'junio' }
+    ],
+    alerta: { tipo: 'media', icono: '🇨🇴', texto: '<b>Colombia vs RD Congo el 23 de junio.</b> A 1,566m el cuerpo necesita 3–4 días para empezar a adaptarse. RD Congo viene de ~300m de altitud promedio. Colombia tiene más experiencia jugando en altura (Bogotá, Manizales, Armenia).' }
+  },
+  cdmx: {
+    nombre: 'Estadio Azteca',
+    ciudad: 'Ciudad de México, México',
+    coords: '19°18\'N  99°09\'W',
+    colombia: true,
+    stats: [
+      { label: 'Altitud', val: '2,240', unit: 'm.s.n.m.' },
+      { label: 'O₂ disponible', val: '−21%', unit: 'vs nivel del mar' },
+      { label: 'Temp. junio', val: '18°C', unit: 'promedio' },
+      { label: 'Humedad', val: '58%', unit: 'relativa' },
+      { label: 'Clima', val: 'Subtropical de altura', unit: 'Cwb' },
+      { label: 'Precipitación', val: '120 mm', unit: 'junio' }
+    ],
+    alerta: { tipo: 'alta', icono: '⛰️🇨🇴', texto: '<b>Uzbekistán vs Colombia el 17 de junio — el partido de más exigencia física.</b> A 2,240m la VO₂ máx se reduce ~21%. Uzbekistán promedia <300m de altitud. Los jugadores de Colombia del Altiplano (Bogotá = 2,600m) tienen ventaja fisiológica real.' }
+  }
+};
+
+function crearStatHTML(s) {
+  return '<div class="sede-stat">' +
+    '<div class="sede-stat-label">' + s.label + '</div>' +
+    '<div class="sede-stat-val">' + s.val + ' <span class="sede-stat-unit">' + s.unit + '</span></div>' +
+    '</div>';
+}
+
+function abrirSede(id) {
+  var d = SEDES[id];
+  if (!d) return;
+
+  document.getElementById('sp-nombre').textContent = d.nombre;
+  document.getElementById('sp-ciudad').textContent = d.ciudad;
+  document.getElementById('sp-coords').textContent = d.coords;
+  document.getElementById('sp-colombia-badge').style.display = d.colombia ? 'inline-flex' : 'none';
+
+  document.getElementById('sp-stats').innerHTML = d.stats.map(crearStatHTML).join('');
+
+  var alerta = document.getElementById('sp-alerta');
+  alerta.className = 'sede-alerta ' + d.alerta.tipo;
+  alerta.innerHTML = '<span class="icono">' + d.alerta.icono + '</span><span class="texto">' + d.alerta.texto + '</span>';
+
+  var panel = document.getElementById('sede-panel');
+  panel.classList.add('visible');
+  panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+  document.querySelectorAll('.sede-dot').forEach(function(g) { g.classList.remove('activo'); });
+  var dot = document.querySelector('.sede-dot[data-id="' + id + '"]');
+  if (dot) dot.classList.add('activo');
+}
+
+document.querySelectorAll('.sede-dot').forEach(function(g) {
+  g.addEventListener('click', function() { abrirSede(this.dataset.id); });
+});
+</script>
+</body>
+</html>
