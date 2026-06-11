@@ -185,6 +185,54 @@ nav a:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; bord
   transition: border-color .2s, color .2s;
 }
 .link-sede:hover { color: #fff; border-color: var(--amber); }
+
+/* ── Clima en vivo ── */
+.clima-vivo {
+  display: flex;
+  align-items: center;
+  gap: 4px 16px;
+  flex-wrap: wrap;
+  padding: 10px 22px;
+  border-bottom: 1px solid var(--line);
+  background: rgba(10,14,20,0.6);
+}
+.clima-item { display: flex; align-items: center; gap: 5px; }
+.cv-icon { font-size: 14px; }
+.cv-val  { font-family: "JetBrains Mono", monospace; font-size: 13px; font-weight: 700; color: var(--ink); }
+.cv-lbl  { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; }
+.clima-actualizando { margin-left: auto; font-size: 10px; color: var(--muted); font-family: "JetBrains Mono", monospace; }
+
+/* ── Marcador en vivo ── */
+.marcador-vivo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 10px 22px;
+  border-bottom: 1px solid var(--line);
+  background: rgba(252,209,22,0.06);
+}
+.mv-badge {
+  background: var(--neg);
+  color: #fff;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 4px;
+  letter-spacing: .08em;
+  animation: blink-badge 1.2s step-start infinite;
+}
+@keyframes blink-badge { 50% { opacity: .3; } }
+.mv-badge.finalizado { background: var(--muted); animation: none; }
+.mv-score { display: flex; align-items: center; gap: 10px; }
+.mv-equipo { font-family: "JetBrains Mono", monospace; font-size: 13px; color: var(--muted); }
+.mv-goles  { font-family: "JetBrains Mono", monospace; font-size: 22px; font-weight: 700; color: var(--ink); letter-spacing: .1em; }
+.mv-minuto { font-family: "JetBrains Mono", monospace; font-size: 11px; color: var(--amber); }
+.mv-stats  { display: flex; gap: 14px; flex-wrap: wrap; margin-left: auto; font-size: 11px; color: var(--muted); font-family: "JetBrains Mono", monospace; }
+.mv-stat-item { display: flex; flex-direction: column; align-items: center; gap: 1px; }
+.mv-stat-item .mvs-lbl { font-size: 9px; text-transform: uppercase; letter-spacing: .05em; }
+.mv-stat-item .mvs-val { color: var(--ink); font-weight: 700; }
 .dossier-top .meta {
   font-family: "JetBrains Mono", monospace;
   font-size: 12px;

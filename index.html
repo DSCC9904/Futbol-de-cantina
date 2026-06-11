@@ -54,6 +54,28 @@
         </div>
       </div>
 
+      <!-- ── CLIMA EN VIVO (Open-Meteo, sin API key) ── -->
+      <div class="clima-vivo" id="clima-vivo">
+        <div class="clima-item" id="cv-temp"><span class="cv-icon">🌡️</span><span class="cv-val" id="cv-temp-val">—</span><span class="cv-lbl">temp</span></div>
+        <div class="clima-item" id="cv-hum"><span class="cv-icon">💧</span><span class="cv-val" id="cv-hum-val">—</span><span class="cv-lbl">humedad</span></div>
+        <div class="clima-item" id="cv-viento"><span class="cv-icon">🌬️</span><span class="cv-val" id="cv-viento-val">—</span><span class="cv-lbl">viento</span></div>
+        <div class="clima-item" id="cv-precip"><span class="cv-icon">🌧️</span><span class="cv-val" id="cv-precip-val">—</span><span class="cv-lbl">lluvia/h</span></div>
+        <div class="clima-item" id="cv-nube"><span class="cv-icon">☁️</span><span class="cv-val" id="cv-nube-val">—</span><span class="cv-lbl">nubes</span></div>
+        <div class="clima-actualizando" id="cv-estado">cargando clima…</div>
+      </div>
+
+      <!-- ── MARCADOR EN VIVO ── -->
+      <div class="marcador-vivo" id="marcador-vivo" hidden>
+        <div class="mv-badge" id="mv-estado-badge">EN VIVO</div>
+        <div class="mv-score">
+          <span class="mv-equipo" id="mv-local">MEX</span>
+          <span class="mv-goles" id="mv-goles">0 — 0</span>
+          <span class="mv-equipo" id="mv-visitante">RSA</span>
+        </div>
+        <div class="mv-minuto" id="mv-minuto">min 0'</div>
+        <div class="mv-stats" id="mv-stats-row"></div>
+      </div>
+
       <div class="teams">
         <div class="team">
           <div class="crest" style="color:#0B7A3B">MEX</div>
@@ -622,5 +644,151 @@
 <div class="tooltip-box" id="tooltip" hidden></div>
 
 <script src="main.js"></script>
+
+<script>
+/* ══════════════════════════════════════════════════════════════
+   CLIMA EN VIVO — Open-Meteo (gratis, sin API key)
+   Configuración del partido actual:
+   Cambia LAT/LON por las coordenadas del estadio activo.
+══════════════════════════════════════════════════════════════ */
+var PARTIDO = {
+  lat:        19.3029,   /* Estadio Azteca */
+  lon:       -99.1504,
+  fixtureId:  null,      /* ID de API-Football; null = no hay partido en vivo */
+  apiKey:     ''         /* Pega aquí tu RapidAPI key cuando la tengas */
+};
+
+function cargarClima() {
+  var url = 'https://api.open-meteo.com/v1/forecast'
+    + '?latitude='  + PARTIDO.lat
+    + '&longitude=' + PARTIDO.lon
+    + '&current=temperature_2m,relative_humidity_2m,precipitation,wind_speed_10m,cloud_cover'
+    + '&wind_speed_unit=kmh&timezone=auto';
+
+  fetch(url)
+    .then(function(r) { return r.json(); })
+    .then(function(d) {
+      var c = d.current;
+      document.getElementById('cv-temp-val').textContent   = c.temperature_2m    + '°C';
+      document.getElementById('cv-hum-val').textContent    = c.relative_humidity_2m + '%';
+      document.getElementById('cv-viento-val').textContent = c.wind_speed_10m    + ' km/h';
+      document.getElementById('cv-precip-val').textContent = c.precipitation      + ' mm';
+      document.getElementById('cv-nube-val').textContent   = c.cloud_cover        + '%';
+      document.getElementById('cv-estado').textContent     = 'actualizado ' + new Date().toLocaleTimeString('es-CO', {hour:'2-digit', minute:'2-digit'});
+    })
+    .catch(function() {
+      document.getElementById('cv-estado').textContent = 'clima no disponible';
+    });
+}
+
+cargarClima();
+setInterval(cargarClima, 10 * 60 * 1000); /* cada 10 min */
+
+/* ══════════════════════════════════════════════════════════════
+   MARCADOR EN VIVO — API-Football (RapidAPI, plan gratuito)
+   Sólo se activa si PARTIDO.fixtureId tiene un valor y
+   PARTIDO.apiKey está configurado.
+   Estadísticas que actualiza en tiempo real:
+   posesión, tiros, corners, tarjetas amarillas/rojas, faltas
+══════════════════════════════════════════════════════════════ */
+var STATS_EN_VIVO = [
+  { key: 'Ball Possession',      id: 'posesion', lbl: 'posesión' },
+  { key: 'Shots on Goal',        id: 'tiros',    lbl: 'tiros'    },
+  { key: 'Corner Kicks',         id: 'corners',  lbl: 'corners'  },
+  { key: 'Yellow Cards',         id: 'amarillas',lbl: 'amarillas'},
+  { key: 'Red Cards',            id: 'rojas',    lbl: 'rojas'    },
+  { key: 'Fouls',                id: 'faltas',   lbl: 'faltas'   }
+];
+
+function actualizarStatsBarra(id, valorLocal, valorVisitante) {
+  /* Actualiza la barra y el número en las filas .ind-row del dossier */
+  var rows = document.querySelectorAll('.ind-row');
+  rows.forEach(function(row) {
+    var tip = row.querySelector('[data-tip="' + id + '"]');
+    if (!tip) return;
+    var vals = row.querySelectorAll('.ind-val');
+    var bars = row.querySelectorAll('.bar');
+    if (vals[0]) vals[0].textContent = valorLocal;
+    if (vals[1]) vals[1].textContent = valorVisitante;
+    /* recalcular barras proporcionales */
+    var vL = parseFloat(valorLocal)    || 0;
+    var vR = parseFloat(valorVisitante)|| 0;
+    var max = Math.max(vL, vR, 1);
+    if (bars[0]) bars[0].dataset.w = Math.round(vL / max * 100);
+    if (bars[1]) bars[1].dataset.w = Math.round(vR / max * 100);
+    /* re-animar */
+    if (bars[0]) bars[0].style.width = bars[0].dataset.w + '%';
+    if (bars[1]) bars[1].style.width = bars[1].dataset.w + '%';
+  });
+}
+
+function renderMiniStats(statsLocal, statsVisitante) {
+  var cont = document.getElementById('mv-stats-row');
+  if (!cont) return;
+  cont.innerHTML = '';
+  STATS_EN_VIVO.forEach(function(s) {
+    var vL = statsLocal[s.key]      || '—';
+    var vR = statsVisitante[s.key]  || '—';
+    var el = document.createElement('div');
+    el.className = 'mv-stat-item';
+    el.innerHTML = '<span class="mvs-val">' + vL + ' / ' + vR + '</span>'
+                 + '<span class="mvs-lbl">' + s.lbl + '</span>';
+    cont.appendChild(el);
+    actualizarStatsBarra(s.id, vL, vR);
+  });
+}
+
+function cargarPartidoVivo() {
+  if (!PARTIDO.fixtureId || !PARTIDO.apiKey) return;
+
+  fetch('https://api-football-v1.p.rapidapi.com/v3/fixtures?id=' + PARTIDO.fixtureId + '&live=all', {
+    headers: {
+      'x-rapidapi-host': 'api-football-v1.p.rapidapi.com',
+      'x-rapidapi-key':  PARTIDO.apiKey
+    }
+  })
+    .then(function(r) { return r.json(); })
+    .then(function(d) {
+      var fix = d.response && d.response[0];
+      if (!fix) return;
+
+      var status  = fix.fixture.status.short;   /* NS, 1H, HT, 2H, FT … */
+      var minuto  = fix.fixture.status.elapsed;
+      var golesL  = fix.goals.home;
+      var golesV  = fix.goals.away;
+      var mv      = document.getElementById('marcador-vivo');
+      var badge   = document.getElementById('mv-estado-badge');
+
+      mv.hidden = false;
+      document.getElementById('mv-local').textContent      = fix.teams.home.name.substring(0,3).toUpperCase();
+      document.getElementById('mv-visitante').textContent  = fix.teams.away.name.substring(0,3).toUpperCase();
+      document.getElementById('mv-goles').textContent      = golesL + ' — ' + golesV;
+      document.getElementById('mv-minuto').textContent     = minuto ? 'min ' + minuto + '\'' : status;
+
+      if (status === 'FT' || status === 'AET' || status === 'PEN') {
+        badge.textContent = 'FINALIZADO';
+        badge.classList.add('finalizado');
+      } else {
+        badge.textContent = 'EN VIVO';
+        badge.classList.remove('finalizado');
+      }
+
+      /* Estadísticas en vivo */
+      var statsArr = fix.statistics || [];
+      var sL = {}, sV = {};
+      statsArr.forEach(function(equipo, i) {
+        var dest = i === 0 ? sL : sV;
+        (equipo.statistics || []).forEach(function(s) { dest[s.type] = s.value; });
+      });
+      renderMiniStats(sL, sV);
+    })
+    .catch(function() { /* sin partido en vivo — silencioso */ });
+}
+
+if (PARTIDO.fixtureId && PARTIDO.apiKey) {
+  cargarPartidoVivo();
+  setInterval(cargarPartidoVivo, 60 * 1000); /* cada 60 seg */
+}
+</script>
 </body>
 </html>
