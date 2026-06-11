@@ -1,0 +1,16 @@
+# netlify.toml
+# Este archivo le dice a Netlify cómo publicar el sitio.
+# Como nuestro sitio es solo HTML/CSS/JS puro (sin código de servidor),
+# la configuración es mínima.
+
+[build]
+  # La carpeta que Netlify publica. Como index.html está en la raíz, es "."
+  publish = "."
+
+[[headers]]
+  # Aplica estas cabeceras de seguridad a todos los archivos
+  for = "/*"
+  [headers.values]
+    X-Frame-Options        = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy        = "strict-origin-when-cross-origin"

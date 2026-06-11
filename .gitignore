@@ -1,0 +1,9 @@
+# Archivo de contraseñas reales — NUNCA se sube
+.env
+
+# Archivos basura de Windows
+Thumbs.db
+desktop.ini
+
+# Archivos basura de Mac
+.DS_Store

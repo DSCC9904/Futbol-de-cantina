@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fútbol de Cantina — Los datos antes de la apuesta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,600;0,800;0,900&family=Spline+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Video de fondo: pon tu archivo en video/fondo.mp4 -->
+<div class="video-bg">
+  <video autoplay muted loop playsinline>
+    <source src="15552725_3840_2160_30fps.mp4" type="video/mp4">
+  </video>
+</div>
+
+<header>
+  <div class="wrap bar">
+    <div class="brand">
+      <img src="Logo.png" alt="Logo Fútbol de Cantina" class="logo-img">
+      <span class="logo">FÚTBOL <b>DE CANTINA</b></span>
+      <span class="tag-demo">demo · v1</span>
+    </div>
+    <nav>
+      <a href="#partido">El partido</a>
+      <a href="#formacion">Formación</a>
+      <a href="#leer">Cómo leer</a>
+      <a href="#lista">Síguenos</a>
+      <a href="partidos.html">📅 Calendario</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ── SECCIÓN 1: Dossier del partido ── -->
+  <section class="hero" id="partido">
+    <div class="eyebrow">Jornada 1 · Mundial 2026</div>
+    <h1>El partido de hoy, <em>en datos</em>. Tú decides la apuesta.</h1>
+    <p class="lede">No predecimos resultados. Te mostramos qué dice la estadística y dónde la cuota puede tener valor.</p>
+
+    <div class="dossier" aria-label="Análisis del partido">
+      <div class="dossier-top">
+        <span class="meta">11 JUN · 13:00 (COL) · ESTADIO AZTECA · GRUPO A</span>
+        <span class="demo-pill">Datos de ejemplo</span>
+      </div>
+
+      <div class="teams">
+        <div class="team">
+          <div class="crest" style="color:#0B7A3B">MEX</div>
+          <div class="name">México</div>
+          <div class="rank">FIFA #16 · local</div>
+        </div>
+        <div class="vs">VS</div>
+        <div class="team">
+          <div class="crest" style="color:#F2B33D">RSA</div>
+          <div class="name">Sudáfrica</div>
+          <div class="rank">FIFA #59 · visitante</div>
+        </div>
+      </div>
+
+      <div class="ind">
+
+        <!-- ESTADÍSTICA 1: Goles esperados -->
+        <div class="ind-row">
+          <div class="cell l">
+            <div class="ind-val l">2.10</div>
+            <div class="ind-sub l">goles esperados/partido</div>
+            <div class="barwrap l"><span class="bar" data-w="70"></span></div>
+          </div>
+          <div class="ind-label">
+            Goles que<br>merecían marcar
+            <span class="stat-tip" data-tip="xg">?</span>
+          </div>
+          <div class="cell">
+            <div class="ind-val r">1.20</div>
+            <div class="ind-sub r">goles esperados/partido</div>
+            <div class="barwrap"><span class="bar" data-w="40"></span></div>
+          </div>
+        </div>
+
+        <!-- ESTADÍSTICA 2: Últimos 5 partidos -->
+        <div class="ind-row">
+          <div class="cell l">
+            <div class="ind-val l forma">
+              <span class="f-v">V</span><span class="f-v">V</span><span class="f-e">E</span><span class="f-v">V</span><span class="f-d">D</span>
+            </div>
+            <div class="ind-sub l">último partido → izquierda</div>
+          </div>
+          <div class="ind-label">
+            Últimos 5<br>partidos
+            <span class="stat-tip" data-tip="forma">?</span>
+          </div>
+          <div class="cell">
+            <div class="ind-val r forma">
+              <span class="f-d">D</span><span class="f-e">E</span><span class="f-v">V</span><span class="f-d">D</span><span class="f-e">E</span>
+            </div>
+            <div class="ind-sub r">último partido → derecha</div>
+          </div>
+        </div>
+
+        <!-- ESTADÍSTICA 3: Ambos marcan -->
+        <div class="ind-row">
+          <div class="cell l">
+            <div class="ind-val l">61%</div>
+            <div class="ind-sub l">de sus partidos</div>
+            <div class="barwrap l"><span class="bar" data-w="61"></span></div>
+          </div>
+          <div class="ind-label">
+            Partidos donde<br>los 2 marcan
+            <span class="stat-tip" data-tip="btts">?</span>
+          </div>
+          <div class="cell">
+            <div class="ind-val r">48%</div>
+            <div class="ind-sub r">de sus partidos</div>
+            <div class="barwrap"><span class="bar" data-w="48"></span></div>
+          </div>
+        </div>
+
+        <!-- ESTADÍSTICA 4: Más de 2 goles -->
+        <div class="ind-row">
+          <div class="cell l">
+            <div class="ind-val l">58%</div>
+            <div class="ind-sub l">de sus partidos</div>
+            <div class="barwrap l"><span class="bar" data-w="58"></span></div>
+          </div>
+          <div class="ind-label">
+            Partidos con<br>3 goles o más
+            <span class="stat-tip" data-tip="over">?</span>
+          </div>
+          <div class="cell">
+            <div class="ind-val r">44%</div>
+            <div class="ind-sub r">de sus partidos</div>
+            <div class="barwrap"><span class="bar" data-w="44"></span></div>
+          </div>
+        </div>
+
+        <!-- ESTADÍSTICA 5: Portería a cero -->
+        <div class="ind-row">
+          <div class="cell l">
+            <div class="ind-val l">40%</div>
+            <div class="ind-sub l">de sus partidos</div>
+            <div class="barwrap l"><span class="bar" data-w="40"></span></div>
+          </div>
+          <div class="ind-label">
+            Partidos sin<br>goles en contra
+            <span class="stat-tip" data-tip="cs">?</span>
+          </div>
+          <div class="cell">
+            <div class="ind-val r">33%</div>
+            <div class="ind-sub r">de sus partidos</div>
+            <div class="barwrap"><span class="bar" data-w="33"></span></div>
+          </div>
+        </div>
+
+      </div><!-- /ind -->
+    </div><!-- /dossier -->
+
+    <!-- Bloque valor vs. cuota -->
+    <div class="signature">
+      <div class="sig-head">
+        <h3>Lo que dice la casa vs. lo que dicen los datos</h3>
+        <p>La cuota esconde una probabilidad. Si los datos dan más chance que la cuota, hay <span style="color:var(--pos)">valor</span>; si dan menos, es <span style="color:var(--neg)">trampa</span>.</p>
+      </div>
+      <div class="sig-body">
+        <div class="market">
+          <div class="pick">
+            <div class="h"><span class="opt">Gana México</span><span class="odd mono">cuota 1.95</span></div>
+            <div class="pct">Casa: 51% · Datos: 57%</div>
+            <div class="pbar"><i data-w="51"></i></div>
+            <span class="valtag pos">Posible valor +6%</span>
+          </div>
+          <div class="pick">
+            <div class="h"><span class="opt">Empate</span><span class="odd mono">cuota 3.30</span></div>
+            <div class="pct">Casa: 30% · Datos: 26%</div>
+            <div class="pbar"><i data-w="30"></i></div>
+            <span class="valtag neg">Sin valor −4%</span>
+          </div>
+          <div class="pick">
+            <div class="h"><span class="opt">Gana Sudáfrica</span><span class="odd mono">cuota 4.50</span></div>
+            <div class="pct">Casa: 22% · Datos: 17%</div>
+            <div class="pbar"><i data-w="22"></i></div>
+            <span class="valtag neg">Sin valor −5%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECCIÓN 2: Formaciones ── -->
+  <section class="formacion-sec" id="formacion">
+    <div class="eyebrow">Alineaciones · Datos de ejemplo</div>
+    <h2 class="sec-title">Formaciones: probable y confirmada</h2>
+    <p class="sec-sub">Haz clic en cualquier jugador para ver sus estadísticas. La formación confirmada aparece cuando el técnico la publica oficialmente.</p>
+
+    <!-- ── MÉXICO ── -->
+    <div class="form-equipo-titulo">México</div>
+    <div class="form-grid">
+
+      <!-- Probable -->
+      <div class="form-team-card">
+        <div class="form-team-header">
+          <span class="form-team-name">Formación probable</span>
+          <span class="form-badge probable">4-3-3</span>
+        </div>
+        <div class="pitch">
+          <div class="pitch-row">
+            <div class="jugador" data-pos="GK" data-nombre="G. Ochoa"
+              data-stats='{"Paradas/partido":"4.2","% Paradas":"74%","Portería a cero":"38%","Partidos jugados":"12"}'>
+              <div class="jug-circle">1</div><div class="jug-nombre">G. Ochoa</div>
+            </div>
+          </div>
+          <div class="pitch-row">
+            <div class="jugador" data-pos="DEF" data-nombre="J. Gallardo"
+              data-stats='{"Duelos ganados":"61%","Despejes/partido":"3.1","Tarjetas amarillas":"2","Partidos jugados":"12"}'>
+              <div class="jug-circle">23</div><div class="jug-nombre">Gallardo</div>
+            </div>
+            <div class="jugador" data-pos="DEF" data-nombre="N. Araujo"
+              data-stats='{"Duelos ganados":"68%","Despejes/partido":"4.2","Tarjetas amarillas":"1","Partidos jugados":"10"}'>
+              <div class="jug-circle">3</div><div class="jug-nombre">Araujo</div>
+            </div>
+            <div class="jugador" data-pos="DEF" data-nombre="C. Montes"
+              data-stats='{"Duelos ganados":"65%","Despejes/partido":"3.8","Tarjetas amarillas":"3","Partidos jugados":"12"}'>
+              <div class="jug-circle">4</div><div class="jug-nombre">Montes</div>
+            </div>
+            <div class="jugador" data-pos="DEF" data-nombre="J. Sánchez"
+              data-stats='{"Duelos ganados":"59%","Despejes/partido":"2.9","Tarjetas amarillas":"2","Partidos jugados":"11"}'>
+              <div class="jug-circle">22</div><div class="jug-nombre">J. Sánchez</div>
+            </div>
+          </div>
+          <div class="pitch-row">
+            <div class="jugador" data-pos="MID" data-nombre="A. Guardado"
+              data-stats='{"Pases clave/partido":"1.8","Recuperaciones/partido":"3.2","Asistencias":"2","Partidos jugados":"10"}'>
+              <div class="jug-circle">18</div><div class="jug-nombre">Guardado</div>
+            </div>
+            <div class="jugador" data-pos="MID" data-nombre="E. Álvarez"
+              data-stats='{"Pases clave/partido":"2.1","Recuperaciones/partido":"4.8","Asistencias":"1","Partidos jugados":"12"}'>
+              <div class="jug-circle">6</div><div class="jug-nombre">E. Álvarez</div>
+            </div>
+            <div class="jugador" data-pos="MID" data-nombre="H. Herrera"
+              data-stats='{"Pases clave/partido":"1.5","Recuperaciones/partido":"3.6","Asistencias":"3","Partidos jugados":"11"}'>
+              <div class="jug-circle">16</div><div class="jug-nombre">H. Herrera</div>
+            </div>
+          </div>
+          <div class="pitch-row">
+            <div class="jugador" data-pos="FWD" data-nombre="H. Lozano"
+              data-stats='{"Goles":"5","xG (goles esperados)":"4.3","Disparos al arco/partido":"2.1","Partidos jugados":"11"}'>
+              <div class="jug-circle">22</div><div class="jug-nombre">Lozano</div>
+            </div>
+            <div class="jugador" data-pos="FWD" data-nombre="R. Jiménez"
+              data-stats='{"Goles":"7","xG (goles esperados)":"6.8","Disparos al arco/partido":"3.4","Partidos jugados":"12"}'>
+              <div class="jug-circle">9</div><div class="jug-nombre">R. Jiménez</div>
+            </div>
+            <div class="jugador" data-pos="FWD" data-nombre="A. Vega"
+              data-stats='{"Goles":"3","xG (goles esperados)":"2.9","Disparos al arco/partido":"1.8","Partidos jugados":"10"}'>
+              <div class="jug-circle">11</div><div class="jug-nombre">A. Vega</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Confirmada -->
+      <div class="form-team-card">
+        <div class="form-team-header">
+          <span class="form-team-name">Formación confirmada</span>
+          <span class="form-badge pendiente">Por confirmar</span>
+        </div>
+        <div class="pitch pitch-pendiente">
+          <div class="pendiente-msg">
+            <div class="pendiente-icon">🕐</div>
+            <div class="pendiente-txt">El técnico aún no publicó<br>la alineación oficial</div>
+            <div class="pendiente-sub">Se actualizará antes del partido</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /form-grid México -->
+
+    <!-- ── SUDÁFRICA ── -->
+    <div class="form-equipo-titulo" style="margin-top:32px">Sudáfrica</div>
+    <div class="form-grid">
+
+      <!-- Probable -->
+      <div class="form-team-card">
+        <div class="form-team-header">
+          <span class="form-team-name">Formación probable</span>
+          <span class="form-badge probable">4-2-3-1</span>
+        </div>
+        <div class="pitch">
+          <div class="pitch-row">
+            <div class="jugador" data-pos="GK" data-nombre="R. Williams"
+              data-stats='{"Paradas/partido":"3.1","% Paradas":"68%","Portería a cero":"25%","Partidos jugados":"10"}'>
+              <div class="jug-circle">1</div><div class="jug-nombre">Williams</div>
+            </div>
+          </div>
+          <div class="pitch-row">
+            <div class="jugador" data-pos="DEF" data-nombre="T. Chabalala"
+              data-stats='{"Duelos ganados":"55%","Despejes/partido":"3.4","Tarjetas amarillas":"2","Partidos jugados":"9"}'>
+              <div class="jug-circle">5</div><div class="jug-nombre">Chabalala</div>
+            </div>
+            <div class="jugador" data-pos="DEF" data-nombre="S. Mobbie"
+              data-stats='{"Duelos ganados":"60%","Despejes/partido":"4.0","Tarjetas amarillas":"1","Partidos jugados":"10"}'>
+              <div class="jug-circle">6</div><div class="jug-nombre">Mobbie</div>
+            </div>
+            <div class="jugador" data-pos="DEF" data-nombre="L. Sesane"
+              data-stats='{"Duelos ganados":"57%","Despejes/partido":"3.6","Tarjetas amarillas":"3","Partidos jugados":"10"}'>
+              <div class="jug-circle">3</div><div class="jug-nombre">Sesane</div>
+            </div>
+            <div class="jugador" data-pos="DEF" data-nombre="E. Lakay"
+              data-stats='{"Duelos ganados":"52%","Despejes/partido":"2.8","Tarjetas amarillas":"1","Partidos jugados":"8"}'>
+              <div class="jug-circle">2</div><div class="jug-nombre">Lakay</div>
+            </div>
+          </div>
+          <div class="pitch-row">
+            <div class="jugador" data-pos="MID" data-nombre="B. Mothiba"
+              data-stats='{"Pases clave/partido":"1.2","Recuperaciones/partido":"4.1","Asistencias":"1","Partidos jugados":"9"}'>
+              <div class="jug-circle">8</div><div class="jug-nombre">Mothiba</div>
+            </div>
+            <div class="jugador" data-pos="MID" data-nombre="T. Hlongwane"
+              data-stats='{"Pases clave/partido":"2.4","Recuperaciones/partido":"2.8","Asistencias":"4","Partidos jugados":"10"}'>
+              <div class="jug-circle">10</div><div class="jug-nombre">Hlongwane</div>
+            </div>
+            <div class="jugador" data-pos="MID" data-nombre="K. Dolly"
+              data-stats='{"Pases clave/partido":"1.9","Recuperaciones/partido":"2.2","Asistencias":"2","Partidos jugados":"8"}'>
+              <div class="jug-circle">7</div><div class="jug-nombre">Dolly</div>
+            </div>
+          </div>
+          <div class="pitch-row">
+            <div class="jugador" data-pos="FWD" data-nombre="L. Mothiba"
+              data-stats='{"Goles":"4","xG (goles esperados)":"3.8","Disparos al arco/partido":"1.9","Partidos jugados":"10"}'>
+              <div class="jug-circle">9</div><div class="jug-nombre">L. Mothiba</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Confirmada -->
+      <div class="form-team-card">
+        <div class="form-team-header">
+          <span class="form-team-name">Formación confirmada</span>
+          <span class="form-badge pendiente">Por confirmar</span>
+        </div>
+        <div class="pitch pitch-pendiente">
+          <div class="pendiente-msg">
+            <div class="pendiente-icon">🕐</div>
+            <div class="pendiente-txt">El técnico aún no publicó<br>la alineación oficial</div>
+            <div class="pendiente-sub">Se actualizará antes del partido</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /form-grid Sudáfrica -->
+
+    <!-- Leyenda -->
+    <div class="form-leyenda">
+      <span class="ley-item"><span class="ley-dot gk"></span>Portero</span>
+      <span class="ley-item"><span class="ley-dot def"></span>Defensa</span>
+      <span class="ley-item"><span class="ley-dot mid"></span>Mediocampista</span>
+      <span class="ley-item"><span class="ley-dot fwd"></span>Delantero</span>
+    </div>
+  </section>
+
+  <!-- ── SECCIÓN 3: Cómo leer ── -->
+  <section class="read" id="leer">
+    <div class="eyebrow">Aprende a leerlo</div>
+    <h2>Qué significa cada estadística</h2>
+    <div class="grid4">
+      <div class="card">
+        <div class="k">Goles esperados</div>
+        <h4>¿Quién mereció marcar?</h4>
+        <p>No cuenta los goles reales sino la <em>calidad</em> de las ocasiones creadas. Un equipo con 2.1 creó ocasiones suficientes para meter 2 goles. La suerte distorsiona; el xG no.</p>
+      </div>
+      <div class="card">
+        <div class="k">Ambos marcan</div>
+        <h4>¿Los dos equipos anotan?</h4>
+        <p>Si en el 61% de sus partidos México y su rival marcan, hay alta chance de un partido abierto. Útil para la apuesta "ambos marcan: Sí".</p>
+      </div>
+      <div class="card">
+        <div class="k">3 goles o más</div>
+        <h4>¿Partido con goles?</h4>
+        <p>El mercado más apostado. Si un equipo tiene 58%, en más de la mitad de sus juegos caen 3 o más goles. El Over 2.5 del mercado es lo mismo.</p>
+      </div>
+      <div class="card">
+        <div class="k">VALOR</div>
+        <h4>Probabilidad vs. cuota</h4>
+        <p>Apostar solo cuando tu probabilidad calculada supera la que implica la cuota. Sin esto, pierdes a la larga sin importar cuánto "sabes" de fútbol.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECCIÓN 4: Captación ── -->
+  <section class="capture" id="lista">
+    <div class="cap-grid">
+      <div class="cap-left">
+        <div class="eyebrow">Gratis durante el Mundial</div>
+        <h2>Recibe la previa de cada partido</h2>
+        <p>Un resumen corto con los datos clave y dónde miramos valor. Sin promesas de ganar — eso no existe. Elige cómo te llega:</p>
+
+        <form name="lista-correo" method="POST" data-netlify="true"
+              netlify-honeypot="campo-trampa" id="form-correo" novalidate>
+          <p class="campo-trampa" aria-hidden="true">
+            <label>No llenes esto: <input name="campo-trampa"></label>
+          </p>
+          <input type="hidden" name="form-name" value="lista-correo">
+          <div class="form">
+            <input id="email" name="email" type="email" inputmode="email"
+                   placeholder="tu@correo.com" aria-label="Correo electrónico" required>
+            <button type="submit">Por correo</button>
+          </div>
+        </form>
+
+        <div class="ok" id="ok" role="status" aria-live="polite"></div>
+
+        <div class="or">o síguenos</div>
+        <div class="chans">
+          <a class="chan" href="#" id="wa" aria-label="Canal de WhatsApp próximamente">
+            <span class="dot wa"></span> Canal de WhatsApp
+          </a>
+          <a class="chan" href="#" id="tg" aria-label="Canal de Telegram próximamente">
+            <span class="dot tg"></span> Telegram
+          </a>
+        </div>
+      </div>
+
+      <div class="cap-right">
+        <div class="preview-label">Ejemplo del mensaje</div>
+        <div class="bubble">
+          <div class="head">⚽ La Previa · MEX vs RSA</div>
+          <p>México llega con mejor xG (2.1 vs 1.2) y mejor forma. El mercado Over 2.5 viene cargado: 58%.</p>
+          <p class="link">Análisis completo → laprevia.co/mex-rsa</p>
+          <p class="legal">No es un pronóstico. +18, juega con responsabilidad.</p>
+          <div class="time">13:11 ✓✓</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div class="resp">
+      <b>Juega con responsabilidad.</b> Apostar implica riesgo de perder dinero y puede generar adicción.
+      La Previa publica estadística e información; <b>no es un pronóstico garantizado</b> ni asesoría financiera.
+      +18. Si sientes que pierdes el control, busca ayuda.
+    </div>
+    <div class="who">FÚTBOL DE CANTINA · prototipo v1<br>Datos del partido = ejemplo, no reales aún.</div>
+  </div>
+</footer>
+
+<!-- Barra de navegación inferior para móvil -->
+<nav class="bottom-nav" aria-label="Navegación">
+  <a href="#partido"   class="bnav-item" aria-label="El partido">
+    <span class="bnav-icon">⚽</span>
+    <span class="bnav-label">Partido</span>
+  </a>
+  <a href="#formacion" class="bnav-item" aria-label="Formaciones">
+    <span class="bnav-icon">👥</span>
+    <span class="bnav-label">Formación</span>
+  </a>
+  <a href="partidos.html" class="bnav-item" aria-label="Calendario">
+    <span class="bnav-icon">📅</span>
+    <span class="bnav-label">Calendario</span>
+  </a>
+  <a href="#lista" class="bnav-item" aria-label="Síguenos">
+    <span class="bnav-icon">🔔</span>
+    <span class="bnav-label">Síguenos</span>
+  </a>
+</nav>
+
+<!-- Modal de estadísticas del jugador -->
+<div class="modal-overlay" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-nombre" hidden>
+  <div class="modal-box">
+    <button class="modal-close" id="modal-close" aria-label="Cerrar">✕</button>
+    <div class="modal-pos-tag" id="modal-pos"></div>
+    <div class="modal-nombre" id="modal-nombre"></div>
+    <div class="modal-stats" id="modal-stats"></div>
+    <p class="modal-nota">Datos de ejemplo · no reales</p>
+  </div>
+</div>
+
+<!-- Tooltip de estadísticas -->
+<div class="tooltip-box" id="tooltip" hidden></div>
+
+<script src="main.js"></script>
+</body>
+</html>
