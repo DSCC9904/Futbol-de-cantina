@@ -572,12 +572,13 @@ function ordenarGrupo(arr) {
   });
 }
 
-function renderGrupos() {
+function renderGrupos(clasi) {
+  var src = clasi || CLASIFICACION;
   var grid = document.getElementById('grupos-grid');
   if (!grid) return;
   grid.innerHTML = '';
-  Object.keys(CLASIFICACION).forEach(function(letra) {
-    var equipos = ordenarGrupo(CLASIFICACION[letra]);
+  Object.keys(src).forEach(function(letra) {
+    var equipos = ordenarGrupo(src[letra]);
     var div = document.createElement('div');
     div.className = 'grupo-tabla';
     var html = '<div class="grupo-titulo">GRUPO ' + letra + '</div>'
@@ -621,8 +622,24 @@ function mostrarResultadosEnCards() {
   });
 }
 
-renderGrupos();
-mostrarResultadosEnCards();
+/* Cargar standings desde resultados.json (override datos.js si existen) */
+fetch('resultados.json?v=' + Date.now())
+  .then(function(r) { return r.json(); })
+  .then(function(d) {
+    if (d.standings) renderGrupos(d.standings);
+    if (d.partidos) {
+      /* Enriquecer RESULTADOS_PARTIDOS con datos del json */
+      (d.partidos || []).forEach(function(p) {
+        if (p.jugado) RESULTADOS_PARTIDOS[p.id] = p;
+      });
+      mostrarResultadosEnCards();
+    }
+  })
+  .catch(function() {
+    /* Fallback: usar datos.js estáticos */
+    renderGrupos();
+    mostrarResultadosEnCards();
+  });
 
 /* Toggle grupos / partidos */
 document.querySelectorAll('.filtro').forEach(function(btn) {

@@ -1,0 +1,100 @@
+{
+  "lastUpdated": "2026-06-11T23:00:00Z",
+  "partidos": [
+    {
+      "id": "MEX-RSA",
+      "localSig": "MEX",
+      "visitanteSig": "RSA",
+      "localNom": "México",
+      "visitanteNom": "Sudáfrica",
+      "golesLocal": 2,
+      "golesVisitante": 0,
+      "fecha": "2026-06-11T19:00:00Z",
+      "grupo": "A",
+      "jugado": true,
+      "stats": {
+        "posesion":  { "local": "62%", "visitante": "38%" },
+        "tiros":     { "local": 8,     "visitante": 3     },
+        "corners":   { "local": 6,     "visitante": 2     },
+        "amarillas": { "local": 1,     "visitante": 3     },
+        "rojas":     { "local": 0,     "visitante": 2     },
+        "faltas":    { "local": 9,     "visitante": 14    },
+        "xg":        { "local": "2.4", "visitante": "0.3" }
+      }
+    }
+  ],
+  "standings": {
+    "A": [
+      { "sig":"MEX","pj":1,"pg":1,"pe":0,"pp":0,"gf":2,"gc":0,"pts":3 },
+      { "sig":"RSA","pj":1,"pg":0,"pe":0,"pp":1,"gf":0,"gc":2,"pts":0 },
+      { "sig":"KOR","pj":0,"pg":0,"pe":0,"pp":0,"gf":0,"gc":0,"pts":0 },
+      { "sig":"CZE","pj":0,"pg":0,"pe":0,"pp":0,"gf":0,"gc":0,"pts":0 }
+    ],
+    "B": [
+      { "sig":"CAN","pj":0,"pg":0,"pe":0,"pp":0,"gf":0,"gc":0,"pts":0 },
+      { "sig":"BIH","pj":0,"pg":0,"pe":0,"pp":0,"gf":0,"gc":0,"pts":0 },
+      { "sig":"QAT","pj":0,"pg":0,"pe":0,"pp":0,"gf":0,"gc":0,"pts":0 },
+      { "sig":"SUI","pj":0,"pg":0,"pe":0,"pp":0,"gf":0,"gc":0,"pts":0 }
+    ],
+    "C": [
+      { "sig":"BRA","pj":0,"pg":0,"pe":0,"pp":0,"gf":0,"gc":0,"pts":0 },
+      { "sig":"MAR","pj":0,"pg":0,"pe":0,"pp":0,"gf":0,"gc":0,"pts":0 },
+      { "sig":"SCO","pj":0,"pg":0,"pe":0,"pp":0,"gf":0,"gc":0,"pts":0 },
+      { "sig":"HAI","pj":0,"pg":0,"pe":0,"pp":0,"gf":0,"gc":0,"pts":0 }
+    ],
+    "D": [
+      { "sig":"USA","pj":0,"pg":0,"pe":0,"pp":0,"gf":0,"gc":0,"pts":0 },
+      { "sig":"PAR","pj":0,"pg":0,"pe":0,"pp":0,"gf":0,"gc":0,"pts":0 },
+      { "sig":"AUS","pj":0,"pg":0,"pe":0,"pp":0,"gf":0,"gc":0,"pts":0 },
+      { "sig":"TUR","pj":0,"pg":0,"pe":0,"pp":0,"gf":0,"gc":0,"pts":0 }
+    ],
+    "E": [
+      { "sig":"GER","pj":0,"pg":0,"pe":0,"pp":0,"gf":0,"gc":0,"pts":0 },
+      { "sig":"CIV","pj":0,"pg":0,"pe":0,"pp":0,"gf":0,"gc":0,"pts":0 },
+      { "sig":"CUW","pj":0,"pg":0,"pe":0,"pp":0,"gf":0,"gc":0,"pts":0 },
+      { "sig":"ECU","pj":0,"pg":0,"pe":0,"pp":0,"gf":0,"gc":0,"pts":0 }
+    ],
+    "F": [
+      { "sig":"NED","pj":0,"pg":0,"pe":0,"pp":0,"gf":0,"gc":0,"pts":0 },
+      { "sig":"JPN","pj":0,"pg":0,"pe":0,"pp":0,"gf":0,"gc":0,"pts":0 },
+      { "sig":"SWE","pj":0,"pg":0,"pe":0,"pp":0,"gf":0,"gc":0,"pts":0 },
+      { "sig":"TUN","pj":0,"pg":0,"pe":0,"pp":0,"gf":0,"gc":0,"pts":0 }
+    ],
+    "G": [
+      { "sig":"BEL","pj":0,"pg":0,"pe":0,"pp":0,"gf":0,"gc":0,"pts":0 },
+      { "sig":"EGY","pj":0,"pg":0,"pe":0,"pp":0,"gf":0,"gc":0,"pts":0 },
+      { "sig":"IRN","pj":0,"pg":0,"pe":0,"pp":0,"gf":0,"gc":0,"pts":0 },
+      { "sig":"NZL","pj":0,"pg":0,"pe":0,"pp":0,"gf":0,"gc":0,"pts":0 }
+    ],
+    "H": [
+      { "sig":"ESP","pj":0,"pg":0,"pe":0,"pp":0,"gf":0,"gc":0,"pts":0 },
+      { "sig":"CPV","pj":0,"pg":0,"pe":0,"pp":0,"gf":0,"gc":0,"pts":0 },
+      { "sig":"SAU","pj":0,"pg":0,"pe":0,"pp":0,"gf":0,"gc":0,"pts":0 },
+      { "sig":"URU","pj":0,"pg":0,"pe":0,"pp":0,"gf":0,"gc":0,"pts":0 }
+    ],
+    "I": [
+      { "sig":"FRA","pj":0,"pg":0,"pe":0,"pp":0,"gf":0,"gc":0,"pts":0 },
+      { "sig":"SEN","pj":0,"pg":0,"pe":0,"pp":0,"gf":0,"gc":0,"pts":0 },
+      { "sig":"IRQ","pj":0,"pg":0,"pe":0,"pp":0,"gf":0,"gc":0,"pts":0 },
+      { "sig":"NOR","pj":0,"pg":0,"pe":0,"pp":0,"gf":0,"gc":0,"pts":0 }
+    ],
+    "J": [
+      { "sig":"ARG","pj":0,"pg":0,"pe":0,"pp":0,"gf":0,"gc":0,"pts":0 },
+      { "sig":"ALG","pj":0,"pg":0,"pe":0,"pp":0,"gf":0,"gc":0,"pts":0 },
+      { "sig":"AUT","pj":0,"pg":0,"pe":0,"pp":0,"gf":0,"gc":0,"pts":0 },
+      { "sig":"JOR","pj":0,"pg":0,"pe":0,"pp":0,"gf":0,"gc":0,"pts":0 }
+    ],
+    "K": [
+      { "sig":"POR","pj":0,"pg":0,"pe":0,"pp":0,"gf":0,"gc":0,"pts":0 },
+      { "sig":"COD","pj":0,"pg":0,"pe":0,"pp":0,"gf":0,"gc":0,"pts":0 },
+      { "sig":"UZB","pj":0,"pg":0,"pe":0,"pp":0,"gf":0,"gc":0,"pts":0 },
+      { "sig":"COL","pj":0,"pg":0,"pe":0,"pp":0,"gf":0,"gc":0,"pts":0 }
+    ],
+    "L": [
+      { "sig":"ENG","pj":0,"pg":0,"pe":0,"pp":0,"gf":0,"gc":0,"pts":0 },
+      { "sig":"CRO","pj":0,"pg":0,"pe":0,"pp":0,"gf":0,"gc":0,"pts":0 },
+      { "sig":"GHA","pj":0,"pg":0,"pe":0,"pp":0,"gf":0,"gc":0,"pts":0 },
+      { "sig":"PAN","pj":0,"pg":0,"pe":0,"pp":0,"gf":0,"gc":0,"pts":0 }
+    ]
+  }
+}

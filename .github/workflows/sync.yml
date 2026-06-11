@@ -1,0 +1,33 @@
+name: Sync resultados Copa del Mundo
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'   # cada 15 minutos
+  workflow_dispatch:          # también se puede lanzar a mano
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Actualizar resultados desde ESPN
+        run: node scripts/sync.js
+
+      - name: Commit si hay cambios
+        run: |
+          git config user.name  "bot-cantina"
+          git config user.email "bot@futboldecantina.com"
+          git add resultados.json
+          git diff --cached --quiet || \
+            git commit -m "Auto: resultados $(date -u '+%d %b %H:%M UTC')" && \
+            git push

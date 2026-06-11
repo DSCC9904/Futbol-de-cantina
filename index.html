@@ -368,13 +368,20 @@
     </div>
   </section>
 
-  <!-- ── HISTÓRICO DE PARTIDOS ── -->
-  <section id="historico" style="padding:0 0 32px">
-    <div class="hist-header">
-      <span class="hist-titulo">📋 Partidos anteriores</span>
-      <button class="hist-toggle" id="hist-toggle" onclick="toggleHistorico()">Ver ▾</button>
+  <!-- ── CARRUSEL PARTIDOS ANTERIORES ── -->
+  <section id="carrusel-sec" hidden>
+    <div class="car-titulo-row">
+      <span class="car-titulo">Partidos jugados</span>
+      <span class="car-actualizado" id="car-actualizado"></span>
     </div>
-    <div id="hist-lista" hidden></div>
+    <div class="carrusel-wrap">
+      <button class="car-flecha car-prev" id="car-prev" onclick="carMover(-1)">&#8592;</button>
+      <div class="carrusel-viewport">
+        <div class="carrusel-track" id="car-track"></div>
+      </div>
+      <button class="car-flecha car-next" id="car-next" onclick="carMover(1)">&#8594;</button>
+    </div>
+    <div class="car-dots" id="car-dots"></div>
   </section>
 
   <!-- ── SECCIÓN 2: Formaciones ── -->
@@ -974,46 +981,112 @@ function cargarPartidoVivo() {
     .catch(function() {});
 }
 
-/* ── Histórico de partidos ── */
-function toggleHistorico() {
-  var lista  = document.getElementById('hist-lista');
-  var btn    = document.getElementById('hist-toggle');
-  lista.hidden = !lista.hidden;
-  btn.textContent = lista.hidden ? 'Ver ▾' : 'Ocultar ▴';
-  if (!lista.hidden && !lista.innerHTML) renderHistorico();
+/* ══════════════════════════════════════════════════════════════
+   CARRUSEL DE PARTIDOS ANTERIORES — lee resultados.json
+══════════════════════════════════════════════════════════════ */
+var carIdx  = 0;
+var carTotal = 0;
+var carTimer = null;
+var LSTAT = { posesion:'Posesión', tiros:'Tiros al arco', corners:'Corners',
+              amarillas:'Amarillas', rojas:'Rojas', faltas:'Faltas', xg:'xG' };
+
+function cargarCarrusel() {
+  fetch('resultados.json?v=' + Date.now())
+    .then(function(r) { return r.json(); })
+    .then(function(d) {
+      var jugados = (d.partidos || []).filter(function(p) { return p.jugado; });
+      if (!jugados.length) return;
+      var sec = document.getElementById('carrusel-sec');
+      if (sec) sec.hidden = false;
+      var upd = document.getElementById('car-actualizado');
+      if (upd && d.lastUpdated) {
+        var t = new Date(d.lastUpdated);
+        upd.textContent = 'actualizado ' + t.toLocaleTimeString('es-CO', { hour:'2-digit', minute:'2-digit' });
+      }
+      var track = document.getElementById('car-track');
+      var dots  = document.getElementById('car-dots');
+      if (!track || !dots) return;
+      carTotal = jugados.length;
+      track.innerHTML = jugados.map(function(p, i) {
+        var stats = p.stats || {};
+        var statsHtml = Object.keys(LSTAT).map(function(k) {
+          var s = stats[k];
+          if (!s) return '';
+          return '<div class="hist-stat">'
+            + '<span class="hs-l">' + s.local + '</span>'
+            + '<span class="hs-k">' + LSTAT[k] + '</span>'
+            + '<span class="hs-r">' + s.visitante + '</span>'
+            + '</div>';
+        }).join('');
+        var dt  = new Date(p.fecha);
+        var fec = dt.toLocaleDateString('es-CO', { timeZone:'America/Bogota', day:'2-digit', month:'short' }).toUpperCase();
+        return '<div class="car-card" data-idx="' + i + '">'
+          + '<div class="car-card-top">'
+          + '<span class="hc-fecha">' + fec + ' · Grupo ' + p.grupo + '</span>'
+          + '<span class="hc-score">' + p.localSig + ' <b>' + p.golesLocal + ' — ' + p.golesVisitante + '</b> ' + p.visitanteSig + '</span>'
+          + '</div>'
+          + '<div class="car-equipos">'
+          + '<span class="car-eq-nom">' + p.localNom + '</span>'
+          + '<span class="car-eq-sep">vs</span>'
+          + '<span class="car-eq-nom">' + p.visitanteNom + '</span>'
+          + '</div>'
+          + (statsHtml ? '<div class="hist-stats car-stats">' + statsHtml + '</div>' : '')
+          + '</div>';
+      }).join('');
+      dots.innerHTML = jugados.map(function(_, i) {
+        return '<span class="car-dot' + (i===0?' active':'') + '" onclick="carIr(' + i + ')"></span>';
+      }).join('');
+      carIr(0);
+      carAutoplay();
+    })
+    .catch(function() {});
 }
 
-function renderHistorico() {
-  var lista = document.getElementById('hist-lista');
-  if (!lista) return;
-  var pasados = HORARIO.filter(function(p) {
-    var fin = new Date(p.utc).getTime() + DURACION_MS + POST_MATCH_MS;
-    return Date.now() > fin && RESULTADOS_PARTIDOS[p.id];
+function carIr(idx) {
+  carIdx = Math.max(0, Math.min(idx, carTotal - 1));
+  var track = document.getElementById('car-track');
+  if (track) track.style.transform = 'translateX(-' + (carIdx * 100) + '%)';
+  document.querySelectorAll('.car-dot').forEach(function(d, i) {
+    d.classList.toggle('active', i === carIdx);
   });
-  if (!pasados.length) {
-    lista.innerHTML = '<p style="color:var(--muted);font-size:13px;padding:12px 0">Aún no hay partidos en el historial.</p>';
-    return;
+}
+
+function carMover(dir) {
+  carIr((carIdx + dir + carTotal) % carTotal);
+  clearInterval(carTimer);
+  carAutoplay();
+}
+
+function carAutoplay() {
+  clearInterval(carTimer);
+  if (carTotal > 1) {
+    carTimer = setInterval(function() { carIr((carIdx + 1) % carTotal); }, 4000);
   }
-  var LSTAT = { posesion:'Posesión', tiros:'Tiros al arco', corners:'Corners', amarillas:'Amarillas', rojas:'Rojas', faltas:'Faltas', xg:'xG' };
-  lista.innerHTML = pasados.map(function(p) {
-    var r   = RESULTADOS_PARTIDOS[p.id];
-    var dt  = new Date(p.utc);
-    var fec = dt.toLocaleDateString('es-CO', { timeZone:'America/Bogota', day:'2-digit', month:'short' }).toUpperCase();
-    var statsHtml = Object.keys(r.stats || {}).map(function(k) {
-      var s = r.stats[k];
-      return '<div class="hist-stat"><span class="hs-l">' + s.local + '</span>'
-           + '<span class="hs-k">' + (LSTAT[k]||k) + '</span>'
-           + '<span class="hs-r">' + s.visitante + '</span></div>';
-    }).join('');
-    return '<div class="hist-card">'
-      + '<div class="hist-card-top">'
-      + '<span class="hc-fecha">' + fec + ' · Grupo ' + p.grupo + '</span>'
-      + '<span class="hc-score">' + p.localSig + ' <b>' + r.golesLocal + ' — ' + r.golesVisitante + '</b> ' + p.visitanteSig + '</span>'
-      + '<span class="hc-estadio">' + p.estadio + '</span>'
-      + '</div>'
-      + '<div class="hist-stats">' + statsHtml + '</div>'
-      + '</div>';
-  }).join('');
+}
+
+/* ══════════════════════════════════════════════════════════════
+   MARCADOR EN VIVO — Netlify function (proxy ESPN)
+   Actualiza cada 60 segundos durante ventana del partido
+══════════════════════════════════════════════════════════════ */
+function cargarPartidoVivoESPN() {
+  fetch('/.netlify/functions/live')
+    .then(function(r) { return r.json(); })
+    .then(function(d) {
+      var events = d.events || [];
+      if (!events.length) return;
+      /* Buscar el partido que corresponde al matchShow actual */
+      var ev = null;
+      if (matchShow) {
+        ev = events.find(function(e) {
+          return (e.local === matchShow.localSig || e.local === matchShow.visitanteSig);
+        }) || events[0];
+      } else {
+        ev = events[0];
+      }
+      if (!ev) return;
+      mostrarMarcador(ev.local, ev.visitante, ev.golesLocal, ev.golesVisitante, ev.minuto, ev.estado);
+    })
+    .catch(function() {});
 }
 
 /* ── Mostrar resultado en tarjeta del calendario (si está abierta) ── */
@@ -1036,10 +1109,12 @@ function marcarResultadosCalendario() {
 
 /* Arrancar */
 aplicarMarcadorManual();
-renderHistorico();
 marcarResultadosCalendario();
-if (PARTIDO.fixtureId && PARTIDO.apiKey) {
-  setInterval(cargarPartidoVivo, 60 * 1000);
+cargarCarrusel();
+/* Polling en vivo cada 60 seg (solo si hay partido activo) */
+if (matchShow && dp.actual) {
+  cargarPartidoVivoESPN();
+  setInterval(cargarPartidoVivoESPN, 60 * 1000);
 }
 </script>
 </body>
