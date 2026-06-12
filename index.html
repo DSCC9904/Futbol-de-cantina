@@ -76,17 +76,17 @@
         <div class="mv-stats" id="mv-stats-row"></div>
       </div>
 
-      <div class="teams">
+      <div class="teams" id="teams-dyn">
         <div class="team">
-          <div class="crest" style="color:#0B7A3B">MEX</div>
-          <div class="name">México</div>
-          <div class="rank">FIFA #16 · local</div>
+          <div class="crest" id="crest-local">—</div>
+          <div class="name" id="name-local">—</div>
+          <div class="rank" id="rank-local">local</div>
         </div>
         <div class="vs">VS</div>
         <div class="team">
-          <div class="crest" style="color:#F2B33D">RSA</div>
-          <div class="name">Sudáfrica</div>
-          <div class="rank">FIFA #59 · visitante</div>
+          <div class="crest" id="crest-visitante">—</div>
+          <div class="name" id="name-visitante">—</div>
+          <div class="rank" id="rank-visitante">visitante</div>
         </div>
       </div>
 
@@ -386,167 +386,35 @@
 
   <!-- ── SECCIÓN 2: Formaciones ── -->
   <section class="formacion-sec" id="formacion">
-    <div class="eyebrow">Alineaciones · Datos de ejemplo</div>
-    <h2 class="sec-title">Formaciones: probable y confirmada</h2>
-    <p class="sec-sub">Haz clic en cualquier jugador para ver sus estadísticas. La formación confirmada aparece cuando el técnico la publica oficialmente.</p>
+    <div class="eyebrow" id="form-eyebrow">Alineaciones · cargando…</div>
+    <h2 class="sec-title">Formaciones confirmadas</h2>
+    <p class="sec-sub">Los once titulares tal como los publicó el técnico. Se actualizan automáticamente desde ESPN.</p>
 
-    <!-- ── MÉXICO ── -->
-    <div class="form-equipo-titulo">México</div>
-    <div class="form-grid">
-
-      <!-- Probable -->
+    <!-- Local -->
+    <div class="form-equipo-titulo" id="form-local-titulo">—</div>
+    <div id="form-local-grid" class="form-grid">
       <div class="form-team-card">
-        <div class="form-team-header">
-          <span class="form-team-name">Formación probable</span>
-          <span class="form-badge probable">4-3-3</span>
-        </div>
-        <div class="pitch">
-          <div class="pitch-row">
-            <div class="jugador" data-pos="GK" data-nombre="G. Ochoa"
-              data-stats='{"Paradas/partido":"4.2","% Paradas":"74%","Portería a cero":"38%","Partidos jugados":"12"}'>
-              <div class="jug-circle">1</div><div class="jug-nombre">G. Ochoa</div>
-            </div>
-          </div>
-          <div class="pitch-row">
-            <div class="jugador" data-pos="DEF" data-nombre="J. Gallardo"
-              data-stats='{"Duelos ganados":"61%","Despejes/partido":"3.1","Tarjetas amarillas":"2","Partidos jugados":"12"}'>
-              <div class="jug-circle">23</div><div class="jug-nombre">Gallardo</div>
-            </div>
-            <div class="jugador" data-pos="DEF" data-nombre="N. Araujo"
-              data-stats='{"Duelos ganados":"68%","Despejes/partido":"4.2","Tarjetas amarillas":"1","Partidos jugados":"10"}'>
-              <div class="jug-circle">3</div><div class="jug-nombre">Araujo</div>
-            </div>
-            <div class="jugador" data-pos="DEF" data-nombre="C. Montes"
-              data-stats='{"Duelos ganados":"65%","Despejes/partido":"3.8","Tarjetas amarillas":"3","Partidos jugados":"12"}'>
-              <div class="jug-circle">4</div><div class="jug-nombre">Montes</div>
-            </div>
-            <div class="jugador" data-pos="DEF" data-nombre="J. Sánchez"
-              data-stats='{"Duelos ganados":"59%","Despejes/partido":"2.9","Tarjetas amarillas":"2","Partidos jugados":"11"}'>
-              <div class="jug-circle">22</div><div class="jug-nombre">J. Sánchez</div>
-            </div>
-          </div>
-          <div class="pitch-row">
-            <div class="jugador" data-pos="MID" data-nombre="A. Guardado"
-              data-stats='{"Pases clave/partido":"1.8","Recuperaciones/partido":"3.2","Asistencias":"2","Partidos jugados":"10"}'>
-              <div class="jug-circle">18</div><div class="jug-nombre">Guardado</div>
-            </div>
-            <div class="jugador" data-pos="MID" data-nombre="E. Álvarez"
-              data-stats='{"Pases clave/partido":"2.1","Recuperaciones/partido":"4.8","Asistencias":"1","Partidos jugados":"12"}'>
-              <div class="jug-circle">6</div><div class="jug-nombre">E. Álvarez</div>
-            </div>
-            <div class="jugador" data-pos="MID" data-nombre="H. Herrera"
-              data-stats='{"Pases clave/partido":"1.5","Recuperaciones/partido":"3.6","Asistencias":"3","Partidos jugados":"11"}'>
-              <div class="jug-circle">16</div><div class="jug-nombre">H. Herrera</div>
-            </div>
-          </div>
-          <div class="pitch-row">
-            <div class="jugador" data-pos="FWD" data-nombre="H. Lozano"
-              data-stats='{"Goles":"5","xG (goles esperados)":"4.3","Disparos al arco/partido":"2.1","Partidos jugados":"11"}'>
-              <div class="jug-circle">22</div><div class="jug-nombre">Lozano</div>
-            </div>
-            <div class="jugador" data-pos="FWD" data-nombre="R. Jiménez"
-              data-stats='{"Goles":"7","xG (goles esperados)":"6.8","Disparos al arco/partido":"3.4","Partidos jugados":"12"}'>
-              <div class="jug-circle">9</div><div class="jug-nombre">R. Jiménez</div>
-            </div>
-            <div class="jugador" data-pos="FWD" data-nombre="A. Vega"
-              data-stats='{"Goles":"3","xG (goles esperados)":"2.9","Disparos al arco/partido":"1.8","Partidos jugados":"10"}'>
-              <div class="jug-circle">11</div><div class="jug-nombre">A. Vega</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Confirmada -->
-      <div class="form-team-card">
-        <div class="form-team-header">
-          <span class="form-team-name">Formación confirmada</span>
-          <span class="form-badge pendiente">Por confirmar</span>
-        </div>
         <div class="pitch pitch-pendiente">
           <div class="pendiente-msg">
             <div class="pendiente-icon">🕐</div>
-            <div class="pendiente-txt">El técnico aún no publicó<br>la alineación oficial</div>
-            <div class="pendiente-sub">Se actualizará antes del partido</div>
+            <div class="pendiente-txt">Cargando alineación…</div>
           </div>
         </div>
       </div>
+    </div>
 
-    </div><!-- /form-grid México -->
-
-    <!-- ── SUDÁFRICA ── -->
-    <div class="form-equipo-titulo" style="margin-top:32px">Sudáfrica</div>
-    <div class="form-grid">
-
-      <!-- Probable -->
+    <!-- Visitante -->
+    <div class="form-equipo-titulo" id="form-visitante-titulo" style="margin-top:32px">—</div>
+    <div id="form-visitante-grid" class="form-grid">
       <div class="form-team-card">
-        <div class="form-team-header">
-          <span class="form-team-name">Formación probable</span>
-          <span class="form-badge probable">4-2-3-1</span>
-        </div>
-        <div class="pitch">
-          <div class="pitch-row">
-            <div class="jugador" data-pos="GK" data-nombre="R. Williams"
-              data-stats='{"Paradas/partido":"3.1","% Paradas":"68%","Portería a cero":"25%","Partidos jugados":"10"}'>
-              <div class="jug-circle">1</div><div class="jug-nombre">Williams</div>
-            </div>
-          </div>
-          <div class="pitch-row">
-            <div class="jugador" data-pos="DEF" data-nombre="T. Chabalala"
-              data-stats='{"Duelos ganados":"55%","Despejes/partido":"3.4","Tarjetas amarillas":"2","Partidos jugados":"9"}'>
-              <div class="jug-circle">5</div><div class="jug-nombre">Chabalala</div>
-            </div>
-            <div class="jugador" data-pos="DEF" data-nombre="S. Mobbie"
-              data-stats='{"Duelos ganados":"60%","Despejes/partido":"4.0","Tarjetas amarillas":"1","Partidos jugados":"10"}'>
-              <div class="jug-circle">6</div><div class="jug-nombre">Mobbie</div>
-            </div>
-            <div class="jugador" data-pos="DEF" data-nombre="L. Sesane"
-              data-stats='{"Duelos ganados":"57%","Despejes/partido":"3.6","Tarjetas amarillas":"3","Partidos jugados":"10"}'>
-              <div class="jug-circle">3</div><div class="jug-nombre">Sesane</div>
-            </div>
-            <div class="jugador" data-pos="DEF" data-nombre="E. Lakay"
-              data-stats='{"Duelos ganados":"52%","Despejes/partido":"2.8","Tarjetas amarillas":"1","Partidos jugados":"8"}'>
-              <div class="jug-circle">2</div><div class="jug-nombre">Lakay</div>
-            </div>
-          </div>
-          <div class="pitch-row">
-            <div class="jugador" data-pos="MID" data-nombre="B. Mothiba"
-              data-stats='{"Pases clave/partido":"1.2","Recuperaciones/partido":"4.1","Asistencias":"1","Partidos jugados":"9"}'>
-              <div class="jug-circle">8</div><div class="jug-nombre">Mothiba</div>
-            </div>
-            <div class="jugador" data-pos="MID" data-nombre="T. Hlongwane"
-              data-stats='{"Pases clave/partido":"2.4","Recuperaciones/partido":"2.8","Asistencias":"4","Partidos jugados":"10"}'>
-              <div class="jug-circle">10</div><div class="jug-nombre">Hlongwane</div>
-            </div>
-            <div class="jugador" data-pos="MID" data-nombre="K. Dolly"
-              data-stats='{"Pases clave/partido":"1.9","Recuperaciones/partido":"2.2","Asistencias":"2","Partidos jugados":"8"}'>
-              <div class="jug-circle">7</div><div class="jug-nombre">Dolly</div>
-            </div>
-          </div>
-          <div class="pitch-row">
-            <div class="jugador" data-pos="FWD" data-nombre="L. Mothiba"
-              data-stats='{"Goles":"4","xG (goles esperados)":"3.8","Disparos al arco/partido":"1.9","Partidos jugados":"10"}'>
-              <div class="jug-circle">9</div><div class="jug-nombre">L. Mothiba</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Confirmada -->
-      <div class="form-team-card">
-        <div class="form-team-header">
-          <span class="form-team-name">Formación confirmada</span>
-          <span class="form-badge pendiente">Por confirmar</span>
-        </div>
         <div class="pitch pitch-pendiente">
           <div class="pendiente-msg">
             <div class="pendiente-icon">🕐</div>
-            <div class="pendiente-txt">El técnico aún no publicó<br>la alineación oficial</div>
-            <div class="pendiente-sub">Se actualizará antes del partido</div>
+            <div class="pendiente-txt">Cargando alineación…</div>
           </div>
         </div>
       </div>
-
-    </div><!-- /form-grid Sudáfrica -->
+    </div>
 
     <!-- Leyenda -->
     <div class="form-leyenda">
@@ -724,17 +592,32 @@ if (matchShow) {
   }
 }
 
-/* Actualizar cabecera del dossier con el partido real */
+/* Actualizar cabecera y equipos del dossier con el partido real */
 if (matchShow) {
   var metaEl = document.querySelector('.dossier-top .meta');
   var estadioEl = document.querySelector('.meta-estadio');
   var fechaUTC  = new Date(matchShow.utc);
-  var optsF = { timeZone:'America/Bogota', day:'2-digit', month:'short', hour:'2-digit', minute:'2-digit' };
   var fechaStr = fechaUTC.toLocaleDateString('es-CO', { timeZone:'America/Bogota', day:'2-digit', month:'short' }).toUpperCase();
   var horaStr  = fechaUTC.toLocaleTimeString('es-CO', { timeZone:'America/Bogota', hour:'2-digit', minute:'2-digit' });
   if (metaEl)   metaEl.textContent = fechaStr + ' · ' + horaStr + ' (COL) · GRUPO ' + matchShow.grupo;
   if (estadioEl) estadioEl.innerHTML = matchShow.estadio + ' —'
     + ' <a href="sedes.html#' + matchShow.estadioId + '" class="link-sede">consulta condiciones geográficas del estadio ↗</a>';
+
+  /* Nombres de equipos en el bloque VS */
+  var cL = document.getElementById('crest-local'),
+      cV = document.getElementById('crest-visitante'),
+      nL = document.getElementById('name-local'),
+      nV = document.getElementById('name-visitante');
+  if (cL) cL.textContent = matchShow.localSig;
+  if (cV) cV.textContent = matchShow.visitanteSig;
+  if (nL) nL.textContent = matchShow.localNom  || matchShow.localSig;
+  if (nV) nV.textContent = matchShow.visitanteNom || matchShow.visitanteSig;
+
+  /* Títulos de formación */
+  var ftL = document.getElementById('form-local-titulo'),
+      ftV = document.getElementById('form-visitante-titulo');
+  if (ftL) ftL.textContent = matchShow.localNom  || matchShow.localSig;
+  if (ftV) ftV.textContent = matchShow.visitanteNom || matchShow.visitanteSig;
 }
 
 function cargarClima() {
@@ -1065,6 +948,102 @@ function carAutoplay() {
 }
 
 /* ══════════════════════════════════════════════════════════════
+   FORMACIONES DINÁMICAS
+══════════════════════════════════════════════════════════════ */
+var POS_ORDER = ['GK','G','P','DEF','D','CB','LB','RB','FB','WB','MID','M','CM','DM','AM','LM','RM','FWD','F','FW','LW','RW','CF','ST','ATT'];
+var POS_GROUP = {
+  GK:0, G:0, P:0,
+  DEF:1, D:1, CB:1, LB:1, RB:1, FB:1, WB:1,
+  MID:2, M:2, CM:2, DM:2, AM:2, LM:2, RM:2,
+  FWD:3, F:3, FW:3, LW:3, RW:3, CF:3, ST:3, ATT:3
+};
+var POS_CSS = ['gk','def','mid','fwd'];
+var POS_LBL = ['Portero','Defensa','Mediocampo','Delantero'];
+
+function grupoPosicion(pos) {
+  return POS_GROUP[pos.toUpperCase()] !== undefined ? POS_GROUP[pos.toUpperCase()] : 2;
+}
+
+function renderEquipoFormacion(containerId, tituloId, teamData, label) {
+  var tit = document.getElementById(tituloId);
+  if (tit) tit.textContent = label || (teamData ? teamData.nom : '—');
+
+  var cont = document.getElementById(containerId);
+  if (!cont) return;
+
+  if (!teamData || !teamData.jugadores || !teamData.jugadores.length) {
+    cont.innerHTML = '<div class="form-team-card"><div class="pitch pitch-pendiente">'
+      + '<div class="pendiente-msg"><div class="pendiente-icon">🕐</div>'
+      + '<div class="pendiente-txt">Alineación no publicada aún</div>'
+      + '<div class="pendiente-sub">Se actualizará automáticamente</div></div></div></div>';
+    return;
+  }
+
+  /* Agrupar titulares por línea */
+  var titulares = teamData.jugadores.filter(function(j) { return j.titular; });
+  var suplentes = teamData.jugadores.filter(function(j) { return !j.titular; });
+  if (!titulares.length) titulares = teamData.jugadores.slice(0, 11);
+
+  var filas = [[], [], [], []]; /* GK, DEF, MID, FWD */
+  titulares.forEach(function(j) {
+    var g = grupoPosicion(j.pos || '');
+    filas[g].push(j);
+  });
+
+  var formBadge = teamData.formacion
+    ? '<span class="form-badge confirmada">' + teamData.formacion + '</span>'
+    : '<span class="form-badge confirmada">Confirmada</span>';
+
+  var pitchHtml = filas.slice().reverse().map(function(fila, ri) {
+    /* reverse: FWD arriba, GK abajo en el pitch */
+    var realIdx = 3 - ri;
+    if (!fila.length) return '';
+    var jugHtml = fila.map(function(j) {
+      var posClass = POS_CSS[realIdx] || 'mid';
+      return '<div class="jugador" data-pos="' + (j.pos || '') + '" data-nombre="' + j.nombre + '">'
+        + '<div class="jug-circle ' + posClass + '">' + (j.num || '?') + '</div>'
+        + '<div class="jug-nombre">' + j.nombre + '</div>'
+        + '</div>';
+    }).join('');
+    return '<div class="pitch-row">' + jugHtml + '</div>';
+  }).filter(Boolean).join('');
+
+  var suplHtml = '';
+  if (suplentes.length) {
+    suplHtml = '<div class="form-suplentes"><span class="form-sup-titulo">Suplentes</span>'
+      + suplentes.map(function(j) {
+          return '<span class="form-sup-item"><span class="sup-num">' + (j.num || '') + '</span> ' + j.nombre + '</span>';
+        }).join('')
+      + '</div>';
+  }
+
+  cont.innerHTML = '<div class="form-team-card">'
+    + '<div class="form-team-header">'
+    + '<span class="form-team-name">' + (teamData.nom || '') + '</span>'
+    + formBadge
+    + '</div>'
+    + '<div class="pitch">' + pitchHtml + '</div>'
+    + suplHtml
+    + '</div>';
+
+  /* Reactivar tooltips de jugador */
+  cont.querySelectorAll('.jugador').forEach(function(el) {
+    el.addEventListener('click', function() {
+      var nom = this.dataset.nombre;
+      var pos = this.dataset.pos;
+      /* Reusar modal existente si hay */
+      var modal = document.getElementById('modal-jugador');
+      if (modal) {
+        modal.querySelector && (modal.querySelector('.modal-nombre') || {textContent:''}).textContent != null
+          && (modal.querySelector('.modal-nombre') || {}).textContent != undefined
+          ? (modal.querySelector('.modal-nombre').textContent = nom) : null;
+        modal.hidden = false;
+      }
+    });
+  });
+}
+
+/* ══════════════════════════════════════════════════════════════
    MARCADOR EN VIVO — Netlify function (proxy ESPN)
    Actualiza cada 60 segundos durante ventana del partido
 ══════════════════════════════════════════════════════════════ */
@@ -1073,18 +1052,42 @@ function cargarPartidoVivoESPN() {
     .then(function(r) { return r.json(); })
     .then(function(d) {
       var events = d.events || [];
-      if (!events.length) return;
-      /* Buscar el partido que corresponde al matchShow actual */
+      /* Marcador */
       var ev = null;
-      if (matchShow) {
+      if (matchShow && events.length) {
         ev = events.find(function(e) {
           return (e.local === matchShow.localSig || e.local === matchShow.visitanteSig);
         }) || events[0];
-      } else {
+      } else if (events.length) {
         ev = events[0];
       }
-      if (!ev) return;
-      mostrarMarcador(ev.local, ev.visitante, ev.golesLocal, ev.golesVisitante, ev.minuto, ev.estado);
+      if (ev) mostrarMarcador(ev.local, ev.visitante, ev.golesLocal, ev.golesVisitante, ev.minuto, ev.estado);
+
+      /* Stats en vivo */
+      if (d.statsVivo) {
+        renderTablaVivo(d.statsVivo);
+        renderComparacion(d.statsVivo);
+        renderMiniStats(
+          Object.fromEntries(Object.entries(d.statsVivo).map(function(e) {
+            var MAP2 = { posesion:'Ball Possession', tiros:'Shots on Goal', corners:'Corner Kicks',
+                         amarillas:'Yellow Cards', rojas:'Red Cards', faltas:'Fouls' };
+            return [MAP2[e[0]] || e[0], e[1].local];
+          })),
+          Object.fromEntries(Object.entries(d.statsVivo).map(function(e) {
+            var MAP2 = { posesion:'Ball Possession', tiros:'Shots on Goal', corners:'Corner Kicks',
+                         amarillas:'Yellow Cards', rojas:'Red Cards', faltas:'Fouls' };
+            return [MAP2[e[0]] || e[0], e[1].visitante];
+          }))
+        );
+      }
+
+      /* Alineaciones */
+      if (d.lineups && (d.lineups.local || d.lineups.visitante)) {
+        renderEquipoFormacion('form-local-grid',    'form-local-titulo',    d.lineups.local,    null);
+        renderEquipoFormacion('form-visitante-grid','form-visitante-titulo',d.lineups.visitante,null);
+        var ey = document.getElementById('form-eyebrow');
+        if (ey) ey.textContent = 'Alineaciones · confirmadas por ESPN';
+      }
     })
     .catch(function() {});
 }
@@ -1107,15 +1110,30 @@ function marcarResultadosCalendario() {
   });
 }
 
+/* ── Cargar formaciones desde resultados.json al iniciar ── */
+function cargarFormacionesIniciales() {
+  fetch('resultados.json?v=' + Date.now())
+    .then(function(r) { return r.json(); })
+    .then(function(d) {
+      if (!matchShow) return;
+      var p = (d.partidos || []).find(function(x) { return x.id === matchShow.id; });
+      if (!p || !p.lineups) return;
+      renderEquipoFormacion('form-local-grid',    'form-local-titulo',    p.lineups.local,    p.localNom);
+      renderEquipoFormacion('form-visitante-grid','form-visitante-titulo',p.lineups.visitante,p.visitanteNom);
+      var ey = document.getElementById('form-eyebrow');
+      if (ey) ey.textContent = 'Alineaciones · confirmadas';
+    })
+    .catch(function() {});
+}
+
 /* Arrancar */
 aplicarMarcadorManual();
 marcarResultadosCalendario();
 cargarCarrusel();
-/* Polling en vivo cada 60 seg (solo si hay partido activo) */
-if (matchShow && dp.actual) {
-  cargarPartidoVivoESPN();
-  setInterval(cargarPartidoVivoESPN, 60 * 1000);
-}
+cargarFormacionesIniciales();
+/* Polling en vivo cada 60 seg */
+cargarPartidoVivoESPN();
+setInterval(cargarPartidoVivoESPN, 60 * 1000);
 </script>
 </body>
 </html>
