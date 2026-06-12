@@ -338,30 +338,32 @@
     </div>
 
     <!-- Bloque valor vs. cuota -->
-    <div class="signature">
+    <div class="signature" id="bloque-valor">
       <div class="sig-head">
         <h3>Lo que dice la casa vs. lo que dicen los datos</h3>
-        <p>La cuota esconde una probabilidad. Si los datos dan más chance que la cuota, hay <span style="color:var(--pos)">valor</span>; si dan menos, es <span style="color:var(--neg)">trampa</span>.</p>
+        <p>La cuota esconde una probabilidad implícita. Si nuestro modelo da <em>más</em> probabilidad que la cuota, hay <span style="color:var(--pos)">valor</span>. Si da <em>menos</em>, es <span style="color:var(--neg)">trampa</span>.</p>
+        <p class="previa-fuente" id="previa-fuente" style="font-size:12px;color:var(--muted);margin-top:4px"></p>
       </div>
       <div class="sig-body">
-        <div class="market">
+        <div class="market" id="market-dyn">
+          <!-- Se llena dinámicamente -->
           <div class="pick">
-            <div class="h"><span class="opt">Gana México</span><span class="odd mono">cuota 1.95</span></div>
-            <div class="pct">Casa: 51% · Datos: 57%</div>
-            <div class="pbar"><i data-w="51"></i></div>
-            <span class="valtag pos">Posible valor +6%</span>
+            <div class="h"><span class="opt" id="opt-local">—</span><span class="odd mono" id="odd-local">— cuota</span></div>
+            <div class="pct" id="pct-local">calculando…</div>
+            <div class="pbar"><i id="pbar-local" data-w="33"></i></div>
+            <span class="valtag" id="val-local"></span>
           </div>
           <div class="pick">
-            <div class="h"><span class="opt">Empate</span><span class="odd mono">cuota 3.30</span></div>
-            <div class="pct">Casa: 30% · Datos: 26%</div>
-            <div class="pbar"><i data-w="30"></i></div>
-            <span class="valtag neg">Sin valor −4%</span>
+            <div class="h"><span class="opt">Empate</span><span class="odd mono" id="odd-empate">— cuota</span></div>
+            <div class="pct" id="pct-empate">calculando…</div>
+            <div class="pbar"><i id="pbar-empate" data-w="33"></i></div>
+            <span class="valtag" id="val-empate"></span>
           </div>
           <div class="pick">
-            <div class="h"><span class="opt">Gana Sudáfrica</span><span class="odd mono">cuota 4.50</span></div>
-            <div class="pct">Casa: 22% · Datos: 17%</div>
-            <div class="pbar"><i data-w="22"></i></div>
-            <span class="valtag neg">Sin valor −5%</span>
+            <div class="h"><span class="opt" id="opt-visitante">—</span><span class="odd mono" id="odd-visitante">— cuota</span></div>
+            <div class="pct" id="pct-visitante">calculando…</div>
+            <div class="pbar"><i id="pbar-visitante" data-w="33"></i></div>
+            <span class="valtag" id="val-visitante"></span>
           </div>
         </div>
       </div>
@@ -1110,6 +1112,129 @@ function marcarResultadosCalendario() {
   });
 }
 
+/* ══════════════════════════════════════════════════════════════
+   PREVIA ESTADÍSTICA — lee resultados.json → previas[id]
+   Puebla TODOS los indicadores del dossier con datos reales.
+══════════════════════════════════════════════════════════════ */
+function cargarPrevia() {
+  if (!matchShow) return;
+  fetch('resultados.json?v=' + Date.now())
+    .then(function(r) { return r.json(); })
+    .then(function(d) {
+      var pv = d.previas && d.previas[matchShow.id];
+      if (!pv) return;
+      aplicarPrevia(pv);
+    })
+    .catch(function() {});
+}
+
+function aplicarPrevia(pv) {
+  /* ── Actualizar eyebrow ── */
+  var ey = document.querySelector('.formacion-sec .eyebrow');
+  if (ey) ey.textContent = 'Alineaciones · actualizadas ESPN';
+
+  /* ── Forma visual ── */
+  function htmlForma(arr) {
+    if (!arr || !arr.length) return '<span style="color:var(--muted);font-size:12px">Sin datos aún</span>';
+    return arr.map(function(r) {
+      return '<span class="f-' + (r==='V'?'v':r==='E'?'e':'d') + '">' + r + '</span>';
+    }).join('');
+  }
+
+  /* ── Actualizar filas del dossier (.ind-row) por su data-tip ── */
+  function setRow(tip, valL, valR, wL, wR) {
+    var row = null;
+    document.querySelectorAll('.ind-row').forEach(function(r) {
+      if (r.querySelector('[data-tip="' + tip + '"]')) row = r;
+    });
+    if (!row) return;
+    var vals = row.querySelectorAll('.ind-val');
+    var bars = row.querySelectorAll('.bar');
+    /* No sobreescribir si está en modo vivo */
+    if (vals[0] && !vals[0].classList.contains('vivo-num')) vals[0].textContent = valL;
+    if (vals[1] && !vals[1].classList.contains('vivo-num')) vals[1].textContent = valR;
+    var wLn = wL !== undefined ? wL : (parseFloat(valL)||0);
+    var wRn = wR !== undefined ? wR : (parseFloat(valR)||0);
+    var max = Math.max(wLn, wRn, 1);
+    if (bars[0]) { bars[0].dataset.w = Math.round(wLn/max*100); bars[0].style.width = bars[0].dataset.w+'%'; }
+    if (bars[1]) { bars[1].dataset.w = Math.round(wRn/max*100); bars[1].style.width = bars[1].dataset.w+'%'; }
+  }
+
+  function setFormaRow(arr, side) {
+    document.querySelectorAll('.ind-row').forEach(function(r) {
+      if (r.querySelector('[data-tip="forma"]')) {
+        var formas = r.querySelectorAll('.forma');
+        var el = formas[side === 'l' ? 0 : 1];
+        if (el) el.innerHTML = htmlForma(arr);
+      }
+    });
+  }
+
+  /* xG */
+  setRow('xg',        pv.xGLocal + ' xG',       pv.xGVisitante + ' xG',      pv.xGLocal, pv.xGVisitante);
+  /* Forma */
+  setFormaRow(pv.formaLocal,    'l');
+  setFormaRow(pv.formaVisitante,'r');
+  /* BTTS */
+  setRow('btts',      pv.bttsPorc_local + '%',   pv.bttsPorc_visitante + '%', pv.bttsPorc_local, pv.bttsPorc_visitante);
+  /* Over 2.5 */
+  setRow('over',      pv.over25Porc_local + '%', pv.over25Porc_visitante + '%', pv.over25Porc_local, pv.over25Porc_visitante);
+  /* Portería a cero */
+  setRow('cs',        pv.csPorc_local + '%',     pv.csPorc_visitante + '%',   pv.csPorc_local, pv.csPorc_visitante);
+  /* Corners */
+  setRow('corners',   pv.cornersXP_local,        pv.cornersXP_visitante);
+  /* Amarillas */
+  setRow('amarillas', pv.amarillasXP_local,      pv.amarillasXP_visitante);
+
+  /* ── Bloque de probabilidades / valor ── */
+  var localNom     = matchShow ? (matchShow.localNom    || matchShow.localSig)    : 'Local';
+  var visitanteNom = matchShow ? (matchShow.visitanteNom|| matchShow.visitanteSig): 'Visitante';
+
+  var elOptL = document.getElementById('opt-local');
+  var elOptV = document.getElementById('opt-visitante');
+  if (elOptL) elOptL.textContent = 'Gana ' + localNom;
+  if (elOptV) elOptV.textContent = 'Gana ' + visitanteNom;
+
+  /* Calcular cuota implícita desde nuestras probs para mostrar comparación
+     (sin cuota real de casa: mostramos solo nuestro modelo) */
+  function actualizarPick(idPct, idPbar, idVal, idOdd, probDatos, labelOdd) {
+    var elPct  = document.getElementById(idPct);
+    var elPbar = document.getElementById(idPbar);
+    var elVal  = document.getElementById(idVal);
+    var elOdd  = document.getElementById(idOdd);
+    if (elPct)  elPct.textContent  = 'Modelo: ' + probDatos + '%  ·  cuota equivalente ≈ ' + labelOdd;
+    if (elPbar) { elPbar.dataset.w = probDatos; elPbar.style.width = probDatos + '%'; }
+    /* Cuota justa = 1 / probabilidad */
+    var cuotaJusta = probDatos > 0 ? (1 / (probDatos / 100)).toFixed(2) : '—';
+    if (elOdd)  elOdd.textContent = cuotaJusta;
+    /* Nota de valor (necesita cuota real de la casa — cuando no hay, dejamos neutro) */
+    if (elVal)  { elVal.textContent = ''; elVal.className = 'valtag'; }
+  }
+
+  var cuotaL = pv.probLocal     > 0 ? (1/(pv.probLocal/100)).toFixed(2)    : '—';
+  var cuotaE = pv.probEmpate    > 0 ? (1/(pv.probEmpate/100)).toFixed(2)   : '—';
+  var cuotaV = pv.probVisitante > 0 ? (1/(pv.probVisitante/100)).toFixed(2): '—';
+
+  actualizarPick('pct-local',     'pbar-local',     'val-local',     'odd-local',     pv.probLocal,     cuotaL);
+  actualizarPick('pct-empate',    'pbar-empate',     'val-empate',    'odd-empate',    pv.probEmpate,    cuotaE);
+  actualizarPick('pct-visitante', 'pbar-visitante',  'val-visitante', 'odd-visitante', pv.probVisitante, cuotaV);
+
+  /* Fuente del modelo */
+  var elFuente = document.getElementById('previa-fuente');
+  if (elFuente) elFuente.textContent = '📊 ' + (pv.basadoEn || 'Modelo Poisson + priors FIFA');
+
+  /* Actualizar sección xG del marcador si existe */
+  var xgEl = document.querySelector('.ind-row [data-tip="xg"]');
+  if (xgEl) {
+    var xgRow = xgEl.closest('.ind-row');
+    if (xgRow) {
+      var subs = xgRow.querySelectorAll('.ind-sub');
+      if (subs[0]) subs[0].textContent = 'goles esperados · λ=' + pv.lambdaLocal;
+      if (subs[1]) subs[1].textContent = 'goles esperados · λ=' + pv.lambdaVisitante;
+    }
+  }
+}
+
 /* ── Cargar formaciones desde resultados.json al iniciar ── */
 function cargarFormacionesIniciales() {
   fetch('resultados.json?v=' + Date.now())
@@ -1130,10 +1255,13 @@ function cargarFormacionesIniciales() {
 aplicarMarcadorManual();
 marcarResultadosCalendario();
 cargarCarrusel();
+cargarPrevia();
 cargarFormacionesIniciales();
 /* Polling en vivo cada 60 seg */
 cargarPartidoVivoESPN();
 setInterval(cargarPartidoVivoESPN, 60 * 1000);
+/* Refrescar previa cada 15 min (sincronizado con GitHub Action) */
+setInterval(cargarPrevia, 15 * 60 * 1000);
 </script>
 </body>
 </html>
