@@ -47,7 +47,6 @@
     <div class="dossier" aria-label="Análisis del partido">
       <div class="dossier-top">
         <span class="meta">11 JUN · 13:00 (COL) · GRUPO A</span>
-        <span class="demo-pill">Datos de ejemplo</span>
         <div class="meta-estadio">
           Estadio Azteca · Ciudad de México —
           <a href="sedes.html#cdmx" class="link-sede">consulta condiciones geográficas del estadio ↗</a>
@@ -463,12 +462,7 @@
         <h2>Recibe la previa de cada partido</h2>
         <p>Un resumen corto con los datos clave y dónde miramos valor. Sin promesas de ganar — eso no existe. Elige cómo te llega:</p>
 
-        <form name="lista-correo" method="POST" data-netlify="true"
-              netlify-honeypot="campo-trampa" id="form-correo" novalidate>
-          <p class="campo-trampa" aria-hidden="true">
-            <label>No llenes esto: <input name="campo-trampa"></label>
-          </p>
-          <input type="hidden" name="form-name" value="lista-correo">
+        <form action="https://formspree.io/f/xwpkrjqb" method="POST" id="form-correo" novalidate>
           <div class="form">
             <input id="email" name="email" type="email" inputmode="email"
                    placeholder="tu@correo.com" aria-label="Correo electrónico" required>
@@ -546,7 +540,7 @@
     <div class="modal-pos-tag" id="modal-pos"></div>
     <div class="modal-nombre" id="modal-nombre"></div>
     <div class="modal-stats" id="modal-stats"></div>
-    <p class="modal-nota">Datos de ejemplo · no reales</p>
+    <p class="modal-nota">Estadísticas ESPN</p>
   </div>
 </div>
 
@@ -710,7 +704,9 @@ function mostrarMarcador(localNom, visitanteNom, golesL, golesV, minuto, estado)
   document.getElementById('mv-local').textContent     = localNom;
   document.getElementById('mv-visitante').textContent = visitanteNom;
   document.getElementById('mv-goles').textContent     = golesL + ' — ' + golesV;
-  var esFinal = (estado === 'FT' || estado === 'AET' || estado === 'PEN');
+  var esFinal = (estado === 'FT' || estado === 'AET' || estado === 'PEN'
+    || estado === 'STATUS_FINAL' || estado === 'STATUS_FULL_TIME'
+    || estado === 'Match Finished' || estado === 'completado');
   document.getElementById('mv-minuto').textContent    = esFinal ? 'Partido finalizado' : 'min ' + minuto + '\'';
   badge.textContent = esFinal ? 'FINALIZADO' : 'EN VIVO';
   badge.classList.toggle('finalizado', esFinal);
@@ -954,10 +950,17 @@ function carAutoplay() {
 ══════════════════════════════════════════════════════════════ */
 var POS_ORDER = ['GK','G','P','DEF','D','CB','LB','RB','FB','WB','MID','M','CM','DM','AM','LM','RM','FWD','F','FW','LW','RW','CF','ST','ATT'];
 var POS_GROUP = {
-  GK:0, G:0, P:0,
-  DEF:1, D:1, CB:1, LB:1, RB:1, FB:1, WB:1,
-  MID:2, M:2, CM:2, DM:2, AM:2, LM:2, RM:2,
-  FWD:3, F:3, FW:3, LW:3, RW:3, CF:3, ST:3, ATT:3
+  /* Porteros */
+  GK:0, G:0, P:0, POR:0,
+  /* Defensas — todas las variantes ESPN */
+  DEF:1, D:1, CB:1, 'CD':1, 'CD-L':1, 'CD-R':1,
+  LB:1, RB:1, FB:1, WB:1, LWB:1, RWB:1, SW:1,
+  /* Mediocampistas — todas las variantes ESPN */
+  MID:2, M:2, CM:2, 'CM-L':2, 'CM-R':2,
+  DM:2, CDM:2, AM:2, CAM:2, LM:2, RM:2, MC:2,
+  /* Delanteros — todas las variantes ESPN */
+  FWD:3, F:3, FW:3, LW:3, RW:3,
+  CF:3, 'CF-L':3, 'CF-R':3, ST:3, ATT:3, SS:3
 };
 var POS_CSS = ['gk','def','mid','fwd'];
 var POS_LBL = ['Portero','Defensa','Mediocampo','Delantero'];

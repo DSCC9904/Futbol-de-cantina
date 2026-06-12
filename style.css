@@ -189,8 +189,9 @@ nav a:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; bord
 /* ── Clima en vivo ── */
 .clima-vivo {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 4px 16px;
+  gap: 8px 20px;
   flex-wrap: wrap;
   padding: 10px 22px;
   border-bottom: 1px solid var(--line);
@@ -198,7 +199,7 @@ nav a:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; bord
 }
 .clima-item { display: flex; align-items: center; gap: 5px; }
 .cv-icon { font-size: 14px; }
-.cv-val  { font-family: "JetBrains Mono", monospace; font-size: 13px; font-weight: 700; color: var(--ink); }
+.cv-val  { font-family: "JetBrains Mono", monospace; font-size: 13px; font-weight: 700; color: var(--text); }
 .cv-lbl  { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; }
 .clima-actualizando { margin-left: auto; font-size: 10px; color: var(--muted); font-family: "JetBrains Mono", monospace; }
 
