@@ -1050,7 +1050,7 @@ function renderEquipoFormacion(containerId, tituloId, teamData, label) {
    Actualiza cada 60 segundos durante ventana del partido
 ══════════════════════════════════════════════════════════════ */
 function cargarPartidoVivoESPN() {
-  fetch('/.netlify/functions/live')
+  fetch('/api/live')
     .then(function(r) { return r.json(); })
     .then(function(d) {
       var events = d.events || [];
