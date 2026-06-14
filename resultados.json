@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-14T15:29:51.073Z",
+  "lastUpdated": "2026-06-14T20:42:20.376Z",
   "partidos": [
     {
       "id": "MEX-RSA",
@@ -2882,6 +2882,367 @@
           ]
         }
       }
+    },
+    {
+      "id": "GER-CUW",
+      "espnId": "760422",
+      "localSig": "GER",
+      "visitanteSig": "CUW",
+      "localNom": "Germany",
+      "visitanteNom": "Curaçao",
+      "golesLocal": 7,
+      "golesVisitante": 1,
+      "fecha": "2026-06-14T17:00Z",
+      "grupo": "E",
+      "jugado": true,
+      "stats": {
+        "posesion": {
+          "local": "64.7",
+          "visitante": "35.3"
+        },
+        "tiros": {
+          "local": "12",
+          "visitante": "2"
+        },
+        "amarillas": {
+          "local": "0",
+          "visitante": "0"
+        },
+        "rojas": {
+          "local": "0",
+          "visitante": "0"
+        },
+        "faltas": {
+          "local": "18",
+          "visitante": "11"
+        }
+      },
+      "lineups": {
+        "local": {
+          "sig": "GER",
+          "nom": "Germany",
+          "jugadores": [
+            {
+              "num": "1",
+              "nombre": "M. Neuer",
+              "pos": "G",
+              "titular": true
+            },
+            {
+              "num": "15",
+              "nombre": "N. Schlotterbeck",
+              "pos": "CD-L",
+              "titular": true
+            },
+            {
+              "num": "4",
+              "nombre": "J. Tah",
+              "pos": "CD-R",
+              "titular": true
+            },
+            {
+              "num": "18",
+              "nombre": "N. Brown",
+              "pos": "LB",
+              "titular": true
+            },
+            {
+              "num": "6",
+              "nombre": "J. Kimmich",
+              "pos": "RB",
+              "titular": true
+            },
+            {
+              "num": "10",
+              "nombre": "J. Musiala",
+              "pos": "AM",
+              "titular": true
+            },
+            {
+              "num": "5",
+              "nombre": "A. Pavlovic",
+              "pos": "LM",
+              "titular": true
+            },
+            {
+              "num": "23",
+              "nombre": "F. Nmecha",
+              "pos": "RM",
+              "titular": true
+            },
+            {
+              "num": "7",
+              "nombre": "K. Havertz",
+              "pos": "F",
+              "titular": true
+            },
+            {
+              "num": "17",
+              "nombre": "F. Wirtz",
+              "pos": "AM-L",
+              "titular": true
+            },
+            {
+              "num": "19",
+              "nombre": "L. Sané",
+              "pos": "AM-R",
+              "titular": true
+            },
+            {
+              "num": "22",
+              "nombre": "D. Raum",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "11",
+              "nombre": "N. Woltemade",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "16",
+              "nombre": "A. Stiller",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "26",
+              "nombre": "D. Undav",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "3",
+              "nombre": "W. Anton",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "9",
+              "nombre": "J. Leweling",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "21",
+              "nombre": "A. Nübel",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "8",
+              "nombre": "L. Goretzka",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "2",
+              "nombre": "A. Rüdiger",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "24",
+              "nombre": "M. Thiaw",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "20",
+              "nombre": "N. Amiri",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "12",
+              "nombre": "O. Baumann",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "13",
+              "nombre": "P. Gross",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "25",
+              "nombre": "A. Ouédraogo",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "14",
+              "nombre": "M. Beier",
+              "pos": "SUB",
+              "titular": false
+            }
+          ]
+        },
+        "visitante": {
+          "sig": "CUW",
+          "nom": "Curaçao",
+          "jugadores": [
+            {
+              "num": "15",
+              "nombre": "A. Martha",
+              "pos": "",
+              "titular": false
+            },
+            {
+              "num": "3",
+              "nombre": "J. Gaari",
+              "pos": "",
+              "titular": false
+            },
+            {
+              "num": "25",
+              "nombre": "T. Bodak",
+              "pos": "",
+              "titular": false
+            },
+            {
+              "num": "22",
+              "nombre": "K. Felida",
+              "pos": "",
+              "titular": false
+            },
+            {
+              "num": "20",
+              "nombre": "J. Brenet",
+              "pos": "",
+              "titular": false
+            },
+            {
+              "num": "19",
+              "nombre": "G. Kastaneer",
+              "pos": "",
+              "titular": false
+            },
+            {
+              "num": "17",
+              "nombre": "B. Kuwas",
+              "pos": "",
+              "titular": false
+            },
+            {
+              "num": "13",
+              "nombre": "T. Noslin",
+              "pos": "",
+              "titular": false
+            },
+            {
+              "num": "16",
+              "nombre": "J. Margaritha",
+              "pos": "",
+              "titular": false
+            },
+            {
+              "num": "11",
+              "nombre": "J. Antonisse",
+              "pos": "",
+              "titular": false
+            },
+            {
+              "num": "2",
+              "nombre": "S. Sambo",
+              "pos": "",
+              "titular": false
+            },
+            {
+              "num": "26",
+              "nombre": "T. Doornbusch",
+              "pos": "",
+              "titular": false
+            },
+            {
+              "num": "14",
+              "nombre": "K. Gorré",
+              "pos": "",
+              "titular": false
+            },
+            {
+              "num": "6",
+              "nombre": "G. Roemeratoe",
+              "pos": "",
+              "titular": false
+            },
+            {
+              "num": "4",
+              "nombre": "R. van Eijma",
+              "pos": "",
+              "titular": false
+            },
+            {
+              "num": "1",
+              "nombre": "E. Room",
+              "pos": "G",
+              "titular": true
+            },
+            {
+              "num": "18",
+              "nombre": "A. Obispo",
+              "pos": "CD-L",
+              "titular": true
+            },
+            {
+              "num": "23",
+              "nombre": "R. Bazoer",
+              "pos": "CD-R",
+              "titular": true
+            },
+            {
+              "num": "24",
+              "nombre": "D. Fonville",
+              "pos": "LB",
+              "titular": true
+            },
+            {
+              "num": "5",
+              "nombre": "S. Floranus",
+              "pos": "RB",
+              "titular": true
+            },
+            {
+              "num": "12",
+              "nombre": "S. Hansen",
+              "pos": "M",
+              "titular": true
+            },
+            {
+              "num": "10",
+              "nombre": "L. Bacuna",
+              "pos": "CM",
+              "titular": true
+            },
+            {
+              "num": "21",
+              "nombre": "T. Chong",
+              "pos": "AM",
+              "titular": true
+            },
+            {
+              "num": "7",
+              "nombre": "J. Bacuna",
+              "pos": "LM",
+              "titular": true
+            },
+            {
+              "num": "8",
+              "nombre": "L. Comenencia",
+              "pos": "RM",
+              "titular": true
+            },
+            {
+              "num": "9",
+              "nombre": "J. Locadia",
+              "pos": "CF-R",
+              "titular": true
+            }
+          ]
+        }
+      }
     }
   ],
   "standings": {
@@ -3056,26 +3417,16 @@
     "E": [
       {
         "sig": "GER",
-        "pj": 0,
-        "pg": 0,
+        "pj": 1,
+        "pg": 1,
         "pe": 0,
         "pp": 0,
-        "gf": 0,
-        "gc": 0,
-        "pts": 0
+        "gf": 7,
+        "gc": 1,
+        "pts": 3
       },
       {
         "sig": "CIV",
-        "pj": 0,
-        "pg": 0,
-        "pe": 0,
-        "pp": 0,
-        "gf": 0,
-        "gc": 0,
-        "pts": 0
-      },
-      {
-        "sig": "CUW",
         "pj": 0,
         "pg": 0,
         "pe": 0,
@@ -3092,6 +3443,16 @@
         "pp": 0,
         "gf": 0,
         "gc": 0,
+        "pts": 0
+      },
+      {
+        "sig": "CUW",
+        "pj": 1,
+        "pg": 0,
+        "pe": 0,
+        "pp": 1,
+        "gf": 1,
+        "gc": 7,
         "pts": 0
       }
     ],
@@ -3391,35 +3752,6 @@
     ]
   },
   "previas": {
-    "GER-CUW": {
-      "lambdaLocal": 3.864,
-      "lambdaVisitante": 0.704,
-      "xGLocal": 3.86,
-      "xGVisitante": 0.7,
-      "probLocal": 89,
-      "probEmpate": 6,
-      "probVisitante": 3,
-      "probOver25": 82,
-      "probBTTS": 49,
-      "probCS_local": 49,
-      "probCS_visitante": 2,
-      "formaLocal": [],
-      "formaVisitante": [],
-      "golesXP_local": 2.42,
-      "golesXP_visitante": 0.83,
-      "bttsPorc_local": 50,
-      "bttsPorc_visitante": 50,
-      "over25Porc_local": 48,
-      "over25Porc_visitante": 48,
-      "csPorc_local": 32,
-      "csPorc_visitante": 32,
-      "cornersXP_local": 9.1,
-      "cornersXP_visitante": 3.1,
-      "amarillasXP_local": 1.5,
-      "amarillasXP_visitante": 2.9,
-      "basadoEn": "Priors basados en ranking FIFA y clasificatorias",
-      "nPartidosUsados": 0
-    },
     "NED-JPN": {
       "lambdaLocal": 2.049,
       "lambdaVisitante": 1.525,
