@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-16T18:15:57.206Z",
+  "lastUpdated": "2026-06-16T23:57:04.004Z",
   "partidos": [
     {
       "id": "MEX-RSA",
@@ -5746,6 +5746,367 @@
           ]
         }
       }
+    },
+    {
+      "id": "FRA-SEN",
+      "espnId": "760432",
+      "localSig": "FRA",
+      "visitanteSig": "SEN",
+      "localNom": "France",
+      "visitanteNom": "Senegal",
+      "golesLocal": 3,
+      "golesVisitante": 1,
+      "fecha": "2026-06-16T19:00Z",
+      "grupo": "I",
+      "jugado": true,
+      "stats": {
+        "posesion": {
+          "local": "53.7",
+          "visitante": "46.3"
+        },
+        "tiros": {
+          "local": "8",
+          "visitante": "2"
+        },
+        "amarillas": {
+          "local": "0",
+          "visitante": "0"
+        },
+        "rojas": {
+          "local": "0",
+          "visitante": "0"
+        },
+        "faltas": {
+          "local": "5",
+          "visitante": "9"
+        }
+      },
+      "lineups": {
+        "local": {
+          "sig": "FRA",
+          "nom": "France",
+          "jugadores": [
+            {
+              "num": "16",
+              "nombre": "M. Maignan",
+              "pos": "G",
+              "titular": true
+            },
+            {
+              "num": "17",
+              "nombre": "W. Saliba",
+              "pos": "CD-L",
+              "titular": true
+            },
+            {
+              "num": "4",
+              "nombre": "D. Upamecano",
+              "pos": "CD-R",
+              "titular": true
+            },
+            {
+              "num": "19",
+              "nombre": "T. Hernández",
+              "pos": "LB",
+              "titular": true
+            },
+            {
+              "num": "5",
+              "nombre": "J. Koundé",
+              "pos": "RB",
+              "titular": true
+            },
+            {
+              "num": "7",
+              "nombre": "O. Dembélé",
+              "pos": "AM",
+              "titular": true
+            },
+            {
+              "num": "14",
+              "nombre": "A. Rabiot",
+              "pos": "LM",
+              "titular": true
+            },
+            {
+              "num": "8",
+              "nombre": "A. Tchouaméni",
+              "pos": "RM",
+              "titular": true
+            },
+            {
+              "num": "10",
+              "nombre": "K. Mbappé",
+              "pos": "F",
+              "titular": true
+            },
+            {
+              "num": "20",
+              "nombre": "D. Doué",
+              "pos": "AM-L",
+              "titular": true
+            },
+            {
+              "num": "11",
+              "nombre": "M. Olise",
+              "pos": "AM-R",
+              "titular": true
+            },
+            {
+              "num": "13",
+              "nombre": "N. Kanté",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "1",
+              "nombre": "B. Samba",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "3",
+              "nombre": "L. Digne",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "18",
+              "nombre": "W. Zaïre-Emery",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "22",
+              "nombre": "J. Mateta",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "23",
+              "nombre": "R. Risser",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "6",
+              "nombre": "M. Koné",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "21",
+              "nombre": "L. Hernández",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "25",
+              "nombre": "M. Akliouche",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "24",
+              "nombre": "R. Cherki",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "26",
+              "nombre": "M. Lacroix",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "12",
+              "nombre": "B. Barcola",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "15",
+              "nombre": "I. Konaté",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "9",
+              "nombre": "M. Thuram",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "2",
+              "nombre": "M. Gusto",
+              "pos": "SUB",
+              "titular": false
+            }
+          ]
+        },
+        "visitante": {
+          "sig": "SEN",
+          "nom": "Senegal",
+          "jugadores": [
+            {
+              "num": "16",
+              "nombre": "É. Mendy",
+              "pos": "G",
+              "titular": true
+            },
+            {
+              "num": "19",
+              "nombre": "M. Niakhaté",
+              "pos": "CD-L",
+              "titular": true
+            },
+            {
+              "num": "3",
+              "nombre": "K. Koulibaly",
+              "pos": "CD-R",
+              "titular": true
+            },
+            {
+              "num": "25",
+              "nombre": "E. Diouf",
+              "pos": "LB",
+              "titular": true
+            },
+            {
+              "num": "15",
+              "nombre": "K. Diatta",
+              "pos": "RB",
+              "titular": true
+            },
+            {
+              "num": "8",
+              "nombre": "L. Camara",
+              "pos": "AM",
+              "titular": true
+            },
+            {
+              "num": "26",
+              "nombre": "P. Gueye",
+              "pos": "LM",
+              "titular": true
+            },
+            {
+              "num": "5",
+              "nombre": "I. Gueye",
+              "pos": "RM",
+              "titular": true
+            },
+            {
+              "num": "11",
+              "nombre": "N. Jackson",
+              "pos": "F",
+              "titular": true
+            },
+            {
+              "num": "10",
+              "nombre": "S. Mané",
+              "pos": "AM-L",
+              "titular": true
+            },
+            {
+              "num": "18",
+              "nombre": "I. Sarr",
+              "pos": "AM-R",
+              "titular": true
+            },
+            {
+              "num": "12",
+              "nombre": "C. Ndiaye",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "2",
+              "nombre": "M. Sarr",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "21",
+              "nombre": "H. Diarra",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "14",
+              "nombre": "I. Jakobs",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "6",
+              "nombre": "P. Ciss",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "24",
+              "nombre": "A. Mendy",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "1",
+              "nombre": "Y. Diouf",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "22",
+              "nombre": "B. Ndiaye",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "9",
+              "nombre": "B. Dieng",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "4",
+              "nombre": "A. Seck",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "20",
+              "nombre": "I. Mbaye",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "17",
+              "nombre": "P. Sarr",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "23",
+              "nombre": "M. Diaw",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "7",
+              "nombre": "A. Diao",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "13",
+              "nombre": "I. Ndiaye",
+              "pos": "SUB",
+              "titular": false
+            }
+          ]
+        }
+      }
     }
   ],
   "standings": {
@@ -6088,23 +6449,13 @@
     "I": [
       {
         "sig": "FRA",
-        "pj": 0,
-        "pg": 0,
+        "pj": 1,
+        "pg": 1,
         "pe": 0,
         "pp": 0,
-        "gf": 0,
-        "gc": 0,
-        "pts": 0
-      },
-      {
-        "sig": "SEN",
-        "pj": 0,
-        "pg": 0,
-        "pe": 0,
-        "pp": 0,
-        "gf": 0,
-        "gc": 0,
-        "pts": 0
+        "gf": 3,
+        "gc": 1,
+        "pts": 3
       },
       {
         "sig": "IRQ",
@@ -6124,6 +6475,16 @@
         "pp": 0,
         "gf": 0,
         "gc": 0,
+        "pts": 0
+      },
+      {
+        "sig": "SEN",
+        "pj": 1,
+        "pg": 0,
+        "pe": 0,
+        "pp": 1,
+        "gf": 1,
+        "gc": 3,
         "pts": 0
       }
     ],
@@ -6255,35 +6616,6 @@
     ]
   },
   "previas": {
-    "FRA-SEN": {
-      "lambdaLocal": 2.484,
-      "lambdaVisitante": 1.294,
-      "xGLocal": 2.48,
-      "xGVisitante": 1.29,
-      "probLocal": 63,
-      "probEmpate": 18,
-      "probVisitante": 18,
-      "probOver25": 73,
-      "probBTTS": 66,
-      "probCS_local": 27,
-      "probCS_visitante": 8,
-      "formaLocal": [],
-      "formaVisitante": [],
-      "golesXP_local": 2.48,
-      "golesXP_visitante": 1.72,
-      "bttsPorc_local": 50,
-      "bttsPorc_visitante": 50,
-      "over25Porc_local": 48,
-      "over25Porc_visitante": 48,
-      "csPorc_local": 32,
-      "csPorc_visitante": 32,
-      "cornersXP_local": 9.4,
-      "cornersXP_visitante": 6.5,
-      "amarillasXP_local": 1.4,
-      "amarillasXP_visitante": 1.8,
-      "basadoEn": "Priors basados en ranking FIFA y clasificatorias",
-      "nPartidosUsados": 0
-    },
     "IRQ-NOR": {
       "lambdaLocal": 1.245,
       "lambdaVisitante": 2.501,
