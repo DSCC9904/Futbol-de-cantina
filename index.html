@@ -385,6 +385,22 @@
     <div class="car-dots" id="car-dots"></div>
   </section>
 
+  <!-- ── CARRUSEL TABLAS DE GRUPOS ── -->
+  <section id="grupos-carrusel-sec" style="padding:0 0 40px">
+    <div class="car-titulo-row">
+      <span class="car-titulo">Tabla de grupos</span>
+      <span class="car-actualizado">Top 2 de cada grupo clasifican · Se actualiza automáticamente</span>
+    </div>
+    <div class="carrusel-wrap">
+      <button class="car-flecha" id="gc-prev" aria-label="Grupo anterior">&#8249;</button>
+      <div class="carrusel-viewport">
+        <div class="carrusel-track" id="gc-track"></div>
+      </div>
+      <button class="car-flecha" id="gc-next" aria-label="Grupo siguiente">&#8250;</button>
+    </div>
+    <div class="car-dots" id="gc-dots"></div>
+  </section>
+
   <!-- ── SECCIÓN 2: Formaciones ── -->
   <section class="formacion-sec" id="formacion">
     <div class="eyebrow" id="form-eyebrow">Alineaciones · cargando…</div>
@@ -559,6 +575,9 @@ var dp         = detectarPartido();
 var matchShow  = dp.actual || dp.proximo;   /* partido a mostrar */
 var ahora      = Date.now();
 
+/* Valores históricos (pre-Mundial) guardados cuando carga la previa */
+var HIST_VALS = {};
+
 /* Construir objeto PARTIDO desde datos.js */
 var PARTIDO = {
   lat:       matchShow ? matchShow.lat : 19.3029,
@@ -596,8 +615,30 @@ if (matchShow) {
   var fechaStr = fechaUTC.toLocaleDateString('es-CO', { timeZone:'America/Bogota', day:'2-digit', month:'short' }).toUpperCase();
   var horaStr  = fechaUTC.toLocaleTimeString('es-CO', { timeZone:'America/Bogota', hour:'2-digit', minute:'2-digit' });
   if (metaEl)   metaEl.textContent = fechaStr + ' · ' + horaStr + ' (COL) · GRUPO ' + matchShow.grupo;
-  if (estadioEl) estadioEl.innerHTML = matchShow.estadio + ' —'
-    + ' <a href="sedes.html#' + matchShow.estadioId + '" class="link-sede">consulta condiciones geográficas del estadio ↗</a>';
+  if (estadioEl) {
+    /* Encontrar el partido que sigue al actual en HORARIO */
+    var idxActual = HORARIO.indexOf(matchShow);
+    var siguienteP = null;
+    for (var _i = idxActual + 1; _i < HORARIO.length; _i++) {
+      if (new Date(HORARIO[_i].utc).getTime() > Date.now()) { siguienteP = HORARIO[_i]; break; }
+    }
+    var sigHtml = '';
+    if (siguienteP) {
+      var sigFecha = new Date(siguienteP.utc).toLocaleDateString('es-CO',
+        { timeZone:'America/Bogota', weekday:'short', day:'2-digit', month:'short' }).toUpperCase();
+      var sigHora = new Date(siguienteP.utc).toLocaleTimeString('es-CO',
+        { timeZone:'America/Bogota', hour:'2-digit', minute:'2-digit' });
+      sigHtml = '<div class="proximo-partido-info">'
+        + '📍 <b>El siguiente partido:</b> ' + siguienteP.localSig + ' vs ' + siguienteP.visitanteSig
+        + ' · ' + sigFecha + ' ' + sigHora + ' COL'
+        + ' · <a href="sedes.html#' + siguienteP.estadioId + '" class="link-sede">'
+        + siguienteP.estadio + ' →</a>'
+        + '</div>';
+    }
+    estadioEl.innerHTML = matchShow.estadio + ' —'
+      + ' <a href="sedes.html#' + matchShow.estadioId + '" class="link-sede">consulta condiciones geográficas del estadio ↗</a>'
+      + sigHtml;
+  }
 
   /* Nombres de equipos en el bloque VS */
   var cL = document.getElementById('crest-local'),
@@ -756,22 +797,12 @@ function renderComparacion(sv) {
     rojas:     { hist: 'rojas',     lbl: 'Tarjetas rojas' },
     faltas:    { hist: 'faltas',    lbl: 'Faltas cometidas' }
   };
-  /* Leer valores históricos del DOM */
-  function getHistVal(tip, side) {
-    var row = null;
-    document.querySelectorAll('.ind-row').forEach(function(r) {
-      if (r.querySelector('[data-tip="' + tip + '"]')) row = r;
-    });
-    if (!row) return '—';
-    var vals = row.querySelectorAll('.ind-val');
-    return side === 'l' ? (vals[0] ? vals[0].textContent : '—')
-                        : (vals[1] ? vals[1].textContent : '—');
-  }
   Object.keys(META).forEach(function(k) {
     if (!sv[k]) return;
     var info = META[k];
-    var vHL = getHistVal(info.hist || k, 'l');
-    var vHR = getHistVal(info.hist || k, 'r');
+    var histKey = info.hist || k;
+    var vHL = (HIST_VALS[histKey] && HIST_VALS[histKey].l) || '—';
+    var vHR = (HIST_VALS[histKey] && HIST_VALS[histKey].r) || '—';
     var vLL = sv[k].local, vLR = sv[k].visitante;
     var row = document.createElement('div');
     row.className = 'comp-row';
@@ -1189,6 +1220,17 @@ function aplicarPrevia(pv) {
   /* Amarillas */
   setRow('amarillas', pv.amarillasXP_local,      pv.amarillasXP_visitante);
 
+  /* Guardar valores históricos para la comparación en vivo */
+  HIST_VALS = {
+    xg:        { l: pv.xGLocal + ' xG',            r: pv.xGVisitante + ' xG' },
+    posesion:  { l: '50%',                          r: '50%' },
+    tiros:     { l: pv.cornersXP_local || '—',      r: pv.cornersXP_visitante || '—' },
+    corners:   { l: pv.cornersXP_local || '—',      r: pv.cornersXP_visitante || '—' },
+    amarillas: { l: pv.amarillasXP_local || '—',    r: pv.amarillasXP_visitante || '—' },
+    rojas:     { l: '0.1',                          r: '0.1' },
+    faltas:    { l: '11',                           r: '11' }
+  };
+
   /* ── Bloque de probabilidades / valor ── */
   var localNom     = matchShow ? (matchShow.localNom    || matchShow.localSig)    : 'Local';
   var visitanteNom = matchShow ? (matchShow.visitanteNom|| matchShow.visitanteSig): 'Visitante';
@@ -1265,6 +1307,120 @@ cargarPartidoVivoESPN();
 setInterval(cargarPartidoVivoESPN, 60 * 1000);
 /* Refrescar previa cada 15 min (sincronizado con GitHub Action) */
 setInterval(cargarPrevia, 15 * 60 * 1000);
+
+/* ══════════════════════════════════════════════════════════════
+   CARRUSEL TABLAS DE GRUPOS
+══════════════════════════════════════════════════════════════ */
+(function() {
+  var gcIdx = 0, gcTotal = 0, gcTimer = null;
+
+  function ordenarGrupoGC(arr) {
+    return arr.slice().sort(function(a, b) {
+      if (b.pts !== a.pts) return b.pts - a.pts;
+      var da = a.gf - a.gc, db = b.gf - b.gc;
+      if (db !== da) return db - da;
+      return b.gf - a.gf;
+    });
+  }
+
+  function renderGruposCarrusel(clasi) {
+    var track = document.getElementById('gc-track');
+    var dots  = document.getElementById('gc-dots');
+    if (!track || !dots) return;
+    track.innerHTML = '';
+    dots.innerHTML  = '';
+
+    var letras = Object.keys(clasi);
+    gcTotal = letras.length;
+
+    letras.forEach(function(letra, i) {
+      var equipos = ordenarGrupoGC(clasi[letra]);
+
+      /* Card */
+      var card = document.createElement('div');
+      card.className = 'gc-card';
+      card.style.minWidth = '100%';
+      card.style.boxSizing = 'border-box';
+      card.style.padding = '16px 20px';
+      card.style.background = 'var(--panel)';
+      card.style.borderRadius = '10px';
+
+      var html = '<div class="grupo-titulo" style="margin-bottom:10px;font-size:13px;font-weight:800;letter-spacing:.1em">GRUPO ' + letra + '</div>'
+        + '<table style="width:100%;border-collapse:collapse;font-size:12px;font-family:JetBrains Mono,monospace">'
+        + '<thead><tr style="color:var(--muted);border-bottom:1px solid var(--line)">'
+        + '<th style="text-align:left;padding:4px 0;width:36%">Equipo</th>'
+        + '<th style="text-align:center;padding:4px 4px">PJ</th>'
+        + '<th style="text-align:center;padding:4px 4px">PG</th>'
+        + '<th style="text-align:center;padding:4px 4px">PE</th>'
+        + '<th style="text-align:center;padding:4px 4px">PP</th>'
+        + '<th style="text-align:center;padding:4px 4px">GF</th>'
+        + '<th style="text-align:center;padding:4px 4px">GC</th>'
+        + '<th style="text-align:center;padding:4px 4px">DG</th>'
+        + '<th style="text-align:center;padding:4px 4px;color:var(--amber);font-weight:700">Pts</th>'
+        + '</tr></thead><tbody>';
+
+      equipos.forEach(function(eq, j) {
+        var dg = eq.gf - eq.gc;
+        var rowStyle = j < 2
+          ? 'background:rgba(251,191,36,.06);border-left:2px solid var(--amber)'
+          : '';
+        var colStyle = eq.sig === 'COL' ? 'color:#FCD116;font-weight:700' : '';
+        html += '<tr style="' + rowStyle + ';' + colStyle + '">'
+          + '<td style="padding:5px 0;text-align:left">' + eq.sig + ' <span style="color:var(--muted);font-size:10px">' + (eq.nom || '') + '</span></td>'
+          + '<td style="text-align:center">' + eq.pj + '</td>'
+          + '<td style="text-align:center">' + eq.pg + '</td>'
+          + '<td style="text-align:center">' + eq.pe + '</td>'
+          + '<td style="text-align:center">' + eq.pp + '</td>'
+          + '<td style="text-align:center">' + eq.gf + '</td>'
+          + '<td style="text-align:center">' + eq.gc + '</td>'
+          + '<td style="text-align:center;color:' + (dg > 0 ? 'var(--pos)' : dg < 0 ? 'var(--neg)' : 'inherit') + '">'
+            + (dg > 0 ? '+' : '') + dg + '</td>'
+          + '<td style="text-align:center;font-weight:700;color:var(--amber)">' + eq.pts + '</td>'
+          + '</tr>';
+      });
+
+      html += '</tbody></table>'
+        + '<div style="margin-top:8px;font-size:10px;color:var(--muted)">▲ Clasifican los 2 primeros</div>';
+
+      card.innerHTML = html;
+      track.appendChild(card);
+
+      /* Dot */
+      var dot = document.createElement('button');
+      dot.className = 'car-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', 'Grupo ' + letra);
+      dot.textContent = letra;
+      dot.style.fontSize = '10px';
+      dot.style.fontWeight = '700';
+      dot.style.minWidth = '22px';
+      dots.appendChild(dot);
+    });
+
+    /* Navegación */
+    function gcIr(n) {
+      gcIdx = (n + gcTotal) % gcTotal;
+      track.style.transform = 'translateX(-' + (gcIdx * 100) + '%)';
+      dots.querySelectorAll('.car-dot').forEach(function(d, i) {
+        d.classList.toggle('active', i === gcIdx);
+      });
+    }
+
+    document.getElementById('gc-prev').addEventListener('click', function() { gcIr(gcIdx - 1); clearInterval(gcTimer); });
+    document.getElementById('gc-next').addEventListener('click', function() { gcIr(gcIdx + 1); clearInterval(gcTimer); });
+    dots.querySelectorAll('.car-dot').forEach(function(d, i) {
+      d.addEventListener('click', function() { gcIr(i); clearInterval(gcTimer); });
+    });
+
+    /* Auto-avance cada 6 s */
+    gcTimer = setInterval(function() { gcIr(gcIdx + 1); }, 6000);
+  }
+
+  /* Cargar desde resultados.json, con fallback a datos.js */
+  fetch('resultados.json?v=' + Date.now())
+    .then(function(r) { return r.json(); })
+    .then(function(d) { renderGruposCarrusel(d.standings || CLASIFICACION); })
+    .catch(function() { renderGruposCarrusel(CLASIFICACION); });
+})();
 </script>
 </body>
 </html>

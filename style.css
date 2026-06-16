@@ -178,6 +178,16 @@ nav a:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; bord
   color: var(--muted);
   letter-spacing: .04em;
 }
+.proximo-partido-info {
+  margin-top: 6px;
+  padding: 6px 10px;
+  background: rgba(255,255,255,.04);
+  border-left: 2px solid var(--amber);
+  border-radius: 4px;
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.5;
+}
 .link-sede {
   color: var(--amber);
   text-decoration: none;

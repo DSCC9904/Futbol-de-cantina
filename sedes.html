@@ -303,7 +303,7 @@
   <section style="padding: 32px 0 80px">
     <div class="eyebrow">Mundial 2026 · USA · México · Canadá</div>
     <h1 class="cal-title">Sedes y condiciones climáticas</h1>
-    <p class="lede">Haz clic en cualquier sede del mapa para ver altitud, temperatura, humedad y cómo esas condiciones afectan el rendimiento. Como geomático sabes: <b style="color:var(--text)">el terreno siempre importa.</b></p>
+    <p class="lede">Haz clic en cualquier sede para ver altitud, temperatura, humedad y cómo esas condiciones afectan el rendimiento.</p>
 
     <!-- ══════════ MAPA ══════════ -->
     <div class="mapa-wrap">
@@ -987,6 +987,32 @@ function abrirSede(id) {
 document.querySelectorAll('.sede-dot').forEach(function(g) {
   g.addEventListener('click', function() { abrirSede(this.dataset.id); });
 });
+
+/* ── Abrir sede desde hash de URL (link desde index.html) ── */
+(function() {
+  var hash = window.location.hash.replace('#', '');
+  if (!hash) return;
+  /* Pequeño delay para que el DOM esté listo */
+  setTimeout(function() {
+    abrirSede(hash);
+    /* Añadir badge "Se está jugando aquí" al dot */
+    var dot = document.querySelector('.sede-dot[data-id="' + hash + '"]');
+    if (dot) {
+      var badge = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      badge.setAttribute('x', dot.querySelector('circle').getAttribute('cx'));
+      badge.setAttribute('y', parseFloat(dot.querySelector('circle').getAttribute('cy')) - 14);
+      badge.setAttribute('text-anchor', 'middle');
+      badge.setAttribute('font-size', '9');
+      badge.setAttribute('fill', '#fff');
+      badge.setAttribute('font-family', 'Archivo, sans-serif');
+      badge.setAttribute('font-weight', '700');
+      badge.setAttribute('pointer-events', 'none');
+      badge.textContent = '⚽ SE ESTÁ JUGANDO AQUÍ';
+      dot.appendChild(badge);
+      dot.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }, 150);
+})();
 
 /* ── Coordenadas del cursor sobre el mapa ── */
 var mapaSvg    = document.getElementById('mapa-svg');

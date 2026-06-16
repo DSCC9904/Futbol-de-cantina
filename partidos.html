@@ -97,6 +97,21 @@
     </div>
 
     <!-- ══════════════════════════════
+         CARRUSEL PARTIDOS JUGADOS
+    ══════════════════════════════ -->
+    <section id="jugados-sec" hidden style="padding:0 0 32px">
+      <div class="eyebrow" style="margin-bottom:8px">Ya se jugaron</div>
+      <div class="carrusel-wrap">
+        <button class="car-flecha" id="jugados-prev" aria-label="Anterior">&#8249;</button>
+        <div class="carrusel-viewport">
+          <div class="carrusel-track" id="jugados-track"></div>
+        </div>
+        <button class="car-flecha" id="jugados-next" aria-label="Siguiente">&#8250;</button>
+      </div>
+      <div class="car-dots" id="jugados-dots"></div>
+    </section>
+
+    <!-- ══════════════════════════════
          JORNADA 1 · 11–17 JUN
     ══════════════════════════════ -->
     <div class="fase-titulo">Jornada 1 <span class="fase-fecha">· 11–17 de junio</span></div>
@@ -633,13 +648,61 @@ fetch('resultados.json?v=' + Date.now())
         if (p.jugado) RESULTADOS_PARTIDOS[p.id] = p;
       });
       mostrarResultadosEnCards();
+      construirCarruselJugados();
     }
   })
   .catch(function() {
     /* Fallback: usar datos.js estáticos */
     renderGrupos();
     mostrarResultadosEnCards();
+    construirCarruselJugados();
   });
+
+/* Carrusel de partidos jugados */
+function construirCarruselJugados() {
+  var jugados = Array.from(document.querySelectorAll('.partido-card.jugado'));
+  if (!jugados.length) return;
+
+  var sec   = document.getElementById('jugados-sec');
+  var track = document.getElementById('jugados-track');
+  var dots  = document.getElementById('jugados-dots');
+  sec.hidden = false;
+
+  jugados.forEach(function(card, i) {
+    /* Clonar tarjeta y meterla en el carrusel */
+    var clone = card.cloneNode(true);
+    clone.style.minWidth = '100%';
+    clone.style.boxSizing = 'border-box';
+    track.appendChild(clone);
+
+    /* Ocultar original de la lista */
+    card.style.display = 'none';
+
+    /* Dot */
+    var dot = document.createElement('button');
+    dot.className = 'car-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Partido ' + (i + 1));
+    dots.appendChild(dot);
+  });
+
+  var idx = 0;
+  function irA(n) {
+    idx = (n + jugados.length) % jugados.length;
+    track.style.transform = 'translateX(-' + (idx * 100) + '%)';
+    dots.querySelectorAll('.car-dot').forEach(function(d, i) {
+      d.classList.toggle('active', i === idx);
+    });
+  }
+
+  document.getElementById('jugados-prev').addEventListener('click', function() { irA(idx - 1); });
+  document.getElementById('jugados-next').addEventListener('click', function() { irA(idx + 1); });
+  dots.querySelectorAll('.car-dot').forEach(function(d, i) {
+    d.addEventListener('click', function() { irA(i); });
+  });
+
+  /* Auto-avance cada 5 s */
+  setInterval(function() { irA(idx + 1); }, 5000);
+}
 
 /* Toggle grupos / partidos */
 document.querySelectorAll('.filtro').forEach(function(btn) {
@@ -654,6 +717,10 @@ document.querySelectorAll('.filtro').forEach(function(btn) {
     } else {
       vistaGrupos.hidden = true;
       document.querySelectorAll('.fase-titulo, .fase-placeholder, .partidos-lista').forEach(function(el) {
+        el.style.display = '';
+      });
+      /* Restaurar solo las cards que no están en el carrusel */
+      document.querySelectorAll('.partido-card:not(.jugado)').forEach(function(el) {
         el.style.display = '';
       });
     }
