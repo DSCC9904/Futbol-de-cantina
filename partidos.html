@@ -29,6 +29,7 @@
       <a href="index.html#leer">Cómo leer</a>
       <a href="index.html#lista">Síguenos</a>
       <a href="partidos.html" style="color:var(--amber)">📅 Calendario</a>
+      <a href="simulador.html">🏆 Simulador</a>
       <a href="sedes.html">🗺️ Sedes</a>
     </nav>
   </div>
@@ -626,11 +627,19 @@ function mostrarResultadosEnCards() {
     if (siglas.length < 2) return;
     var sigL = siglas[0].textContent.replace(/[^A-Z]/g,'').trim();
     var sigR = siglas[1].textContent.replace(/[^A-Z]/g,'').trim();
-    var res  = RESULTADOS_PARTIDOS[sigL + '-' + sigR];
+    /* Buscar en ambos órdenes (ESPN puede guardar como visitante-local) */
+    var res = RESULTADOS_PARTIDOS[sigL + '-' + sigR];
+    var invertido = false;
+    if (!res || !res.jugado) {
+      res = RESULTADOS_PARTIDOS[sigR + '-' + sigL];
+      invertido = true;
+    }
     if (!res || !res.jugado) return;
+    var golesL = invertido ? res.golesVisitante : res.golesLocal;
+    var golesR = invertido ? res.golesLocal      : res.golesVisitante;
     var vsEl = card.querySelector('.p-vs');
     if (vsEl && !vsEl.querySelector('.p-score')) {
-      vsEl.innerHTML = '<span class="p-score">' + res.golesLocal + ' — ' + res.golesVisitante + '</span>';
+      vsEl.innerHTML = '<span class="p-score">' + golesL + ' — ' + golesR + '</span>';
       vsEl.classList.add('tiene-resultado');
       card.classList.add('jugado');
     }

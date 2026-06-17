@@ -31,6 +31,7 @@
       <a href="#leer">Cómo leer</a>
       <a href="#lista">Síguenos</a>
       <a href="partidos.html">📅 Calendario</a>
+      <a href="simulador.html">🏆 Simulador</a>
       <a href="sedes.html">🗺️ Sedes</a>
     </nav>
   </div>
@@ -383,6 +384,22 @@
       <button class="car-flecha car-next" id="car-next" onclick="carMover(1)">&#8594;</button>
     </div>
     <div class="car-dots" id="car-dots"></div>
+  </section>
+
+  <!-- ── PARTIDOS DE HOY ── -->
+  <section id="hoy-sec" style="padding:0 0 40px" hidden>
+    <div class="car-titulo-row">
+      <span class="car-titulo" id="hoy-titulo">Partidos de hoy</span>
+      <span class="car-actualizado" id="hoy-count"></span>
+    </div>
+    <div class="carrusel-wrap">
+      <button class="car-flecha" id="hoy-prev" aria-label="Anterior">&#8249;</button>
+      <div class="carrusel-viewport">
+        <div class="carrusel-track" id="hoy-track"></div>
+      </div>
+      <button class="car-flecha" id="hoy-next" aria-label="Siguiente">&#8250;</button>
+    </div>
+    <div class="car-dots" id="hoy-dots"></div>
   </section>
 
   <!-- ── CARRUSEL TABLAS DE GRUPOS ── -->
@@ -1309,6 +1326,143 @@ setInterval(cargarPartidoVivoESPN, 60 * 1000);
 setInterval(cargarPrevia, 15 * 60 * 1000);
 
 /* ══════════════════════════════════════════════════════════════
+   CARRUSEL PARTIDOS DE HOY
+══════════════════════════════════════════════════════════════ */
+(function() {
+  /* Fecha de hoy en Colombia (UTC-5) */
+  function fechaHoyCOL() {
+    var ahora = new Date();
+    var col = new Date(ahora.getTime() - 5 * 3600000);
+    return col.toISOString().slice(0, 10); /* YYYY-MM-DD */
+  }
+
+  function horaCol(utc) {
+    return new Date(utc).toLocaleTimeString('es-CO',
+      { timeZone: 'America/Bogota', hour: '2-digit', minute: '2-digit' });
+  }
+
+  function barProb(pct, color) {
+    return '<div style="background:var(--panel-2);border-radius:4px;height:6px;margin-top:4px">'
+      + '<div style="width:' + pct + '%;background:' + color + ';height:6px;border-radius:4px;transition:width .4s"></div>'
+      + '</div>';
+  }
+
+  function renderHoy(previas) {
+    var hoy = fechaHoyCOL();
+    var partidos = HORARIO.filter(function(p) {
+      /* Convertir UTC a fecha Colombia */
+      var colDate = new Date(new Date(p.utc).getTime() - 5 * 3600000);
+      return colDate.toISOString().slice(0, 10) === hoy;
+    });
+
+    if (!partidos.length) return;
+
+    var sec   = document.getElementById('hoy-sec');
+    var track = document.getElementById('hoy-track');
+    var dots  = document.getElementById('hoy-dots');
+    var count = document.getElementById('hoy-count');
+    sec.hidden = false;
+    count.textContent = partidos.length + ' partido' + (partidos.length > 1 ? 's' : '') + ' hoy';
+
+    var hoyIdx = 0, hoyTotal = partidos.length, hoyTimer = null;
+
+    partidos.forEach(function(p, i) {
+      var pv = previas ? (previas[p.localSig + '-' + p.visitanteSig] || previas[p.visitanteSig + '-' + p.localSig]) : null;
+      var probL = pv ? pv.probLocal      : null;
+      var probE = pv ? pv.probEmpate     : null;
+      var probV = pv ? pv.probVisitante  : null;
+      var xGL   = pv ? pv.xGLocal        : null;
+      var xGV   = pv ? pv.xGVisitante    : null;
+
+      /* Determinar si ya jugó */
+      var inicio = new Date(p.utc).getTime();
+      var yaJugo = Date.now() > inicio + 115 * 60 * 1000 + 30 * 60 * 1000;
+
+      var card = document.createElement('div');
+      card.style.cssText = 'min-width:100%;box-sizing:border-box;padding:20px 24px;background:var(--panel);border-radius:12px';
+
+      var statusBadge = yaJugo
+        ? '<span style="background:var(--panel-2);color:var(--muted);font-size:10px;font-weight:700;padding:3px 8px;border-radius:4px;letter-spacing:.08em">FINALIZADO</span>'
+        : (Date.now() >= inicio && Date.now() <= inicio + 115*60*1000)
+          ? '<span style="background:#dc2626;color:#fff;font-size:10px;font-weight:700;padding:3px 8px;border-radius:4px;letter-spacing:.08em;animation:pulse 1.5s infinite">● EN VIVO</span>'
+          : '<span style="color:var(--muted);font-size:11px">⏱ ' + horaCol(p.utc) + ' COL</span>';
+
+      var html = '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">'
+        + '<span style="font-size:10px;color:var(--muted);font-weight:700;letter-spacing:.1em">GRUPO ' + p.grupo + '</span>'
+        + statusBadge
+        + '</div>'
+        /* Teams */
+        + '<div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px">'
+          + '<div style="text-align:center;flex:1">'
+            + '<div style="font-size:22px;font-weight:900;letter-spacing:.05em">' + p.localSig + '</div>'
+            + '<div style="font-size:11px;color:var(--muted);margin-top:2px">' + (p.localNom || p.localSig) + '</div>'
+          + '</div>'
+          + '<div style="font-size:13px;color:var(--muted);font-weight:700">VS</div>'
+          + '<div style="text-align:center;flex:1">'
+            + '<div style="font-size:22px;font-weight:900;letter-spacing:.05em">' + p.visitanteSig + '</div>'
+            + '<div style="font-size:11px;color:var(--muted);margin-top:2px">' + (p.visitanteNom || p.visitanteSig) + '</div>'
+          + '</div>'
+        + '</div>';
+
+      if (probL !== null) {
+        html += '<div style="font-size:10px;color:var(--muted);font-weight:700;letter-spacing:.08em;margin-bottom:8px">PROBABILIDADES (modelo)</div>'
+          + '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;text-align:center">'
+            + '<div><div style="font-size:18px;font-weight:800;color:var(--pos)">' + probL + '%</div>'
+              + '<div style="font-size:10px;color:var(--muted)">Gana ' + p.localSig + '</div>'
+              + barProb(probL, 'var(--pos)') + '</div>'
+            + '<div><div style="font-size:18px;font-weight:800;color:var(--muted)">' + probE + '%</div>'
+              + '<div style="font-size:10px;color:var(--muted)">Empate</div>'
+              + barProb(probE, 'var(--muted)') + '</div>'
+            + '<div><div style="font-size:18px;font-weight:800;color:var(--amber)">' + probV + '%</div>'
+              + '<div style="font-size:10px;color:var(--muted)">Gana ' + p.visitanteSig + '</div>'
+              + barProb(probV, 'var(--amber)') + '</div>'
+          + '</div>';
+
+        if (xGL !== null) {
+          html += '<div style="display:flex;justify-content:space-between;margin-top:12px;font-size:11px;color:var(--muted)">'
+            + '<span>xG esperado: <b style="color:var(--ink)">' + xGL + '</b></span>'
+            + '<span>xG esperado: <b style="color:var(--ink)">' + xGV + '</b></span>'
+            + '</div>';
+        }
+      } else {
+        html += '<div style="text-align:center;color:var(--muted);font-size:12px;padding:12px 0">Estadísticas cargando…</div>';
+      }
+
+      html += '<div style="margin-top:14px;font-size:10px;color:var(--muted);text-align:center">' + p.estadio + '</div>';
+
+      card.innerHTML = html;
+      track.appendChild(card);
+
+      var dot = document.createElement('button');
+      dot.className = 'car-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', p.localSig + ' vs ' + p.visitanteSig);
+      dots.appendChild(dot);
+    });
+
+    function hoyIr(n) {
+      hoyIdx = (n + hoyTotal) % hoyTotal;
+      track.style.transform = 'translateX(-' + (hoyIdx * 100) + '%)';
+      dots.querySelectorAll('.car-dot').forEach(function(d, i) {
+        d.classList.toggle('active', i === hoyIdx);
+      });
+    }
+
+    document.getElementById('hoy-prev').addEventListener('click', function() { hoyIr(hoyIdx - 1); clearInterval(hoyTimer); });
+    document.getElementById('hoy-next').addEventListener('click', function() { hoyIr(hoyIdx + 1); clearInterval(hoyTimer); });
+    dots.querySelectorAll('.car-dot').forEach(function(d, i) {
+      d.addEventListener('click', function() { hoyIr(i); clearInterval(hoyTimer); });
+    });
+
+    if (hoyTotal > 1) hoyTimer = setInterval(function() { hoyIr(hoyIdx + 1); }, 6000);
+  }
+
+  fetch('resultados.json?v=' + Date.now())
+    .then(function(r) { return r.json(); })
+    .then(function(d) { renderHoy(d.previas || null); })
+    .catch(function()  { renderHoy(null); });
+})();
+
+/* ══════════════════════════════════════════════════════════════
    CARRUSEL TABLAS DE GRUPOS
 ══════════════════════════════════════════════════════════════ */
 (function() {
@@ -1387,12 +1541,9 @@ setInterval(cargarPrevia, 15 * 60 * 1000);
 
       /* Dot */
       var dot = document.createElement('button');
-      dot.className = 'car-dot' + (i === 0 ? ' active' : '');
+      dot.className = 'car-dot car-dot-letra' + (i === 0 ? ' active' : '');
       dot.setAttribute('aria-label', 'Grupo ' + letra);
       dot.textContent = letra;
-      dot.style.fontSize = '10px';
-      dot.style.fontWeight = '700';
-      dot.style.minWidth = '22px';
       dots.appendChild(dot);
     });
 

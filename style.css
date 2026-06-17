@@ -1676,10 +1676,32 @@ footer {
   height: 8px;
   border-radius: 50%;
   background: var(--line);
+  border: none;
   cursor: pointer;
   transition: background .2s;
+  color: transparent;
+  font-size: 0;
+  padding: 0;
 }
 .car-dot.active { background: var(--amber); }
+/* Dots con letra (carrusel de grupos) */
+.car-dot.car-dot-letra {
+  width: auto;
+  height: auto;
+  min-width: 24px;
+  border-radius: 6px;
+  padding: 3px 7px;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--muted);
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+}
+.car-dot.car-dot-letra.active {
+  background: var(--amber);
+  color: #000;
+  border-color: var(--amber);
+}
 
 /* ── Formación dinámica ── */
 .jug-circle.gk  { background: #F2B33D; color: #000; }

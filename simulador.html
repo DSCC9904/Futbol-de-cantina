@@ -1,0 +1,645 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Simulador de llaves — Fútbol de Cantina · Mundial 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,600;0,800;0,900&family=Spline+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── Simulador ── */
+    .sim-intro { max-width: 640px; margin-bottom: 32px; }
+    .sim-paso { font-size: 11px; font-weight: 700; letter-spacing: .12em; color: var(--amber); margin-bottom: 6px; }
+
+    /* Grid de grupos */
+    .grupos-sim-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .grupo-sim-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 14px 16px;
+    }
+    .grupo-sim-titulo {
+      font-size: 11px; font-weight: 800; letter-spacing: .12em;
+      color: var(--amber); margin-bottom: 10px;
+    }
+    .equipo-sim-row {
+      display: flex; align-items: center; gap: 10px;
+      padding: 7px 10px; border-radius: 7px; cursor: pointer;
+      border: 1px solid transparent;
+      transition: background .15s, border-color .15s;
+      margin-bottom: 4px; user-select: none;
+    }
+    .equipo-sim-row:hover { background: var(--panel-2); }
+    .equipo-sim-row.pasa-1 {
+      background: rgba(251,191,36,.12);
+      border-color: var(--amber);
+    }
+    .equipo-sim-row.pasa-2 {
+      background: rgba(251,191,36,.06);
+      border-color: rgba(251,191,36,.4);
+    }
+    .equipo-sim-row.tercero {
+      background: rgba(100,200,255,.06);
+      border-color: rgba(100,200,255,.3);
+    }
+    .eq-badge {
+      width: 20px; height: 20px; border-radius: 4px;
+      font-size: 9px; font-weight: 800; display: flex;
+      align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .eq-badge.b1 { background: var(--amber); color: #000; }
+    .eq-badge.b2 { background: rgba(251,191,36,.3); color: var(--amber); }
+    .eq-badge.b3 { background: rgba(100,200,255,.2); color: #64c8ff; font-size: 8px; }
+    .eq-badge.bx { background: var(--panel-2); color: var(--muted); }
+    .eq-sig { font-size: 13px; font-weight: 800; flex: 1; }
+    .eq-nom { font-size: 10px; color: var(--muted); }
+
+    /* Terceros */
+    .terceros-sec {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 18px 20px;
+      margin-bottom: 32px;
+    }
+    .terceros-grid {
+      display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px;
+    }
+    .tercero-chip {
+      padding: 5px 12px; border-radius: 20px;
+      border: 1px solid var(--line);
+      background: var(--panel-2);
+      font-size: 11px; font-weight: 700; cursor: pointer;
+      color: var(--muted); transition: all .15s;
+    }
+    .tercero-chip.seleccionado {
+      background: rgba(100,200,255,.15);
+      border-color: #64c8ff;
+      color: #64c8ff;
+    }
+    .tercero-chip:disabled, .tercero-chip[disabled] {
+      opacity: .4; cursor: not-allowed;
+    }
+    .terceros-count {
+      font-size: 11px; color: var(--muted); margin-top: 8px;
+    }
+
+    /* Botón generar */
+    .btn-generar {
+      display: block; width: 100%; padding: 14px;
+      background: var(--amber); color: #000;
+      font-family: Archivo, sans-serif;
+      font-size: 14px; font-weight: 800; letter-spacing: .08em;
+      border: none; border-radius: 8px; cursor: pointer;
+      margin-bottom: 40px; transition: opacity .2s;
+    }
+    .btn-generar:disabled { opacity: .4; cursor: not-allowed; }
+
+    /* Bracket */
+    #bracket-sec { display: none; }
+    .bracket-titulo { font-size: 18px; font-weight: 800; margin-bottom: 6px; }
+    .bracket-sub { font-size: 12px; color: var(--muted); margin-bottom: 24px; }
+
+    .bracket-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 40px;
+    }
+    @media (max-width: 600px) { .bracket-grid { grid-template-columns: 1fr; } }
+
+    .bracket-match {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .bracket-match-header {
+      padding: 4px 10px;
+      background: var(--panel-2);
+      font-size: 9px; font-weight: 700; letter-spacing: .1em;
+      color: var(--muted);
+    }
+    .bracket-team {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 9px 12px; border-bottom: 1px solid var(--line);
+      cursor: pointer; transition: background .15s;
+    }
+    .bracket-team:last-child { border-bottom: none; }
+    .bracket-team:hover { background: var(--panel-2); }
+    .bracket-team.ganador { background: rgba(251,191,36,.1); }
+    .bracket-team.ganador .bt-sig { color: var(--amber); }
+    .bt-sig { font-size: 15px; font-weight: 800; }
+    .bt-desc { font-size: 10px; color: var(--muted); }
+    .bt-check { font-size: 14px; }
+
+    /* Instrucción debajo del bracket */
+    .bracket-hint {
+      text-align: center; font-size: 11px; color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    /* Cuartos / Semis / Final (siguiente ronda) */
+    .ronda-titulo {
+      font-size: 13px; font-weight: 800; letter-spacing: .08em;
+      color: var(--amber); margin: 32px 0 12px;
+    }
+    .ronda-matches {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+    .ronda-match {
+      background: var(--panel);
+      border: 1px dashed var(--line);
+      border-radius: 8px; padding: 12px 14px;
+      font-size: 12px;
+    }
+    .ronda-vs { color: var(--muted); margin: 0 6px; }
+    .ronda-tbd { color: var(--muted); font-style: italic; font-size: 11px; }
+
+    .reset-btn {
+      background: none; border: 1px solid var(--line);
+      color: var(--muted); font-family: Archivo, sans-serif;
+      font-size: 12px; padding: 8px 18px; border-radius: 6px;
+      cursor: pointer; margin-top: 16px; transition: border-color .15s;
+    }
+    .reset-btn:hover { border-color: var(--amber); color: var(--amber); }
+
+    .aviso-sim {
+      background: rgba(251,191,36,.08);
+      border: 1px solid rgba(251,191,36,.3);
+      border-radius: 8px; padding: 12px 16px;
+      font-size: 11px; color: var(--muted);
+      margin-bottom: 24px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="video-bg">
+  <video autoplay muted loop playsinline>
+    <source src="15552725_3840_2160_30fps.mp4" type="video/mp4">
+  </video>
+</div>
+
+<header>
+  <div class="wrap bar">
+    <div class="brand">
+      <img src="Logo.png" alt="Logo Fútbol de Cantina" class="logo-img">
+      <span class="logo">FÚTBOL <b>DE CANTINA</b></span>
+      <span class="tag-demo">demo · v1</span>
+    </div>
+    <nav>
+      <a href="index.html#partido">El partido</a>
+      <a href="partidos.html">📅 Calendario</a>
+      <a href="simulador.html" style="color:var(--amber)">🏆 Simulador</a>
+      <a href="sedes.html">🗺️ Sedes</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section style="padding: 32px 0 80px">
+
+    <div class="eyebrow">Mundial 2026 · Simulador</div>
+    <h1 class="cal-title">Simulador de llaves</h1>
+
+    <div class="aviso-sim">
+      ⚠️ <b>Esto es solo un simulador.</b> No muestra resultados reales — tú decides quién pasa de cada grupo y el sistema arma las llaves posibles. Las probabilidades del modelo Poisson aparecen de referencia pero la decisión es tuya.
+    </div>
+
+    <!-- PASO 1: Grupos -->
+    <div class="sim-paso">PASO 1 — ¿Quién pasa de cada grupo?</div>
+    <p style="font-size:12px;color:var(--muted);margin-bottom:20px">Haz clic en los equipos para marcarlos: <b style="color:var(--amber)">1°</b> primero, luego <b style="color:rgba(251,191,36,.7)">2°</b>. El <b style="color:#64c8ff">3°</b> entra al pool de mejores terceros.</p>
+
+    <div class="grupos-sim-grid" id="grupos-sim-grid">
+      <!-- Se llena por JS -->
+    </div>
+
+    <!-- PASO 2: Mejores terceros -->
+    <div class="sim-paso">PASO 2 — Mejores 8 terceros</div>
+    <div class="terceros-sec">
+      <p style="font-size:12px;color:var(--muted);margin:0">En el Mundial 2026 los <b>8 mejores terceros</b> de 12 grupos también clasifican a octavos. Selecciona cuáles crees que pasan.</p>
+      <div class="terceros-grid" id="terceros-grid"></div>
+      <div class="terceros-count" id="terceros-count">0 / 8 seleccionados</div>
+    </div>
+
+    <!-- Botón -->
+    <button class="btn-generar" id="btn-generar" disabled onclick="generarLlave()">
+      🏆 Generar llave de octavos
+    </button>
+
+    <!-- BRACKET -->
+    <div id="bracket-sec">
+      <div class="bracket-titulo">Octavos de final</div>
+      <div class="bracket-sub">Haz clic en un equipo para marcarlo como ganador y avanzar al siguiente cruce.</div>
+      <div class="bracket-hint">👆 Toca un equipo para elegir al ganador</div>
+      <div class="bracket-grid" id="bracket-grid"></div>
+      <div class="ronda-titulo">Cuartos de final</div>
+      <div class="ronda-matches" id="cuartos-grid"></div>
+      <div class="ronda-titulo">Semifinales</div>
+      <div class="ronda-matches" id="semis-grid"></div>
+      <div class="ronda-titulo">Final · 19 jul · MetLife Stadium</div>
+      <div class="ronda-matches" id="final-grid"></div>
+      <button class="reset-btn" onclick="resetBracket()">↺ Reiniciar bracket</button>
+    </div>
+
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div class="resp"><b>Juega con responsabilidad.</b> La Previa publica información de referencia; <b>no es un pronóstico garantizado</b> ni asesoría financiera. +18.</div>
+    <div class="who">FÚTBOL DE CANTINA · prototipo v1</div>
+  </div>
+</footer>
+
+<nav class="bottom-nav" aria-label="Navegación">
+  <a href="index.html#partido" class="bnav-item"><span class="bnav-icon">⚽</span><span class="bnav-label">Partido</span></a>
+  <a href="partidos.html" class="bnav-item"><span class="bnav-icon">📅</span><span class="bnav-label">Calendario</span></a>
+  <a href="simulador.html" class="bnav-item active"><span class="bnav-icon">🏆</span><span class="bnav-label">Simulador</span></a>
+  <a href="sedes.html" class="bnav-item"><span class="bnav-icon">🗺️</span><span class="bnav-label">Sedes</span></a>
+  <a href="index.html#lista" class="bnav-item"><span class="bnav-icon">🔔</span><span class="bnav-label">Síguenos</span></a>
+</nav>
+
+<script src="datos.js"></script>
+<script>
+/* ══════════════════════════════════════════════════════════════
+   SIMULADOR DE LLAVES — Fútbol de Cantina
+   Estado por grupo: { equipos: [{sig, nom}], pasando: [sig1°, sig2°] }
+══════════════════════════════════════════════════════════════ */
+
+var estado = {}; /* estado[grupo] = { p1: null, p2: null } */
+var tercerosSel = []; /* siglas de terceros seleccionados */
+var ganadoresOctavos = {}; /* matchId → sig ganador */
+var ganadoresCuartos = {};
+var ganadoresSemis = {};
+var ganadorFinal = null;
+var previas = {};
+
+/* Equipos por grupo (desde datos.js CLASIFICACION) */
+var GRUPOS = Object.keys(CLASIFICACION);
+
+/* Pairing de octavos: [local_descripcion, visitante_descripcion]
+   Formato: ['1A', '2B'] significa "ganador grupo A vs 2° grupo B"
+   (Simplificado — no es el cuadro oficial de FIFA que aún no está publicado) */
+var OCTAVOS_PAIRINGS = [
+  ['1A', '2B'], ['1C', '2D'], ['1E', '2F'], ['1G', '2H'],
+  ['1I', '2J'], ['1K', '2L'], ['1B', '3rd'],['1D', '3rd'],
+  ['1F', '3rd'], ['1H', '3rd'], ['1J', '3rd'], ['1L', '3rd'],
+  ['2A', '3rd'], ['2C', '3rd'], ['2E', '3rd'], ['2G', '3rd']
+];
+
+/* Cuartos: ganadores de octavos M1-M4 vs M5-M8, etc. */
+var CUARTOS_PAIRINGS = [
+  ['M1','M2'],['M3','M4'],['M5','M6'],['M7','M8'],
+  ['M9','M10'],['M11','M12'],['M13','M14'],['M15','M16']
+];
+
+var SEMIS_PAIRINGS = [
+  ['C1','C2'],['C3','C4'],['C5','C6'],['C7','C8']
+];
+
+var FINAL_PAIRINGS = [
+  ['S1','S2'],['S3','S4'],['S5','S6'],['S7','S8']
+];
+
+/* ── Inicializar grupos ── */
+function inicializar() {
+  GRUPOS.forEach(function(g) {
+    estado[g] = { p1: null, p2: null };
+  });
+  renderGruposSim();
+}
+
+function getEquiposGrupo(g) {
+  return CLASIFICACION[g].map(function(e) { return { sig: e.sig, nom: e.nom }; });
+}
+
+function renderGruposSim() {
+  var grid = document.getElementById('grupos-sim-grid');
+  grid.innerHTML = '';
+  GRUPOS.forEach(function(g) {
+    var equipos = getEquiposGrupo(g);
+    var card = document.createElement('div');
+    card.className = 'grupo-sim-card';
+    card.innerHTML = '<div class="grupo-sim-titulo">GRUPO ' + g + '</div>'
+      + equipos.map(function(eq) {
+          var est = estado[g];
+          var cls = '', badgeCls = 'bx', badgeTxt = '';
+          if (est.p1 === eq.sig)      { cls = 'pasa-1'; badgeCls = 'b1'; badgeTxt = '1°'; }
+          else if (est.p2 === eq.sig) { cls = 'pasa-2'; badgeCls = 'b2'; badgeTxt = '2°'; }
+          else if (est.p1 && est.p2)  { cls = 'tercero'; badgeCls = 'b3'; badgeTxt = '3°'; }
+          return '<div class="equipo-sim-row ' + cls + '" data-grupo="' + g + '" data-sig="' + eq.sig + '">'
+            + '<span class="eq-badge ' + badgeCls + '">' + badgeTxt + '</span>'
+            + '<span class="eq-sig">' + eq.sig + '</span>'
+            + '<span class="eq-nom">' + (eq.nom || '') + '</span>'
+            + '</div>';
+        }).join('');
+    card.querySelectorAll && null; // placeholder
+    grid.appendChild(card);
+  });
+
+  /* Listeners */
+  grid.querySelectorAll('.equipo-sim-row').forEach(function(row) {
+    row.addEventListener('click', function() {
+      var g = this.dataset.grupo;
+      var sig = this.dataset.sig;
+      var est = estado[g];
+      if (est.p1 === sig)      { est.p1 = est.p2; est.p2 = null; }
+      else if (est.p2 === sig) { est.p2 = null; }
+      else if (!est.p1)        { est.p1 = sig; }
+      else if (!est.p2)        { est.p2 = sig; }
+      renderGruposSim();
+      renderTercerosSim();
+      actualizarBoton();
+    });
+  });
+}
+
+/* ── Terceros ── */
+function getTerceros() {
+  /* Los equipos que quedaron en 3° lugar (no son p1 ni p2) */
+  var lista = [];
+  GRUPOS.forEach(function(g) {
+    var est = estado[g];
+    var equipos = getEquiposGrupo(g);
+    equipos.forEach(function(eq) {
+      if (eq.sig !== est.p1 && eq.sig !== est.p2) {
+        /* Solo agregar si el grupo tiene sus 2 clasificados definidos */
+        if (est.p1 && est.p2) lista.push({ sig: eq.sig, nom: eq.nom, grupo: g });
+      }
+    });
+  });
+  return lista;
+}
+
+function renderTercerosSim() {
+  var terceros = getTerceros();
+  var grid = document.getElementById('terceros-grid');
+  var countEl = document.getElementById('terceros-count');
+  grid.innerHTML = '';
+  /* Quitar de seleccionados los que ya no son terceros */
+  tercerosSel = tercerosSel.filter(function(sig) {
+    return terceros.some(function(t) { return t.sig === sig; });
+  });
+
+  if (!terceros.length) {
+    grid.innerHTML = '<span style="font-size:11px;color:var(--muted)">Define los clasificados de cada grupo primero.</span>';
+    countEl.textContent = '0 / 8 seleccionados';
+    return;
+  }
+
+  terceros.forEach(function(t) {
+    var sel = tercerosSel.indexOf(t.sig) !== -1;
+    var chip = document.createElement('button');
+    chip.className = 'tercero-chip' + (sel ? ' seleccionado' : '');
+    chip.textContent = t.sig + ' (3° ' + t.grupo + ')';
+    if (!sel && tercerosSel.length >= 8) chip.disabled = true;
+    chip.addEventListener('click', function() {
+      var idx = tercerosSel.indexOf(t.sig);
+      if (idx !== -1) tercerosSel.splice(idx, 1);
+      else if (tercerosSel.length < 8) tercerosSel.push(t.sig);
+      renderTercerosSim();
+      actualizarBoton();
+    });
+    grid.appendChild(chip);
+  });
+
+  countEl.textContent = tercerosSel.length + ' / 8 seleccionados';
+}
+
+function actualizarBoton() {
+  var completo = GRUPOS.every(function(g) { return estado[g].p1 && estado[g].p2; });
+  var btn = document.getElementById('btn-generar');
+  btn.disabled = !(completo && tercerosSel.length === 8);
+  btn.textContent = completo
+    ? (tercerosSel.length === 8 ? '🏆 Generar llave de octavos' : '⬆ Selecciona ' + (8 - tercerosSel.length) + ' terceros más')
+    : '⬆ Completa los clasificados de todos los grupos';
+}
+
+/* ── Generar bracket ── */
+function resolveSig(code) {
+  /* code: '1A', '2B', '3rd' (para terceros usamos pool) */
+  if (code === '3rd') return null; /* se asigna al renderizar */
+  var pos = parseInt(code[0]);
+  var g   = code[1];
+  return pos === 1 ? estado[g].p1 : estado[g].p2;
+}
+
+var octavosMatchups = []; /* [{id, sigA, sigB, label}] */
+var terceroPool = [];
+
+function generarLlave() {
+  ganadoresOctavos = {};
+  ganadoresCuartos = {};
+  ganadoresSemis   = {};
+  ganadorFinal     = null;
+  terceroPool      = tercerosSel.slice();
+
+  /* Construir 16 matchups */
+  octavosMatchups = [];
+  var tIdx = 0;
+  OCTAVOS_PAIRINGS.forEach(function(pair, i) {
+    var sigA = resolveSig(pair[0]);
+    var sigB = pair[1] === '3rd' ? (terceroPool[tIdx++] || '?') : resolveSig(pair[1]);
+    octavosMatchups.push({
+      id: 'M' + (i + 1),
+      sigA: sigA || '?',
+      sigB: sigB || '?',
+      labelA: pair[0],
+      labelB: pair[1]
+    });
+  });
+
+  document.getElementById('bracket-sec').style.display = 'block';
+  document.getElementById('bracket-sec').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  renderBracket();
+}
+
+function renderBracket() {
+  var grid = document.getElementById('bracket-grid');
+  grid.innerHTML = '';
+  octavosMatchups.forEach(function(m) {
+    var ganA = ganadoresOctavos[m.id] === m.sigA;
+    var ganB = ganadoresOctavos[m.id] === m.sigB;
+    var div = document.createElement('div');
+    div.className = 'bracket-match';
+    div.innerHTML =
+      '<div class="bracket-match-header">' + m.id + ' · ' + m.labelA + ' vs ' + m.labelB + '</div>'
+      + '<div class="bracket-team' + (ganA ? ' ganador' : '') + '" data-id="' + m.id + '" data-sig="' + m.sigA + '">'
+        + '<span class="bt-sig">' + m.sigA + '</span>'
+        + '<span class="bt-check">' + (ganA ? '✓' : '') + '</span>'
+      + '</div>'
+      + '<div class="bracket-team' + (ganB ? ' ganador' : '') + '" data-id="' + m.id + '" data-sig="' + m.sigB + '">'
+        + '<span class="bt-sig">' + m.sigB + '</span>'
+        + '<span class="bt-check">' + (ganB ? '✓' : '') + '</span>'
+      + '</div>';
+    grid.appendChild(div);
+  });
+
+  grid.querySelectorAll('.bracket-team').forEach(function(el) {
+    el.addEventListener('click', function() {
+      var id  = this.dataset.id;
+      var sig = this.dataset.sig;
+      ganadoresOctavos[id] = (ganadoresOctavos[id] === sig) ? null : sig;
+      renderBracket();
+      renderCuartos();
+    });
+  });
+}
+
+function renderCuartos() {
+  var grid = document.getElementById('cuartos-grid');
+  grid.innerHTML = '';
+  /* Agrupar ganadores de octavos en pares */
+  for (var i = 0; i < 16; i += 2) {
+    var m1 = octavosMatchups[i],   m2 = octavosMatchups[i+1];
+    var gA = ganadoresOctavos[m1 ? m1.id : ''] || null;
+    var gB = ganadoresOctavos[m2 ? m2.id : ''] || null;
+    var cId = 'C' + (i/2 + 1);
+    var div = document.createElement('div');
+    div.className = 'ronda-match';
+    if (gA && gB) {
+      var ganA = ganadoresCuartos[cId] === gA;
+      var ganB = ganadoresCuartos[cId] === gB;
+      div.innerHTML = renderMiniMatch(cId, gA, gB, ganA, ganB, 'cuartos');
+    } else {
+      div.innerHTML = '<span class="ronda-tbd">Pendiente de octavos ' + (m1 ? m1.id : '') + ' y ' + (m2 ? m2.id : '') + '</span>';
+    }
+    grid.appendChild(div);
+  }
+  addMiniListeners(grid, 'cuartos');
+  renderSemis();
+}
+
+function renderSemis() {
+  var grid = document.getElementById('semis-grid');
+  grid.innerHTML = '';
+  var cuartosIds = ['C1','C2','C3','C4','C5','C6','C7','C8'];
+  for (var i = 0; i < 8; i += 2) {
+    var gA = ganadoresCuartos[cuartosIds[i]]   || null;
+    var gB = ganadoresCuartos[cuartosIds[i+1]] || null;
+    var sId = 'S' + (i/2 + 1);
+    var div = document.createElement('div');
+    div.className = 'ronda-match';
+    if (gA && gB) {
+      var ganA = ganadoresSemis[sId] === gA;
+      var ganB = ganadoresSemis[sId] === gB;
+      div.innerHTML = renderMiniMatch(sId, gA, gB, ganA, ganB, 'semis');
+    } else {
+      div.innerHTML = '<span class="ronda-tbd">Pendiente de cuartos ' + cuartosIds[i] + ' y ' + cuartosIds[i+1] + '</span>';
+    }
+    grid.appendChild(div);
+  }
+  addMiniListeners(grid, 'semis');
+  renderFinal();
+}
+
+function renderFinal() {
+  var grid = document.getElementById('final-grid');
+  grid.innerHTML = '';
+  var semisIds = ['S1','S2','S3','S4'];
+  for (var i = 0; i < 4; i += 2) {
+    var gA = ganadoresSemis[semisIds[i]]   || null;
+    var gB = ganadoresSemis[semisIds[i+1]] || null;
+    var fId = 'F' + (i/2 + 1);
+    var div = document.createElement('div');
+    div.className = 'ronda-match';
+    if (gA && gB) {
+      var ganA = ganadorFinal === gA;
+      var ganB = ganadorFinal === gB;
+      div.innerHTML = renderMiniMatch(fId, gA, gB, ganA, ganB, 'final');
+    } else {
+      div.innerHTML = '<span class="ronda-tbd">Pendiente de semis ' + semisIds[i] + ' y ' + semisIds[i+1] + '</span>';
+    }
+    grid.appendChild(div);
+  }
+  addMiniListeners(grid, 'final');
+
+  /* Si hay ganador de final, mostrarlo */
+  var champ = null;
+  ['F1','F2'].forEach(function(fId) {
+    if (ganadoresSemis && ganadorFinal) champ = ganadorFinal;
+  });
+}
+
+function renderMiniMatch(id, sigA, sigB, ganA, ganB, ronda) {
+  return '<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">'
+    + '<span class="mini-team' + (ganA ? ' ganador' : '') + '" data-ronda="' + ronda + '" data-id="' + id + '" data-sig="' + sigA + '" style="cursor:pointer;font-weight:800;font-size:13px;color:' + (ganA ? 'var(--amber)' : 'var(--ink)') + '">' + (ganA ? '🏆 ' : '') + sigA + '</span>'
+    + '<span class="ronda-vs">vs</span>'
+    + '<span class="mini-team' + (ganB ? ' ganador' : '') + '" data-ronda="' + ronda + '" data-id="' + id + '" data-sig="' + sigB + '" style="cursor:pointer;font-weight:800;font-size:13px;color:' + (ganB ? 'var(--amber)' : 'var(--ink)') + '">' + (ganB ? '🏆 ' : '') + sigB + '</span>'
+    + '</div>';
+}
+
+function addMiniListeners(container, ronda) {
+  container.querySelectorAll('.mini-team').forEach(function(el) {
+    el.addEventListener('click', function() {
+      var id  = this.dataset.id;
+      var sig = this.dataset.sig;
+      if (ronda === 'cuartos') {
+        ganadoresCuartos[id] = (ganadoresCuartos[id] === sig) ? null : sig;
+        renderSemis();
+      } else if (ronda === 'semis') {
+        ganadoresSemis[id] = (ganadoresSemis[id] === sig) ? null : sig;
+        renderFinal();
+      } else if (ronda === 'final') {
+        ganadorFinal = (ganadorFinal === sig) ? null : sig;
+        renderFinal();
+      }
+      renderCuartos();
+    });
+  });
+}
+
+function resetBracket() {
+  ganadoresOctavos = {};
+  ganadoresCuartos = {};
+  ganadoresSemis   = {};
+  ganadorFinal     = null;
+  renderBracket();
+  renderCuartos();
+  document.getElementById('bracket-sec').scrollIntoView({ behavior: 'smooth' });
+}
+
+/* Cargar standings actualizados desde resultados.json */
+fetch('resultados.json?v=' + Date.now())
+  .then(function(r) { return r.json(); })
+  .then(function(d) {
+    if (d.standings) {
+      /* Actualizar CLASIFICACION con standings reales */
+      Object.keys(d.standings).forEach(function(g) {
+        if (CLASIFICACION[g]) CLASIFICACION[g] = d.standings[g];
+      });
+    }
+    if (d.previas) previas = d.previas;
+  })
+  .catch(function() {})
+  .finally(function() {
+    inicializar();
+    renderTercerosSim();
+    actualizarBoton();
+  });
+
+/* Si fetch falla también inicializar */
+setTimeout(function() {
+  if (!document.getElementById('grupos-sim-grid').children.length) {
+    inicializar();
+    renderTercerosSim();
+    actualizarBoton();
+  }
+}, 1500);
+</script>
+</body>
+</html>
