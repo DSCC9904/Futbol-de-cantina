@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-17T13:03:52.796Z",
+  "lastUpdated": "2026-06-17T21:22:32.329Z",
   "partidos": [
     {
       "id": "MEX-RSA",
@@ -1877,7 +1877,7 @@
             },
             {
               "num": "11",
-              "nombre": "Raphinha",
+              "nombre": "Raphinha ",
               "pos": "AM",
               "titular": true
             },
@@ -1919,7 +1919,7 @@
             },
             {
               "num": "23",
-              "nombre": "Ederson",
+              "nombre": "Ederson ",
               "pos": "SUB",
               "titular": false
             },
@@ -4398,13 +4398,13 @@
             },
             {
               "num": "16",
-              "nombre": "Rodri",
+              "nombre": "Rodri ",
               "pos": "CM",
               "titular": true
             },
             {
               "num": "20",
-              "nombre": "Pedri",
+              "nombre": "Pedri ",
               "pos": "LM",
               "titular": true
             },
@@ -4422,7 +4422,7 @@
             },
             {
               "num": "9",
-              "nombre": "Gavi",
+              "nombre": "Gavi ",
               "pos": "LF",
               "titular": true
             },
@@ -5342,7 +5342,7 @@
             },
             {
               "num": "14",
-              "nombre": "A. Canobbio",
+              "nombre": "A. Cano",
               "pos": "SUB",
               "titular": false
             },
@@ -7190,6 +7190,367 @@
           ]
         }
       }
+    },
+    {
+      "id": "POR-COD",
+      "espnId": "760435",
+      "localSig": "POR",
+      "visitanteSig": "COD",
+      "localNom": "Portugal",
+      "visitanteNom": "Congo DR",
+      "golesLocal": 1,
+      "golesVisitante": 1,
+      "fecha": "2026-06-17T17:00Z",
+      "grupo": "K",
+      "jugado": true,
+      "stats": {
+        "posesion": {
+          "local": "75.4",
+          "visitante": "24.6"
+        },
+        "tiros": {
+          "local": "1",
+          "visitante": "2"
+        },
+        "amarillas": {
+          "local": "3",
+          "visitante": "1"
+        },
+        "rojas": {
+          "local": "0",
+          "visitante": "0"
+        },
+        "faltas": {
+          "local": "9",
+          "visitante": "10"
+        }
+      },
+      "lineups": {
+        "local": {
+          "sig": "POR",
+          "nom": "Portugal",
+          "jugadores": [
+            {
+              "num": "1",
+              "nombre": "D. Costa",
+              "pos": "G",
+              "titular": true
+            },
+            {
+              "num": "13",
+              "nombre": "R. Veiga",
+              "pos": "CD-L",
+              "titular": true
+            },
+            {
+              "num": "4",
+              "nombre": "T. Araújo",
+              "pos": "CD-R",
+              "titular": true
+            },
+            {
+              "num": "25",
+              "nombre": "N. Mendes",
+              "pos": "LB",
+              "titular": true
+            },
+            {
+              "num": "20",
+              "nombre": "J. Cancelo",
+              "pos": "RB",
+              "titular": true
+            },
+            {
+              "num": "8",
+              "nombre": "B. Fernandes",
+              "pos": "AM",
+              "titular": true
+            },
+            {
+              "num": "23",
+              "nombre": "Vitinha ",
+              "pos": "LM",
+              "titular": true
+            },
+            {
+              "num": "15",
+              "nombre": "J. Neves",
+              "pos": "RM",
+              "titular": true
+            },
+            {
+              "num": "7",
+              "nombre": "C. Ronaldo",
+              "pos": "F",
+              "titular": true
+            },
+            {
+              "num": "18",
+              "nombre": "P. Neto",
+              "pos": "AM-L",
+              "titular": true
+            },
+            {
+              "num": "10",
+              "nombre": "B. Silva",
+              "pos": "AM-R",
+              "titular": true
+            },
+            {
+              "num": "14",
+              "nombre": "G. Inácio",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "24",
+              "nombre": "S. Costa",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "3",
+              "nombre": "R. Dias",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "11",
+              "nombre": "J. Félix",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "12",
+              "nombre": "J. Sá",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "6",
+              "nombre": "M. Nunes",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "16",
+              "nombre": "F. Trincão",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "21",
+              "nombre": "R. Neves",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "26",
+              "nombre": "F. Conceição",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "2",
+              "nombre": "N. Semedo",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "9",
+              "nombre": "G. Ramos",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "22",
+              "nombre": "R. Silva",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "17",
+              "nombre": "R. Leão",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "5",
+              "nombre": "D. Dalot",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "19",
+              "nombre": "G. Guedes",
+              "pos": "SUB",
+              "titular": false
+            }
+          ]
+        },
+        "visitante": {
+          "sig": "COD",
+          "nom": "Congo DR",
+          "jugadores": [
+            {
+              "num": "1",
+              "nombre": "L. Mpasi",
+              "pos": "G",
+              "titular": true
+            },
+            {
+              "num": "4",
+              "nombre": "A. Tuanzebe",
+              "pos": "CD",
+              "titular": true
+            },
+            {
+              "num": "3",
+              "nombre": "S. Kapuadi",
+              "pos": "CD-L",
+              "titular": true
+            },
+            {
+              "num": "22",
+              "nombre": "C. Mbemba",
+              "pos": "CD-R",
+              "titular": true
+            },
+            {
+              "num": "26",
+              "nombre": "A. Masuaku",
+              "pos": "LB",
+              "titular": true
+            },
+            {
+              "num": "2",
+              "nombre": "A. Wan-Bissaka",
+              "pos": "RB",
+              "titular": true
+            },
+            {
+              "num": "8",
+              "nombre": "S. Moutoussamy",
+              "pos": "CM",
+              "titular": true
+            },
+            {
+              "num": "25",
+              "nombre": "E. Kayembe",
+              "pos": "CM-L",
+              "titular": true
+            },
+            {
+              "num": "6",
+              "nombre": "N. Mukau",
+              "pos": "CM-R",
+              "titular": true
+            },
+            {
+              "num": "17",
+              "nombre": "C. Bakambu",
+              "pos": "CF-L",
+              "titular": true
+            },
+            {
+              "num": "20",
+              "nombre": "Y. Wissa",
+              "pos": "CF-R",
+              "titular": true
+            },
+            {
+              "num": "12",
+              "nombre": "J. Kayembe",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "10",
+              "nombre": "T. Bongonda",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "9",
+              "nombre": "B. Cipenga",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "24",
+              "nombre": "G. Kalulu",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "16",
+              "nombre": "T. Fayulu",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "23",
+              "nombre": "S. Banza",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "14",
+              "nombre": "N. Sadiki",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "21",
+              "nombre": "M. Epolo",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "15",
+              "nombre": "A. Tshibola",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "7",
+              "nombre": "N. Mbuku",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "5",
+              "nombre": "D. Batubinsika",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "19",
+              "nombre": "F. Mayele",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "11",
+              "nombre": "G. Kakuta",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "18",
+              "nombre": "C. Pickel",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "13",
+              "nombre": "M. Elia",
+              "pos": "SUB",
+              "titular": false
+            }
+          ]
+        }
+      }
     }
   ],
   "standings": {
@@ -7616,23 +7977,23 @@
     "K": [
       {
         "sig": "POR",
-        "pj": 0,
+        "pj": 1,
         "pg": 0,
-        "pe": 0,
+        "pe": 1,
         "pp": 0,
-        "gf": 0,
-        "gc": 0,
-        "pts": 0
+        "gf": 1,
+        "gc": 1,
+        "pts": 1
       },
       {
         "sig": "COD",
-        "pj": 0,
+        "pj": 1,
         "pg": 0,
-        "pe": 0,
+        "pe": 1,
         "pp": 0,
-        "gf": 0,
-        "gc": 0,
-        "pts": 0
+        "gf": 1,
+        "gc": 1,
+        "pts": 1
       },
       {
         "sig": "UZB",
@@ -7699,35 +8060,6 @@
     ]
   },
   "previas": {
-    "POR-COD": {
-      "lambdaLocal": 2.898,
-      "lambdaVisitante": 1.214,
-      "xGLocal": 2.9,
-      "xGVisitante": 1.21,
-      "probLocal": 72,
-      "probEmpate": 15,
-      "probVisitante": 13,
-      "probOver25": 77,
-      "probBTTS": 66,
-      "probCS_local": 30,
-      "probCS_visitante": 6,
-      "formaLocal": [],
-      "formaVisitante": [],
-      "golesXP_local": 2.42,
-      "golesXP_visitante": 1.52,
-      "bttsPorc_local": 50,
-      "bttsPorc_visitante": 50,
-      "over25Porc_local": 48,
-      "over25Porc_visitante": 48,
-      "csPorc_local": 32,
-      "csPorc_visitante": 32,
-      "cornersXP_local": 9.1,
-      "cornersXP_visitante": 5.7,
-      "amarillasXP_local": 1.4,
-      "amarillasXP_visitante": 2.2,
-      "basadoEn": "Priors basados en ranking FIFA y clasificatorias",
-      "nPartidosUsados": 0
-    },
     "COL-UZB": {
       "lambdaLocal": 2.601,
       "lambdaVisitante": 1.114,
