@@ -1,5 +1,19 @@
 {
   "functions": {
     "api/live.js": { "maxDuration": 10 }
-  }
+  },
+  "headers": [
+    {
+      "source": "/resultados.json",
+      "headers": [{ "key": "Cache-Control", "value": "no-store" }]
+    },
+    {
+      "source": "/datos.js",
+      "headers": [{ "key": "Cache-Control", "value": "no-store" }]
+    },
+    {
+      "source": "/(.*)\\.html",
+      "headers": [{ "key": "Cache-Control", "value": "no-store" }]
+    }
+  ]
 }
