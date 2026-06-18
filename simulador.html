@@ -60,8 +60,8 @@
     .eq-badge.b2 { background: rgba(251,191,36,.3); color: var(--amber); }
     .eq-badge.b3 { background: rgba(100,200,255,.2); color: #64c8ff; font-size: 8px; }
     .eq-badge.bx { background: var(--panel-2); color: var(--muted); }
-    .eq-sig { font-size: 13px; font-weight: 800; flex: 1; }
-    .eq-nom { font-size: 10px; color: var(--muted); }
+    .eq-sig { font-size: 13px; font-weight: 800; flex: 1; color: #fff; }
+    .eq-nom { font-size: 10px; color: var(--muted); flex: 2; }
 
     /* Terceros */
     .terceros-sec {
@@ -138,9 +138,11 @@
     .bracket-team:hover { background: var(--panel-2); }
     .bracket-team.ganador { background: rgba(251,191,36,.1); }
     .bracket-team.ganador .bt-sig { color: var(--amber); }
-    .bt-sig { font-size: 15px; font-weight: 800; }
-    .bt-desc { font-size: 10px; color: var(--muted); }
-    .bt-check { font-size: 14px; }
+    .bt-sig { font-size: 14px; font-weight: 800; color: #fff; }
+    .bt-nom { font-size: 11px; color: var(--muted); font-weight: 400; }
+    .bt-check { font-size: 14px; color: var(--amber); }
+    .bracket-team.ganador .bt-sig { color: var(--amber); }
+    .bracket-team.ganador .bt-nom { color: var(--amber); opacity: .8; }
 
     /* Instrucción debajo del bracket */
     .bracket-hint {
@@ -292,6 +294,15 @@ var ganadorFinal = null;
 var previas = {};
 
 var GRUPOS = Object.keys(CLASIFICACION);
+
+/* Nombre completo por sigla */
+function getNom(sig) {
+  for (var g in CLASIFICACION) {
+    var eq = CLASIFICACION[g].find(function(e) { return e.sig === sig; });
+    if (eq && eq.nom) return eq.nom;
+  }
+  return sig;
+}
 
 /*  Dieciseisavos (R32) — 16 partidos, exactamente 8 terceros
     Grupos A-H: 1° de un grupo vs 2° del grupo par (8 partidos, sin terceros)
@@ -460,9 +471,11 @@ function renderR32() {
     div.innerHTML =
       '<div class="bracket-match-header">' + m.id + ' · ' + m.labelA + ' vs ' + m.labelB + '</div>'
       + '<div class="bracket-team' + (ganA?' ganador':'') + '" data-id="' + m.id + '" data-sig="' + m.sigA + '">'
-        + '<span class="bt-sig">' + m.sigA + '</span><span class="bt-check">' + (ganA?'✓':'') + '</span></div>'
+        + '<div><span class="bt-sig">' + m.sigA + '</span> <span class="bt-nom">' + getNom(m.sigA) + '</span></div>'
+        + '<span class="bt-check">' + (ganA?'✓':'') + '</span></div>'
       + '<div class="bracket-team' + (ganB?' ganador':'') + '" data-id="' + m.id + '" data-sig="' + m.sigB + '">'
-        + '<span class="bt-sig">' + m.sigB + '</span><span class="bt-check">' + (ganB?'✓':'') + '</span></div>';
+        + '<div><span class="bt-sig">' + m.sigB + '</span> <span class="bt-nom">' + getNom(m.sigB) + '</span></div>'
+        + '<span class="bt-check">' + (ganB?'✓':'') + '</span></div>';
     grid.appendChild(div);
   });
   grid.querySelectorAll('.bracket-team').forEach(function(el) {
@@ -563,14 +576,19 @@ function renderFinal() {
 
 function renderMini(id, sigA, sigB, ganadores, ronda) {
   var ganA = ganadores[id] === sigA, ganB = ganadores[id] === sigB;
-  return '<div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">'
-    + '<span class="mini-team" data-ronda="' + ronda + '" data-id="' + id + '" data-sig="' + sigA
-      + '" style="cursor:pointer;font-weight:800;font-size:14px;color:' + (ganA?'var(--amber)':'var(--ink)') + '">'
-      + (ganA ? '🏆 ' : '') + sigA + '</span>'
-    + '<span class="ronda-vs">vs</span>'
-    + '<span class="mini-team" data-ronda="' + ronda + '" data-id="' + id + '" data-sig="' + sigB
-      + '" style="cursor:pointer;font-weight:800;font-size:14px;color:' + (ganB?'var(--amber)':'var(--ink)') + '">'
-      + (ganB ? '🏆 ' : '') + sigB + '</span>'
+  function teamHtml(sig, gan) {
+    return '<div class="mini-team" data-ronda="' + ronda + '" data-id="' + id + '" data-sig="' + sig
+      + '" style="cursor:pointer;padding:6px 10px;border-radius:6px;'
+      + (gan ? 'background:rgba(251,191,36,.15);border:1px solid var(--amber)' : 'border:1px solid var(--line)')
+      + '">'
+      + '<span style="font-weight:800;font-size:13px;color:' + (gan?'var(--amber)':'#fff') + '">' + (gan?'🏆 ':'') + sig + '</span>'
+      + ' <span style="font-size:11px;color:' + (gan?'var(--amber)':'var(--muted)') + '">' + getNom(sig) + '</span>'
+      + '</div>';
+  }
+  return '<div style="display:flex;flex-direction:column;gap:4px">'
+    + teamHtml(sigA, ganA)
+    + '<div style="text-align:center;font-size:10px;color:var(--muted);padding:2px 0">vs</div>'
+    + teamHtml(sigB, ganB)
     + '</div>';
 }
 
@@ -597,9 +615,16 @@ fetch('resultados.json?v=' + Date.now())
   .then(function(r) { return r.json(); })
   .then(function(d) {
     if (d.standings) {
-      /* Actualizar CLASIFICACION con standings reales */
+      /* Actualizar stats pero preservar nom (nombre completo) de datos.js */
       Object.keys(d.standings).forEach(function(g) {
-        if (CLASIFICACION[g]) CLASIFICACION[g] = d.standings[g];
+        if (!CLASIFICACION[g]) return;
+        d.standings[g].forEach(function(eq) {
+          var local = CLASIFICACION[g].find(function(e) { return e.sig === eq.sig; });
+          if (local) {
+            local.pj = eq.pj; local.pg = eq.pg; local.pe = eq.pe; local.pp = eq.pp;
+            local.gf = eq.gf; local.gc = eq.gc; local.pts = eq.pts;
+          }
+        });
       });
     }
     if (d.previas) previas = d.previas;
