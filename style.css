@@ -114,16 +114,24 @@ header {
   text-transform: uppercase;
 }
 
+nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 4px;
+}
 nav a {
   color: var(--muted);
   text-decoration: none;
-  font-size: 14px;
-  margin-left: 22px;
+  font-size: 13px;
+  padding: 4px 8px;
+  white-space: nowrap;
+  border-radius: 4px;
 }
-nav a:hover { color: var(--text); }
+nav a:hover { color: var(--text); background: rgba(255,255,255,.05); }
 nav a:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; border-radius: 3px; }
 
-@media (max-width: 680px) { nav { display: none; } }
+@media (max-width: 900px) { nav { display: none; } }
 
 /* ─────────────────────────────────────
    HERO
