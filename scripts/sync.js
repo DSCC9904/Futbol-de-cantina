@@ -27,12 +27,28 @@ const EQUIPOS = {
   'GER':'GER','CIV':'CIV','CUW':'CUW','ECU':'ECU',
   'NED':'NED','JPN':'JPN','SWE':'SWE','TUN':'TUN',
   'BEL':'BEL','EGY':'EGY','IRN':'IRN','NZL':'NZL',
-  'ESP':'ESP','CPV':'CPV','SAU':'SAU','URU':'URU',
+  'ESP':'ESP','CPV':'CPV','SAU':'SAU','KSA':'SAU','URU':'URU',
   'FRA':'FRA','SEN':'SEN','IRQ':'IRQ','NOR':'NOR',
   'ARG':'ARG','ALG':'ALG','AUT':'AUT','JOR':'JOR',
   'POR':'POR','COD':'COD','UZB':'UZB','COL':'COL',
   'ENG':'ENG','CRO':'CRO','GHA':'GHA','PAN':'PAN',
   'MX':'MEX','SA':'RSA','SK':'KOR','SOA':'RSA','KVX':'CUW'
+};
+
+/* ── Nombres completos de equipos ────────────────────────────── */
+const NOMBRES = {
+  MEX:'México',        RSA:'Sudáfrica',     KOR:'Corea del Sur', CZE:'Rep. Checa',
+  CAN:'Canadá',        BIH:'Bosnia',        QAT:'Catar',         SUI:'Suiza',
+  BRA:'Brasil',        MAR:'Marruecos',     SCO:'Escocia',       HAI:'Haití',
+  USA:'Estados Unidos',PAR:'Paraguay',      AUS:'Australia',     TUR:'Turquía',
+  GER:'Alemania',      CIV:'Costa de Marfil',CUW:'Curazao',      ECU:'Ecuador',
+  NED:'Países Bajos',  JPN:'Japón',         SWE:'Suecia',        TUN:'Túnez',
+  BEL:'Bélgica',       EGY:'Egipto',        IRN:'Irán',          NZL:'Nueva Zelanda',
+  ESP:'España',        CPV:'Cabo Verde',    SAU:'Arabia Saudita',URU:'Uruguay',
+  FRA:'Francia',       SEN:'Senegal',       IRQ:'Irak',          NOR:'Noruega',
+  ARG:'Argentina',     ALG:'Argelia',       AUT:'Austria',       JOR:'Jordania',
+  POR:'Portugal',      COD:'RD Congo',      UZB:'Uzbekistán',    COL:'Colombia 🇨🇴',
+  ENG:'Inglaterra',    CRO:'Croacia',       GHA:'Ghana',         PAN:'Panamá'
 };
 
 const GRUPOS = {
@@ -453,7 +469,7 @@ async function main() {
   Object.keys(GRUPOS).forEach(sig => {
     const g = GRUPOS[sig];
     if (!standings[g]) standings[g] = {};
-    if (!standings[g][sig]) standings[g][sig] = { sig, pj:0,pg:0,pe:0,pp:0,gf:0,gc:0,pts:0 };
+    if (!standings[g][sig]) standings[g][sig] = { sig, nom: NOMBRES[sig]||sig, pj:0,pg:0,pe:0,pp:0,gf:0,gc:0,pts:0 };
   });
   partidos.forEach(p => {
     const g=p.grupo; if(!g||g==='?'||!standings[g]) return;
