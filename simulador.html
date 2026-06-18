@@ -408,7 +408,7 @@ function renderTercerosSim() {
     var sel = tercerosSel.indexOf(t.sig) !== -1;
     var chip = document.createElement('button');
     chip.className = 'tercero-chip' + (sel ? ' seleccionado' : '');
-    chip.textContent = t.sig + ' (3° ' + t.grupo + ')';
+    chip.textContent = getNom(t.sig) + ' · 3° Grupo ' + t.grupo;
     if (!sel && tercerosSel.length >= 8) chip.disabled = true;
     chip.addEventListener('click', function() {
       var idx = tercerosSel.indexOf(t.sig);
