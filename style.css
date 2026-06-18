@@ -329,7 +329,7 @@ nav a:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; bord
 /* Tarjeta jugada */
 .partido-card.jugado { opacity: 0.75; }
 .p-vs.tiene-resultado { display: flex; flex-direction: column; align-items: center; }
-.p-score { font-family: "JetBrains Mono", monospace; font-size: 16px; font-weight: 700; color: var(--ink); }
+.p-score { font-family: "JetBrains Mono", monospace; font-size: 16px; font-weight: 700; color: var(--amber); letter-spacing: .04em; }
 @media (max-width: 680px) {
   .grupos-grid { grid-template-columns: 1fr; }
   .comp-row { padding: 8px 14px; }

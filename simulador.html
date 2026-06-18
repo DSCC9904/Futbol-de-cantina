@@ -237,15 +237,17 @@
 
     <!-- Botón -->
     <button class="btn-generar" id="btn-generar" disabled onclick="generarLlave()">
-      🏆 Generar llave de octavos
+      🏆 Generar llave de dieciseisavos
     </button>
 
     <!-- BRACKET -->
     <div id="bracket-sec">
-      <div class="bracket-titulo">Octavos de final</div>
+      <div class="bracket-titulo">Dieciseisavos de final</div>
       <div class="bracket-sub">Haz clic en un equipo para marcarlo como ganador y avanzar al siguiente cruce.</div>
       <div class="bracket-hint">👆 Toca un equipo para elegir al ganador</div>
       <div class="bracket-grid" id="bracket-grid"></div>
+      <div class="ronda-titulo">Octavos de final</div>
+      <div class="ronda-matches" id="octavos-grid"></div>
       <div class="ronda-titulo">Cuartos de final</div>
       <div class="ronda-matches" id="cuartos-grid"></div>
       <div class="ronda-titulo">Semifinales</div>
@@ -280,39 +282,29 @@
    Estado por grupo: { equipos: [{sig, nom}], pasando: [sig1°, sig2°] }
 ══════════════════════════════════════════════════════════════ */
 
-var estado = {}; /* estado[grupo] = { p1: null, p2: null } */
-var tercerosSel = []; /* siglas de terceros seleccionados */
-var ganadoresOctavos = {}; /* matchId → sig ganador */
-var ganadoresCuartos = {};
-var ganadoresSemis = {};
+var estado = {};
+var tercerosSel = [];
+var ganadoresR32 = {};   /* M1..M16 */
+var ganadoresR16 = {};   /* O1..O8  */
+var ganadoresCuartos = {};/* Q1..Q4  */
+var ganadoresSemis = {};  /* S1..S2  */
 var ganadorFinal = null;
 var previas = {};
 
-/* Equipos por grupo (desde datos.js CLASIFICACION) */
 var GRUPOS = Object.keys(CLASIFICACION);
 
-/* Pairing de octavos: [local_descripcion, visitante_descripcion]
-   Formato: ['1A', '2B'] significa "ganador grupo A vs 2° grupo B"
-   (Simplificado — no es el cuadro oficial de FIFA que aún no está publicado) */
-var OCTAVOS_PAIRINGS = [
-  ['1A', '2B'], ['1C', '2D'], ['1E', '2F'], ['1G', '2H'],
-  ['1I', '2J'], ['1K', '2L'], ['1B', '3rd'],['1D', '3rd'],
-  ['1F', '3rd'], ['1H', '3rd'], ['1J', '3rd'], ['1L', '3rd'],
-  ['2A', '3rd'], ['2C', '3rd'], ['2E', '3rd'], ['2G', '3rd']
-];
-
-/* Cuartos: ganadores de octavos M1-M4 vs M5-M8, etc. */
-var CUARTOS_PAIRINGS = [
-  ['M1','M2'],['M3','M4'],['M5','M6'],['M7','M8'],
-  ['M9','M10'],['M11','M12'],['M13','M14'],['M15','M16']
-];
-
-var SEMIS_PAIRINGS = [
-  ['C1','C2'],['C3','C4'],['C5','C6'],['C7','C8']
-];
-
-var FINAL_PAIRINGS = [
-  ['S1','S2'],['S3','S4'],['S5','S6'],['S7','S8']
+/*  Dieciseisavos (R32) — 16 partidos, exactamente 8 terceros
+    Grupos A-H: 1° de un grupo vs 2° del grupo par (8 partidos, sin terceros)
+    Grupos I-L: 1° y 2° de cada grupo vs los 8 terceros elegidos           */
+var R32_PAIRINGS = [
+  ['1A','2B'], ['1B','2A'],   /* M1, M2  */
+  ['1C','2D'], ['1D','2C'],   /* M3, M4  */
+  ['1E','2F'], ['1F','2E'],   /* M5, M6  */
+  ['1G','2H'], ['1H','2G'],   /* M7, M8  */
+  ['1I','3rd'],['2I','3rd'],  /* M9, M10 */
+  ['1J','3rd'],['2J','3rd'],  /* M11,M12 */
+  ['1K','3rd'],['2K','3rd'],  /* M13,M14 */
+  ['1L','3rd'],['2L','3rd']   /* M15,M16 */
 ];
 
 /* ── Inicializar grupos ── */
@@ -425,98 +417,100 @@ function actualizarBoton() {
   var btn = document.getElementById('btn-generar');
   btn.disabled = !(completo && tercerosSel.length === 8);
   btn.textContent = completo
-    ? (tercerosSel.length === 8 ? '🏆 Generar llave de octavos' : '⬆ Selecciona ' + (8 - tercerosSel.length) + ' terceros más')
+    ? (tercerosSel.length === 8 ? '🏆 Generar llave de dieciseisavos' : '⬆ Selecciona ' + (8 - tercerosSel.length) + ' terceros más')
     : '⬆ Completa los clasificados de todos los grupos';
 }
 
 /* ── Generar bracket ── */
-function resolveSig(code) {
-  /* code: '1A', '2B', '3rd' (para terceros usamos pool) */
-  if (code === '3rd') return null; /* se asigna al renderizar */
-  var pos = parseInt(code[0]);
-  var g   = code[1];
-  return pos === 1 ? estado[g].p1 : estado[g].p2;
+function resolveSig(code, terceroPool, tIdx) {
+  if (code === '3rd') return { sig: terceroPool[tIdx.v++] || '?', inc: true };
+  var pos = parseInt(code[0]), g = code.slice(1);
+  return { sig: (pos === 1 ? estado[g].p1 : estado[g].p2) || '?', inc: false };
 }
 
-var octavosMatchups = []; /* [{id, sigA, sigB, label}] */
-var terceroPool = [];
+var r32Matchups = [];
 
 function generarLlave() {
-  ganadoresOctavos = {};
-  ganadoresCuartos = {};
-  ganadoresSemis   = {};
-  ganadorFinal     = null;
-  terceroPool      = tercerosSel.slice();
+  ganadoresR32 = {}; ganadoresR16 = {};
+  ganadoresCuartos = {}; ganadoresSemis = {};
+  ganadorFinal = null;
 
-  /* Construir 16 matchups */
-  octavosMatchups = [];
-  var tIdx = 0;
-  OCTAVOS_PAIRINGS.forEach(function(pair, i) {
-    var sigA = resolveSig(pair[0]);
-    var sigB = pair[1] === '3rd' ? (terceroPool[tIdx++] || '?') : resolveSig(pair[1]);
-    octavosMatchups.push({
-      id: 'M' + (i + 1),
-      sigA: sigA || '?',
-      sigB: sigB || '?',
-      labelA: pair[0],
-      labelB: pair[1]
-    });
+  var pool = tercerosSel.slice();
+  var tIdx = { v: 0 };
+  r32Matchups = R32_PAIRINGS.map(function(pair, i) {
+    var rA = resolveSig(pair[0], pool, tIdx);
+    var rB = resolveSig(pair[1], pool, tIdx);
+    return { id: 'M' + (i+1), sigA: rA.sig, sigB: rB.sig, labelA: pair[0], labelB: pair[1] };
   });
 
   document.getElementById('bracket-sec').style.display = 'block';
   document.getElementById('bracket-sec').scrollIntoView({ behavior: 'smooth', block: 'start' });
-  renderBracket();
+  renderR32();
 }
 
-function renderBracket() {
+/* ── Dieciseisavos (16 partidos) ── */
+function renderR32() {
   var grid = document.getElementById('bracket-grid');
   grid.innerHTML = '';
-  octavosMatchups.forEach(function(m) {
-    var ganA = ganadoresOctavos[m.id] === m.sigA;
-    var ganB = ganadoresOctavos[m.id] === m.sigB;
+  r32Matchups.forEach(function(m) {
+    var ganA = ganadoresR32[m.id] === m.sigA;
+    var ganB = ganadoresR32[m.id] === m.sigB;
     var div = document.createElement('div');
     div.className = 'bracket-match';
     div.innerHTML =
       '<div class="bracket-match-header">' + m.id + ' · ' + m.labelA + ' vs ' + m.labelB + '</div>'
-      + '<div class="bracket-team' + (ganA ? ' ganador' : '') + '" data-id="' + m.id + '" data-sig="' + m.sigA + '">'
-        + '<span class="bt-sig">' + m.sigA + '</span>'
-        + '<span class="bt-check">' + (ganA ? '✓' : '') + '</span>'
-      + '</div>'
-      + '<div class="bracket-team' + (ganB ? ' ganador' : '') + '" data-id="' + m.id + '" data-sig="' + m.sigB + '">'
-        + '<span class="bt-sig">' + m.sigB + '</span>'
-        + '<span class="bt-check">' + (ganB ? '✓' : '') + '</span>'
-      + '</div>';
+      + '<div class="bracket-team' + (ganA?' ganador':'') + '" data-id="' + m.id + '" data-sig="' + m.sigA + '">'
+        + '<span class="bt-sig">' + m.sigA + '</span><span class="bt-check">' + (ganA?'✓':'') + '</span></div>'
+      + '<div class="bracket-team' + (ganB?' ganador':'') + '" data-id="' + m.id + '" data-sig="' + m.sigB + '">'
+        + '<span class="bt-sig">' + m.sigB + '</span><span class="bt-check">' + (ganB?'✓':'') + '</span></div>';
     grid.appendChild(div);
   });
-
   grid.querySelectorAll('.bracket-team').forEach(function(el) {
     el.addEventListener('click', function() {
-      var id  = this.dataset.id;
-      var sig = this.dataset.sig;
-      ganadoresOctavos[id] = (ganadoresOctavos[id] === sig) ? null : sig;
-      renderBracket();
-      renderCuartos();
+      var id = this.dataset.id, sig = this.dataset.sig;
+      ganadoresR32[id] = (ganadoresR32[id] === sig) ? null : sig;
+      renderR32(); renderR16();
     });
   });
 }
 
-function renderCuartos() {
-  var grid = document.getElementById('cuartos-grid');
+/* ── Octavos (8 partidos): ganadores R32 por pares ── */
+function renderR16() {
+  var grid = document.getElementById('octavos-grid');
   grid.innerHTML = '';
-  /* Agrupar ganadores de octavos en pares */
   for (var i = 0; i < 16; i += 2) {
-    var m1 = octavosMatchups[i],   m2 = octavosMatchups[i+1];
-    var gA = ganadoresOctavos[m1 ? m1.id : ''] || null;
-    var gB = ganadoresOctavos[m2 ? m2.id : ''] || null;
-    var cId = 'C' + (i/2 + 1);
+    var m1 = r32Matchups[i], m2 = r32Matchups[i+1];
+    var gA = ganadoresR32[m1.id] || null;
+    var gB = ganadoresR32[m2.id] || null;
+    var oId = 'O' + (i/2 + 1);
     var div = document.createElement('div');
     div.className = 'ronda-match';
     if (gA && gB) {
-      var ganA = ganadoresCuartos[cId] === gA;
-      var ganB = ganadoresCuartos[cId] === gB;
-      div.innerHTML = renderMiniMatch(cId, gA, gB, ganA, ganB, 'cuartos');
+      div.innerHTML = renderMini(oId, gA, gB, ganadoresR16, 'r16');
     } else {
-      div.innerHTML = '<span class="ronda-tbd">Pendiente de octavos ' + (m1 ? m1.id : '') + ' y ' + (m2 ? m2.id : '') + '</span>';
+      div.innerHTML = '<span class="ronda-tbd">Esperando ganadores de ' + m1.id + ' y ' + m2.id + '</span>';
+    }
+    grid.appendChild(div);
+  }
+  addMiniListeners(grid, 'r16');
+  renderCuartos();
+}
+
+/* ── Cuartos (4 partidos) ── */
+function renderCuartos() {
+  var grid = document.getElementById('cuartos-grid');
+  grid.innerHTML = '';
+  var oIds = ['O1','O2','O3','O4','O5','O6','O7','O8'];
+  for (var i = 0; i < 8; i += 2) {
+    var gA = ganadoresR16[oIds[i]] || null;
+    var gB = ganadoresR16[oIds[i+1]] || null;
+    var qId = 'Q' + (i/2 + 1);
+    var div = document.createElement('div');
+    div.className = 'ronda-match';
+    if (gA && gB) {
+      div.innerHTML = renderMini(qId, gA, gB, ganadoresCuartos, 'cuartos');
+    } else {
+      div.innerHTML = '<span class="ronda-tbd">Esperando octavos ' + oIds[i] + ' y ' + oIds[i+1] + '</span>';
     }
     grid.appendChild(div);
   }
@@ -524,22 +518,21 @@ function renderCuartos() {
   renderSemis();
 }
 
+/* ── Semis (2 partidos) ── */
 function renderSemis() {
   var grid = document.getElementById('semis-grid');
   grid.innerHTML = '';
-  var cuartosIds = ['C1','C2','C3','C4','C5','C6','C7','C8'];
-  for (var i = 0; i < 8; i += 2) {
-    var gA = ganadoresCuartos[cuartosIds[i]]   || null;
-    var gB = ganadoresCuartos[cuartosIds[i+1]] || null;
+  var qIds = ['Q1','Q2','Q3','Q4'];
+  for (var i = 0; i < 4; i += 2) {
+    var gA = ganadoresCuartos[qIds[i]] || null;
+    var gB = ganadoresCuartos[qIds[i+1]] || null;
     var sId = 'S' + (i/2 + 1);
     var div = document.createElement('div');
     div.className = 'ronda-match';
     if (gA && gB) {
-      var ganA = ganadoresSemis[sId] === gA;
-      var ganB = ganadoresSemis[sId] === gB;
-      div.innerHTML = renderMiniMatch(sId, gA, gB, ganA, ganB, 'semis');
+      div.innerHTML = renderMini(sId, gA, gB, ganadoresSemis, 'semis');
     } else {
-      div.innerHTML = '<span class="ronda-tbd">Pendiente de cuartos ' + cuartosIds[i] + ' y ' + cuartosIds[i+1] + '</span>';
+      div.innerHTML = '<span class="ronda-tbd">Esperando cuartos ' + qIds[i] + ' y ' + qIds[i+1] + '</span>';
     }
     grid.appendChild(div);
   }
@@ -547,69 +540,55 @@ function renderSemis() {
   renderFinal();
 }
 
+/* ── Final (1 partido) ── */
 function renderFinal() {
   var grid = document.getElementById('final-grid');
   grid.innerHTML = '';
-  var semisIds = ['S1','S2','S3','S4'];
-  for (var i = 0; i < 4; i += 2) {
-    var gA = ganadoresSemis[semisIds[i]]   || null;
-    var gB = ganadoresSemis[semisIds[i+1]] || null;
-    var fId = 'F' + (i/2 + 1);
-    var div = document.createElement('div');
-    div.className = 'ronda-match';
-    if (gA && gB) {
-      var ganA = ganadorFinal === gA;
-      var ganB = ganadorFinal === gB;
-      div.innerHTML = renderMiniMatch(fId, gA, gB, ganA, ganB, 'final');
-    } else {
-      div.innerHTML = '<span class="ronda-tbd">Pendiente de semis ' + semisIds[i] + ' y ' + semisIds[i+1] + '</span>';
+  var gA = ganadoresSemis['S1'] || null;
+  var gB = ganadoresSemis['S2'] || null;
+  var div = document.createElement('div');
+  div.className = 'ronda-match';
+  div.style.cssText = 'border:1px solid var(--amber);background:rgba(251,191,36,.06)';
+  if (gA && gB) {
+    div.innerHTML = renderMini('F1', gA, gB, { F1: ganadorFinal }, 'final');
+    if (ganadorFinal) {
+      div.innerHTML += '<div style="margin-top:12px;text-align:center;font-size:18px">🏆 <b style="color:var(--amber)">' + ganadorFinal + '</b> CAMPEÓN DEL MUNDO</div>';
     }
-    grid.appendChild(div);
+  } else {
+    div.innerHTML = '<span class="ronda-tbd">Esperando ganadores de las semifinales</span>';
   }
+  grid.appendChild(div);
   addMiniListeners(grid, 'final');
-
-  /* Si hay ganador de final, mostrarlo */
-  var champ = null;
-  ['F1','F2'].forEach(function(fId) {
-    if (ganadoresSemis && ganadorFinal) champ = ganadorFinal;
-  });
 }
 
-function renderMiniMatch(id, sigA, sigB, ganA, ganB, ronda) {
-  return '<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">'
-    + '<span class="mini-team' + (ganA ? ' ganador' : '') + '" data-ronda="' + ronda + '" data-id="' + id + '" data-sig="' + sigA + '" style="cursor:pointer;font-weight:800;font-size:13px;color:' + (ganA ? 'var(--amber)' : 'var(--ink)') + '">' + (ganA ? '🏆 ' : '') + sigA + '</span>'
+function renderMini(id, sigA, sigB, ganadores, ronda) {
+  var ganA = ganadores[id] === sigA, ganB = ganadores[id] === sigB;
+  return '<div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">'
+    + '<span class="mini-team" data-ronda="' + ronda + '" data-id="' + id + '" data-sig="' + sigA
+      + '" style="cursor:pointer;font-weight:800;font-size:14px;color:' + (ganA?'var(--amber)':'var(--ink)') + '">'
+      + (ganA ? '🏆 ' : '') + sigA + '</span>'
     + '<span class="ronda-vs">vs</span>'
-    + '<span class="mini-team' + (ganB ? ' ganador' : '') + '" data-ronda="' + ronda + '" data-id="' + id + '" data-sig="' + sigB + '" style="cursor:pointer;font-weight:800;font-size:13px;color:' + (ganB ? 'var(--amber)' : 'var(--ink)') + '">' + (ganB ? '🏆 ' : '') + sigB + '</span>'
+    + '<span class="mini-team" data-ronda="' + ronda + '" data-id="' + id + '" data-sig="' + sigB
+      + '" style="cursor:pointer;font-weight:800;font-size:14px;color:' + (ganB?'var(--amber)':'var(--ink)') + '">'
+      + (ganB ? '🏆 ' : '') + sigB + '</span>'
     + '</div>';
 }
 
 function addMiniListeners(container, ronda) {
   container.querySelectorAll('.mini-team').forEach(function(el) {
     el.addEventListener('click', function() {
-      var id  = this.dataset.id;
-      var sig = this.dataset.sig;
-      if (ronda === 'cuartos') {
-        ganadoresCuartos[id] = (ganadoresCuartos[id] === sig) ? null : sig;
-        renderSemis();
-      } else if (ronda === 'semis') {
-        ganadoresSemis[id] = (ganadoresSemis[id] === sig) ? null : sig;
-        renderFinal();
-      } else if (ronda === 'final') {
-        ganadorFinal = (ganadorFinal === sig) ? null : sig;
-        renderFinal();
-      }
-      renderCuartos();
+      var id = this.dataset.id, sig = this.dataset.sig;
+      if (ronda === 'r16')     { ganadoresR16[id]     = ganadoresR16[id]===sig?null:sig;     renderR16(); }
+      else if (ronda==='cuartos') { ganadoresCuartos[id] = ganadoresCuartos[id]===sig?null:sig; renderCuartos(); }
+      else if (ronda==='semis')   { ganadoresSemis[id]   = ganadoresSemis[id]===sig?null:sig;   renderSemis(); }
+      else if (ronda==='final')   { ganadorFinal         = ganadorFinal===sig?null:sig;          renderFinal(); }
     });
   });
 }
 
 function resetBracket() {
-  ganadoresOctavos = {};
-  ganadoresCuartos = {};
-  ganadoresSemis   = {};
-  ganadorFinal     = null;
-  renderBracket();
-  renderCuartos();
+  ganadoresR32={}; ganadoresR16={}; ganadoresCuartos={}; ganadoresSemis={}; ganadorFinal=null;
+  renderR32(); renderR16();
   document.getElementById('bracket-sec').scrollIntoView({ behavior: 'smooth' });
 }
 
