@@ -620,6 +620,10 @@ function renderGrupos(clasi) {
   });
 }
 
+/* Mapa de siglas locales → siglas ESPN (cuando difieren) */
+var ESPN_ALIAS = { SAU: 'KSA', KSA: 'SAU' };
+function normalizarSig(sig) { return ESPN_ALIAS[sig] || sig; }
+
 /* Resultados en tarjetas — usa RESULTADOS_PARTIDOS de datos.js */
 function mostrarResultadosEnCards() {
   document.querySelectorAll('.partido-card').forEach(function(card) {
@@ -627,14 +631,24 @@ function mostrarResultadosEnCards() {
     if (siglas.length < 2) return;
     var sigL = siglas[0].textContent.replace(/[^A-Z]/g,'').trim();
     var sigR = siglas[1].textContent.replace(/[^A-Z]/g,'').trim();
-    /* Buscar en ambos órdenes (ESPN puede guardar como visitante-local) */
-    var res = RESULTADOS_PARTIDOS[sigL + '-' + sigR];
-    var invertido = false;
-    if (!res || !res.jugado) {
-      res = RESULTADOS_PARTIDOS[sigR + '-' + sigL];
-      invertido = true;
+    /* Probar todas las combinaciones: sigla local y alias ESPN */
+    var combinaciones = [
+      [sigL, sigR], [sigR, sigL],
+      [normalizarSig(sigL), sigR], [sigR, normalizarSig(sigL)],
+      [sigL, normalizarSig(sigR)], [normalizarSig(sigR), sigL],
+      [normalizarSig(sigL), normalizarSig(sigR)], [normalizarSig(sigR), normalizarSig(sigL)]
+    ];
+    var res = null, invertido = false;
+    for (var ci = 0; ci < combinaciones.length; ci++) {
+      var clave = combinaciones[ci][0] + '-' + combinaciones[ci][1];
+      var r = RESULTADOS_PARTIDOS[clave];
+      if (r && r.jugado) {
+        res = r;
+        invertido = (ci % 2 === 1); /* orden inverso al del HTML */
+        break;
+      }
     }
-    if (!res || !res.jugado) return;
+    if (!res) return;
     var golesL = invertido ? res.golesVisitante : res.golesLocal;
     var golesR = invertido ? res.golesLocal      : res.golesVisitante;
     var vsEl = card.querySelector('.p-vs');
@@ -712,6 +726,25 @@ function construirCarruselJugados() {
   /* Auto-avance cada 5 s */
   setInterval(function() { irA(idx + 1); }, 5000);
 }
+
+/* Corregir días de la semana mal escritos en el HTML estático */
+(function() {
+  var MESES = { ENE:0,FEB:1,MAR:2,ABR:3,MAY:4,JUN:5,JUL:6,AGO:7,SEP:8,OCT:9,NOV:10,DIC:11 };
+  var DIAS  = ['DOM','LUN','MAR','MIÉ','JUE','VIE','SÁB'];
+  document.querySelectorAll('.p-dia').forEach(function(el) {
+    var txt = el.textContent.trim(); /* ej: "MIÉ 18 JUN" */
+    var parts = txt.split(' ');
+    if (parts.length < 3) return;
+    var dia = parseInt(parts[1]);
+    var mes = MESES[parts[2]];
+    if (isNaN(dia) || mes === undefined) return;
+    var fecha = new Date(2026, mes, dia);
+    var diaCorrecto = DIAS[fecha.getDay()];
+    if (diaCorrecto && parts[0] !== diaCorrecto) {
+      el.textContent = diaCorrecto + ' ' + parts[1] + ' ' + parts[2];
+    }
+  });
+})();
 
 /* Toggle grupos / partidos */
 document.querySelectorAll('.filtro').forEach(function(btn) {
