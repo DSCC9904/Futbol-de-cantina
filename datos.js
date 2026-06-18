@@ -31,7 +31,59 @@ var HORARIO = [
   { id:'POR-COD', utc:'2026-06-17T17:00:00Z', localSig:'POR', localNom:'Portugal',        visitanteSig:'COD', visitanteNom:'RD Congo',        lat:29.7,    lon:-95.4,    estadioId:'houston',      grupo:'K', estadio:'NRG Stadium' },
   { id:'ENG-CRO', utc:'2026-06-17T20:00:00Z', localSig:'ENG', localNom:'Inglaterra',      visitanteSig:'CRO', visitanteNom:'Croacia',         lat:32.7,    lon:-97.1,    estadioId:'dallas',       grupo:'L', estadio:'AT&T Stadium' },
   { id:'GHA-PAN', utc:'2026-06-17T23:00:00Z', localSig:'GHA', localNom:'Ghana',           visitanteSig:'PAN', visitanteNom:'Panamá',          lat:43.6,    lon:-79.4,    estadioId:'toronto',      grupo:'L', estadio:'BMO Field' },
-  { id:'UZB-COL', utc:'2026-06-18T02:00:00Z', localSig:'UZB', localNom:'Uzbekistán',      visitanteSig:'COL', visitanteNom:'Colombia',        lat:19.3029, lon:-99.1504, estadioId:'cdmx',         grupo:'K', estadio:'Estadio Azteca' }
+  { id:'UZB-COL', utc:'2026-06-18T02:00:00Z', localSig:'UZB', localNom:'Uzbekistán',      visitanteSig:'COL', visitanteNom:'Colombia',        lat:19.3029, lon:-99.1504, estadioId:'cdmx',         grupo:'K', estadio:'Estadio Azteca' },
+
+  /* ── JORNADA 2 · 18–23 JUN ── */
+  { id:'CZE-RSA', utc:'2026-06-18T16:00:00Z', localSig:'CZE', localNom:'Rep. Checa',      visitanteSig:'RSA', visitanteNom:'Sudáfrica',      lat:33.8,    lon:-84.4,    estadioId:'atlanta',      grupo:'A', estadio:'Mercedes-Benz' },
+  { id:'SUI-BIH', utc:'2026-06-18T19:00:00Z', localSig:'SUI', localNom:'Suiza',           visitanteSig:'BIH', visitanteNom:'Bosnia',          lat:33.9,    lon:-118.3,   estadioId:'losangeles',   grupo:'B', estadio:'SoFi Stadium' },
+  { id:'CAN-QAT', utc:'2026-06-18T22:00:00Z', localSig:'CAN', localNom:'Canadá',          visitanteSig:'QAT', visitanteNom:'Catar',           lat:49.3,    lon:-123.1,   estadioId:'vancouver',    grupo:'B', estadio:'BC Place' },
+  { id:'MEX-KOR', utc:'2026-06-19T01:00:00Z', localSig:'MEX', localNom:'México',          visitanteSig:'KOR', visitanteNom:'Corea del Sur',   lat:20.7,    lon:-103.4,   estadioId:'guadalajara',  grupo:'A', estadio:'Estadio Akron' },
+  { id:'USA-AUS', utc:'2026-06-19T19:00:00Z', localSig:'USA', localNom:'Estados Unidos',  visitanteSig:'AUS', visitanteNom:'Australia',       lat:47.6,    lon:-122.3,   estadioId:'seattle',      grupo:'D', estadio:'Lumen Field' },
+  { id:'SCO-MAR', utc:'2026-06-19T22:00:00Z', localSig:'SCO', localNom:'Escocia',         visitanteSig:'MAR', visitanteNom:'Marruecos',       lat:42.1,    lon:-71.3,    estadioId:'boston',       grupo:'C', estadio:'Gillette Stadium' },
+  { id:'BRA-HAI', utc:'2026-06-20T01:00:00Z', localSig:'BRA', localNom:'Brasil',          visitanteSig:'HAI', visitanteNom:'Haití',           lat:39.9,    lon:-75.2,    estadioId:'filadelfia',   grupo:'C', estadio:'Lincoln Financial' },
+  { id:'TUR-PAR', utc:'2026-06-20T04:00:00Z', localSig:'TUR', localNom:'Turquía',         visitanteSig:'PAR', visitanteNom:'Paraguay',        lat:37.4,    lon:-122.0,   estadioId:'sanfrancisco', grupo:'D', estadio:"Levi's Stadium" },
+  { id:'NED-SWE', utc:'2026-06-20T19:00:00Z', localSig:'NED', localNom:'Países Bajos',    visitanteSig:'SWE', visitanteNom:'Suecia',          lat:29.7,    lon:-95.4,    estadioId:'houston',      grupo:'F', estadio:'NRG Stadium' },
+  { id:'GER-CIV', utc:'2026-06-20T20:00:00Z', localSig:'GER', localNom:'Alemania',        visitanteSig:'CIV', visitanteNom:'Costa de Marfil', lat:43.6,    lon:-79.4,    estadioId:'toronto',      grupo:'E', estadio:'BMO Field' },
+  { id:'ECU-CUW', utc:'2026-06-21T00:00:00Z', localSig:'ECU', localNom:'Ecuador',         visitanteSig:'CUW', visitanteNom:'Curazao',         lat:39.0,    lon:-94.5,    estadioId:'kansascity',   grupo:'E', estadio:'Arrowhead' },
+  { id:'TUN-JPN', utc:'2026-06-21T04:00:00Z', localSig:'TUN', localNom:'Túnez',           visitanteSig:'JPN', visitanteNom:'Japón',           lat:25.7,    lon:-100.3,   estadioId:'monterrey',    grupo:'F', estadio:'Estadio BBVA' },
+  { id:'ESP-SAU', utc:'2026-06-21T16:00:00Z', localSig:'ESP', localNom:'España',          visitanteSig:'SAU', visitanteNom:'Arabia Saudita',  lat:33.8,    lon:-84.4,    estadioId:'atlanta',      grupo:'H', estadio:'Mercedes-Benz' },
+  { id:'BEL-IRN', utc:'2026-06-21T19:00:00Z', localSig:'BEL', localNom:'Bélgica',         visitanteSig:'IRN', visitanteNom:'Irán',            lat:33.9,    lon:-118.3,   estadioId:'losangeles',   grupo:'G', estadio:'SoFi Stadium' },
+  { id:'URU-CPV', utc:'2026-06-21T22:00:00Z', localSig:'URU', localNom:'Uruguay',         visitanteSig:'CPV', visitanteNom:'Cabo Verde',      lat:25.9,    lon:-80.2,    estadioId:'miami',        grupo:'H', estadio:'Hard Rock Stadium' },
+  { id:'NZL-EGY', utc:'2026-06-22T01:00:00Z', localSig:'NZL', localNom:'Nueva Zelanda',   visitanteSig:'EGY', visitanteNom:'Egipto',          lat:49.3,    lon:-123.1,   estadioId:'vancouver',    grupo:'G', estadio:'BC Place' },
+  { id:'ARG-AUT', utc:'2026-06-22T17:00:00Z', localSig:'ARG', localNom:'Argentina',       visitanteSig:'AUT', visitanteNom:'Austria',         lat:32.7,    lon:-97.1,    estadioId:'dallas',       grupo:'J', estadio:'AT&T Stadium' },
+  { id:'FRA-IRQ', utc:'2026-06-22T21:00:00Z', localSig:'FRA', localNom:'Francia',         visitanteSig:'IRQ', visitanteNom:'Irak',            lat:39.9,    lon:-75.2,    estadioId:'filadelfia',   grupo:'I', estadio:'Lincoln Financial' },
+  { id:'NOR-SEN', utc:'2026-06-23T00:00:00Z', localSig:'NOR', localNom:'Noruega',         visitanteSig:'SEN', visitanteNom:'Senegal',         lat:40.8,    lon:-74.1,    estadioId:'nuevayork',    grupo:'I', estadio:'MetLife Stadium' },
+  { id:'JOR-ALG', utc:'2026-06-23T03:00:00Z', localSig:'JOR', localNom:'Jordania',        visitanteSig:'ALG', visitanteNom:'Argelia',         lat:37.4,    lon:-122.0,   estadioId:'sanfrancisco', grupo:'J', estadio:"Levi's Stadium" },
+  { id:'POR-UZB', utc:'2026-06-23T17:00:00Z', localSig:'POR', localNom:'Portugal',        visitanteSig:'UZB', visitanteNom:'Uzbekistán',      lat:29.7,    lon:-95.4,    estadioId:'houston',      grupo:'K', estadio:'NRG Stadium' },
+  { id:'ENG-GHA', utc:'2026-06-23T20:00:00Z', localSig:'ENG', localNom:'Inglaterra',      visitanteSig:'GHA', visitanteNom:'Ghana',           lat:42.1,    lon:-71.3,    estadioId:'boston',       grupo:'L', estadio:'Gillette Stadium' },
+  { id:'PAN-CRO', utc:'2026-06-23T23:00:00Z', localSig:'PAN', localNom:'Panamá',          visitanteSig:'CRO', visitanteNom:'Croacia',         lat:43.6,    lon:-79.4,    estadioId:'toronto',      grupo:'L', estadio:'BMO Field' },
+  { id:'COL-COD', utc:'2026-06-24T02:00:00Z', localSig:'COL', localNom:'Colombia',        visitanteSig:'COD', visitanteNom:'RD Congo',        lat:20.7,    lon:-103.4,   estadioId:'guadalajara',  grupo:'K', estadio:'Estadio Akron' },
+
+  /* ── JORNADA 3 · 24–27 JUN (simultáneos) ── */
+  { id:'SUI-CAN', utc:'2026-06-24T19:00:00Z', localSig:'SUI', localNom:'Suiza',           visitanteSig:'CAN', visitanteNom:'Canadá',          lat:49.3,    lon:-123.1,   estadioId:'vancouver',    grupo:'B', estadio:'BC Place' },
+  { id:'BIH-QAT', utc:'2026-06-24T19:00:00Z', localSig:'BIH', localNom:'Bosnia',          visitanteSig:'QAT', visitanteNom:'Catar',           lat:47.6,    lon:-122.3,   estadioId:'seattle',      grupo:'B', estadio:'Lumen Field' },
+  { id:'SCO-BRA', utc:'2026-06-24T22:00:00Z', localSig:'SCO', localNom:'Escocia',         visitanteSig:'BRA', visitanteNom:'Brasil',          lat:25.9,    lon:-80.2,    estadioId:'miami',        grupo:'C', estadio:'Hard Rock Stadium' },
+  { id:'MAR-HAI', utc:'2026-06-24T22:00:00Z', localSig:'MAR', localNom:'Marruecos',       visitanteSig:'HAI', visitanteNom:'Haití',           lat:33.8,    lon:-84.4,    estadioId:'atlanta',      grupo:'C', estadio:'Mercedes-Benz' },
+  { id:'CZE-MEX', utc:'2026-06-25T01:00:00Z', localSig:'CZE', localNom:'Rep. Checa',      visitanteSig:'MEX', visitanteNom:'México',          lat:19.3029, lon:-99.1504, estadioId:'cdmx',         grupo:'A', estadio:'Estadio Azteca' },
+  { id:'RSA-KOR', utc:'2026-06-25T01:00:00Z', localSig:'RSA', localNom:'Sudáfrica',       visitanteSig:'KOR', visitanteNom:'Corea del Sur',   lat:25.7,    lon:-100.3,   estadioId:'monterrey',    grupo:'A', estadio:'Estadio BBVA' },
+  { id:'CUW-CIV', utc:'2026-06-25T20:00:00Z', localSig:'CUW', localNom:'Curazao',         visitanteSig:'CIV', visitanteNom:'Costa de Marfil', lat:39.9,    lon:-75.2,    estadioId:'filadelfia',   grupo:'E', estadio:'Lincoln Financial' },
+  { id:'ECU-GER', utc:'2026-06-25T20:00:00Z', localSig:'ECU', localNom:'Ecuador',         visitanteSig:'GER', visitanteNom:'Alemania',        lat:40.8,    lon:-74.1,    estadioId:'nuevayork',    grupo:'E', estadio:'MetLife Stadium' },
+  { id:'JPN-SWE', utc:'2026-06-25T23:00:00Z', localSig:'JPN', localNom:'Japón',           visitanteSig:'SWE', visitanteNom:'Suecia',          lat:32.7,    lon:-97.1,    estadioId:'dallas',       grupo:'F', estadio:'AT&T Stadium' },
+  { id:'TUN-NED', utc:'2026-06-25T23:00:00Z', localSig:'TUN', localNom:'Túnez',           visitanteSig:'NED', visitanteNom:'Países Bajos',    lat:39.0,    lon:-94.5,    estadioId:'kansascity',   grupo:'F', estadio:'Arrowhead' },
+  { id:'TUR-USA', utc:'2026-06-26T02:00:00Z', localSig:'TUR', localNom:'Turquía',         visitanteSig:'USA', visitanteNom:'Estados Unidos',  lat:33.9,    lon:-118.3,   estadioId:'losangeles',   grupo:'D', estadio:'SoFi Stadium' },
+  { id:'PAR-AUS', utc:'2026-06-26T02:00:00Z', localSig:'PAR', localNom:'Paraguay',        visitanteSig:'AUS', visitanteNom:'Australia',       lat:37.4,    lon:-122.0,   estadioId:'sanfrancisco', grupo:'D', estadio:"Levi's Stadium" },
+  { id:'NOR-FRA', utc:'2026-06-26T19:00:00Z', localSig:'NOR', localNom:'Noruega',         visitanteSig:'FRA', visitanteNom:'Francia',         lat:42.1,    lon:-71.3,    estadioId:'boston',       grupo:'I', estadio:'Gillette Stadium' },
+  { id:'SEN-IRQ', utc:'2026-06-26T19:00:00Z', localSig:'SEN', localNom:'Senegal',         visitanteSig:'IRQ', visitanteNom:'Irak',            lat:43.6,    lon:-79.4,    estadioId:'toronto',      grupo:'I', estadio:'BMO Field' },
+  { id:'CPV-SAU', utc:'2026-06-27T00:00:00Z', localSig:'CPV', localNom:'Cabo Verde',      visitanteSig:'SAU', visitanteNom:'Arabia Saudita',  lat:29.7,    lon:-95.4,    estadioId:'houston',      grupo:'H', estadio:'NRG Stadium' },
+  { id:'URU-ESP', utc:'2026-06-27T00:00:00Z', localSig:'URU', localNom:'Uruguay',         visitanteSig:'ESP', visitanteNom:'España',          lat:20.7,    lon:-103.4,   estadioId:'guadalajara',  grupo:'H', estadio:'Estadio Akron' },
+  { id:'EGY-IRN', utc:'2026-06-27T03:00:00Z', localSig:'EGY', localNom:'Egipto',          visitanteSig:'IRN', visitanteNom:'Irán',            lat:47.6,    lon:-122.3,   estadioId:'seattle',      grupo:'G', estadio:'Lumen Field' },
+  { id:'NZL-BEL', utc:'2026-06-27T03:00:00Z', localSig:'NZL', localNom:'Nueva Zelanda',   visitanteSig:'BEL', visitanteNom:'Bélgica',         lat:49.3,    lon:-123.1,   estadioId:'vancouver',    grupo:'G', estadio:'BC Place' },
+  { id:'PAN-ENG', utc:'2026-06-27T21:00:00Z', localSig:'PAN', localNom:'Panamá',          visitanteSig:'ENG', visitanteNom:'Inglaterra',      lat:40.8,    lon:-74.1,    estadioId:'nuevayork',    grupo:'L', estadio:'MetLife Stadium' },
+  { id:'CRO-GHA', utc:'2026-06-27T21:00:00Z', localSig:'CRO', localNom:'Croacia',         visitanteSig:'GHA', visitanteNom:'Ghana',           lat:39.9,    lon:-75.2,    estadioId:'filadelfia',   grupo:'L', estadio:'Lincoln Financial' },
+  { id:'ARG-JOR', utc:'2026-06-28T02:00:00Z', localSig:'ARG', localNom:'Argentina',       visitanteSig:'JOR', visitanteNom:'Jordania',        lat:32.7,    lon:-97.1,    estadioId:'dallas',       grupo:'J', estadio:'AT&T Stadium' },
+  { id:'ALG-AUT', utc:'2026-06-28T02:00:00Z', localSig:'ALG', localNom:'Argelia',         visitanteSig:'AUT', visitanteNom:'Austria',         lat:39.0,    lon:-94.5,    estadioId:'kansascity',   grupo:'J', estadio:'Arrowhead' },
+  { id:'COD-UZB', utc:'2026-06-28T00:00:00Z', localSig:'COD', localNom:'RD Congo',        visitanteSig:'UZB', visitanteNom:'Uzbekistán',      lat:33.8,    lon:-84.4,    estadioId:'atlanta',      grupo:'K', estadio:'Mercedes-Benz' },
+  { id:'COL-POR', utc:'2026-06-27T23:30:00Z', localSig:'COL', localNom:'Colombia',        visitanteSig:'POR', visitanteNom:'Portugal',        lat:25.9,    lon:-80.2,    estadioId:'miami',        grupo:'K', estadio:'Hard Rock Stadium' }
 ];
 
 /* ── RESULTADOS CON ESTADÍSTICAS ──────────────────────────────
@@ -144,7 +196,7 @@ var CLASIFICACION = {
    2 horas después del pitazo final → pasa al siguiente.
 ─────────────────────────────────────────────────────────────── */
 var DURACION_MS   = 115 * 60 * 1000;  /* 115 min estimados */
-var POST_MATCH_MS =   2 * 60 * 60 * 1000; /* 2h post partido */
+var POST_MATCH_MS =  30 * 60 * 1000; /* 30 min post partido → rota al siguiente */
 
 function detectarPartido() {
   var ahora = Date.now();
