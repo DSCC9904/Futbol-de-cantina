@@ -223,19 +223,14 @@
 
     <!-- PASO 1: Grupos -->
     <div class="sim-paso">PASO 1 — ¿Quién pasa de cada grupo?</div>
-    <p style="font-size:12px;color:var(--muted);margin-bottom:20px">Haz clic en los equipos para marcarlos: <b style="color:var(--amber)">1°</b> primero, luego <b style="color:rgba(251,191,36,.7)">2°</b>. El <b style="color:#64c8ff">3°</b> entra al pool de mejores terceros.</p>
+    <p style="font-size:12px;color:var(--muted);margin-bottom:20px">Haz clic para marcar: <b style="color:var(--amber)">1°</b> → <b style="color:rgba(251,191,36,.7)">2°</b> → <b style="color:#64c8ff">3°</b> (mejor tercero). Necesitas 8 terceros de 12 grupos para generar la llave.</p>
 
     <div class="grupos-sim-grid" id="grupos-sim-grid">
       <!-- Se llena por JS -->
     </div>
 
-    <!-- PASO 2: Mejores terceros -->
-    <div class="sim-paso">PASO 2 — Mejores 8 terceros</div>
-    <div class="terceros-sec">
-      <p style="font-size:12px;color:var(--muted);margin:0">En el Mundial 2026 los <b>8 mejores terceros</b> de 12 grupos también clasifican a octavos. Selecciona cuáles crees que pasan.</p>
-      <div class="terceros-grid" id="terceros-grid"></div>
-      <div class="terceros-count" id="terceros-count">0 / 8 seleccionados</div>
-    </div>
+    <!-- Contador terceros -->
+    <div id="terceros-count" style="font-size:12px;color:var(--muted);margin:-16px 0 20px;text-align:right"></div>
 
     <!-- Botón -->
     <button class="btn-generar" id="btn-generar" disabled onclick="generarLlave()">
@@ -321,7 +316,7 @@ var R32_PAIRINGS = [
 /* ── Inicializar grupos ── */
 function inicializar() {
   GRUPOS.forEach(function(g) {
-    estado[g] = { p1: null, p2: null };
+    estado[g] = { p1: null, p2: null, p3: null };
   });
   renderGruposSim();
 }
@@ -331,105 +326,95 @@ function getEquiposGrupo(g) {
 }
 
 function renderGruposSim() {
+  /* Sincronizar tercerosSel con los p3 actuales */
+  tercerosSel = [];
+  GRUPOS.forEach(function(g) { if (estado[g].p3) tercerosSel.push(estado[g].p3); });
+
   var grid = document.getElementById('grupos-sim-grid');
   grid.innerHTML = '';
   GRUPOS.forEach(function(g) {
     var equipos = getEquiposGrupo(g);
+    var est = estado[g];
     var card = document.createElement('div');
     card.className = 'grupo-sim-card';
+
+    /* Determinar si hay slot libre para 3° */
+    var terceroLleno = tercerosSel.length >= 8;
+
     card.innerHTML = '<div class="grupo-sim-titulo">GRUPO ' + g + '</div>'
       + equipos.map(function(eq) {
-          var est = estado[g];
           var cls = '', badgeCls = 'bx', badgeTxt = '';
-          if (est.p1 === eq.sig)      { cls = 'pasa-1'; badgeCls = 'b1'; badgeTxt = '1°'; }
-          else if (est.p2 === eq.sig) { cls = 'pasa-2'; badgeCls = 'b2'; badgeTxt = '2°'; }
-          else if (est.p1 && est.p2)  { cls = 'tercero'; badgeCls = 'b3'; badgeTxt = '3°'; }
-          return '<div class="equipo-sim-row ' + cls + '" data-grupo="' + g + '" data-sig="' + eq.sig + '">'
+          if (est.p1 === eq.sig) {
+            cls = 'pasa-1'; badgeCls = 'b1'; badgeTxt = '1°';
+          } else if (est.p2 === eq.sig) {
+            cls = 'pasa-2'; badgeCls = 'b2'; badgeTxt = '2°';
+          } else if (est.p1 && est.p2) {
+            if (est.p3 === eq.sig) {
+              cls = 'tercero'; badgeCls = 'b3'; badgeTxt = '3°';
+            } else if (est.p3) {
+              /* Ya hay un 3° elegido → este es 4°, eliminado */
+              cls = ''; badgeCls = 'bx'; badgeTxt = '4°';
+            } else {
+              /* No hay p3 aún → puede ser 3° */
+              var disabled = terceroLleno ? ' style="opacity:.45;cursor:not-allowed"' : '';
+              cls = ''; badgeCls = 'bx'; badgeTxt = '?';
+            }
+          }
+          var bloqueado = est.p1 && est.p2 && !est.p3 && terceroLleno && est.p3 !== eq.sig;
+          return '<div class="equipo-sim-row ' + cls + '" data-grupo="' + g + '" data-sig="' + eq.sig + '"'
+            + (bloqueado ? ' style="opacity:.45;pointer-events:none"' : '') + '>'
             + '<span class="eq-badge ' + badgeCls + '">' + badgeTxt + '</span>'
             + '<span class="eq-sig">' + eq.sig + '</span>'
             + '<span class="eq-nom">' + (eq.nom || '') + '</span>'
             + '</div>';
         }).join('');
-    card.querySelectorAll && null; // placeholder
     grid.appendChild(card);
   });
 
   /* Listeners */
   grid.querySelectorAll('.equipo-sim-row').forEach(function(row) {
     row.addEventListener('click', function() {
-      var g = this.dataset.grupo;
+      var g   = this.dataset.grupo;
       var sig = this.dataset.sig;
       var est = estado[g];
-      if (est.p1 === sig)      { est.p1 = est.p2; est.p2 = null; }
-      else if (est.p2 === sig) { est.p2 = null; }
-      else if (!est.p1)        { est.p1 = sig; }
-      else if (!est.p2)        { est.p2 = sig; }
-      renderGruposSim();
-      renderTercerosSim();
-      actualizarBoton();
-    });
-  });
-}
 
-/* ── Terceros ── */
-function getTerceros() {
-  /* Los equipos que quedaron en 3° lugar (no son p1 ni p2) */
-  var lista = [];
-  GRUPOS.forEach(function(g) {
-    var est = estado[g];
-    var equipos = getEquiposGrupo(g);
-    equipos.forEach(function(eq) {
-      if (eq.sig !== est.p1 && eq.sig !== est.p2) {
-        /* Solo agregar si el grupo tiene sus 2 clasificados definidos */
-        if (est.p1 && est.p2) lista.push({ sig: eq.sig, nom: eq.nom, grupo: g });
+      if (est.p1 === sig) {
+        /* Deseleccionar 1° → resetear todo el grupo */
+        est.p1 = null; est.p2 = null; est.p3 = null;
+      } else if (est.p2 === sig) {
+        est.p2 = null; est.p3 = null;
+      } else if (est.p3 === sig) {
+        est.p3 = null;
+      } else if (!est.p1) {
+        est.p1 = sig;
+      } else if (!est.p2) {
+        est.p2 = sig;
+      } else if (!est.p3 && tercerosSel.length < 8) {
+        est.p3 = sig;
       }
-    });
-  });
-  return lista;
-}
 
-function renderTercerosSim() {
-  var terceros = getTerceros();
-  var grid = document.getElementById('terceros-grid');
-  var countEl = document.getElementById('terceros-count');
-  grid.innerHTML = '';
-  /* Quitar de seleccionados los que ya no son terceros */
-  tercerosSel = tercerosSel.filter(function(sig) {
-    return terceros.some(function(t) { return t.sig === sig; });
-  });
-
-  if (!terceros.length) {
-    grid.innerHTML = '<span style="font-size:11px;color:var(--muted)">Define los clasificados de cada grupo primero.</span>';
-    countEl.textContent = '0 / 8 seleccionados';
-    return;
-  }
-
-  terceros.forEach(function(t) {
-    var sel = tercerosSel.indexOf(t.sig) !== -1;
-    var chip = document.createElement('button');
-    chip.className = 'tercero-chip' + (sel ? ' seleccionado' : '');
-    chip.textContent = getNom(t.sig) + ' · 3° Grupo ' + t.grupo;
-    if (!sel && tercerosSel.length >= 8) chip.disabled = true;
-    chip.addEventListener('click', function() {
-      var idx = tercerosSel.indexOf(t.sig);
-      if (idx !== -1) tercerosSel.splice(idx, 1);
-      else if (tercerosSel.length < 8) tercerosSel.push(t.sig);
-      renderTercerosSim();
+      renderGruposSim();
       actualizarBoton();
     });
-    grid.appendChild(chip);
   });
 
-  countEl.textContent = tercerosSel.length + ' / 8 seleccionados';
+  /* Actualizar contador */
+  var countEl = document.getElementById('terceros-count');
+  if (countEl) {
+    var n = tercerosSel.length;
+    countEl.textContent = n > 0 ? ('3ros seleccionados: ' + n + ' / 8') : '';
+  }
 }
 
 function actualizarBoton() {
   var completo = GRUPOS.every(function(g) { return estado[g].p1 && estado[g].p2; });
   var btn = document.getElementById('btn-generar');
   btn.disabled = !(completo && tercerosSel.length === 8);
-  btn.textContent = completo
-    ? (tercerosSel.length === 8 ? '🏆 Generar llave de dieciseisavos' : '⬆ Selecciona ' + (8 - tercerosSel.length) + ' terceros más')
-    : '⬆ Completa los clasificados de todos los grupos';
+  btn.textContent = !completo
+    ? '⬆ Completa 1° y 2° de todos los grupos'
+    : tercerosSel.length < 8
+      ? '⬆ Marca ' + (8 - tercerosSel.length) + ' tercero(s) más en los grupos'
+      : '🏆 Generar llave de dieciseisavos';
 }
 
 /* ── Generar bracket ── */
@@ -632,7 +617,6 @@ fetch('resultados.json?v=' + Date.now())
   .catch(function() {})
   .finally(function() {
     inicializar();
-    renderTercerosSim();
     actualizarBoton();
   });
 
@@ -640,7 +624,6 @@ fetch('resultados.json?v=' + Date.now())
 setTimeout(function() {
   if (!document.getElementById('grupos-sim-grid').children.length) {
     inicializar();
-    renderTercerosSim();
     actualizarBoton();
   }
 }, 1500);
