@@ -299,18 +299,18 @@ function getNom(sig) {
   return sig;
 }
 
-/*  Dieciseisavos (R32) — 16 partidos, exactamente 8 terceros
-    Grupos A-H: 1° de un grupo vs 2° del grupo par (8 partidos, sin terceros)
-    Grupos I-L: 1° y 2° de cada grupo vs los 8 terceros elegidos           */
+/*  Dieciseisavos (R32) — bracket oficial FIFA 2026
+    Los códigos "3XXXXX" indican el pool de grupos del que sale el mejor 3°
+    El simulador asigna los 8 terceros elegidos a esos slots en orden      */
 var R32_PAIRINGS = [
-  ['1A','2B'], ['1B','2A'],   /* M1, M2  */
-  ['1C','2D'], ['1D','2C'],   /* M3, M4  */
-  ['1E','2F'], ['1F','2E'],   /* M5, M6  */
-  ['1G','2H'], ['1H','2G'],   /* M7, M8  */
-  ['1I','3rd'],['2I','3rd'],  /* M9, M10 */
-  ['1J','3rd'],['2J','3rd'],  /* M11,M12 */
-  ['1K','3rd'],['2K','3rd'],  /* M13,M14 */
-  ['1L','3rd'],['2L','3rd']   /* M15,M16 */
+  ['1E','3ABCDF'], ['1I','3CDFGH'],  /* M1,  M2  → se cruzan en Octavos O1 */
+  ['2A','2B'],     ['1F','2C'],       /* M3,  M4  → Octavos O2              */
+  ['2K','2L'],     ['1H','2J'],       /* M5,  M6  → Octavos O3              */
+  ['1D','3BEFIJ'], ['1G','3AEHIJ'],   /* M7,  M8  → Octavos O4              */
+  ['1C','2F'],     ['2E','2I'],        /* M9,  M10 → Octavos O5              */
+  ['1A','3CEFHI'], ['1L','3EHIJK'],   /* M11, M12 → Octavos O6              */
+  ['1J','2H'],     ['2D','2G'],        /* M13, M14 → Octavos O7              */
+  ['1B','3EFGIJ'], ['1K','3DEIJL']    /* M15, M16 → Octavos O8              */
 ];
 
 /* ── Inicializar grupos ── */
@@ -419,7 +419,7 @@ function actualizarBoton() {
 
 /* ── Generar bracket ── */
 function resolveSig(code, terceroPool, tIdx) {
-  if (code === '3rd') return { sig: terceroPool[tIdx.v++] || '?', inc: true };
+  if (code.charAt(0) === '3') return { sig: terceroPool[tIdx.v++] || '?', inc: true };
   var pos = parseInt(code[0]), g = code.slice(1);
   return { sig: (pos === 1 ? estado[g].p1 : estado[g].p2) || '?', inc: false };
 }
