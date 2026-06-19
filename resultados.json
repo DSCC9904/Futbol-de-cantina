@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-18T21:15:06.461Z",
+  "lastUpdated": "2026-06-19T12:35:45.936Z",
   "partidos": [
     {
       "id": "MEX-RSA",
@@ -9320,6 +9320,716 @@
           ]
         }
       }
+    },
+    {
+      "id": "CAN-QAT",
+      "espnId": "760440",
+      "localSig": "CAN",
+      "visitanteSig": "QAT",
+      "localNom": "Canada",
+      "visitanteNom": "Qatar",
+      "golesLocal": 6,
+      "golesVisitante": 0,
+      "fecha": "2026-06-18T22:00Z",
+      "grupo": "B",
+      "jugado": true,
+      "stats": {
+        "posesion": {
+          "local": "79",
+          "visitante": "21"
+        },
+        "tiros": {
+          "local": "10",
+          "visitante": "0"
+        },
+        "amarillas": {
+          "local": "1",
+          "visitante": "1"
+        },
+        "rojas": {
+          "local": "0",
+          "visitante": "2"
+        },
+        "faltas": {
+          "local": "9",
+          "visitante": "10"
+        }
+      },
+      "lineups": {
+        "local": {
+          "sig": "CAN",
+          "nom": "Canada",
+          "jugadores": [
+            {
+              "num": "16",
+              "nombre": "M. Crépeau",
+              "pos": "G",
+              "titular": true
+            },
+            {
+              "num": "13",
+              "nombre": "D. Cornelius",
+              "pos": "CD-L",
+              "titular": true
+            },
+            {
+              "num": "4",
+              "nombre": "L. de Fougerolles",
+              "pos": "CD-R",
+              "titular": true
+            },
+            {
+              "num": "22",
+              "nombre": "R. Laryea",
+              "pos": "LB",
+              "titular": true
+            },
+            {
+              "num": "2",
+              "nombre": "A. Johnston",
+              "pos": "RB",
+              "titular": true
+            },
+            {
+              "num": "7",
+              "nombre": "S. Eustáquio",
+              "pos": "CM-L",
+              "titular": true
+            },
+            {
+              "num": "8",
+              "nombre": "I. Koné",
+              "pos": "CM-R",
+              "titular": true
+            },
+            {
+              "num": "20",
+              "nombre": "A. Ahmed",
+              "pos": "LM",
+              "titular": true
+            },
+            {
+              "num": "17",
+              "nombre": "T. Buchanan",
+              "pos": "RM",
+              "titular": true
+            },
+            {
+              "num": "9",
+              "nombre": "C. Larin",
+              "pos": "CF-L",
+              "titular": true
+            },
+            {
+              "num": "10",
+              "nombre": "J. David",
+              "pos": "CF-R",
+              "titular": true
+            },
+            {
+              "num": "21",
+              "nombre": "J. Osorio",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "12",
+              "nombre": "T. Oluwaseyi",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "26",
+              "nombre": "J. Nelson",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "1",
+              "nombre": "D. St. Clair",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "24",
+              "nombre": "P. David",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "6",
+              "nombre": "M. Choinière",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "5",
+              "nombre": "J. Waterman",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "23",
+              "nombre": "N. Sigur",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "15",
+              "nombre": "M. Bombito",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "11",
+              "nombre": "L. Millar",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "19",
+              "nombre": "A. Davies",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "18",
+              "nombre": "O. Goodman",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "14",
+              "nombre": "J. Shaffelburg",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "25",
+              "nombre": "N. Saliba",
+              "pos": "SUB",
+              "titular": false
+            }
+          ]
+        },
+        "visitante": {
+          "sig": "QAT",
+          "nom": "Qatar",
+          "jugadores": [
+            {
+              "num": "1",
+              "nombre": "M. Abunada",
+              "pos": "G",
+              "titular": true
+            },
+            {
+              "num": "16",
+              "nombre": "B. Khoukhi",
+              "pos": "CD-L",
+              "titular": true
+            },
+            {
+              "num": "2",
+              "nombre": "P. Miguel",
+              "pos": "CD-R",
+              "titular": true
+            },
+            {
+              "num": "14",
+              "nombre": "H. Ahmed",
+              "pos": "LB",
+              "titular": true
+            },
+            {
+              "num": "13",
+              "nombre": "A. Al-Oui",
+              "pos": "RB",
+              "titular": true
+            },
+            {
+              "num": "23",
+              "nombre": "A. Madibo",
+              "pos": "CM",
+              "titular": true
+            },
+            {
+              "num": "4",
+              "nombre": "I. Laye",
+              "pos": "LM",
+              "titular": true
+            },
+            {
+              "num": "5",
+              "nombre": "J. Gaber",
+              "pos": "RM",
+              "titular": true
+            },
+            {
+              "num": "15",
+              "nombre": "Y. Abdurisag",
+              "pos": "F",
+              "titular": true
+            },
+            {
+              "num": "11",
+              "nombre": "A. Afif",
+              "pos": "LF",
+              "titular": true
+            },
+            {
+              "num": "8",
+              "nombre": "Edmílson Junior",
+              "pos": "RF",
+              "titular": true
+            },
+            {
+              "num": "10",
+              "nombre": "H. Al-Haydos",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "24",
+              "nombre": "T. Jamshid",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "26",
+              "nombre": "M. Manai",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "19",
+              "nombre": "A. Ali",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "9",
+              "nombre": "M. Muntari",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "3",
+              "nombre": "L. Mendes",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "22",
+              "nombre": "M. Barsham",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "18",
+              "nombre": "S. Al-Brake",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "25",
+              "nombre": "A. Al-Hussain",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "20",
+              "nombre": "A. Fathy",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "17",
+              "nombre": "A. Al-Ganehi",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "21",
+              "nombre": "S. Zakaria",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "7",
+              "nombre": "A. Alaaeldin",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "12",
+              "nombre": "K. Boudiaf",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "6",
+              "nombre": "A. Hatem",
+              "pos": "SUB",
+              "titular": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "MEX-KOR",
+      "espnId": "760441",
+      "localSig": "MEX",
+      "visitanteSig": "KOR",
+      "localNom": "Mexico",
+      "visitanteNom": "South Korea",
+      "golesLocal": 1,
+      "golesVisitante": 0,
+      "fecha": "2026-06-19T01:00Z",
+      "grupo": "A",
+      "jugado": true,
+      "stats": {
+        "posesion": {
+          "local": "42.4",
+          "visitante": "57.6"
+        },
+        "tiros": {
+          "local": "4",
+          "visitante": "2"
+        },
+        "amarillas": {
+          "local": "0",
+          "visitante": "2"
+        },
+        "rojas": {
+          "local": "0",
+          "visitante": "0"
+        },
+        "faltas": {
+          "local": "9",
+          "visitante": "7"
+        }
+      },
+      "lineups": {
+        "local": {
+          "sig": "MEX",
+          "nom": "Mexico",
+          "jugadores": [
+            {
+              "num": "1",
+              "nombre": "R. Rangel",
+              "pos": "G",
+              "titular": true
+            },
+            {
+              "num": "5",
+              "nombre": "J. Vásquez",
+              "pos": "CD-L",
+              "titular": true
+            },
+            {
+              "num": "4",
+              "nombre": "E. Álvarez",
+              "pos": "CD-R",
+              "titular": true
+            },
+            {
+              "num": "23",
+              "nombre": "J. Gallardo",
+              "pos": "LB",
+              "titular": true
+            },
+            {
+              "num": "2",
+              "nombre": "J. Sánchez",
+              "pos": "RB",
+              "titular": true
+            },
+            {
+              "num": "6",
+              "nombre": "É. Lira",
+              "pos": "CM",
+              "titular": true
+            },
+            {
+              "num": "7",
+              "nombre": "L. Romo",
+              "pos": "LM",
+              "titular": true
+            },
+            {
+              "num": "26",
+              "nombre": "B. Gutiérrez",
+              "pos": "RM",
+              "titular": true
+            },
+            {
+              "num": "9",
+              "nombre": "R. Jiménez",
+              "pos": "F",
+              "titular": true
+            },
+            {
+              "num": "16",
+              "nombre": "J. Quiñones",
+              "pos": "LF",
+              "titular": true
+            },
+            {
+              "num": "25",
+              "nombre": "R. Alvarado",
+              "pos": "RF",
+              "titular": true
+            },
+            {
+              "num": "20",
+              "nombre": "M. Chávez",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "18",
+              "nombre": "O. Vargas",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "8",
+              "nombre": "Á. Fidalgo",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "19",
+              "nombre": "G. Mora",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "11",
+              "nombre": "S. Gimenez",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "12",
+              "nombre": "C. Acevedo",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "15",
+              "nombre": "I. Reyes",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "21",
+              "nombre": "C. Huerta",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "17",
+              "nombre": "O. Pineda",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "22",
+              "nombre": "G. Martínez",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "24",
+              "nombre": "L. Chávez",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "14",
+              "nombre": "A. González",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "13",
+              "nombre": "G. Ochoa",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "10",
+              "nombre": "A. Vega",
+              "pos": "SUB",
+              "titular": false
+            }
+          ]
+        },
+        "visitante": {
+          "sig": "KOR",
+          "nom": "South Korea",
+          "jugadores": [
+            {
+              "num": "1",
+              "nombre": "K. Seung-Gyu",
+              "pos": "G",
+              "titular": true
+            },
+            {
+              "num": "4",
+              "nombre": "K. Min-Jae",
+              "pos": "CD",
+              "titular": true
+            },
+            {
+              "num": "3",
+              "nombre": "L. Gi-Hyuk",
+              "pos": "CD-L",
+              "titular": true
+            },
+            {
+              "num": "2",
+              "nombre": "L. Han-Beom",
+              "pos": "CD-R",
+              "titular": true
+            },
+            {
+              "num": "8",
+              "nombre": "P. Seung-Ho",
+              "pos": "CM-L",
+              "titular": true
+            },
+            {
+              "num": "6",
+              "nombre": "H. In-Beom",
+              "pos": "CM-R",
+              "titular": true
+            },
+            {
+              "num": "22",
+              "nombre": "S. Young-Woo",
+              "pos": "LM",
+              "titular": true
+            },
+            {
+              "num": "15",
+              "nombre": "K. Moon-Hwan",
+              "pos": "RM",
+              "titular": true
+            },
+            {
+              "num": "7",
+              "nombre": "S. Heung-Min",
+              "pos": "F",
+              "titular": true
+            },
+            {
+              "num": "10",
+              "nombre": "L. Jae-Sung",
+              "pos": "CF-L",
+              "titular": true
+            },
+            {
+              "num": "19",
+              "nombre": "L. Kang-In",
+              "pos": "CF-R",
+              "titular": true
+            },
+            {
+              "num": "21",
+              "nombre": "J. Hyeon-Woo",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "14",
+              "nombre": "C. Wi-Je",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "23",
+              "nombre": "J. Castrop",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "18",
+              "nombre": "O. Hyeon-Gyu",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "13",
+              "nombre": "L. Tae-Seok",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "5",
+              "nombre": "K. Tae-Hyeon",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "25",
+              "nombre": "E. Ji-Sung",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "11",
+              "nombre": "H. Hee-Chan",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "9",
+              "nombre": "C. Gue-Sung",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "17",
+              "nombre": "B. Jun-Ho",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "26",
+              "nombre": "L. Dong-Gyeong",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "12",
+              "nombre": "S. Bum-Keun",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "20",
+              "nombre": "Y. Hyun-Jun",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "16",
+              "nombre": "P. Jin-Seop",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "24",
+              "nombre": "K. Jin-Gyu",
+              "pos": "SUB",
+              "titular": false
+            }
+          ]
+        }
+      }
     }
   ],
   "standings": {
@@ -9327,23 +10037,23 @@
       {
         "sig": "MEX",
         "nom": "México",
-        "pj": 1,
-        "pg": 1,
+        "pj": 2,
+        "pg": 2,
         "pe": 0,
         "pp": 0,
-        "gf": 2,
+        "gf": 3,
         "gc": 0,
-        "pts": 3
+        "pts": 6
       },
       {
         "sig": "KOR",
         "nom": "Corea del Sur",
-        "pj": 1,
+        "pj": 2,
         "pg": 1,
         "pe": 0,
-        "pp": 0,
+        "pp": 1,
         "gf": 2,
-        "gc": 1,
+        "gc": 2,
         "pts": 3
       },
       {
@@ -9371,6 +10081,17 @@
     ],
     "B": [
       {
+        "sig": "CAN",
+        "nom": "Canadá",
+        "pj": 2,
+        "pg": 1,
+        "pe": 1,
+        "pp": 0,
+        "gf": 7,
+        "gc": 1,
+        "pts": 4
+      },
+      {
         "sig": "SUI",
         "nom": "Suiza",
         "pj": 2,
@@ -9382,28 +10103,6 @@
         "pts": 4
       },
       {
-        "sig": "CAN",
-        "nom": "Canadá",
-        "pj": 1,
-        "pg": 0,
-        "pe": 1,
-        "pp": 0,
-        "gf": 1,
-        "gc": 1,
-        "pts": 1
-      },
-      {
-        "sig": "QAT",
-        "nom": "Catar",
-        "pj": 1,
-        "pg": 0,
-        "pe": 1,
-        "pp": 0,
-        "gf": 1,
-        "gc": 1,
-        "pts": 1
-      },
-      {
         "sig": "BIH",
         "nom": "Bosnia",
         "pj": 2,
@@ -9412,6 +10111,17 @@
         "pp": 1,
         "gf": 2,
         "gc": 5,
+        "pts": 1
+      },
+      {
+        "sig": "QAT",
+        "nom": "Catar",
+        "pj": 2,
+        "pg": 0,
+        "pe": 1,
+        "pp": 1,
+        "gf": 1,
+        "gc": 7,
         "pts": 1
       }
     ],
@@ -9877,107 +10587,6 @@
     ]
   },
   "previas": {
-    "SUI-BIH": {
-      "lambdaLocal": 2.913,
-      "lambdaVisitante": 1.093,
-      "xGLocal": 2.91,
-      "xGVisitante": 1.09,
-      "probLocal": 74,
-      "probEmpate": 14,
-      "probVisitante": 11,
-      "probOver25": 76,
-      "probBTTS": 63,
-      "probCS_local": 34,
-      "probCS_visitante": 5,
-      "formaLocal": [
-        "V",
-        "E"
-      ],
-      "formaVisitante": [
-        "D",
-        "E"
-      ],
-      "golesXP_local": 2.5,
-      "golesXP_visitante": 1,
-      "bttsPorc_local": 67,
-      "bttsPorc_visitante": 67,
-      "over25Porc_local": 49,
-      "over25Porc_visitante": 49,
-      "csPorc_local": 21,
-      "csPorc_visitante": 21,
-      "cornersXP_local": 7,
-      "cornersXP_visitante": 5.5,
-      "amarillasXP_local": 1,
-      "amarillasXP_visitante": 2.5,
-      "basadoEn": "4 partidos del Mundial 2026 + priors FIFA",
-      "nPartidosUsados": 4
-    },
-    "CAN-QAT": {
-      "lambdaLocal": 2.134,
-      "lambdaVisitante": 1.054,
-      "xGLocal": 2.13,
-      "xGVisitante": 1.05,
-      "probLocal": 62,
-      "probEmpate": 20,
-      "probVisitante": 18,
-      "probOver25": 62,
-      "probBTTS": 57,
-      "probCS_local": 35,
-      "probCS_visitante": 12,
-      "formaLocal": [
-        "E"
-      ],
-      "formaVisitante": [
-        "E"
-      ],
-      "golesXP_local": 1,
-      "golesXP_visitante": 1,
-      "bttsPorc_local": 60,
-      "bttsPorc_visitante": 60,
-      "over25Porc_local": 38,
-      "over25Porc_visitante": 38,
-      "csPorc_local": 26,
-      "csPorc_visitante": 26,
-      "cornersXP_local": 6.8,
-      "cornersXP_visitante": 3.9,
-      "amarillasXP_local": 2,
-      "amarillasXP_visitante": 2,
-      "basadoEn": "2 partidos del Mundial 2026 + priors FIFA",
-      "nPartidosUsados": 2
-    },
-    "MEX-KOR": {
-      "lambdaLocal": 2.079,
-      "lambdaVisitante": 1.566,
-      "xGLocal": 2.08,
-      "xGVisitante": 1.57,
-      "probLocal": 50,
-      "probEmpate": 21,
-      "probVisitante": 29,
-      "probOver25": 70,
-      "probBTTS": 69,
-      "probCS_local": 21,
-      "probCS_visitante": 13,
-      "formaLocal": [
-        "V"
-      ],
-      "formaVisitante": [
-        "V"
-      ],
-      "golesXP_local": 2,
-      "golesXP_visitante": 2,
-      "bttsPorc_local": 40,
-      "bttsPorc_visitante": 60,
-      "over25Porc_local": 38,
-      "over25Porc_visitante": 58,
-      "csPorc_local": 46,
-      "csPorc_visitante": 26,
-      "cornersXP_local": 8.1,
-      "cornersXP_visitante": 6.5,
-      "amarillasXP_local": 1,
-      "amarillasXP_visitante": 1,
-      "basadoEn": "2 partidos del Mundial 2026 + priors FIFA",
-      "nPartidosUsados": 2
-    },
     "USA-AUS": {
       "lambdaLocal": 2.064,
       "lambdaVisitante": 1.525,
@@ -10639,72 +11248,74 @@
       "nPartidosUsados": 2
     },
     "SUI-CAN": {
-      "lambdaLocal": 2.127,
-      "lambdaVisitante": 1.376,
-      "xGLocal": 2.13,
-      "xGVisitante": 1.38,
-      "probLocal": 55,
+      "lambdaLocal": 1.773,
+      "lambdaVisitante": 1.988,
+      "xGLocal": 1.77,
+      "xGVisitante": 1.99,
+      "probLocal": 35,
       "probEmpate": 21,
-      "probVisitante": 25,
-      "probOver25": 68,
-      "probBTTS": 66,
-      "probCS_local": 25,
-      "probCS_visitante": 12,
+      "probVisitante": 44,
+      "probOver25": 72,
+      "probBTTS": 72,
+      "probCS_local": 14,
+      "probCS_visitante": 17,
       "formaLocal": [
         "V",
         "E"
       ],
       "formaVisitante": [
+        "V",
         "E"
       ],
       "golesXP_local": 2.5,
-      "golesXP_visitante": 1,
+      "golesXP_visitante": 3.5,
       "bttsPorc_local": 67,
-      "bttsPorc_visitante": 60,
+      "bttsPorc_visitante": 50,
       "over25Porc_local": 49,
-      "over25Porc_visitante": 38,
+      "over25Porc_visitante": 49,
       "csPorc_local": 21,
-      "csPorc_visitante": 26,
+      "csPorc_visitante": 38,
       "cornersXP_local": 7,
       "cornersXP_visitante": 6.8,
       "amarillasXP_local": 1,
-      "amarillasXP_visitante": 2,
-      "basadoEn": "3 partidos del Mundial 2026 + priors FIFA",
-      "nPartidosUsados": 3
+      "amarillasXP_visitante": 1.5,
+      "basadoEn": "4 partidos del Mundial 2026 + priors FIFA",
+      "nPartidosUsados": 4
     },
     "BIH-QAT": {
-      "lambdaLocal": 1.696,
-      "lambdaVisitante": 1.443,
-      "xGLocal": 1.7,
-      "xGVisitante": 1.44,
-      "probLocal": 44,
-      "probEmpate": 23,
-      "probVisitante": 33,
-      "probOver25": 61,
-      "probBTTS": 62,
-      "probCS_local": 24,
-      "probCS_visitante": 18,
+      "lambdaLocal": 2.354,
+      "lambdaVisitante": 1.203,
+      "xGLocal": 2.35,
+      "xGVisitante": 1.2,
+      "probLocal": 63,
+      "probEmpate": 19,
+      "probVisitante": 18,
+      "probOver25": 69,
+      "probBTTS": 63,
+      "probCS_local": 30,
+      "probCS_visitante": 9,
       "formaLocal": [
         "D",
         "E"
       ],
       "formaVisitante": [
+        "D",
         "E"
       ],
       "golesXP_local": 1,
-      "golesXP_visitante": 1,
+      "golesXP_visitante": 0.5,
       "bttsPorc_local": 67,
-      "bttsPorc_visitante": 60,
+      "bttsPorc_visitante": 50,
       "over25Porc_local": 49,
-      "over25Porc_visitante": 38,
+      "over25Porc_visitante": 49,
       "csPorc_local": 21,
-      "csPorc_visitante": 26,
+      "csPorc_visitante": 21,
       "cornersXP_local": 5.5,
       "cornersXP_visitante": 3.9,
       "amarillasXP_local": 2.5,
-      "amarillasXP_visitante": 2,
-      "basadoEn": "3 partidos del Mundial 2026 + priors FIFA",
-      "nPartidosUsados": 3
+      "amarillasXP_visitante": 1.5,
+      "basadoEn": "4 partidos del Mundial 2026 + priors FIFA",
+      "nPartidosUsados": 4
     },
     "SCO-BRA": {
       "lambdaLocal": 1.095,
@@ -10773,72 +11384,74 @@
       "nPartidosUsados": 2
     },
     "CZE-MEX": {
-      "lambdaLocal": 1.265,
-      "lambdaVisitante": 2.172,
-      "xGLocal": 1.26,
-      "xGVisitante": 2.17,
-      "probLocal": 22,
-      "probEmpate": 20,
-      "probVisitante": 58,
-      "probOver25": 67,
-      "probBTTS": 64,
-      "probCS_local": 11,
-      "probCS_visitante": 28,
+      "lambdaLocal": 1.054,
+      "lambdaVisitante": 1.982,
+      "xGLocal": 1.05,
+      "xGVisitante": 1.98,
+      "probLocal": 20,
+      "probEmpate": 21,
+      "probVisitante": 59,
+      "probOver25": 58,
+      "probBTTS": 56,
+      "probCS_local": 14,
+      "probCS_visitante": 35,
       "formaLocal": [
         "E",
         "D"
       ],
       "formaVisitante": [
+        "V",
         "V"
       ],
       "golesXP_local": 1,
-      "golesXP_visitante": 2,
+      "golesXP_visitante": 1.5,
       "bttsPorc_local": 67,
-      "bttsPorc_visitante": 40,
+      "bttsPorc_visitante": 33,
       "over25Porc_local": 49,
-      "over25Porc_visitante": 38,
+      "over25Porc_visitante": 32,
       "csPorc_local": 21,
-      "csPorc_visitante": 46,
+      "csPorc_visitante": 55,
       "cornersXP_local": 6.2,
       "cornersXP_visitante": 8.1,
       "amarillasXP_local": 0.5,
-      "amarillasXP_visitante": 1,
-      "basadoEn": "3 partidos del Mundial 2026 + priors FIFA",
-      "nPartidosUsados": 3
+      "amarillasXP_visitante": 0.5,
+      "basadoEn": "4 partidos del Mundial 2026 + priors FIFA",
+      "nPartidosUsados": 4
     },
     "RSA-KOR": {
-      "lambdaLocal": 0.98,
-      "lambdaVisitante": 2.247,
-      "xGLocal": 0.98,
-      "xGVisitante": 2.25,
-      "probLocal": 15,
-      "probEmpate": 19,
-      "probVisitante": 66,
-      "probOver25": 63,
-      "probBTTS": 56,
-      "probCS_local": 11,
-      "probCS_visitante": 38,
+      "lambdaLocal": 0.937,
+      "lambdaVisitante": 1.872,
+      "xGLocal": 0.94,
+      "xGVisitante": 1.87,
+      "probLocal": 18,
+      "probEmpate": 22,
+      "probVisitante": 59,
+      "probOver25": 53,
+      "probBTTS": 51,
+      "probCS_local": 15,
+      "probCS_visitante": 39,
       "formaLocal": [
         "E",
         "D"
       ],
       "formaVisitante": [
+        "D",
         "V"
       ],
       "golesXP_local": 0.5,
-      "golesXP_visitante": 2,
+      "golesXP_visitante": 1,
       "bttsPorc_local": 50,
-      "bttsPorc_visitante": 60,
+      "bttsPorc_visitante": 50,
       "over25Porc_local": 32,
-      "over25Porc_visitante": 58,
+      "over25Porc_visitante": 49,
       "csPorc_local": 21,
-      "csPorc_visitante": 26,
+      "csPorc_visitante": 21,
       "cornersXP_local": 4.7,
       "cornersXP_visitante": 6.5,
       "amarillasXP_local": 2,
-      "amarillasXP_visitante": 1,
-      "basadoEn": "3 partidos del Mundial 2026 + priors FIFA",
-      "nPartidosUsados": 3
+      "amarillasXP_visitante": 1.5,
+      "basadoEn": "4 partidos del Mundial 2026 + priors FIFA",
+      "nPartidosUsados": 4
     },
     "CUW-CIV": {
       "lambdaLocal": 0.759,
