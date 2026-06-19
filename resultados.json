@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-19T19:16:07.316Z",
+  "lastUpdated": "2026-06-19T22:39:38.172Z",
   "partidos": [
     {
       "id": "MEX-RSA",
@@ -10030,6 +10030,361 @@
           ]
         }
       }
+    },
+    {
+      "id": "USA-AUS",
+      "espnId": "760442",
+      "localSig": "USA",
+      "visitanteSig": "AUS",
+      "localNom": "United States",
+      "visitanteNom": "Australia",
+      "golesLocal": 2,
+      "golesVisitante": 0,
+      "fecha": "2026-06-19T19:00Z",
+      "grupo": "D",
+      "jugado": true,
+      "stats": {
+        "posesion": {
+          "local": "62",
+          "visitante": "38"
+        },
+        "tiros": {
+          "local": "2",
+          "visitante": "2"
+        },
+        "amarillas": {
+          "local": "3",
+          "visitante": "4"
+        },
+        "rojas": {
+          "local": "0",
+          "visitante": "0"
+        },
+        "faltas": {
+          "local": "12",
+          "visitante": "16"
+        }
+      },
+      "lineups": {
+        "local": {
+          "sig": "USA",
+          "nom": "United States",
+          "jugadores": [
+            {
+              "num": "24",
+              "nombre": "M. Freese",
+              "pos": "G",
+              "titular": true
+            },
+            {
+              "num": "3",
+              "nombre": "C. Richards",
+              "pos": "CD",
+              "titular": true
+            },
+            {
+              "num": "13",
+              "nombre": "T. Ream",
+              "pos": "CD-L",
+              "titular": true
+            },
+            {
+              "num": "16",
+              "nombre": "A. Freeman",
+              "pos": "CD-R",
+              "titular": true
+            },
+            {
+              "num": "17",
+              "nombre": "M. Tillman",
+              "pos": "CM-L",
+              "titular": true
+            },
+            {
+              "num": "8",
+              "nombre": "W. McKennie",
+              "pos": "CM-R",
+              "titular": true
+            },
+            {
+              "num": "4",
+              "nombre": "T. Adams",
+              "pos": "AM",
+              "titular": true
+            },
+            {
+              "num": "5",
+              "nombre": "A. Robinson",
+              "pos": "LM",
+              "titular": true
+            },
+            {
+              "num": "2",
+              "nombre": "S. Dest",
+              "pos": "RM",
+              "titular": true
+            },
+            {
+              "num": "9",
+              "nombre": "R. Pepi",
+              "pos": "CF-L",
+              "titular": true
+            },
+            {
+              "num": "20",
+              "nombre": "F. Balogun",
+              "pos": "CF-R",
+              "titular": true
+            },
+            {
+              "num": "7",
+              "nombre": "G. Reyna",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "21",
+              "nombre": "T. Weah",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "12",
+              "nombre": "M. Robinson",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "22",
+              "nombre": "M. McKenzie",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "23",
+              "nombre": "J. Scally",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "18",
+              "nombre": "M. Arfsten",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "15",
+              "nombre": "C. Roldan",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "14",
+              "nombre": "S. Berhalter",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "1",
+              "nombre": "M. Turner",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "25",
+              "nombre": "C. Brady",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "6",
+              "nombre": "A. Trusty",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "19",
+              "nombre": "H. Wright",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "26",
+              "nombre": "A. Zendejas",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "11",
+              "nombre": "B. Aaronson",
+              "pos": "SUB",
+              "titular": false
+            }
+          ]
+        },
+        "visitante": {
+          "sig": "AUS",
+          "nom": "Australia",
+          "jugadores": [
+            {
+              "num": "18",
+              "nombre": "P. Beach",
+              "pos": "G",
+              "titular": true
+            },
+            {
+              "num": "19",
+              "nombre": "H. Souttar",
+              "pos": "CD",
+              "titular": true
+            },
+            {
+              "num": "21",
+              "nombre": "C. Burgess",
+              "pos": "CD-L",
+              "titular": true
+            },
+            {
+              "num": "3",
+              "nombre": "A. Circati",
+              "pos": "CD-R",
+              "titular": true
+            },
+            {
+              "num": "5",
+              "nombre": "J. Bos",
+              "pos": "LB",
+              "titular": true
+            },
+            {
+              "num": "4",
+              "nombre": "J. Italiano",
+              "pos": "RB",
+              "titular": true
+            },
+            {
+              "num": "24",
+              "nombre": "P. Okon-Engstler",
+              "pos": "CM-L",
+              "titular": true
+            },
+            {
+              "num": "13",
+              "nombre": "A. O'Neill",
+              "pos": "CM-R",
+              "titular": true
+            },
+            {
+              "num": "23",
+              "nombre": "N. Velupillay",
+              "pos": "LM",
+              "titular": true
+            },
+            {
+              "num": "7",
+              "nombre": "M. Leckie",
+              "pos": "RM",
+              "titular": true
+            },
+            {
+              "num": "9",
+              "nombre": "M. Toure",
+              "pos": "F",
+              "titular": true
+            },
+            {
+              "num": "16",
+              "nombre": "A. Behich",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "15",
+              "nombre": "K. Trewin",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "8",
+              "nombre": "C. Metcalfe",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "11",
+              "nombre": "A. Mabil",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "25",
+              "nombre": "L. Herrington",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "10",
+              "nombre": "A. Hrustic",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "2",
+              "nombre": "M. Degenek",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "6",
+              "nombre": "J. Geria",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "17",
+              "nombre": "N. Irankunda",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "26",
+              "nombre": "T. Yengi",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "1",
+              "nombre": "M. Ryan",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "14",
+              "nombre": "C. Devlin",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "22",
+              "nombre": "J. Irvine",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "12",
+              "nombre": "P. Izzo",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "20",
+              "nombre": "C. Volpato",
+              "pos": "SUB",
+              "titular": false
+            }
+          ]
+        }
+      }
     }
   ],
   "standings": {
@@ -10175,23 +10530,23 @@
       {
         "sig": "USA",
         "nom": "Estados Unidos",
-        "pj": 1,
-        "pg": 1,
+        "pj": 2,
+        "pg": 2,
         "pe": 0,
         "pp": 0,
-        "gf": 4,
+        "gf": 6,
         "gc": 1,
-        "pts": 3
+        "pts": 6
       },
       {
         "sig": "AUS",
         "nom": "Australia",
-        "pj": 1,
+        "pj": 2,
         "pg": 1,
         "pe": 0,
-        "pp": 0,
+        "pp": 1,
         "gf": 2,
-        "gc": 0,
+        "gc": 2,
         "pts": 3
       },
       {
@@ -10587,39 +10942,6 @@
     ]
   },
   "previas": {
-    "USA-AUS": {
-      "lambdaLocal": 2.064,
-      "lambdaVisitante": 1.525,
-      "xGLocal": 2.06,
-      "xGVisitante": 1.52,
-      "probLocal": 50,
-      "probEmpate": 21,
-      "probVisitante": 29,
-      "probOver25": 69,
-      "probBTTS": 68,
-      "probCS_local": 22,
-      "probCS_visitante": 13,
-      "formaLocal": [
-        "V"
-      ],
-      "formaVisitante": [
-        "V"
-      ],
-      "golesXP_local": 4,
-      "golesXP_visitante": 2,
-      "bttsPorc_local": 60,
-      "bttsPorc_visitante": 40,
-      "over25Porc_local": 58,
-      "over25Porc_visitante": 38,
-      "csPorc_local": 26,
-      "csPorc_visitante": 46,
-      "cornersXP_local": 7.3,
-      "cornersXP_visitante": 5.7,
-      "amarillasXP_local": 1,
-      "amarillasXP_visitante": 0,
-      "basadoEn": "2 partidos del Mundial 2026 + priors FIFA",
-      "nPartidosUsados": 2
-    },
     "SCO-MAR": {
       "lambdaLocal": 1.212,
       "lambdaVisitante": 1.281,
@@ -11586,70 +11908,72 @@
       "nPartidosUsados": 2
     },
     "TUR-USA": {
-      "lambdaLocal": 1.304,
-      "lambdaVisitante": 2.65,
-      "xGLocal": 1.3,
-      "xGVisitante": 2.65,
-      "probLocal": 17,
+      "lambdaLocal": 1.087,
+      "lambdaVisitante": 2.585,
+      "xGLocal": 1.09,
+      "xGVisitante": 2.58,
+      "probLocal": 14,
       "probEmpate": 17,
-      "probVisitante": 66,
-      "probOver25": 75,
-      "probBTTS": 68,
-      "probCS_local": 7,
-      "probCS_visitante": 27,
+      "probVisitante": 69,
+      "probOver25": 71,
+      "probBTTS": 61,
+      "probCS_local": 8,
+      "probCS_visitante": 34,
       "formaLocal": [
         "D"
       ],
       "formaVisitante": [
+        "V",
         "V"
       ],
       "golesXP_local": 0,
-      "golesXP_visitante": 4,
+      "golesXP_visitante": 3,
       "bttsPorc_local": 40,
-      "bttsPorc_visitante": 60,
+      "bttsPorc_visitante": 50,
       "over25Porc_local": 38,
-      "over25Porc_visitante": 58,
+      "over25Porc_visitante": 49,
       "csPorc_local": 26,
-      "csPorc_visitante": 26,
+      "csPorc_visitante": 38,
       "cornersXP_local": 6.5,
       "cornersXP_visitante": 7.3,
       "amarillasXP_local": 1,
-      "amarillasXP_visitante": 1,
-      "basadoEn": "2 partidos del Mundial 2026 + priors FIFA",
-      "nPartidosUsados": 2
+      "amarillasXP_visitante": 2,
+      "basadoEn": "3 partidos del Mundial 2026 + priors FIFA",
+      "nPartidosUsados": 3
     },
     "PAR-AUS": {
-      "lambdaLocal": 1.245,
-      "lambdaVisitante": 2.421,
-      "xGLocal": 1.25,
-      "xGVisitante": 2.42,
-      "probLocal": 18,
-      "probEmpate": 18,
-      "probVisitante": 63,
-      "probOver25": 71,
+      "lambdaLocal": 1.379,
+      "lambdaVisitante": 2.018,
+      "xGLocal": 1.38,
+      "xGVisitante": 2.02,
+      "probLocal": 26,
+      "probEmpate": 22,
+      "probVisitante": 52,
+      "probOver25": 66,
       "probBTTS": 65,
-      "probCS_local": 9,
-      "probCS_visitante": 29,
+      "probCS_local": 13,
+      "probCS_visitante": 25,
       "formaLocal": [
         "D"
       ],
       "formaVisitante": [
+        "D",
         "V"
       ],
       "golesXP_local": 1,
-      "golesXP_visitante": 2,
+      "golesXP_visitante": 1,
       "bttsPorc_local": 60,
-      "bttsPorc_visitante": 40,
+      "bttsPorc_visitante": 33,
       "over25Porc_local": 58,
-      "over25Porc_visitante": 38,
+      "over25Porc_visitante": 32,
       "csPorc_local": 26,
-      "csPorc_visitante": 46,
+      "csPorc_visitante": 38,
       "cornersXP_local": 5.7,
       "cornersXP_visitante": 5.7,
       "amarillasXP_local": 5,
-      "amarillasXP_visitante": 0,
-      "basadoEn": "2 partidos del Mundial 2026 + priors FIFA",
-      "nPartidosUsados": 2
+      "amarillasXP_visitante": 2,
+      "basadoEn": "3 partidos del Mundial 2026 + priors FIFA",
+      "nPartidosUsados": 3
     },
     "NOR-FRA": {
       "lambdaLocal": 1.788,
