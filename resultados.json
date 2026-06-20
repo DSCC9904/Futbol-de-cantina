@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-20T15:57:55.042Z",
+  "lastUpdated": "2026-06-20T20:51:59.602Z",
   "partidos": [
     {
       "id": "MEX-RSA",
@@ -11462,6 +11462,361 @@
           ]
         }
       }
+    },
+    {
+      "id": "NED-SWE",
+      "espnId": "760447",
+      "localSig": "NED",
+      "visitanteSig": "SWE",
+      "localNom": "Netherlands",
+      "visitanteNom": "Sweden",
+      "golesLocal": 5,
+      "golesVisitante": 1,
+      "fecha": "2026-06-20T17:00Z",
+      "grupo": "F",
+      "jugado": true,
+      "stats": {
+        "posesion": {
+          "local": "50.9",
+          "visitante": "49.1"
+        },
+        "tiros": {
+          "local": "7",
+          "visitante": "8"
+        },
+        "amarillas": {
+          "local": "0",
+          "visitante": "3"
+        },
+        "rojas": {
+          "local": "0",
+          "visitante": "0"
+        },
+        "faltas": {
+          "local": "9",
+          "visitante": "12"
+        }
+      },
+      "lineups": {
+        "local": {
+          "sig": "NED",
+          "nom": "Netherlands",
+          "jugadores": [
+            {
+              "num": "1",
+              "nombre": "B. Verbruggen",
+              "pos": "G",
+              "titular": true
+            },
+            {
+              "num": "4",
+              "nombre": "V. van Dijk",
+              "pos": "CD-L",
+              "titular": true
+            },
+            {
+              "num": "6",
+              "nombre": "J. van Hecke",
+              "pos": "CD-R",
+              "titular": true
+            },
+            {
+              "num": "15",
+              "nombre": "M. van de Ven",
+              "pos": "LB",
+              "titular": true
+            },
+            {
+              "num": "22",
+              "nombre": "D. Dumfries",
+              "pos": "RB",
+              "titular": true
+            },
+            {
+              "num": "21",
+              "nombre": "F. de Jong",
+              "pos": "CM",
+              "titular": true
+            },
+            {
+              "num": "14",
+              "nombre": "T. Reijnders",
+              "pos": "LM",
+              "titular": true
+            },
+            {
+              "num": "8",
+              "nombre": "R. Gravenberch",
+              "pos": "RM",
+              "titular": true
+            },
+            {
+              "num": "19",
+              "nombre": "B. Brobbey",
+              "pos": "F",
+              "titular": true
+            },
+            {
+              "num": "11",
+              "nombre": "C. Gakpo",
+              "pos": "LF",
+              "titular": true
+            },
+            {
+              "num": "18",
+              "nombre": "D. Malen",
+              "pos": "RF",
+              "titular": true
+            },
+            {
+              "num": "9",
+              "nombre": "W. Weghorst",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "5",
+              "nombre": "N. Aké",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "24",
+              "nombre": "C. Summerville",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "2",
+              "nombre": "L. Geertruida",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "3",
+              "nombre": "M. de Roon",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "13",
+              "nombre": "R. Roefs",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "12",
+              "nombre": "M. Wieffer",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "16",
+              "nombre": "G. Til",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "20",
+              "nombre": "T. Koopmeiners",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "17",
+              "nombre": "N. Lang",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "23",
+              "nombre": "M. Flekken",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "10",
+              "nombre": "M. Depay",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "25",
+              "nombre": "J. Hato",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "7",
+              "nombre": "J. Kluivert",
+              "pos": "SUB",
+              "titular": false
+            }
+          ]
+        },
+        "visitante": {
+          "sig": "SWE",
+          "nom": "Sweden",
+          "jugadores": [
+            {
+              "num": "14",
+              "nombre": "H. Ekdal",
+              "pos": "",
+              "titular": false
+            },
+            {
+              "num": "6",
+              "nombre": "H. Johansson",
+              "pos": "",
+              "titular": false
+            },
+            {
+              "num": "13",
+              "nombre": "K. Sema",
+              "pos": "",
+              "titular": false
+            },
+            {
+              "num": "26",
+              "nombre": "T. Ali",
+              "pos": "",
+              "titular": false
+            },
+            {
+              "num": "11",
+              "nombre": "A. Elanga",
+              "pos": "",
+              "titular": false
+            },
+            {
+              "num": "25",
+              "nombre": "G. Nilsson",
+              "pos": "",
+              "titular": false
+            },
+            {
+              "num": "24",
+              "nombre": "E. Stroud",
+              "pos": "",
+              "titular": false
+            },
+            {
+              "num": "20",
+              "nombre": "E. Smith",
+              "pos": "",
+              "titular": false
+            },
+            {
+              "num": "15",
+              "nombre": "C. Starfelt",
+              "pos": "",
+              "titular": false
+            },
+            {
+              "num": "1",
+              "nombre": "J. Widell Zetterström",
+              "pos": "",
+              "titular": false
+            },
+            {
+              "num": "12",
+              "nombre": "V. Johansson",
+              "pos": "",
+              "titular": false
+            },
+            {
+              "num": "19",
+              "nombre": "M. Svanberg",
+              "pos": "",
+              "titular": false
+            },
+            {
+              "num": "7",
+              "nombre": "L. Bergvall",
+              "pos": "",
+              "titular": false
+            },
+            {
+              "num": "22",
+              "nombre": "B. Zeneli",
+              "pos": "",
+              "titular": false
+            },
+            {
+              "num": "8",
+              "nombre": "D. Svensson",
+              "pos": "",
+              "titular": false
+            },
+            {
+              "num": "23",
+              "nombre": "K. Nordfeldt",
+              "pos": "G",
+              "titular": true
+            },
+            {
+              "num": "4",
+              "nombre": "I. Hien",
+              "pos": "CD",
+              "titular": true
+            },
+            {
+              "num": "3",
+              "nombre": "V. Lindelöf",
+              "pos": "CD-L",
+              "titular": true
+            },
+            {
+              "num": "2",
+              "nombre": "G. Lagerbielke",
+              "pos": "CD-R",
+              "titular": true
+            },
+            {
+              "num": "16",
+              "nombre": "J. Karlström",
+              "pos": "SW",
+              "titular": true
+            },
+            {
+              "num": "18",
+              "nombre": "Y. Ayari",
+              "pos": "CM-L",
+              "titular": true
+            },
+            {
+              "num": "10",
+              "nombre": "B. Nygren",
+              "pos": "CM-R",
+              "titular": true
+            },
+            {
+              "num": "5",
+              "nombre": "G. Gudmundsson",
+              "pos": "LM",
+              "titular": true
+            },
+            {
+              "num": "21",
+              "nombre": "A. Bernhardsson",
+              "pos": "RM",
+              "titular": true
+            },
+            {
+              "num": "9",
+              "nombre": "A. Isak",
+              "pos": "CF-L",
+              "titular": true
+            },
+            {
+              "num": "17",
+              "nombre": "V. Gyökeres",
+              "pos": "CF-R",
+              "titular": true
+            }
+          ]
+        }
+      }
     }
   ],
   "standings": {
@@ -11697,26 +12052,26 @@
     ],
     "F": [
       {
-        "sig": "SWE",
-        "nom": "Suecia",
-        "pj": 1,
-        "pg": 1,
-        "pe": 0,
-        "pp": 0,
-        "gf": 5,
-        "gc": 1,
-        "pts": 3
-      },
-      {
         "sig": "NED",
         "nom": "Países Bajos",
-        "pj": 1,
-        "pg": 0,
+        "pj": 2,
+        "pg": 1,
         "pe": 1,
         "pp": 0,
-        "gf": 2,
-        "gc": 2,
-        "pts": 1
+        "gf": 7,
+        "gc": 3,
+        "pts": 4
+      },
+      {
+        "sig": "SWE",
+        "nom": "Suecia",
+        "pj": 2,
+        "pg": 1,
+        "pe": 0,
+        "pp": 1,
+        "gf": 6,
+        "gc": 6,
+        "pts": 3
       },
       {
         "sig": "JPN",
@@ -12020,37 +12375,39 @@
   },
   "previas": {
     "NED-SWE": {
-      "lambdaLocal": 2.099,
-      "lambdaVisitante": 2.362,
-      "xGLocal": 2.1,
-      "xGVisitante": 2.36,
-      "probLocal": 35,
-      "probEmpate": 19,
-      "probVisitante": 45,
-      "probOver25": 82,
-      "probBTTS": 79,
-      "probCS_local": 9,
-      "probCS_visitante": 12,
+      "lambdaLocal": 3.735,
+      "lambdaVisitante": 2.04,
+      "xGLocal": 3.73,
+      "xGVisitante": 2.04,
+      "probLocal": 68,
+      "probEmpate": 14,
+      "probVisitante": 18,
+      "probOver25": 91,
+      "probBTTS": 84,
+      "probCS_local": 13,
+      "probCS_visitante": 2,
       "formaLocal": [
+        "V",
         "E"
       ],
       "formaVisitante": [
+        "D",
         "V"
       ],
-      "golesXP_local": 2,
-      "golesXP_visitante": 5,
-      "bttsPorc_local": 60,
-      "bttsPorc_visitante": 60,
-      "over25Porc_local": 58,
-      "over25Porc_visitante": 58,
-      "csPorc_local": 26,
-      "csPorc_visitante": 26,
+      "golesXP_local": 3.5,
+      "golesXP_visitante": 3,
+      "bttsPorc_local": 67,
+      "bttsPorc_visitante": 67,
+      "over25Porc_local": 65,
+      "over25Porc_visitante": 65,
+      "csPorc_local": 21,
+      "csPorc_visitante": 21,
       "cornersXP_local": 8.6,
       "cornersXP_visitante": 6.8,
-      "amarillasXP_local": 3,
-      "amarillasXP_visitante": 0,
-      "basadoEn": "2 partidos del Mundial 2026 + priors FIFA",
-      "nPartidosUsados": 2
+      "amarillasXP_local": 1.5,
+      "amarillasXP_visitante": 1.5,
+      "basadoEn": "4 partidos del Mundial 2026 + priors FIFA",
+      "nPartidosUsados": 4
     },
     "GER-CIV": {
       "lambdaLocal": 2.932,
@@ -12824,70 +13181,72 @@
       "nPartidosUsados": 2
     },
     "JPN-SWE": {
-      "lambdaLocal": 1.734,
-      "lambdaVisitante": 2.459,
-      "xGLocal": 1.73,
-      "xGVisitante": 2.46,
-      "probLocal": 27,
+      "lambdaLocal": 2.553,
+      "lambdaVisitante": 2.218,
+      "xGLocal": 2.55,
+      "xGVisitante": 2.22,
+      "probLocal": 46,
       "probEmpate": 19,
-      "probVisitante": 54,
-      "probOver25": 79,
-      "probBTTS": 75,
-      "probCS_local": 9,
-      "probCS_visitante": 18,
+      "probVisitante": 35,
+      "probOver25": 85,
+      "probBTTS": 82,
+      "probCS_local": 11,
+      "probCS_visitante": 8,
       "formaLocal": [
         "E"
       ],
       "formaVisitante": [
+        "D",
         "V"
       ],
       "golesXP_local": 2,
-      "golesXP_visitante": 5,
+      "golesXP_visitante": 3,
       "bttsPorc_local": 60,
-      "bttsPorc_visitante": 60,
+      "bttsPorc_visitante": 67,
       "over25Porc_local": 58,
-      "over25Porc_visitante": 58,
+      "over25Porc_visitante": 65,
       "csPorc_local": 26,
-      "csPorc_visitante": 26,
+      "csPorc_visitante": 21,
       "cornersXP_local": 6.8,
       "cornersXP_visitante": 6.8,
       "amarillasXP_local": 0,
-      "amarillasXP_visitante": 0,
-      "basadoEn": "2 partidos del Mundial 2026 + priors FIFA",
-      "nPartidosUsados": 2
+      "amarillasXP_visitante": 1.5,
+      "basadoEn": "3 partidos del Mundial 2026 + priors FIFA",
+      "nPartidosUsados": 3
     },
     "TUN-NED": {
-      "lambdaLocal": 1.265,
-      "lambdaVisitante": 3.654,
-      "xGLocal": 1.26,
-      "xGVisitante": 3.65,
-      "probLocal": 9,
-      "probEmpate": 11,
-      "probVisitante": 79,
-      "probOver25": 86,
-      "probBTTS": 69,
-      "probCS_local": 3,
-      "probCS_visitante": 28,
+      "lambdaLocal": 1.211,
+      "lambdaVisitante": 4.415,
+      "xGLocal": 1.21,
+      "xGVisitante": 4.42,
+      "probLocal": 5,
+      "probEmpate": 7,
+      "probVisitante": 84,
+      "probOver25": 88,
+      "probBTTS": 67,
+      "probCS_local": 1,
+      "probCS_visitante": 30,
       "formaLocal": [
         "D"
       ],
       "formaVisitante": [
+        "V",
         "E"
       ],
       "golesXP_local": 1,
-      "golesXP_visitante": 2,
+      "golesXP_visitante": 3.5,
       "bttsPorc_local": 60,
-      "bttsPorc_visitante": 60,
+      "bttsPorc_visitante": 67,
       "over25Porc_local": 58,
-      "over25Porc_visitante": 58,
+      "over25Porc_visitante": 65,
       "csPorc_local": 26,
-      "csPorc_visitante": 26,
+      "csPorc_visitante": 21,
       "cornersXP_local": 5.2,
       "cornersXP_visitante": 8.6,
       "amarillasXP_local": 1,
-      "amarillasXP_visitante": 3,
-      "basadoEn": "2 partidos del Mundial 2026 + priors FIFA",
-      "nPartidosUsados": 2
+      "amarillasXP_visitante": 1.5,
+      "basadoEn": "3 partidos del Mundial 2026 + priors FIFA",
+      "nPartidosUsados": 3
     },
     "TUR-USA": {
       "lambdaLocal": 0.906,
