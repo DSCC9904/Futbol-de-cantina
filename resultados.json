@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-25T10:23:07.435Z",
+  "lastUpdated": "2026-06-25T17:34:09.085Z",
   "partidos": [
     {
       "id": "MEX-RSA",
@@ -1919,7 +1919,7 @@
             },
             {
               "num": "23",
-              "nombre": "Ederson ",
+              "nombre": "Ederson",
               "pos": "SUB",
               "titular": false
             },
@@ -3808,7 +3808,7 @@
           "jugadores": [
             {
               "num": "1",
-              "nombre": "H. Galíndez",
+              "nombre": "H. Gal��ndez",
               "pos": "G",
               "titular": true
             },
@@ -4398,7 +4398,7 @@
             },
             {
               "num": "16",
-              "nombre": "Rodri ",
+              "nombre": "Rodri",
               "pos": "CM",
               "titular": true
             },
@@ -10914,7 +10914,7 @@
             },
             {
               "num": "23",
-              "nombre": "Ederson ",
+              "nombre": "Ederson",
               "pos": "SUB",
               "titular": false
             },
@@ -12960,7 +12960,7 @@
             },
             {
               "num": "16",
-              "nombre": "Rodri ",
+              "nombre": "Rodri",
               "pos": "CM",
               "titular": true
             },
@@ -18525,7 +18525,7 @@
             },
             {
               "num": "23",
-              "nombre": "Ederson ",
+              "nombre": "Ederson",
               "pos": "SUB",
               "titular": false
             },
