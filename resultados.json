@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-25T23:01:38.678Z",
+  "lastUpdated": "2026-06-26T10:38:43.757Z",
   "partidos": [
     {
       "id": "MEX-RSA",
@@ -19311,8 +19311,8 @@
       "jugado": true,
       "stats": {
         "posesion": {
-          "local": "36.6",
-          "visitante": "63.4"
+          "local": "36.7",
+          "visitante": "63.3"
         },
         "tiros": {
           "local": "2",
@@ -20006,6 +20006,1408 @@
           ]
         }
       }
+    },
+    {
+      "id": "JPN-SWE",
+      "espnId": "760471",
+      "localSig": "JPN",
+      "visitanteSig": "SWE",
+      "localNom": "Japan",
+      "visitanteNom": "Sweden",
+      "golesLocal": 1,
+      "golesVisitante": 1,
+      "fecha": "2026-06-25T23:00Z",
+      "grupo": "F",
+      "jugado": true,
+      "stats": {
+        "posesion": {
+          "local": "52.3",
+          "visitante": "47.7"
+        },
+        "tiros": {
+          "local": "3",
+          "visitante": "5"
+        },
+        "amarillas": {
+          "local": "1",
+          "visitante": "2"
+        },
+        "rojas": {
+          "local": "0",
+          "visitante": "0"
+        },
+        "faltas": {
+          "local": "20",
+          "visitante": "11"
+        }
+      },
+      "lineups": {
+        "local": {
+          "sig": "JPN",
+          "nom": "Japan",
+          "jugadores": [
+            {
+              "num": "1",
+              "nombre": "Z. Suzuki",
+              "pos": "G",
+              "titular": true
+            },
+            {
+              "num": "4",
+              "nombre": "K. Itakura",
+              "pos": "CD",
+              "titular": true
+            },
+            {
+              "num": "21",
+              "nombre": "H. Ito",
+              "pos": "CD-L",
+              "titular": true
+            },
+            {
+              "num": "20",
+              "nombre": "A. Seko",
+              "pos": "CD-R",
+              "titular": true
+            },
+            {
+              "num": "15",
+              "nombre": "D. Kamada",
+              "pos": "CM-L",
+              "titular": true
+            },
+            {
+              "num": "7",
+              "nombre": "A. Tanaka",
+              "pos": "CM-R",
+              "titular": true
+            },
+            {
+              "num": "13",
+              "nombre": "K. Nakamura",
+              "pos": "LM",
+              "titular": true
+            },
+            {
+              "num": "2",
+              "nombre": "Y. Sugawara",
+              "pos": "RM",
+              "titular": true
+            },
+            {
+              "num": "18",
+              "nombre": "A. Ueda",
+              "pos": "F",
+              "titular": true
+            },
+            {
+              "num": "11",
+              "nombre": "D. Maeda",
+              "pos": "CF-L",
+              "titular": true
+            },
+            {
+              "num": "10",
+              "nombre": "R. Doan",
+              "pos": "CF-R",
+              "titular": true
+            },
+            {
+              "num": "14",
+              "nombre": "J. Ito",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "6",
+              "nombre": "S. Machino",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "26",
+              "nombre": "K. Shiogai",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "19",
+              "nombre": "K. Ogawa",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "22",
+              "nombre": "T. Tomiyasu",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "23",
+              "nombre": "T. Hayakawa",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "5",
+              "nombre": "Y. Nagatomo",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "12",
+              "nombre": "K. Osako",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "16",
+              "nombre": "T. Watanabe",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "24",
+              "nombre": "K. Sano",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "9",
+              "nombre": "K. Goto",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "3",
+              "nombre": "S. Taniguchi",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "25",
+              "nombre": "J. Suzuki",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "17",
+              "nombre": "Y. Suzuki",
+              "pos": "SUB",
+              "titular": false
+            }
+          ]
+        },
+        "visitante": {
+          "sig": "SWE",
+          "nom": "Sweden",
+          "jugadores": [
+            {
+              "num": "1",
+              "nombre": "J. Widell Zetterström",
+              "pos": "G",
+              "titular": true
+            },
+            {
+              "num": "4",
+              "nombre": "I. Hien",
+              "pos": "CD",
+              "titular": true
+            },
+            {
+              "num": "5",
+              "nombre": "G. Gudmundsson",
+              "pos": "CD-L",
+              "titular": true
+            },
+            {
+              "num": "2",
+              "nombre": "G. Lagerbielke",
+              "pos": "CD-R",
+              "titular": true
+            },
+            {
+              "num": "18",
+              "nombre": "Y. Ayari",
+              "pos": "CM-L",
+              "titular": true
+            },
+            {
+              "num": "3",
+              "nombre": "V. Lindelöf",
+              "pos": "CM-R",
+              "titular": true
+            },
+            {
+              "num": "24",
+              "nombre": "E. Stroud",
+              "pos": "LM",
+              "titular": true
+            },
+            {
+              "num": "21",
+              "nombre": "A. Bernhardsson",
+              "pos": "RM",
+              "titular": true
+            },
+            {
+              "num": "17",
+              "nombre": "V. Gyökeres",
+              "pos": "F",
+              "titular": true
+            },
+            {
+              "num": "9",
+              "nombre": "A. Isak",
+              "pos": "CF-L",
+              "titular": true
+            },
+            {
+              "num": "11",
+              "nombre": "A. Elanga",
+              "pos": "CF-R",
+              "titular": true
+            },
+            {
+              "num": "7",
+              "nombre": "L. Bergvall",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "26",
+              "nombre": "T. Ali",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "8",
+              "nombre": "D. Svensson",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "14",
+              "nombre": "H. Ekdal",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "20",
+              "nombre": "E. Smith",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "6",
+              "nombre": "H. Johansson",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "16",
+              "nombre": "J. Karlström",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "25",
+              "nombre": "G. Nilsson",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "23",
+              "nombre": "K. Nordfeldt",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "22",
+              "nombre": "B. Zeneli",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "10",
+              "nombre": "B. Nygren",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "12",
+              "nombre": "V. Johansson",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "13",
+              "nombre": "K. Sema",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "15",
+              "nombre": "C. Starfelt",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "19",
+              "nombre": "M. Svanberg",
+              "pos": "SUB",
+              "titular": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "TUN-NED",
+      "espnId": "760472",
+      "localSig": "TUN",
+      "visitanteSig": "NED",
+      "localNom": "Tunisia",
+      "visitanteNom": "Netherlands",
+      "golesLocal": 1,
+      "golesVisitante": 3,
+      "fecha": "2026-06-25T23:00Z",
+      "grupo": "F",
+      "jugado": true,
+      "stats": {
+        "posesion": {
+          "local": "28.6",
+          "visitante": "71.4"
+        },
+        "tiros": {
+          "local": "4",
+          "visitante": "7"
+        },
+        "amarillas": {
+          "local": "0",
+          "visitante": "0"
+        },
+        "rojas": {
+          "local": "0",
+          "visitante": "0"
+        },
+        "faltas": {
+          "local": "11",
+          "visitante": "10"
+        }
+      },
+      "lineups": {
+        "local": {
+          "sig": "TUN",
+          "nom": "Tunisia",
+          "jugadores": [
+            {
+              "num": "16",
+              "nombre": "A. Dahmen",
+              "pos": "G",
+              "titular": true
+            },
+            {
+              "num": "17",
+              "nombre": "E. Skhiri",
+              "pos": "CD",
+              "titular": true
+            },
+            {
+              "num": "21",
+              "nombre": "M. Ben Hamida",
+              "pos": "CD-L",
+              "titular": true
+            },
+            {
+              "num": "3",
+              "nombre": "M. Talbi",
+              "pos": "CD-R",
+              "titular": true
+            },
+            {
+              "num": "2",
+              "nombre": "A. Abdi",
+              "pos": "LB",
+              "titular": true
+            },
+            {
+              "num": "20",
+              "nombre": "Y. Valery",
+              "pos": "RB",
+              "titular": true
+            },
+            {
+              "num": "13",
+              "nombre": "R. Khedira",
+              "pos": "CM-L",
+              "titular": true
+            },
+            {
+              "num": "11",
+              "nombre": "I. Gharbi",
+              "pos": "CM-R",
+              "titular": true
+            },
+            {
+              "num": "10",
+              "nombre": "H. Mejbri",
+              "pos": "LM",
+              "titular": true
+            },
+            {
+              "num": "25",
+              "nombre": "A. Slimane",
+              "pos": "RM",
+              "titular": true
+            },
+            {
+              "num": "9",
+              "nombre": "H. Mastouri",
+              "pos": "F",
+              "titular": true
+            },
+            {
+              "num": "7",
+              "nombre": "E. Achouri",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "6",
+              "nombre": "D. Bronn",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "22",
+              "nombre": "S. Ben Hessen",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "14",
+              "nombre": "K. Ayari",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "4",
+              "nombre": "O. Rekik",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "26",
+              "nombre": "S. Tounekti",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "15",
+              "nombre": "M. Hadj Mahmoud",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "24",
+              "nombre": "R. Chikhaoui",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "1",
+              "nombre": "M. Chamakh",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "18",
+              "nombre": "R. Elloumi",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "19",
+              "nombre": "F. Chaouat",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "8",
+              "nombre": "E. Saad",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "12",
+              "nombre": "M. Ben Ouanes",
+              "pos": "SUB",
+              "titular": false
+            }
+          ]
+        },
+        "visitante": {
+          "sig": "NED",
+          "nom": "Netherlands",
+          "jugadores": [
+            {
+              "num": "1",
+              "nombre": "B. Verbruggen",
+              "pos": "G",
+              "titular": true
+            },
+            {
+              "num": "4",
+              "nombre": "V. van Dijk",
+              "pos": "CD-L",
+              "titular": true
+            },
+            {
+              "num": "6",
+              "nombre": "J. van Hecke",
+              "pos": "CD-R",
+              "titular": true
+            },
+            {
+              "num": "5",
+              "nombre": "N. Aké",
+              "pos": "LB",
+              "titular": true
+            },
+            {
+              "num": "22",
+              "nombre": "D. Dumfries",
+              "pos": "RB",
+              "titular": true
+            },
+            {
+              "num": "21",
+              "nombre": "F. de Jong",
+              "pos": "CM",
+              "titular": true
+            },
+            {
+              "num": "14",
+              "nombre": "T. Reijnders",
+              "pos": "LM",
+              "titular": true
+            },
+            {
+              "num": "8",
+              "nombre": "R. Gravenberch",
+              "pos": "RM",
+              "titular": true
+            },
+            {
+              "num": "19",
+              "nombre": "B. Brobbey",
+              "pos": "F",
+              "titular": true
+            },
+            {
+              "num": "11",
+              "nombre": "C. Gakpo",
+              "pos": "LF",
+              "titular": true
+            },
+            {
+              "num": "18",
+              "nombre": "D. Malen",
+              "pos": "RF",
+              "titular": true
+            },
+            {
+              "num": "15",
+              "nombre": "M. van de Ven",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "2",
+              "nombre": "L. Geertruida",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "9",
+              "nombre": "W. Weghorst",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "23",
+              "nombre": "M. Flekken",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "10",
+              "nombre": "M. Depay",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "26",
+              "nombre": "Q. Timber",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "7",
+              "nombre": "J. Kluivert",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "24",
+              "nombre": "C. Summerville",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "20",
+              "nombre": "T. Koopmeiners",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "17",
+              "nombre": "N. Lang",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "13",
+              "nombre": "R. Roefs",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "12",
+              "nombre": "M. Wieffer",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "16",
+              "nombre": "G. Til",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "3",
+              "nombre": "M. de Roon",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "25",
+              "nombre": "J. Hato",
+              "pos": "SUB",
+              "titular": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "PAR-AUS",
+      "espnId": "760469",
+      "localSig": "PAR",
+      "visitanteSig": "AUS",
+      "localNom": "Paraguay",
+      "visitanteNom": "Australia",
+      "golesLocal": 0,
+      "golesVisitante": 0,
+      "fecha": "2026-06-26T02:00Z",
+      "grupo": "D",
+      "jugado": true,
+      "stats": {
+        "posesion": {
+          "local": "44",
+          "visitante": "56"
+        },
+        "tiros": {
+          "local": "2",
+          "visitante": "5"
+        },
+        "amarillas": {
+          "local": "1",
+          "visitante": "1"
+        },
+        "rojas": {
+          "local": "0",
+          "visitante": "0"
+        },
+        "faltas": {
+          "local": "9",
+          "visitante": "6"
+        }
+      },
+      "lineups": {
+        "local": {
+          "sig": "PAR",
+          "nom": "Paraguay",
+          "jugadores": [
+            {
+              "num": "12",
+              "nombre": "O. Gil",
+              "pos": "G",
+              "titular": true
+            },
+            {
+              "num": "15",
+              "nombre": "G. Gómez",
+              "pos": "CD",
+              "titular": true
+            },
+            {
+              "num": "3",
+              "nombre": "O. Alderete",
+              "pos": "CD-L",
+              "titular": true
+            },
+            {
+              "num": "2",
+              "nombre": "G. Velázquez",
+              "pos": "CD-R",
+              "titular": true
+            },
+            {
+              "num": "26",
+              "nombre": "A. Maidana",
+              "pos": "LB",
+              "titular": true
+            },
+            {
+              "num": "4",
+              "nombre": "J. Cáceres",
+              "pos": "RB",
+              "titular": true
+            },
+            {
+              "num": "14",
+              "nombre": "A. Cubas",
+              "pos": "CM",
+              "titular": true
+            },
+            {
+              "num": "23",
+              "nombre": "M. Galarza",
+              "pos": "CM-L",
+              "titular": true
+            },
+            {
+              "num": "8",
+              "nombre": "D. Gómez",
+              "pos": "CM-R",
+              "titular": true
+            },
+            {
+              "num": "19",
+              "nombre": "J. Enciso",
+              "pos": "CF-L",
+              "titular": true
+            },
+            {
+              "num": "21",
+              "nombre": "G. Ávalos",
+              "pos": "CF-R",
+              "titular": true
+            },
+            {
+              "num": "22",
+              "nombre": "G. Olveira",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "24",
+              "nombre": "G. Caballero",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "7",
+              "nombre": "R. Sosa",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "16",
+              "nombre": "D. Bobadilla",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "20",
+              "nombre": "B. Ojeda",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "18",
+              "nombre": "A. Arce",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "6",
+              "nombre": "J. Alonso",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "9",
+              "nombre": "A. Sanabria",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "25",
+              "nombre": "I. Pitta",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "17",
+              "nombre": "A. Romero Gamarra",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "1",
+              "nombre": "G. Fernández",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "13",
+              "nombre": "J. Canale",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "5",
+              "nombre": "F. Balbuena",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "11",
+              "nombre": "Maurício",
+              "pos": "SUB",
+              "titular": false
+            }
+          ]
+        },
+        "visitante": {
+          "sig": "AUS",
+          "nom": "Australia",
+          "jugadores": [
+            {
+              "num": "18",
+              "nombre": "P. Beach",
+              "pos": "G",
+              "titular": true
+            },
+            {
+              "num": "19",
+              "nombre": "H. Souttar",
+              "pos": "CD",
+              "titular": true
+            },
+            {
+              "num": "25",
+              "nombre": "L. Herrington",
+              "pos": "CD-L",
+              "titular": true
+            },
+            {
+              "num": "3",
+              "nombre": "A. Circati",
+              "pos": "CD-R",
+              "titular": true
+            },
+            {
+              "num": "22",
+              "nombre": "J. Irvine",
+              "pos": "CM-L",
+              "titular": true
+            },
+            {
+              "num": "13",
+              "nombre": "A. O'Neill",
+              "pos": "CM-R",
+              "titular": true
+            },
+            {
+              "num": "16",
+              "nombre": "A. Behich",
+              "pos": "LM",
+              "titular": true
+            },
+            {
+              "num": "5",
+              "nombre": "J. Bos",
+              "pos": "RM",
+              "titular": true
+            },
+            {
+              "num": "17",
+              "nombre": "N. Irankunda",
+              "pos": "F",
+              "titular": true
+            },
+            {
+              "num": "8",
+              "nombre": "C. Metcalfe",
+              "pos": "CF-L",
+              "titular": true
+            },
+            {
+              "num": "20",
+              "nombre": "C. Volpato",
+              "pos": "CF-R",
+              "titular": true
+            },
+            {
+              "num": "12",
+              "nombre": "P. Izzo",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "1",
+              "nombre": "M. Ryan",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "21",
+              "nombre": "C. Burgess",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "23",
+              "nombre": "N. Velupillay",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "11",
+              "nombre": "A. Mabil",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "14",
+              "nombre": "C. Devlin",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "24",
+              "nombre": "P. Okon-Engstler",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "26",
+              "nombre": "T. Yengi",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "9",
+              "nombre": "M. Toure",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "10",
+              "nombre": "A. Hrustic",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "15",
+              "nombre": "K. Trewin",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "2",
+              "nombre": "M. Degenek",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "6",
+              "nombre": "J. Geria",
+              "pos": "SUB",
+              "titular": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "TUR-USA",
+      "espnId": "760470",
+      "localSig": "TUR",
+      "visitanteSig": "USA",
+      "localNom": "Türkiye",
+      "visitanteNom": "United States",
+      "golesLocal": 3,
+      "golesVisitante": 2,
+      "fecha": "2026-06-26T02:00Z",
+      "grupo": "D",
+      "jugado": true,
+      "stats": {
+        "posesion": {
+          "local": "47.4",
+          "visitante": "52.6"
+        },
+        "tiros": {
+          "local": "3",
+          "visitante": "7"
+        },
+        "amarillas": {
+          "local": "0",
+          "visitante": "1"
+        },
+        "rojas": {
+          "local": "0",
+          "visitante": "0"
+        },
+        "faltas": {
+          "local": "13",
+          "visitante": "13"
+        }
+      },
+      "lineups": {
+        "local": {
+          "sig": "TUR",
+          "nom": "Türkiye",
+          "jugadores": [
+            {
+              "num": "23",
+              "nombre": "U. Çakir",
+              "pos": "G",
+              "titular": true
+            },
+            {
+              "num": "15",
+              "nombre": "O. Kabak",
+              "pos": "CD",
+              "titular": true
+            },
+            {
+              "num": "14",
+              "nombre": "A. Bardakçi",
+              "pos": "CD-L",
+              "titular": true
+            },
+            {
+              "num": "2",
+              "nombre": "Z. Çelik",
+              "pos": "CD-R",
+              "titular": true
+            },
+            {
+              "num": "6",
+              "nombre": "O. Kökçü",
+              "pos": "CM-L",
+              "titular": true
+            },
+            {
+              "num": "5",
+              "nombre": "S. Özcan",
+              "pos": "CM-R",
+              "titular": true
+            },
+            {
+              "num": "13",
+              "nombre": "E. Elmali",
+              "pos": "LM",
+              "titular": true
+            },
+            {
+              "num": "24",
+              "nombre": "O. Aydin",
+              "pos": "RM",
+              "titular": true
+            },
+            {
+              "num": "21",
+              "nombre": "B. Yilmaz",
+              "pos": "F",
+              "titular": true
+            },
+            {
+              "num": "11",
+              "nombre": "K. Yildiz",
+              "pos": "CF-L",
+              "titular": true
+            },
+            {
+              "num": "8",
+              "nombre": "A. Güler",
+              "pos": "CF-R",
+              "titular": true
+            },
+            {
+              "num": "22",
+              "nombre": "K. Ayhan",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "25",
+              "nombre": "S. Akaydin",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "17",
+              "nombre": "I. Kahveci",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "1",
+              "nombre": "M. Günok",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "7",
+              "nombre": "K. Aktürkoglu",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "16",
+              "nombre": "I. Yüksek",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "9",
+              "nombre": "D. Gül",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "18",
+              "nombre": "M. Müldür",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "10",
+              "nombre": "H. Çalhanoglu",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "19",
+              "nombre": "Y. Akgün",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "26",
+              "nombre": "C. Uzun",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "12",
+              "nombre": "A. Bayindir",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "20",
+              "nombre": "F. Kadioglu",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "4",
+              "nombre": "Ç. Söyüncü",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "3",
+              "nombre": "M. Demiral",
+              "pos": "SUB",
+              "titular": false
+            }
+          ]
+        },
+        "visitante": {
+          "sig": "USA",
+          "nom": "United States",
+          "jugadores": [
+            {
+              "num": "1",
+              "nombre": "M. Turner",
+              "pos": "G",
+              "titular": true
+            },
+            {
+              "num": "22",
+              "nombre": "M. McKenzie",
+              "pos": "CD-L",
+              "titular": true
+            },
+            {
+              "num": "12",
+              "nombre": "M. Robinson",
+              "pos": "CD-R",
+              "titular": true
+            },
+            {
+              "num": "6",
+              "nombre": "A. Trusty",
+              "pos": "LB",
+              "titular": true
+            },
+            {
+              "num": "23",
+              "nombre": "J. Scally",
+              "pos": "RB",
+              "titular": true
+            },
+            {
+              "num": "14",
+              "nombre": "S. Berhalter",
+              "pos": "CM",
+              "titular": true
+            },
+            {
+              "num": "7",
+              "nombre": "G. Reyna",
+              "pos": "LM",
+              "titular": true
+            },
+            {
+              "num": "8",
+              "nombre": "W. McKennie",
+              "pos": "RM",
+              "titular": true
+            },
+            {
+              "num": "9",
+              "nombre": "R. Pepi",
+              "pos": "F",
+              "titular": true
+            },
+            {
+              "num": "21",
+              "nombre": "T. Weah",
+              "pos": "LF",
+              "titular": true
+            },
+            {
+              "num": "11",
+              "nombre": "B. Aaronson",
+              "pos": "RF",
+              "titular": true
+            },
+            {
+              "num": "13",
+              "nombre": "T. Ream",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "17",
+              "nombre": "M. Tillman",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "20",
+              "nombre": "F. Balogun",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "4",
+              "nombre": "T. Adams",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "18",
+              "nombre": "M. Arfsten",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "24",
+              "nombre": "M. Freese",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "10",
+              "nombre": "C. Pulisic",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "26",
+              "nombre": "A. Zendejas",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "2",
+              "nombre": "S. Dest",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "3",
+              "nombre": "C. Richards",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "19",
+              "nombre": "H. Wright",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "5",
+              "nombre": "A. Robinson",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "16",
+              "nombre": "A. Freeman",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "25",
+              "nombre": "C. Brady",
+              "pos": "SUB",
+              "titular": false
+            }
+          ]
+        }
+      }
     }
   ],
   "standings": {
@@ -20151,46 +21553,46 @@
       {
         "sig": "USA",
         "nom": "Estados Unidos",
-        "pj": 2,
+        "pj": 3,
         "pg": 2,
         "pe": 0,
-        "pp": 0,
-        "gf": 6,
-        "gc": 1,
+        "pp": 1,
+        "gf": 8,
+        "gc": 4,
         "pts": 6
       },
       {
         "sig": "AUS",
         "nom": "Australia",
-        "pj": 2,
+        "pj": 3,
         "pg": 1,
-        "pe": 0,
+        "pe": 1,
         "pp": 1,
         "gf": 2,
         "gc": 2,
-        "pts": 3
+        "pts": 4
       },
       {
         "sig": "PAR",
         "nom": "Paraguay",
-        "pj": 2,
+        "pj": 3,
         "pg": 1,
-        "pe": 0,
+        "pe": 1,
         "pp": 1,
         "gf": 2,
         "gc": 4,
-        "pts": 3
+        "pts": 4
       },
       {
         "sig": "TUR",
         "nom": "Turquía",
-        "pj": 2,
-        "pg": 0,
+        "pj": 3,
+        "pg": 1,
         "pe": 0,
         "pp": 2,
-        "gf": 0,
-        "gc": 3,
-        "pts": 0
+        "gf": 3,
+        "gc": 5,
+        "pts": 3
       }
     ],
     "E": [
@@ -20243,45 +21645,45 @@
       {
         "sig": "NED",
         "nom": "Países Bajos",
-        "pj": 2,
-        "pg": 1,
+        "pj": 3,
+        "pg": 2,
         "pe": 1,
         "pp": 0,
-        "gf": 7,
-        "gc": 3,
-        "pts": 4
+        "gf": 10,
+        "gc": 4,
+        "pts": 7
       },
       {
         "sig": "JPN",
         "nom": "Japón",
-        "pj": 2,
+        "pj": 3,
         "pg": 1,
-        "pe": 1,
+        "pe": 2,
         "pp": 0,
-        "gf": 6,
-        "gc": 2,
-        "pts": 4
+        "gf": 7,
+        "gc": 3,
+        "pts": 5
       },
       {
         "sig": "SWE",
         "nom": "Suecia",
-        "pj": 2,
+        "pj": 3,
         "pg": 1,
-        "pe": 0,
+        "pe": 1,
         "pp": 1,
-        "gf": 6,
-        "gc": 6,
-        "pts": 3
+        "gf": 7,
+        "gc": 7,
+        "pts": 4
       },
       {
         "sig": "TUN",
         "nom": "Túnez",
-        "pj": 2,
+        "pj": 3,
         "pg": 0,
         "pe": 0,
-        "pp": 2,
-        "gf": 1,
-        "gc": 9,
+        "pp": 3,
+        "gf": 2,
+        "gc": 12,
         "pts": 0
       }
     ],
@@ -20563,146 +21965,6 @@
     ]
   },
   "previas": {
-    "JPN-SWE": {
-      "lambdaLocal": 3.055,
-      "lambdaVisitante": 1.848,
-      "xGLocal": 3.06,
-      "xGVisitante": 1.85,
-      "probLocal": 62,
-      "probEmpate": 16,
-      "probVisitante": 22,
-      "probOver25": 86,
-      "probBTTS": 80,
-      "probCS_local": 16,
-      "probCS_visitante": 5,
-      "formaLocal": [
-        "V",
-        "E"
-      ],
-      "formaVisitante": [
-        "D",
-        "V"
-      ],
-      "golesXP_local": 3,
-      "golesXP_visitante": 3,
-      "bttsPorc_local": 50,
-      "bttsPorc_visitante": 67,
-      "over25Porc_local": 65,
-      "over25Porc_visitante": 65,
-      "csPorc_local": 38,
-      "csPorc_visitante": 21,
-      "cornersXP_local": 6.8,
-      "cornersXP_visitante": 6.8,
-      "amarillasXP_local": 0,
-      "amarillasXP_visitante": 1.5,
-      "basadoEn": "4 partidos del Mundial 2026 + priors FIFA",
-      "nPartidosUsados": 4
-    },
-    "TUN-NED": {
-      "lambdaLocal": 1.009,
-      "lambdaVisitante": 4.976,
-      "xGLocal": 1.01,
-      "xGVisitante": 4.98,
-      "probLocal": 2,
-      "probEmpate": 4,
-      "probVisitante": 87,
-      "probOver25": 87,
-      "probBTTS": 59,
-      "probCS_local": 1,
-      "probCS_visitante": 36,
-      "formaLocal": [
-        "D",
-        "D"
-      ],
-      "formaVisitante": [
-        "V",
-        "E"
-      ],
-      "golesXP_local": 0.5,
-      "golesXP_visitante": 3.5,
-      "bttsPorc_local": 50,
-      "bttsPorc_visitante": 67,
-      "over25Porc_local": 65,
-      "over25Porc_visitante": 65,
-      "csPorc_local": 21,
-      "csPorc_visitante": 21,
-      "cornersXP_local": 5.2,
-      "cornersXP_visitante": 8.6,
-      "amarillasXP_local": 0.5,
-      "amarillasXP_visitante": 1.5,
-      "basadoEn": "4 partidos del Mundial 2026 + priors FIFA",
-      "nPartidosUsados": 4
-    },
-    "TUR-USA": {
-      "lambdaLocal": 0.906,
-      "lambdaVisitante": 2.431,
-      "xGLocal": 0.91,
-      "xGVisitante": 2.43,
-      "probLocal": 12,
-      "probEmpate": 17,
-      "probVisitante": 71,
-      "probOver25": 65,
-      "probBTTS": 54,
-      "probCS_local": 9,
-      "probCS_visitante": 40,
-      "formaLocal": [
-        "D",
-        "D"
-      ],
-      "formaVisitante": [
-        "V",
-        "V"
-      ],
-      "golesXP_local": 0,
-      "golesXP_visitante": 3,
-      "bttsPorc_local": 33,
-      "bttsPorc_visitante": 50,
-      "over25Porc_local": 32,
-      "over25Porc_visitante": 49,
-      "csPorc_local": 21,
-      "csPorc_visitante": 38,
-      "cornersXP_local": 6.5,
-      "cornersXP_visitante": 7.3,
-      "amarillasXP_local": 1,
-      "amarillasXP_visitante": 2,
-      "basadoEn": "4 partidos del Mundial 2026 + priors FIFA",
-      "nPartidosUsados": 4
-    },
-    "PAR-AUS": {
-      "lambdaLocal": 1.312,
-      "lambdaVisitante": 1.681,
-      "xGLocal": 1.31,
-      "xGVisitante": 1.68,
-      "probLocal": 30,
-      "probEmpate": 24,
-      "probVisitante": 46,
-      "probOver25": 58,
-      "probBTTS": 59,
-      "probCS_local": 19,
-      "probCS_visitante": 27,
-      "formaLocal": [
-        "V",
-        "D"
-      ],
-      "formaVisitante": [
-        "D",
-        "V"
-      ],
-      "golesXP_local": 1,
-      "golesXP_visitante": 1,
-      "bttsPorc_local": 50,
-      "bttsPorc_visitante": 33,
-      "over25Porc_local": 49,
-      "over25Porc_visitante": 32,
-      "csPorc_local": 38,
-      "csPorc_visitante": 38,
-      "cornersXP_local": 5.7,
-      "cornersXP_visitante": 5.7,
-      "amarillasXP_local": 3,
-      "amarillasXP_visitante": 2,
-      "basadoEn": "4 partidos del Mundial 2026 + priors FIFA",
-      "nPartidosUsados": 4
-    },
     "NOR-FRA": {
       "lambdaLocal": 1.552,
       "lambdaVisitante": 2.644,
