@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-28T19:59:32.139Z",
+  "lastUpdated": "2026-06-28T23:55:30.085Z",
   "partidos": [
     {
       "id": "MEX-RSA",
@@ -7268,7 +7268,7 @@
             },
             {
               "num": "23",
-              "nombre": "Vitinha ",
+              "nombre": "Vitinha",
               "pos": "LM",
               "titular": true
             },
@@ -15824,7 +15824,7 @@
             },
             {
               "num": "23",
-              "nombre": "Vitinha ",
+              "nombre": "Vitinha",
               "pos": "LM",
               "titular": true
             },
@@ -19626,7 +19626,7 @@
             },
             {
               "num": "24",
-              "nombre": "B. Tour��",
+              "nombre": "B. Touré",
               "pos": "SUB",
               "titular": false
             },
@@ -24488,7 +24488,7 @@
             },
             {
               "num": "23",
-              "nombre": "Vitinha ",
+              "nombre": "Vitinha",
               "pos": "LM",
               "titular": true
             },
@@ -25680,6 +25680,355 @@
             {
               "num": "16",
               "nombre": "T. Almada",
+              "pos": "SUB",
+              "titular": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "RSA-CAN",
+      "espnId": "760486",
+      "localSig": "RSA",
+      "visitanteSig": "CAN",
+      "localNom": "South Africa",
+      "visitanteNom": "Canada",
+      "golesLocal": 0,
+      "golesVisitante": 1,
+      "fecha": "2026-06-28T19:00Z",
+      "grupo": "A",
+      "jugado": true,
+      "stats": {
+        "posesion": {
+          "local": "58.2",
+          "visitante": "41.8"
+        },
+        "tiros": {
+          "local": "1",
+          "visitante": "7"
+        },
+        "amarillas": {
+          "local": "0",
+          "visitante": "2"
+        },
+        "rojas": {
+          "local": "0",
+          "visitante": "0"
+        },
+        "faltas": {
+          "local": "10",
+          "visitante": "16"
+        }
+      },
+      "lineups": {
+        "local": {
+          "sig": "RSA",
+          "nom": "South Africa",
+          "jugadores": [
+            {
+              "num": "1",
+              "nombre": "R. Williams",
+              "pos": "G",
+              "titular": true
+            },
+            {
+              "num": "14",
+              "nombre": "M. Mbokazi",
+              "pos": "CD-L",
+              "titular": true
+            },
+            {
+              "num": "21",
+              "nombre": "I. Okon",
+              "pos": "CD-R",
+              "titular": true
+            },
+            {
+              "num": "6",
+              "nombre": "A. Modiba",
+              "pos": "LB",
+              "titular": true
+            },
+            {
+              "num": "20",
+              "nombre": "K. Mudau",
+              "pos": "RB",
+              "titular": true
+            },
+            {
+              "num": "10",
+              "nombre": "R. Mofokeng",
+              "pos": "AM",
+              "titular": true
+            },
+            {
+              "num": "13",
+              "nombre": "S. Sithole",
+              "pos": "LM",
+              "titular": true
+            },
+            {
+              "num": "4",
+              "nombre": "T. Mokoena",
+              "pos": "RM",
+              "titular": true
+            },
+            {
+              "num": "17",
+              "nombre": "E. Makgopa",
+              "pos": "F",
+              "titular": true
+            },
+            {
+              "num": "7",
+              "nombre": "O. Appollis",
+              "pos": "AM-L",
+              "titular": true
+            },
+            {
+              "num": "12",
+              "nombre": "T. Maseko",
+              "pos": "AM-R",
+              "titular": true
+            },
+            {
+              "num": "15",
+              "nombre": "I. Rayners",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "19",
+              "nombre": "N. Sibisi",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "25",
+              "nombre": "K. Sebelebele",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "23",
+              "nombre": "J. Adams",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "18",
+              "nombre": "S. Kabini",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "16",
+              "nombre": "S. Chaine",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "24",
+              "nombre": "O. Makhanya",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "8",
+              "nombre": "T. Moremi",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "26",
+              "nombre": "B. Cross",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "3",
+              "nombre": "K. Ndamane",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "2",
+              "nombre": "T. Matuludi",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "9",
+              "nombre": "L. Foster",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "5",
+              "nombre": "T. Mbatha",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "22",
+              "nombre": "R. Goss",
+              "pos": "SUB",
+              "titular": false
+            }
+          ]
+        },
+        "visitante": {
+          "sig": "CAN",
+          "nom": "Canada",
+          "jugadores": [
+            {
+              "num": "16",
+              "nombre": "M. Crépeau",
+              "pos": "G",
+              "titular": true
+            },
+            {
+              "num": "13",
+              "nombre": "D. Cornelius",
+              "pos": "CD-L",
+              "titular": true
+            },
+            {
+              "num": "15",
+              "nombre": "M. Bombito",
+              "pos": "CD-R",
+              "titular": true
+            },
+            {
+              "num": "22",
+              "nombre": "R. Laryea",
+              "pos": "LB",
+              "titular": true
+            },
+            {
+              "num": "2",
+              "nombre": "A. Johnston",
+              "pos": "RB",
+              "titular": true
+            },
+            {
+              "num": "7",
+              "nombre": "S. Eustáquio",
+              "pos": "CM-L",
+              "titular": true
+            },
+            {
+              "num": "25",
+              "nombre": "N. Saliba",
+              "pos": "CM-R",
+              "titular": true
+            },
+            {
+              "num": "11",
+              "nombre": "L. Millar",
+              "pos": "LM",
+              "titular": true
+            },
+            {
+              "num": "17",
+              "nombre": "T. Buchanan",
+              "pos": "RM",
+              "titular": true
+            },
+            {
+              "num": "12",
+              "nombre": "T. Oluwaseyi",
+              "pos": "CF-L",
+              "titular": true
+            },
+            {
+              "num": "10",
+              "nombre": "J. David",
+              "pos": "CF-R",
+              "titular": true
+            },
+            {
+              "num": "21",
+              "nombre": "J. Osorio",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "1",
+              "nombre": "D. St. Clair",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "14",
+              "nombre": "J. Shaffelburg",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "18",
+              "nombre": "O. Goodman",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "24",
+              "nombre": "P. David",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "26",
+              "nombre": "J. Nelson",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "20",
+              "nombre": "A. Ahmed",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "5",
+              "nombre": "J. Waterman",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "6",
+              "nombre": "M. Choinière",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "3",
+              "nombre": "A. Jones",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "4",
+              "nombre": "L. de Fougerolles",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "23",
+              "nombre": "N. Sigur",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "19",
+              "nombre": "A. Davies",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "9",
+              "nombre": "C. Larin",
               "pos": "SUB",
               "titular": false
             }
