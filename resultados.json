@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-28T23:55:30.085Z",
+  "lastUpdated": "2026-06-29T14:51:29.132Z",
   "partidos": [
     {
       "id": "MEX-RSA",
@@ -1877,7 +1877,7 @@
             },
             {
               "num": "11",
-              "nombre": "Raphinha ",
+              "nombre": "Raphinha",
               "pos": "AM",
               "titular": true
             },
@@ -4404,7 +4404,7 @@
             },
             {
               "num": "20",
-              "nombre": "Pedri ",
+              "nombre": "Pedri",
               "pos": "LM",
               "titular": true
             },
@@ -4422,7 +4422,7 @@
             },
             {
               "num": "9",
-              "nombre": "Gavi ",
+              "nombre": "Gavi",
               "pos": "LF",
               "titular": true
             },
@@ -10848,7 +10848,7 @@
             },
             {
               "num": "11",
-              "nombre": "Raphinha ",
+              "nombre": "Raphinha",
               "pos": "RF",
               "titular": true
             },
@@ -12966,7 +12966,7 @@
             },
             {
               "num": "20",
-              "nombre": "Pedri ",
+              "nombre": "Pedri",
               "pos": "LM",
               "titular": true
             },
@@ -13026,7 +13026,7 @@
             },
             {
               "num": "9",
-              "nombre": "Gavi ",
+              "nombre": "Gavi",
               "pos": "SUB",
               "titular": false
             },
@@ -19626,7 +19626,7 @@
             },
             {
               "num": "24",
-              "nombre": "B. Touré",
+              "nombre": "B. Tour��",
               "pos": "SUB",
               "titular": false
             },
@@ -22719,7 +22719,7 @@
             },
             {
               "num": "20",
-              "nombre": "Pedri ",
+              "nombre": "Pedri",
               "pos": "RM",
               "titular": true
             },
@@ -22785,7 +22785,7 @@
             },
             {
               "num": "9",
-              "nombre": "Gavi ",
+              "nombre": "Gavi",
               "pos": "SUB",
               "titular": false
             },
@@ -25701,8 +25701,8 @@
       "jugado": true,
       "stats": {
         "posesion": {
-          "local": "58.2",
-          "visitante": "41.8"
+          "local": "58.4",
+          "visitante": "41.6"
         },
         "tiros": {
           "local": "1",
