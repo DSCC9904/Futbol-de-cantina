@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-29T14:51:29.132Z",
+  "lastUpdated": "2026-06-29T21:10:51.949Z",
   "partidos": [
     {
       "id": "MEX-RSA",
@@ -19626,7 +19626,7 @@
             },
             {
               "num": "24",
-              "nombre": "B. Tour��",
+              "nombre": "B. Touré",
               "pos": "SUB",
               "titular": false
             },
@@ -26029,6 +26029,361 @@
             {
               "num": "9",
               "nombre": "C. Larin",
+              "pos": "SUB",
+              "titular": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "BRA-JPN",
+      "espnId": "760487",
+      "localSig": "BRA",
+      "visitanteSig": "JPN",
+      "localNom": "Brazil",
+      "visitanteNom": "Japan",
+      "golesLocal": 2,
+      "golesVisitante": 1,
+      "fecha": "2026-06-29T17:00Z",
+      "grupo": "C",
+      "jugado": true,
+      "stats": {
+        "posesion": {
+          "local": "68.6",
+          "visitante": "31.4"
+        },
+        "tiros": {
+          "local": "7",
+          "visitante": "2"
+        },
+        "amarillas": {
+          "local": "2",
+          "visitante": "3"
+        },
+        "rojas": {
+          "local": "0",
+          "visitante": "0"
+        },
+        "faltas": {
+          "local": "4",
+          "visitante": "13"
+        }
+      },
+      "lineups": {
+        "local": {
+          "sig": "BRA",
+          "nom": "Brazil",
+          "jugadores": [
+            {
+              "num": "1",
+              "nombre": "A. Becker",
+              "pos": "G",
+              "titular": true
+            },
+            {
+              "num": "3",
+              "nombre": "G. Magalhães",
+              "pos": "CD-L",
+              "titular": true
+            },
+            {
+              "num": "4",
+              "nombre": "Marquinhos",
+              "pos": "CD-R",
+              "titular": true
+            },
+            {
+              "num": "16",
+              "nombre": "D. Santos",
+              "pos": "LB",
+              "titular": true
+            },
+            {
+              "num": "13",
+              "nombre": "Danilo",
+              "pos": "RB",
+              "titular": true
+            },
+            {
+              "num": "5",
+              "nombre": "Casemiro",
+              "pos": "CM",
+              "titular": true
+            },
+            {
+              "num": "20",
+              "nombre": "L. Paquetá",
+              "pos": "LM",
+              "titular": true
+            },
+            {
+              "num": "8",
+              "nombre": "B. Guimarães",
+              "pos": "RM",
+              "titular": true
+            },
+            {
+              "num": "9",
+              "nombre": "M. Cunha",
+              "pos": "F",
+              "titular": true
+            },
+            {
+              "num": "7",
+              "nombre": "Vinícius Júnior",
+              "pos": "LF",
+              "titular": true
+            },
+            {
+              "num": "26",
+              "nombre": "Rayan",
+              "pos": "RF",
+              "titular": true
+            },
+            {
+              "num": "10",
+              "nombre": "Neymar",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "22",
+              "nombre": "G. Martinelli",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "15",
+              "nombre": "L. Pereira",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "25",
+              "nombre": "I. Thiago",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "18",
+              "nombre": "D. Santos",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "2",
+              "nombre": "Éderson",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "17",
+              "nombre": "Fabinho",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "19",
+              "nombre": "Endrick",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "24",
+              "nombre": "R. Ibañez",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "14",
+              "nombre": "Bremer",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "21",
+              "nombre": "L. Henrique",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "6",
+              "nombre": "Alex Sandro",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "23",
+              "nombre": "Ederson",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "12",
+              "nombre": "Weverton",
+              "pos": "SUB",
+              "titular": false
+            }
+          ]
+        },
+        "visitante": {
+          "sig": "JPN",
+          "nom": "Japan",
+          "jugadores": [
+            {
+              "num": "1",
+              "nombre": "Z. Suzuki",
+              "pos": "G",
+              "titular": true
+            },
+            {
+              "num": "3",
+              "nombre": "S. Taniguchi",
+              "pos": "CD",
+              "titular": true
+            },
+            {
+              "num": "21",
+              "nombre": "H. Ito",
+              "pos": "CD-L",
+              "titular": true
+            },
+            {
+              "num": "22",
+              "nombre": "T. Tomiyasu",
+              "pos": "CD-R",
+              "titular": true
+            },
+            {
+              "num": "15",
+              "nombre": "D. Kamada",
+              "pos": "CM-L",
+              "titular": true
+            },
+            {
+              "num": "24",
+              "nombre": "K. Sano",
+              "pos": "CM-R",
+              "titular": true
+            },
+            {
+              "num": "13",
+              "nombre": "K. Nakamura",
+              "pos": "LM",
+              "titular": true
+            },
+            {
+              "num": "10",
+              "nombre": "R. Doan",
+              "pos": "RM",
+              "titular": true
+            },
+            {
+              "num": "18",
+              "nombre": "A. Ueda",
+              "pos": "F",
+              "titular": true
+            },
+            {
+              "num": "11",
+              "nombre": "D. Maeda",
+              "pos": "CF-L",
+              "titular": true
+            },
+            {
+              "num": "14",
+              "nombre": "J. Ito",
+              "pos": "CF-R",
+              "titular": true
+            },
+            {
+              "num": "12",
+              "nombre": "K. Osako",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "4",
+              "nombre": "K. Itakura",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "19",
+              "nombre": "K. Ogawa",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "5",
+              "nombre": "Y. Nagatomo",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "17",
+              "nombre": "Y. Suzuki",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "16",
+              "nombre": "T. Watanabe",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "26",
+              "nombre": "K. Shiogai",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "23",
+              "nombre": "T. Hayakawa",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "6",
+              "nombre": "S. Machino",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "20",
+              "nombre": "A. Seko",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "2",
+              "nombre": "Y. Sugawara",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "25",
+              "nombre": "J. Suzuki",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "9",
+              "nombre": "K. Goto",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "8",
+              "nombre": "T. Kubo",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "7",
+              "nombre": "A. Tanaka",
               "pos": "SUB",
               "titular": false
             }
