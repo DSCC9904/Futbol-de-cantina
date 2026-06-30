@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-30T16:38:32.614Z",
+  "lastUpdated": "2026-06-30T22:02:53.505Z",
   "partidos": [
     {
       "id": "MEX-RSA",
@@ -27094,6 +27094,367 @@
             {
               "num": "25",
               "nombre": "R. Halhal",
+              "pos": "SUB",
+              "titular": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "CIV-NOR",
+      "espnId": "760490",
+      "localSig": "CIV",
+      "visitanteSig": "NOR",
+      "localNom": "Ivory Coast",
+      "visitanteNom": "Norway",
+      "golesLocal": 1,
+      "golesVisitante": 2,
+      "fecha": "2026-06-30T17:00Z",
+      "grupo": "E",
+      "jugado": true,
+      "stats": {
+        "posesion": {
+          "local": "47.1",
+          "visitante": "52.9"
+        },
+        "tiros": {
+          "local": "5",
+          "visitante": "4"
+        },
+        "amarillas": {
+          "local": "0",
+          "visitante": "1"
+        },
+        "rojas": {
+          "local": "0",
+          "visitante": "0"
+        },
+        "faltas": {
+          "local": "6",
+          "visitante": "7"
+        }
+      },
+      "lineups": {
+        "local": {
+          "sig": "CIV",
+          "nom": "Ivory Coast",
+          "jugadores": [
+            {
+              "num": "1",
+              "nombre": "Y. Fofana",
+              "pos": "G",
+              "titular": true
+            },
+            {
+              "num": "20",
+              "nombre": "E. Agbadou",
+              "pos": "CD-L",
+              "titular": true
+            },
+            {
+              "num": "7",
+              "nombre": "O. Kossounou",
+              "pos": "CD-R",
+              "titular": true
+            },
+            {
+              "num": "18",
+              "nombre": "I. Sangaré",
+              "pos": "DM",
+              "titular": true
+            },
+            {
+              "num": "3",
+              "nombre": "G. Konan",
+              "pos": "LB",
+              "titular": true
+            },
+            {
+              "num": "17",
+              "nombre": "G. Doué",
+              "pos": "RB",
+              "titular": true
+            },
+            {
+              "num": "26",
+              "nombre": "C. Inao Oulaï",
+              "pos": "CM-L",
+              "titular": true
+            },
+            {
+              "num": "8",
+              "nombre": "F. Kessié",
+              "pos": "CM-R",
+              "titular": true
+            },
+            {
+              "num": "11",
+              "nombre": "Y. Diomande",
+              "pos": "LM",
+              "titular": true
+            },
+            {
+              "num": "19",
+              "nombre": "N. Pépé",
+              "pos": "RM",
+              "titular": true
+            },
+            {
+              "num": "9",
+              "nombre": "A. Bonny",
+              "pos": "F",
+              "titular": true
+            },
+            {
+              "num": "4",
+              "nombre": "J. Seri",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "23",
+              "nombre": "A. Lafont",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "6",
+              "nombre": "S. Fofana",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "16",
+              "nombre": "M. Koné",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "22",
+              "nombre": "E. Guessand",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "13",
+              "nombre": "C. Operi",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "21",
+              "nombre": "E. Ndicka",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "24",
+              "nombre": "B. Touré",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "2",
+              "nombre": "O. Diomande",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "12",
+              "nombre": "E. Wahi",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "14",
+              "nombre": "O. Diakité",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "5",
+              "nombre": "W. Singo",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "25",
+              "nombre": "P. Guiagon",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "10",
+              "nombre": "S. Adingra",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "15",
+              "nombre": "A. Diallo",
+              "pos": "SUB",
+              "titular": false
+            }
+          ]
+        },
+        "visitante": {
+          "sig": "NOR",
+          "nom": "Norway",
+          "jugadores": [
+            {
+              "num": "1",
+              "nombre": "Ø. Nyland",
+              "pos": "G",
+              "titular": true
+            },
+            {
+              "num": "17",
+              "nombre": "T. Heggem",
+              "pos": "CD-L",
+              "titular": true
+            },
+            {
+              "num": "3",
+              "nombre": "K. Ajer",
+              "pos": "CD-R",
+              "titular": true
+            },
+            {
+              "num": "5",
+              "nombre": "D. Møller Wolfe",
+              "pos": "LB",
+              "titular": true
+            },
+            {
+              "num": "16",
+              "nombre": "M. Holmgren Pedersen",
+              "pos": "RB",
+              "titular": true
+            },
+            {
+              "num": "8",
+              "nombre": "S. Berge",
+              "pos": "CM",
+              "titular": true
+            },
+            {
+              "num": "6",
+              "nombre": "P. Berg",
+              "pos": "LM",
+              "titular": true
+            },
+            {
+              "num": "10",
+              "nombre": "M. Ødegaard",
+              "pos": "RM",
+              "titular": true
+            },
+            {
+              "num": "9",
+              "nombre": "E. Haaland",
+              "pos": "F",
+              "titular": true
+            },
+            {
+              "num": "20",
+              "nombre": "A. Nusa",
+              "pos": "LF",
+              "titular": true
+            },
+            {
+              "num": "7",
+              "nombre": "A. Sørloth",
+              "pos": "RF",
+              "titular": true
+            },
+            {
+              "num": "24",
+              "nombre": "S. Langas",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "12",
+              "nombre": "S. Tangvik",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "23",
+              "nombre": "J. Hauge",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "22",
+              "nombre": "O. Bobb",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "14",
+              "nombre": "F. Aursnes",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "4",
+              "nombre": "L. Østigard",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "13",
+              "nombre": "E. Selvik",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "15",
+              "nombre": "F. Bjørkan",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "2",
+              "nombre": "M. Thorsby",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "21",
+              "nombre": "A. Schjelderup",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "11",
+              "nombre": "J. Larsen",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "26",
+              "nombre": "J. Ryerson",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "19",
+              "nombre": "T. Aasgaard",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "25",
+              "nombre": "H. Falchener",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "18",
+              "nombre": "K. Thorstvedt",
               "pos": "SUB",
               "titular": false
             }
