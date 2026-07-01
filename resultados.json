@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-30T22:02:53.505Z",
+  "lastUpdated": "2026-07-01T10:56:50.536Z",
   "partidos": [
     {
       "id": "MEX-RSA",
@@ -27455,6 +27455,722 @@
             {
               "num": "18",
               "nombre": "K. Thorstvedt",
+              "pos": "SUB",
+              "titular": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "FRA-SWE",
+      "espnId": "760492",
+      "localSig": "FRA",
+      "visitanteSig": "SWE",
+      "localNom": "France",
+      "visitanteNom": "Sweden",
+      "golesLocal": 3,
+      "golesVisitante": 0,
+      "fecha": "2026-06-30T21:00Z",
+      "grupo": "I",
+      "jugado": true,
+      "stats": {
+        "posesion": {
+          "local": "61",
+          "visitante": "39"
+        },
+        "tiros": {
+          "local": "12",
+          "visitante": "3"
+        },
+        "amarillas": {
+          "local": "0",
+          "visitante": "0"
+        },
+        "rojas": {
+          "local": "0",
+          "visitante": "0"
+        },
+        "faltas": {
+          "local": "14",
+          "visitante": "10"
+        }
+      },
+      "lineups": {
+        "local": {
+          "sig": "FRA",
+          "nom": "France",
+          "jugadores": [
+            {
+              "num": "16",
+              "nombre": "M. Maignan",
+              "pos": "G",
+              "titular": true
+            },
+            {
+              "num": "17",
+              "nombre": "W. Saliba",
+              "pos": "CD-L",
+              "titular": true
+            },
+            {
+              "num": "4",
+              "nombre": "D. Upamecano",
+              "pos": "CD-R",
+              "titular": true
+            },
+            {
+              "num": "3",
+              "nombre": "L. Digne",
+              "pos": "LB",
+              "titular": true
+            },
+            {
+              "num": "5",
+              "nombre": "J. Koundé",
+              "pos": "RB",
+              "titular": true
+            },
+            {
+              "num": "11",
+              "nombre": "M. Olise",
+              "pos": "AM",
+              "titular": true
+            },
+            {
+              "num": "14",
+              "nombre": "A. Rabiot",
+              "pos": "LM",
+              "titular": true
+            },
+            {
+              "num": "8",
+              "nombre": "A. Tchouaméni",
+              "pos": "RM",
+              "titular": true
+            },
+            {
+              "num": "10",
+              "nombre": "K. Mbappé",
+              "pos": "F",
+              "titular": true
+            },
+            {
+              "num": "12",
+              "nombre": "B. Barcola",
+              "pos": "AM-L",
+              "titular": true
+            },
+            {
+              "num": "7",
+              "nombre": "O. Dembélé",
+              "pos": "AM-R",
+              "titular": true
+            },
+            {
+              "num": "18",
+              "nombre": "W. Zaïre-Emery",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "23",
+              "nombre": "R. Risser",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "22",
+              "nombre": "J. Mateta",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "2",
+              "nombre": "M. Gusto",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "24",
+              "nombre": "R. Cherki",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "15",
+              "nombre": "I. Konaté",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "20",
+              "nombre": "D. Doué",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "25",
+              "nombre": "M. Akliouche",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "26",
+              "nombre": "M. Lacroix",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "19",
+              "nombre": "T. Hernández",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "6",
+              "nombre": "M. Koné",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "9",
+              "nombre": "M. Thuram",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "1",
+              "nombre": "B. Samba",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "21",
+              "nombre": "L. Hernández",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "13",
+              "nombre": "N. Kanté",
+              "pos": "SUB",
+              "titular": false
+            }
+          ]
+        },
+        "visitante": {
+          "sig": "SWE",
+          "nom": "Sweden",
+          "jugadores": [
+            {
+              "num": "1",
+              "nombre": "J. Widell Zetterström",
+              "pos": "G",
+              "titular": true
+            },
+            {
+              "num": "3",
+              "nombre": "V. Lindelöf",
+              "pos": "CD-L",
+              "titular": true
+            },
+            {
+              "num": "2",
+              "nombre": "G. Lagerbielke",
+              "pos": "CD-R",
+              "titular": true
+            },
+            {
+              "num": "5",
+              "nombre": "G. Gudmundsson",
+              "pos": "LB",
+              "titular": true
+            },
+            {
+              "num": "8",
+              "nombre": "D. Svensson",
+              "pos": "RB",
+              "titular": true
+            },
+            {
+              "num": "18",
+              "nombre": "Y. Ayari",
+              "pos": "CM-L",
+              "titular": true
+            },
+            {
+              "num": "7",
+              "nombre": "L. Bergvall",
+              "pos": "CM-R",
+              "titular": true
+            },
+            {
+              "num": "24",
+              "nombre": "E. Stroud",
+              "pos": "LM",
+              "titular": true
+            },
+            {
+              "num": "11",
+              "nombre": "A. Elanga",
+              "pos": "RM",
+              "titular": true
+            },
+            {
+              "num": "9",
+              "nombre": "A. Isak",
+              "pos": "CF-L",
+              "titular": true
+            },
+            {
+              "num": "17",
+              "nombre": "V. Gyökeres",
+              "pos": "CF-R",
+              "titular": true
+            },
+            {
+              "num": "23",
+              "nombre": "K. Nordfeldt",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "22",
+              "nombre": "B. Zeneli",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "26",
+              "nombre": "T. Ali",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "20",
+              "nombre": "E. Smith",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "15",
+              "nombre": "C. Starfelt",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "16",
+              "nombre": "J. Karlström",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "21",
+              "nombre": "A. Bernhardsson",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "12",
+              "nombre": "V. Johansson",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "13",
+              "nombre": "K. Sema",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "14",
+              "nombre": "H. Ekdal",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "10",
+              "nombre": "B. Nygren",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "6",
+              "nombre": "H. Johansson",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "25",
+              "nombre": "G. Nilsson",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "19",
+              "nombre": "M. Svanberg",
+              "pos": "SUB",
+              "titular": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "MEX-ECU",
+      "espnId": "760491",
+      "localSig": "MEX",
+      "visitanteSig": "ECU",
+      "localNom": "Mexico",
+      "visitanteNom": "Ecuador",
+      "golesLocal": 2,
+      "golesVisitante": 0,
+      "fecha": "2026-07-01T02:00Z",
+      "grupo": "A",
+      "jugado": true,
+      "stats": {
+        "posesion": {
+          "local": "42.8",
+          "visitante": "57.2"
+        },
+        "tiros": {
+          "local": "3",
+          "visitante": "1"
+        },
+        "amarillas": {
+          "local": "0",
+          "visitante": "3"
+        },
+        "rojas": {
+          "local": "0",
+          "visitante": "1"
+        },
+        "faltas": {
+          "local": "10",
+          "visitante": "14"
+        }
+      },
+      "lineups": {
+        "local": {
+          "sig": "MEX",
+          "nom": "Mexico",
+          "jugadores": [
+            {
+              "num": "1",
+              "nombre": "R. Rangel",
+              "pos": "G",
+              "titular": true
+            },
+            {
+              "num": "5",
+              "nombre": "J. Vásquez",
+              "pos": "CD-L",
+              "titular": true
+            },
+            {
+              "num": "3",
+              "nombre": "C. Montes",
+              "pos": "CD-R",
+              "titular": true
+            },
+            {
+              "num": "23",
+              "nombre": "J. Gallardo",
+              "pos": "LB",
+              "titular": true
+            },
+            {
+              "num": "2",
+              "nombre": "J. Sánchez",
+              "pos": "RB",
+              "titular": true
+            },
+            {
+              "num": "6",
+              "nombre": "É. Lira",
+              "pos": "CM",
+              "titular": true
+            },
+            {
+              "num": "7",
+              "nombre": "L. Romo",
+              "pos": "LM",
+              "titular": true
+            },
+            {
+              "num": "19",
+              "nombre": "G. Mora",
+              "pos": "RM",
+              "titular": true
+            },
+            {
+              "num": "9",
+              "nombre": "R. Jiménez",
+              "pos": "F",
+              "titular": true
+            },
+            {
+              "num": "16",
+              "nombre": "J. Quiñones",
+              "pos": "LF",
+              "titular": true
+            },
+            {
+              "num": "25",
+              "nombre": "R. Alvarado",
+              "pos": "RF",
+              "titular": true
+            },
+            {
+              "num": "13",
+              "nombre": "G. Ochoa",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "15",
+              "nombre": "I. Reyes",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "10",
+              "nombre": "A. Vega",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "22",
+              "nombre": "G. Martínez",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "24",
+              "nombre": "L. Chávez",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "8",
+              "nombre": "Á. Fidalgo",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "11",
+              "nombre": "S. Gimenez",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "4",
+              "nombre": "E. Álvarez",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "20",
+              "nombre": "M. Chávez",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "12",
+              "nombre": "C. Acevedo",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "26",
+              "nombre": "B. Gutiérrez",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "17",
+              "nombre": "O. Pineda",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "14",
+              "nombre": "A. González",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "18",
+              "nombre": "O. Vargas",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "21",
+              "nombre": "C. Huerta",
+              "pos": "SUB",
+              "titular": false
+            }
+          ]
+        },
+        "visitante": {
+          "sig": "ECU",
+          "nom": "Ecuador",
+          "jugadores": [
+            {
+              "num": "1",
+              "nombre": "H. Galíndez",
+              "pos": "G",
+              "titular": true
+            },
+            {
+              "num": "6",
+              "nombre": "W. Pacho",
+              "pos": "CD-L",
+              "titular": true
+            },
+            {
+              "num": "4",
+              "nombre": "J. Ordóñez",
+              "pos": "CD-R",
+              "titular": true
+            },
+            {
+              "num": "3",
+              "nombre": "P. Hincapié",
+              "pos": "LB",
+              "titular": true
+            },
+            {
+              "num": "21",
+              "nombre": "A. Franco",
+              "pos": "RB",
+              "titular": true
+            },
+            {
+              "num": "15",
+              "nombre": "P. Vite",
+              "pos": "CM-L",
+              "titular": true
+            },
+            {
+              "num": "23",
+              "nombre": "M. Caicedo",
+              "pos": "CM-R",
+              "titular": true
+            },
+            {
+              "num": "20",
+              "nombre": "N. Angulo",
+              "pos": "LM",
+              "titular": true
+            },
+            {
+              "num": "9",
+              "nombre": "J. Yeboah",
+              "pos": "RM",
+              "titular": true
+            },
+            {
+              "num": "13",
+              "nombre": "E. Valencia",
+              "pos": "CF-L",
+              "titular": true
+            },
+            {
+              "num": "19",
+              "nombre": "G. Plata",
+              "pos": "CF-R",
+              "titular": true
+            },
+            {
+              "num": "22",
+              "nombre": "G. Valle",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "26",
+              "nombre": "Y. Medina",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "8",
+              "nombre": "A. Valencia",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "5",
+              "nombre": "J. Alcívar",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "12",
+              "nombre": "M. Ramírez",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "17",
+              "nombre": "Á. Preciado",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "10",
+              "nombre": "K. Páez",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "18",
+              "nombre": "D. Castillo",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "7",
+              "nombre": "P. Estupiñán",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "24",
+              "nombre": "J. Arévalo",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "11",
+              "nombre": "K. Rodríguez",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "2",
+              "nombre": "F. Torres",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "16",
+              "nombre": "J. Caicedo",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "25",
+              "nombre": "J. Porozo",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "14",
+              "nombre": "A. Minda",
               "pos": "SUB",
               "titular": false
             }
