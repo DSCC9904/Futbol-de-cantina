@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-04T23:48:22.265Z",
+  "lastUpdated": "2026-07-05T09:47:46.557Z",
   "partidos": [
     {
       "id": "MEX-RSA",
@@ -8561,7 +8561,7 @@
             },
             {
               "num": "24",
-              "nombre": "��. Montero",
+              "nombre": "Á. Montero",
               "pos": "SUB",
               "titular": false
             },
@@ -31724,8 +31724,8 @@
       "jugado": true,
       "stats": {
         "posesion": {
-          "local": "24",
-          "visitante": "76"
+          "local": "24.1",
+          "visitante": "75.9"
         },
         "tiros": {
           "local": "1",
