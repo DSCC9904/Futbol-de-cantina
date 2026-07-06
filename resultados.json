@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-05T22:35:31.599Z",
+  "lastUpdated": "2026-07-06T13:01:06.865Z",
   "partidos": [
     {
       "id": "MEX-RSA",
@@ -19626,7 +19626,7 @@
             },
             {
               "num": "24",
-              "nombre": "B. Tour��",
+              "nombre": "B. Touré",
               "pos": "SUB",
               "titular": false
             },
@@ -32085,8 +32085,8 @@
       "jugado": true,
       "stats": {
         "posesion": {
-          "local": "33.5",
-          "visitante": "66.5"
+          "local": "33.6",
+          "visitante": "66.4"
         },
         "tiros": {
           "local": "4",
@@ -32413,6 +32413,367 @@
             {
               "num": "15",
               "nombre": "F. Bjørkan",
+              "pos": "SUB",
+              "titular": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "MEX-ENG",
+      "espnId": "760505",
+      "localSig": "MEX",
+      "visitanteSig": "ENG",
+      "localNom": "Mexico",
+      "visitanteNom": "England",
+      "golesLocal": 2,
+      "golesVisitante": 3,
+      "fecha": "2026-07-06T01:00Z",
+      "grupo": "A",
+      "jugado": true,
+      "stats": {
+        "posesion": {
+          "local": "66.9",
+          "visitante": "33.1"
+        },
+        "tiros": {
+          "local": "5",
+          "visitante": "5"
+        },
+        "amarillas": {
+          "local": "2",
+          "visitante": "4"
+        },
+        "rojas": {
+          "local": "0",
+          "visitante": "1"
+        },
+        "faltas": {
+          "local": "14",
+          "visitante": "7"
+        }
+      },
+      "lineups": {
+        "local": {
+          "sig": "MEX",
+          "nom": "Mexico",
+          "jugadores": [
+            {
+              "num": "1",
+              "nombre": "R. Rangel",
+              "pos": "G",
+              "titular": true
+            },
+            {
+              "num": "5",
+              "nombre": "J. Vásquez",
+              "pos": "CD-L",
+              "titular": true
+            },
+            {
+              "num": "3",
+              "nombre": "C. Montes",
+              "pos": "CD-R",
+              "titular": true
+            },
+            {
+              "num": "23",
+              "nombre": "J. Gallardo",
+              "pos": "LB",
+              "titular": true
+            },
+            {
+              "num": "2",
+              "nombre": "J. Sánchez",
+              "pos": "RB",
+              "titular": true
+            },
+            {
+              "num": "6",
+              "nombre": "É. Lira",
+              "pos": "CM",
+              "titular": true
+            },
+            {
+              "num": "7",
+              "nombre": "L. Romo",
+              "pos": "LM",
+              "titular": true
+            },
+            {
+              "num": "19",
+              "nombre": "G. Mora",
+              "pos": "RM",
+              "titular": true
+            },
+            {
+              "num": "9",
+              "nombre": "R. Jiménez",
+              "pos": "F",
+              "titular": true
+            },
+            {
+              "num": "16",
+              "nombre": "J. Quiñones",
+              "pos": "LF",
+              "titular": true
+            },
+            {
+              "num": "25",
+              "nombre": "R. Alvarado",
+              "pos": "RF",
+              "titular": true
+            },
+            {
+              "num": "13",
+              "nombre": "G. Ochoa",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "20",
+              "nombre": "M. Chávez",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "14",
+              "nombre": "A. González",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "8",
+              "nombre": "Á. Fidalgo",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "12",
+              "nombre": "C. Acevedo",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "18",
+              "nombre": "O. Vargas",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "21",
+              "nombre": "C. Huerta",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "10",
+              "nombre": "A. Vega",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "15",
+              "nombre": "I. Reyes",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "11",
+              "nombre": "S. Gimenez",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "26",
+              "nombre": "B. Gutiérrez",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "4",
+              "nombre": "E. Álvarez",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "17",
+              "nombre": "O. Pineda",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "22",
+              "nombre": "G. Martínez",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "24",
+              "nombre": "L. Chávez",
+              "pos": "SUB",
+              "titular": false
+            }
+          ]
+        },
+        "visitante": {
+          "sig": "ENG",
+          "nom": "England",
+          "jugadores": [
+            {
+              "num": "1",
+              "nombre": "J. Pickford",
+              "pos": "G",
+              "titular": true
+            },
+            {
+              "num": "6",
+              "nombre": "M. Guéhi",
+              "pos": "CD-L",
+              "titular": true
+            },
+            {
+              "num": "2",
+              "nombre": "E. Konsa",
+              "pos": "CD-R",
+              "titular": true
+            },
+            {
+              "num": "3",
+              "nombre": "N. O'Reilly",
+              "pos": "LB",
+              "titular": true
+            },
+            {
+              "num": "26",
+              "nombre": "J. Quansah",
+              "pos": "RB",
+              "titular": true
+            },
+            {
+              "num": "10",
+              "nombre": "J. Bellingham",
+              "pos": "AM",
+              "titular": true
+            },
+            {
+              "num": "8",
+              "nombre": "E. Anderson",
+              "pos": "LM",
+              "titular": true
+            },
+            {
+              "num": "4",
+              "nombre": "D. Rice",
+              "pos": "RM",
+              "titular": true
+            },
+            {
+              "num": "9",
+              "nombre": "H. Kane",
+              "pos": "F",
+              "titular": true
+            },
+            {
+              "num": "18",
+              "nombre": "A. Gordon",
+              "pos": "AM-L",
+              "titular": true
+            },
+            {
+              "num": "7",
+              "nombre": "B. Saka",
+              "pos": "AM-R",
+              "titular": true
+            },
+            {
+              "num": "5",
+              "nombre": "J. Stones",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "19",
+              "nombre": "O. Watkins",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "14",
+              "nombre": "J. Henderson",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "20",
+              "nombre": "N. Madueke",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "15",
+              "nombre": "D. Burn",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "12",
+              "nombre": "T. Chalobah",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "16",
+              "nombre": "K. Mainoo",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "23",
+              "nombre": "J. Trafford",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "11",
+              "nombre": "M. Rashford",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "25",
+              "nombre": "D. Spence",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "21",
+              "nombre": "E. Eze",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "17",
+              "nombre": "M. Rogers",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "24",
+              "nombre": "R. James",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "13",
+              "nombre": "D. Henderson",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "22",
+              "nombre": "I. Toney",
               "pos": "SUB",
               "titular": false
             }
