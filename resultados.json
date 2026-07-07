@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-07T10:41:05.991Z",
+  "lastUpdated": "2026-07-07T18:27:43.491Z",
   "partidos": [
     {
       "id": "MEX-RSA",
@@ -6257,7 +6257,7 @@
             },
             {
               "num": "13",
-              "nombre": "A. Yousif",
+              "nombre": "H. Ali",
               "pos": "SUB",
               "titular": false
             },
@@ -14963,7 +14963,7 @@
             },
             {
               "num": "13",
-              "nombre": "A. Yousif",
+              "nombre": "H. Ali",
               "pos": "SUB",
               "titular": false
             },
@@ -19626,7 +19626,7 @@
             },
             {
               "num": "24",
-              "nombre": "B. Tour��",
+              "nombre": "B. Touré",
               "pos": "SUB",
               "titular": false
             },
@@ -22117,7 +22117,7 @@
             },
             {
               "num": "13",
-              "nombre": "A. Yousif",
+              "nombre": "H. Ali",
               "pos": "SUB",
               "titular": false
             }
@@ -33490,6 +33490,355 @@
             {
               "num": "16",
               "nombre": "K. De Winter",
+              "pos": "SUB",
+              "titular": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "ARG-EGY",
+      "espnId": "760509",
+      "localSig": "ARG",
+      "visitanteSig": "EGY",
+      "localNom": "Argentina",
+      "visitanteNom": "Egypt",
+      "golesLocal": 3,
+      "golesVisitante": 2,
+      "fecha": "2026-07-07T16:00Z",
+      "grupo": "J",
+      "jugado": true,
+      "stats": {
+        "posesion": {
+          "local": "63.6",
+          "visitante": "36.4"
+        },
+        "tiros": {
+          "local": "7",
+          "visitante": "2"
+        },
+        "amarillas": {
+          "local": "0",
+          "visitante": "4"
+        },
+        "rojas": {
+          "local": "0",
+          "visitante": "0"
+        },
+        "faltas": {
+          "local": "13",
+          "visitante": "11"
+        }
+      },
+      "lineups": {
+        "local": {
+          "sig": "ARG",
+          "nom": "Argentina",
+          "jugadores": [
+            {
+              "num": "12",
+              "nombre": "G. Rulli",
+              "pos": "",
+              "titular": false
+            },
+            {
+              "num": "17",
+              "nombre": "G. Simeone",
+              "pos": "",
+              "titular": false
+            },
+            {
+              "num": "11",
+              "nombre": "G. Lo Celso",
+              "pos": "",
+              "titular": false
+            },
+            {
+              "num": "16",
+              "nombre": "T. Almada",
+              "pos": "",
+              "titular": false
+            },
+            {
+              "num": "14",
+              "nombre": "E. Palacios",
+              "pos": "",
+              "titular": false
+            },
+            {
+              "num": "1",
+              "nombre": "J. Musso",
+              "pos": "",
+              "titular": false
+            },
+            {
+              "num": "8",
+              "nombre": "V. Barco",
+              "pos": "",
+              "titular": false
+            },
+            {
+              "num": "21",
+              "nombre": "J. López",
+              "pos": "",
+              "titular": false
+            },
+            {
+              "num": "22",
+              "nombre": "L. Martínez",
+              "pos": "",
+              "titular": false
+            },
+            {
+              "num": "18",
+              "nombre": "N. Paz",
+              "pos": "",
+              "titular": false
+            },
+            {
+              "num": "25",
+              "nombre": "F. Medina",
+              "pos": "",
+              "titular": false
+            },
+            {
+              "num": "4",
+              "nombre": "G. Montiel",
+              "pos": "",
+              "titular": false
+            },
+            {
+              "num": "2",
+              "nombre": "M. Senesi",
+              "pos": "",
+              "titular": false
+            },
+            {
+              "num": "19",
+              "nombre": "N. Otamendi",
+              "pos": "",
+              "titular": false
+            },
+            {
+              "num": "15",
+              "nombre": "N. González",
+              "pos": "",
+              "titular": false
+            },
+            {
+              "num": "23",
+              "nombre": "E. Martínez",
+              "pos": "G",
+              "titular": true
+            },
+            {
+              "num": "6",
+              "nombre": "L. Martínez",
+              "pos": "CD-L",
+              "titular": true
+            },
+            {
+              "num": "13",
+              "nombre": "C. Romero",
+              "pos": "CD-R",
+              "titular": true
+            },
+            {
+              "num": "5",
+              "nombre": "L. Paredes",
+              "pos": "SW",
+              "titular": true
+            },
+            {
+              "num": "3",
+              "nombre": "N. Tagliafico",
+              "pos": "LB",
+              "titular": true
+            },
+            {
+              "num": "26",
+              "nombre": "N. Molina",
+              "pos": "RB",
+              "titular": true
+            },
+            {
+              "num": "20",
+              "nombre": "A. Mac Allister",
+              "pos": "CM",
+              "titular": true
+            },
+            {
+              "num": "24",
+              "nombre": "E. Fernández",
+              "pos": "LM",
+              "titular": true
+            },
+            {
+              "num": "7",
+              "nombre": "R. De Paul",
+              "pos": "RM",
+              "titular": true
+            },
+            {
+              "num": "9",
+              "nombre": "J. Álvarez",
+              "pos": "CF-L",
+              "titular": true
+            },
+            {
+              "num": "10",
+              "nombre": "L. Messi",
+              "pos": "CF-R",
+              "titular": true
+            }
+          ]
+        },
+        "visitante": {
+          "sig": "EGY",
+          "nom": "Egypt",
+          "jugadores": [
+            {
+              "num": "23",
+              "nombre": "M. Shoubir",
+              "pos": "G",
+              "titular": true
+            },
+            {
+              "num": "5",
+              "nombre": "R. Rabia",
+              "pos": "CD-L",
+              "titular": true
+            },
+            {
+              "num": "2",
+              "nombre": "Y. Ibrahim",
+              "pos": "CD-R",
+              "titular": true
+            },
+            {
+              "num": "15",
+              "nombre": "K. Hafez",
+              "pos": "LB",
+              "titular": true
+            },
+            {
+              "num": "3",
+              "nombre": "M. Hany",
+              "pos": "RB",
+              "titular": true
+            },
+            {
+              "num": "19",
+              "nombre": "M. Attia",
+              "pos": "CM-L",
+              "titular": true
+            },
+            {
+              "num": "17",
+              "nombre": "M. Lashin",
+              "pos": "CM-R",
+              "titular": true
+            },
+            {
+              "num": "8",
+              "nombre": "E. Ashour",
+              "pos": "LM",
+              "titular": true
+            },
+            {
+              "num": "12",
+              "nombre": "H. Hassan",
+              "pos": "RM",
+              "titular": true
+            },
+            {
+              "num": "11",
+              "nombre": "M. Zico",
+              "pos": "CF-L",
+              "titular": true
+            },
+            {
+              "num": "10",
+              "nombre": "M. Salah",
+              "pos": "CF-R",
+              "titular": true
+            },
+            {
+              "num": "7",
+              "nombre": "Trézéguet",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "26",
+              "nombre": "M. Alaa",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "25",
+              "nombre": "Zizo",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "4",
+              "nombre": "H. Abdelmaguid",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "9",
+              "nombre": "H. Abdelkarim",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "14",
+              "nombre": "H. Fathy",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "1",
+              "nombre": "M. El Shenawy",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "21",
+              "nombre": "M. Saber",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "22",
+              "nombre": "O. Marmoush",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "20",
+              "nombre": "I. Adel",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "16",
+              "nombre": "M. Soliman",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "18",
+              "nombre": "N. Donga",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "24",
+              "nombre": "T. Alaa",
               "pos": "SUB",
               "titular": false
             }
