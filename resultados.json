@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-07T22:39:46.429Z",
+  "lastUpdated": "2026-07-08T07:42:44.125Z",
   "partidos": [
     {
       "id": "MEX-RSA",
@@ -19626,7 +19626,7 @@
             },
             {
               "num": "24",
-              "nombre": "B. Touré",
+              "nombre": "B. Tour��",
               "pos": "SUB",
               "titular": false
             },
@@ -33839,6 +33839,349 @@
             {
               "num": "24",
               "nombre": "T. Alaa",
+              "pos": "SUB",
+              "titular": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "SUI-COL",
+      "espnId": "760508",
+      "localSig": "SUI",
+      "visitanteSig": "COL",
+      "localNom": "Switzerland",
+      "visitanteNom": "Colombia",
+      "golesLocal": 0,
+      "golesVisitante": 0,
+      "fecha": "2026-07-07T20:00Z",
+      "grupo": "B",
+      "jugado": true,
+      "stats": {
+        "posesion": {
+          "local": "53.4",
+          "visitante": "46.6"
+        },
+        "tiros": {
+          "local": "2",
+          "visitante": "3"
+        },
+        "amarillas": {
+          "local": "3",
+          "visitante": "2"
+        },
+        "rojas": {
+          "local": "0",
+          "visitante": "0"
+        },
+        "faltas": {
+          "local": "22",
+          "visitante": "21"
+        }
+      },
+      "lineups": {
+        "local": {
+          "sig": "SUI",
+          "nom": "Switzerland",
+          "jugadores": [
+            {
+              "num": "1",
+              "nombre": "G. Kobel",
+              "pos": "G",
+              "titular": true
+            },
+            {
+              "num": "5",
+              "nombre": "M. Akanji",
+              "pos": "CD-L",
+              "titular": true
+            },
+            {
+              "num": "4",
+              "nombre": "N. Elvedi",
+              "pos": "CD-R",
+              "titular": true
+            },
+            {
+              "num": "13",
+              "nombre": "R. Rodríguez",
+              "pos": "LB",
+              "titular": true
+            },
+            {
+              "num": "6",
+              "nombre": "D. Zakaria",
+              "pos": "RB",
+              "titular": true
+            },
+            {
+              "num": "14",
+              "nombre": "A. Jashari",
+              "pos": "AM",
+              "titular": true
+            },
+            {
+              "num": "10",
+              "nombre": "G. Xhaka",
+              "pos": "LM",
+              "titular": true
+            },
+            {
+              "num": "8",
+              "nombre": "R. Freuler",
+              "pos": "RM",
+              "titular": true
+            },
+            {
+              "num": "7",
+              "nombre": "B. Embolo",
+              "pos": "F",
+              "titular": true
+            },
+            {
+              "num": "11",
+              "nombre": "D. Ndoye",
+              "pos": "AM-L",
+              "titular": true
+            },
+            {
+              "num": "22",
+              "nombre": "F. Rieder",
+              "pos": "AM-R",
+              "titular": true
+            },
+            {
+              "num": "21",
+              "nombre": "M. Keller",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "12",
+              "nombre": "Y. Mvogo",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "23",
+              "nombre": "Z. Amdouni",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "19",
+              "nombre": "N. Okafor",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "17",
+              "nombre": "R. Vargas",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "18",
+              "nombre": "E. Cömert",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "26",
+              "nombre": "C. Itten",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "16",
+              "nombre": "C. Fassnacht",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "3",
+              "nombre": "S. Widmer",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "2",
+              "nombre": "M. Muheim",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "15",
+              "nombre": "D. Sow",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "24",
+              "nombre": "A. Amenda",
+              "pos": "SUB",
+              "titular": false
+            }
+          ]
+        },
+        "visitante": {
+          "sig": "COL",
+          "nom": "Colombia",
+          "jugadores": [
+            {
+              "num": "12",
+              "nombre": "C. Vargas",
+              "pos": "G",
+              "titular": true
+            },
+            {
+              "num": "3",
+              "nombre": "J. Lucumí",
+              "pos": "CD-L",
+              "titular": true
+            },
+            {
+              "num": "23",
+              "nombre": "D. Sánchez",
+              "pos": "CD-R",
+              "titular": true
+            },
+            {
+              "num": "17",
+              "nombre": "J. Mojica",
+              "pos": "LB",
+              "titular": true
+            },
+            {
+              "num": "2",
+              "nombre": "D. Muñoz",
+              "pos": "RB",
+              "titular": true
+            },
+            {
+              "num": "14",
+              "nombre": "G. Puerta",
+              "pos": "CM-L",
+              "titular": true
+            },
+            {
+              "num": "16",
+              "nombre": "J. Lerma",
+              "pos": "CM-R",
+              "titular": true
+            },
+            {
+              "num": "7",
+              "nombre": "L. Díaz",
+              "pos": "LM",
+              "titular": true
+            },
+            {
+              "num": "11",
+              "nombre": "J. Arias",
+              "pos": "RM",
+              "titular": true
+            },
+            {
+              "num": "25",
+              "nombre": "L. Suárez",
+              "pos": "F",
+              "titular": true
+            },
+            {
+              "num": "10",
+              "nombre": "J. Rodríguez",
+              "pos": "RCF",
+              "titular": true
+            },
+            {
+              "num": "9",
+              "nombre": "J. Córdoba",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "4",
+              "nombre": "S. Arias",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "6",
+              "nombre": "R. Ríos",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "19",
+              "nombre": "C. Hernández",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "21",
+              "nombre": "J. Campaz",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "5",
+              "nombre": "K. Castaño",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "8",
+              "nombre": "J. Carrascal",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "26",
+              "nombre": "A. Gómez",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "18",
+              "nombre": "W. Ditta",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "1",
+              "nombre": "D. Ospina",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "20",
+              "nombre": "J. Quintero",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "24",
+              "nombre": "Á. Montero",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "13",
+              "nombre": "Y. Mina",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "15",
+              "nombre": "J. Portilla",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "22",
+              "nombre": "D. Machado",
               "pos": "SUB",
               "titular": false
             }
