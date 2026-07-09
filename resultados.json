@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-09T17:34:04.778Z",
+  "lastUpdated": "2026-07-09T22:49:40.335Z",
   "partidos": [
     {
       "id": "MEX-RSA",
@@ -19626,7 +19626,7 @@
             },
             {
               "num": "24",
-              "nombre": "B. Touré",
+              "nombre": "B. Tour��",
               "pos": "SUB",
               "titular": false
             },
@@ -34182,6 +34182,367 @@
             {
               "num": "22",
               "nombre": "D. Machado",
+              "pos": "SUB",
+              "titular": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "FRA-MAR",
+      "espnId": "760510",
+      "localSig": "FRA",
+      "visitanteSig": "MAR",
+      "localNom": "France",
+      "visitanteNom": "Morocco",
+      "golesLocal": 2,
+      "golesVisitante": 0,
+      "fecha": "2026-07-09T20:00Z",
+      "grupo": "I",
+      "jugado": true,
+      "stats": {
+        "posesion": {
+          "local": "48.1",
+          "visitante": "51.9"
+        },
+        "tiros": {
+          "local": "8",
+          "visitante": "1"
+        },
+        "amarillas": {
+          "local": "0",
+          "visitante": "1"
+        },
+        "rojas": {
+          "local": "0",
+          "visitante": "0"
+        },
+        "faltas": {
+          "local": "10",
+          "visitante": "13"
+        }
+      },
+      "lineups": {
+        "local": {
+          "sig": "FRA",
+          "nom": "France",
+          "jugadores": [
+            {
+              "num": "16",
+              "nombre": "M. Maignan",
+              "pos": "G",
+              "titular": true
+            },
+            {
+              "num": "17",
+              "nombre": "W. Saliba",
+              "pos": "CD-L",
+              "titular": true
+            },
+            {
+              "num": "4",
+              "nombre": "D. Upamecano",
+              "pos": "CD-R",
+              "titular": true
+            },
+            {
+              "num": "3",
+              "nombre": "L. Digne",
+              "pos": "LB",
+              "titular": true
+            },
+            {
+              "num": "5",
+              "nombre": "J. Koundé",
+              "pos": "RB",
+              "titular": true
+            },
+            {
+              "num": "11",
+              "nombre": "M. Olise",
+              "pos": "AM",
+              "titular": true
+            },
+            {
+              "num": "14",
+              "nombre": "A. Rabiot",
+              "pos": "LM",
+              "titular": true
+            },
+            {
+              "num": "6",
+              "nombre": "M. Koné",
+              "pos": "RM",
+              "titular": true
+            },
+            {
+              "num": "10",
+              "nombre": "K. Mbappé",
+              "pos": "F",
+              "titular": true
+            },
+            {
+              "num": "20",
+              "nombre": "D. Doué",
+              "pos": "AM-L",
+              "titular": true
+            },
+            {
+              "num": "7",
+              "nombre": "O. Dembélé",
+              "pos": "AM-R",
+              "titular": true
+            },
+            {
+              "num": "13",
+              "nombre": "N. Kanté",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "15",
+              "nombre": "I. Konaté",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "23",
+              "nombre": "R. Risser",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "24",
+              "nombre": "R. Cherki",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "19",
+              "nombre": "T. Hernández",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "21",
+              "nombre": "L. Hernández",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "12",
+              "nombre": "B. Barcola",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "9",
+              "nombre": "M. Thuram",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "1",
+              "nombre": "B. Samba",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "26",
+              "nombre": "M. Lacroix",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "25",
+              "nombre": "M. Akliouche",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "8",
+              "nombre": "A. Tchouaméni",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "18",
+              "nombre": "W. Zaïre-Emery",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "22",
+              "nombre": "J. Mateta",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "2",
+              "nombre": "M. Gusto",
+              "pos": "SUB",
+              "titular": false
+            }
+          ]
+        },
+        "visitante": {
+          "sig": "MAR",
+          "nom": "Morocco",
+          "jugadores": [
+            {
+              "num": "1",
+              "nombre": "Y. Bounou",
+              "pos": "G",
+              "titular": true
+            },
+            {
+              "num": "3",
+              "nombre": "N. Mazraoui",
+              "pos": "CD-L",
+              "titular": true
+            },
+            {
+              "num": "14",
+              "nombre": "I. Diop",
+              "pos": "CD-R",
+              "titular": true
+            },
+            {
+              "num": "26",
+              "nombre": "A. Salah-Eddine",
+              "pos": "LB",
+              "titular": true
+            },
+            {
+              "num": "2",
+              "nombre": "A. Hakimi",
+              "pos": "RB",
+              "titular": true
+            },
+            {
+              "num": "8",
+              "nombre": "A. Ounahi",
+              "pos": "AM",
+              "titular": true
+            },
+            {
+              "num": "24",
+              "nombre": "N. El Aynaoui",
+              "pos": "LM",
+              "titular": true
+            },
+            {
+              "num": "6",
+              "nombre": "A. Bouaddi",
+              "pos": "RM",
+              "titular": true
+            },
+            {
+              "num": "23",
+              "nombre": "B. El Khannouss",
+              "pos": "F",
+              "titular": true
+            },
+            {
+              "num": "7",
+              "nombre": "C. Talbi",
+              "pos": "AM-L",
+              "titular": true
+            },
+            {
+              "num": "10",
+              "nombre": "B. Díaz",
+              "pos": "AM-R",
+              "titular": true
+            },
+            {
+              "num": "22",
+              "nombre": "A. Tagnaouti",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "19",
+              "nombre": "Y. Belammari",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "15",
+              "nombre": "S. El Mourabet",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "25",
+              "nombre": "R. Halhal",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "16",
+              "nombre": "G. Yassine",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "5",
+              "nombre": "M. Saadane",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "11",
+              "nombre": "I. Saibari",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "4",
+              "nombre": "S. Amrabat",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "18",
+              "nombre": "C. Riad",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "9",
+              "nombre": "S. Rahimi",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "17",
+              "nombre": "A. Sbaï",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "12",
+              "nombre": "M. El Kajoui",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "21",
+              "nombre": "A. Amaimouni",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "13",
+              "nombre": "Z. El Ouahdi",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "20",
+              "nombre": "A. El Kaabi",
               "pos": "SUB",
               "titular": false
             }
