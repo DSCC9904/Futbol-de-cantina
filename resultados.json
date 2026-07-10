@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-10T17:24:32.488Z",
+  "lastUpdated": "2026-07-10T21:34:44.441Z",
   "partidos": [
     {
       "id": "MEX-RSA",
@@ -11353,7 +11353,7 @@
             },
             {
               "num": "10",
-              "nombre": "M. Almirón",
+              "nombre": "M. Almir��n",
               "pos": "RM",
               "titular": true
             },
@@ -19626,7 +19626,7 @@
             },
             {
               "num": "24",
-              "nombre": "B. Touré",
+              "nombre": "B. Tour��",
               "pos": "SUB",
               "titular": false
             },
@@ -34543,6 +34543,349 @@
             {
               "num": "20",
               "nombre": "A. El Kaabi",
+              "pos": "SUB",
+              "titular": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "ESP-BEL",
+      "espnId": "760511",
+      "localSig": "ESP",
+      "visitanteSig": "BEL",
+      "localNom": "Spain",
+      "visitanteNom": "Belgium",
+      "golesLocal": 2,
+      "golesVisitante": 1,
+      "fecha": "2026-07-10T19:00Z",
+      "grupo": "H",
+      "jugado": true,
+      "stats": {
+        "posesion": {
+          "local": "67.8",
+          "visitante": "32.2"
+        },
+        "tiros": {
+          "local": "8",
+          "visitante": "2"
+        },
+        "amarillas": {
+          "local": "2",
+          "visitante": "2"
+        },
+        "rojas": {
+          "local": "0",
+          "visitante": "0"
+        },
+        "faltas": {
+          "local": "13",
+          "visitante": "18"
+        }
+      },
+      "lineups": {
+        "local": {
+          "sig": "ESP",
+          "nom": "Spain",
+          "jugadores": [
+            {
+              "num": "23",
+              "nombre": "U. Simón",
+              "pos": "G",
+              "titular": true
+            },
+            {
+              "num": "14",
+              "nombre": "A. Laporte",
+              "pos": "CD-L",
+              "titular": true
+            },
+            {
+              "num": "22",
+              "nombre": "P. Cubarsí",
+              "pos": "CD-R",
+              "titular": true
+            },
+            {
+              "num": "24",
+              "nombre": "M. Cucurella",
+              "pos": "LB",
+              "titular": true
+            },
+            {
+              "num": "12",
+              "nombre": "P. Porro",
+              "pos": "RB",
+              "titular": true
+            },
+            {
+              "num": "10",
+              "nombre": "D. Olmo",
+              "pos": "AM",
+              "titular": true
+            },
+            {
+              "num": "8",
+              "nombre": "F. Ruiz",
+              "pos": "LM",
+              "titular": true
+            },
+            {
+              "num": "16",
+              "nombre": "Rodri",
+              "pos": "RM",
+              "titular": true
+            },
+            {
+              "num": "21",
+              "nombre": "M. Oyarzabal",
+              "pos": "F",
+              "titular": true
+            },
+            {
+              "num": "15",
+              "nombre": "Á. Baena",
+              "pos": "AM-L",
+              "titular": true
+            },
+            {
+              "num": "19",
+              "nombre": "L. Yamal",
+              "pos": "AM-R",
+              "titular": true
+            },
+            {
+              "num": "17",
+              "nombre": "N. Williams",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "11",
+              "nombre": "Y. Pino",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "3",
+              "nombre": "A. Grimaldo",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "25",
+              "nombre": "V. Muñoz",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "6",
+              "nombre": "M. Merino",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "13",
+              "nombre": "J. García",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "4",
+              "nombre": "E. García",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "26",
+              "nombre": "B. Iglesias",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "9",
+              "nombre": "Gavi",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "1",
+              "nombre": "D. Raya",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "2",
+              "nombre": "M. Pubill",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "20",
+              "nombre": "Pedri",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "18",
+              "nombre": "M. Zubimendi",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "7",
+              "nombre": "F. Torres",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "5",
+              "nombre": "M. Llorente",
+              "pos": "SUB",
+              "titular": false
+            }
+          ]
+        },
+        "visitante": {
+          "sig": "BEL",
+          "nom": "Belgium",
+          "jugadores": [
+            {
+              "num": "1",
+              "nombre": "T. Courtois",
+              "pos": "G",
+              "titular": true
+            },
+            {
+              "num": "4",
+              "nombre": "B. Mechele",
+              "pos": "CD-L",
+              "titular": true
+            },
+            {
+              "num": "25",
+              "nombre": "N. Ngoy",
+              "pos": "CD-R",
+              "titular": true
+            },
+            {
+              "num": "5",
+              "nombre": "M. De Cuyper",
+              "pos": "LB",
+              "titular": true
+            },
+            {
+              "num": "21",
+              "nombre": "T. Castagne",
+              "pos": "RB",
+              "titular": true
+            },
+            {
+              "num": "7",
+              "nombre": "K. De Bruyne",
+              "pos": "AM",
+              "titular": true
+            },
+            {
+              "num": "23",
+              "nombre": "N. Raskin",
+              "pos": "LM",
+              "titular": true
+            },
+            {
+              "num": "20",
+              "nombre": "H. Vanaken",
+              "pos": "RM",
+              "titular": true
+            },
+            {
+              "num": "17",
+              "nombre": "C. De Ketelaere",
+              "pos": "F",
+              "titular": true
+            },
+            {
+              "num": "11",
+              "nombre": "J. Doku",
+              "pos": "AM-L",
+              "titular": true
+            },
+            {
+              "num": "10",
+              "nombre": "L. Trossard",
+              "pos": "AM-R",
+              "titular": true
+            },
+            {
+              "num": "22",
+              "nombre": "A. Saelemaekers",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "16",
+              "nombre": "K. De Winter",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "18",
+              "nombre": "J. Seys",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "19",
+              "nombre": "D. Moreira",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "12",
+              "nombre": "S. Lammens",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "14",
+              "nombre": "D. Lukébakio",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "3",
+              "nombre": "A. Theate",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "26",
+              "nombre": "M. Fernandez-Pardo",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "15",
+              "nombre": "T. Meunier",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "6",
+              "nombre": "A. Witsel",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "13",
+              "nombre": "M. Penders",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "9",
+              "nombre": "R. Lukaku",
               "pos": "SUB",
               "titular": false
             }
