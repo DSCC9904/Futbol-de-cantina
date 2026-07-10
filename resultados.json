@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-09T22:49:40.335Z",
+  "lastUpdated": "2026-07-10T10:37:04.942Z",
   "partidos": [
     {
       "id": "MEX-RSA",
@@ -19626,7 +19626,7 @@
             },
             {
               "num": "24",
-              "nombre": "B. Tour��",
+              "nombre": "B. Touré",
               "pos": "SUB",
               "titular": false
             },
@@ -34203,8 +34203,8 @@
       "jugado": true,
       "stats": {
         "posesion": {
-          "local": "48.1",
-          "visitante": "51.9"
+          "local": "48",
+          "visitante": "52"
         },
         "tiros": {
           "local": "8",
