@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-10T21:34:44.441Z",
+  "lastUpdated": "2026-07-11T06:24:04.864Z",
   "partidos": [
     {
       "id": "MEX-RSA",
@@ -11353,7 +11353,7 @@
             },
             {
               "num": "10",
-              "nombre": "M. Almir��n",
+              "nombre": "M. Almirón",
               "pos": "RM",
               "titular": true
             },
@@ -19626,7 +19626,7 @@
             },
             {
               "num": "24",
-              "nombre": "B. Tour��",
+              "nombre": "B. Touré",
               "pos": "SUB",
               "titular": false
             },
@@ -34564,8 +34564,8 @@
       "jugado": true,
       "stats": {
         "posesion": {
-          "local": "67.8",
-          "visitante": "32.2"
+          "local": "67.9",
+          "visitante": "32.1"
         },
         "tiros": {
           "local": "8",
