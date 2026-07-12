@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-11T23:01:41.826Z",
+  "lastUpdated": "2026-07-12T00:12:07.784Z",
   "partidos": [
     {
       "id": "MEX-RSA",
@@ -19626,7 +19626,7 @@
             },
             {
               "num": "24",
-              "nombre": "B. Touré",
+              "nombre": "B. Tour��",
               "pos": "SUB",
               "titular": false
             },
@@ -34886,6 +34886,361 @@
             {
               "num": "9",
               "nombre": "R. Lukaku",
+              "pos": "SUB",
+              "titular": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "NOR-ENG",
+      "espnId": "760512",
+      "localSig": "NOR",
+      "visitanteSig": "ENG",
+      "localNom": "Norway",
+      "visitanteNom": "England",
+      "golesLocal": 1,
+      "golesVisitante": 2,
+      "fecha": "2026-07-11T21:00Z",
+      "grupo": "I",
+      "jugado": true,
+      "stats": {
+        "posesion": {
+          "local": "47.7",
+          "visitante": "52.3"
+        },
+        "tiros": {
+          "local": "4",
+          "visitante": "8"
+        },
+        "amarillas": {
+          "local": "1",
+          "visitante": "0"
+        },
+        "rojas": {
+          "local": "0",
+          "visitante": "0"
+        },
+        "faltas": {
+          "local": "10",
+          "visitante": "8"
+        }
+      },
+      "lineups": {
+        "local": {
+          "sig": "NOR",
+          "nom": "Norway",
+          "jugadores": [
+            {
+              "num": "1",
+              "nombre": "Ø. Nyland",
+              "pos": "G",
+              "titular": true
+            },
+            {
+              "num": "17",
+              "nombre": "T. Heggem",
+              "pos": "CD-L",
+              "titular": true
+            },
+            {
+              "num": "3",
+              "nombre": "K. Ajer",
+              "pos": "CD-R",
+              "titular": true
+            },
+            {
+              "num": "5",
+              "nombre": "D. Møller Wolfe",
+              "pos": "LB",
+              "titular": true
+            },
+            {
+              "num": "26",
+              "nombre": "J. Ryerson",
+              "pos": "RB",
+              "titular": true
+            },
+            {
+              "num": "8",
+              "nombre": "S. Berge",
+              "pos": "CM",
+              "titular": true
+            },
+            {
+              "num": "6",
+              "nombre": "P. Berg",
+              "pos": "LM",
+              "titular": true
+            },
+            {
+              "num": "10",
+              "nombre": "M. Ødegaard",
+              "pos": "RM",
+              "titular": true
+            },
+            {
+              "num": "9",
+              "nombre": "E. Haaland",
+              "pos": "F",
+              "titular": true
+            },
+            {
+              "num": "21",
+              "nombre": "A. Schjelderup",
+              "pos": "LF",
+              "titular": true
+            },
+            {
+              "num": "7",
+              "nombre": "A. Sørloth",
+              "pos": "RF",
+              "titular": true
+            },
+            {
+              "num": "19",
+              "nombre": "T. Aasgaard",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "23",
+              "nombre": "J. Hauge",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "14",
+              "nombre": "F. Aursnes",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "20",
+              "nombre": "A. Nusa",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "25",
+              "nombre": "H. Falchener",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "11",
+              "nombre": "J. Larsen",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "24",
+              "nombre": "S. Langas",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "4",
+              "nombre": "L. Østigard",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "22",
+              "nombre": "O. Bobb",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "18",
+              "nombre": "K. Thorstvedt",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "2",
+              "nombre": "M. Thorsby",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "16",
+              "nombre": "M. Holmgren Pedersen",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "12",
+              "nombre": "S. Tangvik",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "13",
+              "nombre": "E. Selvik",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "15",
+              "nombre": "F. Bjørkan",
+              "pos": "SUB",
+              "titular": false
+            }
+          ]
+        },
+        "visitante": {
+          "sig": "ENG",
+          "nom": "England",
+          "jugadores": [
+            {
+              "num": "1",
+              "nombre": "J. Pickford",
+              "pos": "G",
+              "titular": true
+            },
+            {
+              "num": "6",
+              "nombre": "M. Guéhi",
+              "pos": "CD-L",
+              "titular": true
+            },
+            {
+              "num": "5",
+              "nombre": "J. Stones",
+              "pos": "CD-R",
+              "titular": true
+            },
+            {
+              "num": "3",
+              "nombre": "N. O'Reilly",
+              "pos": "LB",
+              "titular": true
+            },
+            {
+              "num": "2",
+              "nombre": "E. Konsa",
+              "pos": "RB",
+              "titular": true
+            },
+            {
+              "num": "10",
+              "nombre": "J. Bellingham",
+              "pos": "AM",
+              "titular": true
+            },
+            {
+              "num": "8",
+              "nombre": "E. Anderson",
+              "pos": "LM",
+              "titular": true
+            },
+            {
+              "num": "4",
+              "nombre": "D. Rice",
+              "pos": "RM",
+              "titular": true
+            },
+            {
+              "num": "9",
+              "nombre": "H. Kane",
+              "pos": "F",
+              "titular": true
+            },
+            {
+              "num": "18",
+              "nombre": "A. Gordon",
+              "pos": "AM-L",
+              "titular": true
+            },
+            {
+              "num": "20",
+              "nombre": "N. Madueke",
+              "pos": "AM-R",
+              "titular": true
+            },
+            {
+              "num": "13",
+              "nombre": "D. Henderson",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "11",
+              "nombre": "M. Rashford",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "17",
+              "nombre": "M. Rogers",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "21",
+              "nombre": "E. Eze",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "19",
+              "nombre": "O. Watkins",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "15",
+              "nombre": "D. Burn",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "23",
+              "nombre": "J. Trafford",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "12",
+              "nombre": "T. Chalobah",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "22",
+              "nombre": "I. Toney",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "25",
+              "nombre": "D. Spence",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "14",
+              "nombre": "J. Henderson",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "16",
+              "nombre": "K. Mainoo",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "7",
+              "nombre": "B. Saka",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "24",
+              "nombre": "R. James",
               "pos": "SUB",
               "titular": false
             }
