@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-15T19:54:12.994Z",
+  "lastUpdated": "2026-07-15T21:06:15.586Z",
   "partidos": [
     {
       "id": "MEX-RSA",
@@ -35957,6 +35957,361 @@
             {
               "num": "6",
               "nombre": "M. Merino",
+              "pos": "SUB",
+              "titular": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "ENG-ARG",
+      "espnId": "760515",
+      "localSig": "ENG",
+      "visitanteSig": "ARG",
+      "localNom": "England",
+      "visitanteNom": "Argentina",
+      "golesLocal": 1,
+      "golesVisitante": 2,
+      "fecha": "2026-07-15T19:00Z",
+      "grupo": "L",
+      "jugado": true,
+      "stats": {
+        "posesion": {
+          "local": "35.7",
+          "visitante": "64.3"
+        },
+        "tiros": {
+          "local": "2",
+          "visitante": "5"
+        },
+        "amarillas": {
+          "local": "1",
+          "visitante": "3"
+        },
+        "rojas": {
+          "local": "0",
+          "visitante": "0"
+        },
+        "faltas": {
+          "local": "11",
+          "visitante": "15"
+        }
+      },
+      "lineups": {
+        "local": {
+          "sig": "ENG",
+          "nom": "England",
+          "jugadores": [
+            {
+              "num": "1",
+              "nombre": "J. Pickford",
+              "pos": "G",
+              "titular": true
+            },
+            {
+              "num": "6",
+              "nombre": "M. Guéhi",
+              "pos": "CD-L",
+              "titular": true
+            },
+            {
+              "num": "5",
+              "nombre": "J. Stones",
+              "pos": "CD-R",
+              "titular": true
+            },
+            {
+              "num": "25",
+              "nombre": "D. Spence",
+              "pos": "LB",
+              "titular": true
+            },
+            {
+              "num": "24",
+              "nombre": "R. James",
+              "pos": "RB",
+              "titular": true
+            },
+            {
+              "num": "10",
+              "nombre": "J. Bellingham",
+              "pos": "AM",
+              "titular": true
+            },
+            {
+              "num": "8",
+              "nombre": "E. Anderson",
+              "pos": "LM",
+              "titular": true
+            },
+            {
+              "num": "4",
+              "nombre": "D. Rice",
+              "pos": "RM",
+              "titular": true
+            },
+            {
+              "num": "9",
+              "nombre": "H. Kane",
+              "pos": "F",
+              "titular": true
+            },
+            {
+              "num": "18",
+              "nombre": "A. Gordon",
+              "pos": "AM-L",
+              "titular": true
+            },
+            {
+              "num": "17",
+              "nombre": "M. Rogers",
+              "pos": "AM-R",
+              "titular": true
+            },
+            {
+              "num": "14",
+              "nombre": "J. Henderson",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "20",
+              "nombre": "N. Madueke",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "21",
+              "nombre": "E. Eze",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "19",
+              "nombre": "O. Watkins",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "7",
+              "nombre": "B. Saka",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "12",
+              "nombre": "T. Chalobah",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "23",
+              "nombre": "J. Trafford",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "15",
+              "nombre": "D. Burn",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "13",
+              "nombre": "D. Henderson",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "11",
+              "nombre": "M. Rashford",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "22",
+              "nombre": "I. Toney",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "2",
+              "nombre": "E. Konsa",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "16",
+              "nombre": "K. Mainoo",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "3",
+              "nombre": "N. O'Reilly",
+              "pos": "SUB",
+              "titular": false
+            }
+          ]
+        },
+        "visitante": {
+          "sig": "ARG",
+          "nom": "Argentina",
+          "jugadores": [
+            {
+              "num": "23",
+              "nombre": "E. Martínez",
+              "pos": "G",
+              "titular": true
+            },
+            {
+              "num": "6",
+              "nombre": "L. Martínez",
+              "pos": "CD-L",
+              "titular": true
+            },
+            {
+              "num": "13",
+              "nombre": "C. Romero",
+              "pos": "CD-R",
+              "titular": true
+            },
+            {
+              "num": "5",
+              "nombre": "L. Paredes",
+              "pos": "DM",
+              "titular": true
+            },
+            {
+              "num": "3",
+              "nombre": "N. Tagliafico",
+              "pos": "LB",
+              "titular": true
+            },
+            {
+              "num": "26",
+              "nombre": "N. Molina",
+              "pos": "RB",
+              "titular": true
+            },
+            {
+              "num": "20",
+              "nombre": "A. Mac Allister",
+              "pos": "CM-L",
+              "titular": true
+            },
+            {
+              "num": "24",
+              "nombre": "E. Fernández",
+              "pos": "CM-R",
+              "titular": true
+            },
+            {
+              "num": "9",
+              "nombre": "J. Álvarez",
+              "pos": "LM",
+              "titular": true
+            },
+            {
+              "num": "17",
+              "nombre": "G. Simeone",
+              "pos": "RM",
+              "titular": true
+            },
+            {
+              "num": "10",
+              "nombre": "L. Messi",
+              "pos": "F",
+              "titular": true
+            },
+            {
+              "num": "4",
+              "nombre": "G. Montiel",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "22",
+              "nombre": "L. Martínez",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "2",
+              "nombre": "M. Senesi",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "25",
+              "nombre": "F. Medina",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "15",
+              "nombre": "N. González",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "1",
+              "nombre": "J. Musso",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "8",
+              "nombre": "V. Barco",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "12",
+              "nombre": "G. Rulli",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "11",
+              "nombre": "G. Lo Celso",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "19",
+              "nombre": "N. Otamendi",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "18",
+              "nombre": "N. Paz",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "16",
+              "nombre": "T. Almada",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "14",
+              "nombre": "E. Palacios",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "7",
+              "nombre": "R. De Paul",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "21",
+              "nombre": "J. López",
               "pos": "SUB",
               "titular": false
             }
