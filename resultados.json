@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-15T23:16:41.586Z",
+  "lastUpdated": "2026-07-16T00:57:48.310Z",
   "partidos": [
     {
       "id": "MEX-RSA",
@@ -35978,8 +35978,8 @@
       "jugado": true,
       "stats": {
         "posesion": {
-          "local": "35.7",
-          "visitante": "64.3"
+          "local": "35.8",
+          "visitante": "64.2"
         },
         "tiros": {
           "local": "2",
