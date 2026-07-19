@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-18T23:00:20.474Z",
+  "lastUpdated": "2026-07-19T00:11:21.076Z",
   "partidos": [
     {
       "id": "MEX-RSA",
@@ -36312,6 +36312,361 @@
             {
               "num": "21",
               "nombre": "J. López",
+              "pos": "SUB",
+              "titular": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "FRA-ENG",
+      "espnId": "760516",
+      "localSig": "FRA",
+      "visitanteSig": "ENG",
+      "localNom": "France",
+      "visitanteNom": "England",
+      "golesLocal": 4,
+      "golesVisitante": 6,
+      "fecha": "2026-07-18T21:00Z",
+      "grupo": "I",
+      "jugado": true,
+      "stats": {
+        "posesion": {
+          "local": "45.9",
+          "visitante": "54.1"
+        },
+        "tiros": {
+          "local": "9",
+          "visitante": "11"
+        },
+        "amarillas": {
+          "local": "0",
+          "visitante": "0"
+        },
+        "rojas": {
+          "local": "0",
+          "visitante": "0"
+        },
+        "faltas": {
+          "local": "14",
+          "visitante": "8"
+        }
+      },
+      "lineups": {
+        "local": {
+          "sig": "FRA",
+          "nom": "France",
+          "jugadores": [
+            {
+              "num": "16",
+              "nombre": "M. Maignan",
+              "pos": "G",
+              "titular": true
+            },
+            {
+              "num": "26",
+              "nombre": "M. Lacroix",
+              "pos": "CD-L",
+              "titular": true
+            },
+            {
+              "num": "15",
+              "nombre": "I. Konaté",
+              "pos": "CD-R",
+              "titular": true
+            },
+            {
+              "num": "19",
+              "nombre": "T. Hernández",
+              "pos": "LB",
+              "titular": true
+            },
+            {
+              "num": "2",
+              "nombre": "M. Gusto",
+              "pos": "RB",
+              "titular": true
+            },
+            {
+              "num": "24",
+              "nombre": "R. Cherki",
+              "pos": "AM",
+              "titular": true
+            },
+            {
+              "num": "14",
+              "nombre": "A. Rabiot",
+              "pos": "LM",
+              "titular": true
+            },
+            {
+              "num": "18",
+              "nombre": "W. Zaïre-Emery",
+              "pos": "RM",
+              "titular": true
+            },
+            {
+              "num": "10",
+              "nombre": "K. Mbappé",
+              "pos": "F",
+              "titular": true
+            },
+            {
+              "num": "20",
+              "nombre": "D. Doué",
+              "pos": "AM-L",
+              "titular": true
+            },
+            {
+              "num": "11",
+              "nombre": "M. Olise",
+              "pos": "AM-R",
+              "titular": true
+            },
+            {
+              "num": "9",
+              "nombre": "M. Thuram",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "23",
+              "nombre": "R. Risser",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "6",
+              "nombre": "M. Koné",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "25",
+              "nombre": "M. Akliouche",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "12",
+              "nombre": "B. Barcola",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "22",
+              "nombre": "J. Mateta",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "5",
+              "nombre": "J. Koundé",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "1",
+              "nombre": "B. Samba",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "17",
+              "nombre": "W. Saliba",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "4",
+              "nombre": "D. Upamecano",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "7",
+              "nombre": "O. Dembélé",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "13",
+              "nombre": "N. Kanté",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "3",
+              "nombre": "L. Digne",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "21",
+              "nombre": "L. Hernández",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "8",
+              "nombre": "A. Tchouaméni",
+              "pos": "SUB",
+              "titular": false
+            }
+          ]
+        },
+        "visitante": {
+          "sig": "ENG",
+          "nom": "England",
+          "jugadores": [
+            {
+              "num": "13",
+              "nombre": "D. Henderson",
+              "pos": "G",
+              "titular": true
+            },
+            {
+              "num": "6",
+              "nombre": "M. Guéhi",
+              "pos": "CD-L",
+              "titular": true
+            },
+            {
+              "num": "2",
+              "nombre": "E. Konsa",
+              "pos": "CD-R",
+              "titular": true
+            },
+            {
+              "num": "4",
+              "nombre": "D. Rice",
+              "pos": "DM",
+              "titular": true
+            },
+            {
+              "num": "25",
+              "nombre": "D. Spence",
+              "pos": "LB",
+              "titular": true
+            },
+            {
+              "num": "26",
+              "nombre": "J. Quansah",
+              "pos": "RB",
+              "titular": true
+            },
+            {
+              "num": "21",
+              "nombre": "E. Eze",
+              "pos": "CM-L",
+              "titular": true
+            },
+            {
+              "num": "17",
+              "nombre": "M. Rogers",
+              "pos": "CM-R",
+              "titular": true
+            },
+            {
+              "num": "11",
+              "nombre": "M. Rashford",
+              "pos": "LM",
+              "titular": true
+            },
+            {
+              "num": "7",
+              "nombre": "B. Saka",
+              "pos": "RM",
+              "titular": true
+            },
+            {
+              "num": "22",
+              "nombre": "I. Toney",
+              "pos": "F",
+              "titular": true
+            },
+            {
+              "num": "1",
+              "nombre": "J. Pickford",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "10",
+              "nombre": "J. Bellingham",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "9",
+              "nombre": "H. Kane",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "3",
+              "nombre": "N. O'Reilly",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "12",
+              "nombre": "T. Chalobah",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "8",
+              "nombre": "E. Anderson",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "23",
+              "nombre": "J. Trafford",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "5",
+              "nombre": "J. Stones",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "15",
+              "nombre": "D. Burn",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "14",
+              "nombre": "J. Henderson",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "20",
+              "nombre": "N. Madueke",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "18",
+              "nombre": "A. Gordon",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "24",
+              "nombre": "R. James",
+              "pos": "SUB",
+              "titular": false
+            },
+            {
+              "num": "19",
+              "nombre": "O. Watkins",
               "pos": "SUB",
               "titular": false
             }
