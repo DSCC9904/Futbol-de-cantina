@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-19T05:22:39.811Z",
+  "lastUpdated": "2026-10-19T11:07:27.691Z",
   "partidos": [
     {
       "id": "MEX-RSA",
@@ -926,7 +926,7 @@
           "jugadores": [
             {
               "num": "1",
-              "nombre": "N. Vasilj",
+              "nombre": "N. Vasiljevic",
               "pos": "G",
               "titular": true
             },
@@ -9163,7 +9163,7 @@
           "jugadores": [
             {
               "num": "1",
-              "nombre": "N. Vasilj",
+              "nombre": "N. Vasiljevic",
               "pos": "G",
               "titular": true
             },
@@ -17232,7 +17232,7 @@
           "jugadores": [
             {
               "num": "1",
-              "nombre": "N. Vasilj",
+              "nombre": "N. Vasiljevic",
               "pos": "G",
               "titular": true
             },
@@ -29079,7 +29079,7 @@
           "jugadores": [
             {
               "num": "1",
-              "nombre": "N. Vasilj",
+              "nombre": "N. Vasiljevic",
               "pos": "G",
               "titular": true
             },
