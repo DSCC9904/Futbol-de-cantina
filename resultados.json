@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-20T10:20:15.748Z",
+  "lastUpdated": "2026-10-20T15:18:53.805Z",
   "partidos": [
     {
       "id": "MEX-RSA",
@@ -926,7 +926,7 @@
           "jugadores": [
             {
               "num": "1",
-              "nombre": "N. Vasiljevic",
+              "nombre": "N. Vasilj",
               "pos": "G",
               "titular": true
             },
@@ -2960,7 +2960,7 @@
             },
             {
               "num": "5",
-              "nombre": "A. Pavlovic",
+              "nombre": "A. Pavlović",
               "pos": "LM",
               "titular": true
             },
@@ -9163,7 +9163,7 @@
           "jugadores": [
             {
               "num": "1",
-              "nombre": "N. Vasiljevic",
+              "nombre": "N. Vasilj",
               "pos": "G",
               "titular": true
             },
@@ -11895,7 +11895,7 @@
             },
             {
               "num": "5",
-              "nombre": "A. Pavlovic",
+              "nombre": "A. Pavlović",
               "pos": "LM",
               "titular": true
             },
@@ -17232,7 +17232,7 @@
           "jugadores": [
             {
               "num": "1",
-              "nombre": "N. Vasiljevic",
+              "nombre": "N. Vasilj",
               "pos": "G",
               "titular": true
             },
@@ -19885,7 +19885,7 @@
             },
             {
               "num": "5",
-              "nombre": "A. Pavlovic",
+              "nombre": "A. Pavlović",
               "pos": "CM-L",
               "titular": true
             },
@@ -26462,7 +26462,7 @@
             },
             {
               "num": "5",
-              "nombre": "A. Pavlovic",
+              "nombre": "A. Pavlović",
               "pos": "CM-L",
               "titular": true
             },
@@ -29079,7 +29079,7 @@
           "jugadores": [
             {
               "num": "1",
-              "nombre": "N. Vasiljevic",
+              "nombre": "N. Vasilj",
               "pos": "G",
               "titular": true
             },
