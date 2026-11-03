@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-03T17:14:52.881Z",
+  "lastUpdated": "2026-11-03T22:22:55.327Z",
   "partidos": [
     {
       "id": "MEX-RSA",
@@ -2725,7 +2725,7 @@
           "jugadores": [
             {
               "num": "23",
-              "nombre": "U. Çakir",
+              "nombre": "U. ��akir",
               "pos": "G",
               "titular": true
             },
