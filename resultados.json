@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-04T09:53:50.680Z",
+  "lastUpdated": "2026-11-04T17:53:08.075Z",
   "partidos": [
     {
       "id": "MEX-RSA",
@@ -691,7 +691,7 @@
             },
             {
               "num": "18",
-              "nombre": "M. Sad��lek",
+              "nombre": "M. Sadílek",
               "pos": "SUB",
               "titular": false
             },
@@ -2725,7 +2725,7 @@
           "jugadores": [
             {
               "num": "23",
-              "nombre": "U. Çakir",
+              "nombre": "U. ��akir",
               "pos": "G",
               "titular": true
             },
