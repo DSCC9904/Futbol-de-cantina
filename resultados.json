@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-06T00:18:34.176Z",
+  "lastUpdated": "2026-11-06T07:13:59.790Z",
   "partidos": [
     {
       "id": "MEX-RSA",
@@ -2725,7 +2725,7 @@
           "jugadores": [
             {
               "num": "23",
-              "nombre": "U. ��akir",
+              "nombre": "U. Çakir",
               "pos": "G",
               "titular": true
             },
@@ -32118,7 +32118,7 @@
             },
             {
               "num": "3",
-              "nombre": "G. Magalh��es",
+              "nombre": "G. Magalhães",
               "pos": "CD-L",
               "titular": true
             },
