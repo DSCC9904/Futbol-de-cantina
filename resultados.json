@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-16T21:15:17.817Z",
+  "lastUpdated": "2026-11-17T03:59:48.790Z",
   "partidos": [
     {
       "id": "MEX-RSA",
@@ -2725,7 +2725,7 @@
           "jugadores": [
             {
               "num": "23",
-              "nombre": "U. Çakir",
+              "nombre": "U. ��akir",
               "pos": "G",
               "titular": true
             },
@@ -15932,7 +15932,7 @@
             },
             {
               "num": "26",
-              "nombre": "F. Conceição",
+              "nombre": "F. Concei��ão",
               "pos": "SUB",
               "titular": false
             },
